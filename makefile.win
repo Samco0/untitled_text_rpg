@@ -1,0 +1,50 @@
+# Project: untitled_text_rpg
+# Makefile created by Red Panda C++ 3.4.3279
+
+CXX      = "g++.exe"
+CC       = "gcc.exe"
+WINDRES  = "windres.exe"
+RM       = del /q /f
+CD       = cd /d
+LIBS     = "-Wl,--stack,12582912"
+INCS     = 
+CXXINCS  = 
+CXXFLAGS = $(CXXINCS) "-g3" "-fno-ms-extensions" "-pipe" "-Wall" "-Werror=return-type" "-Werror=vla" "-D_DEBUG"
+CFLAGS   = $(INCS) "-g3" "-fno-ms-extensions" "-pipe" "-Wall" "-Werror=implicit-int" "-Werror=return-type" "-Werror=vla" "-D_DEBUG"
+NASM_FLAGS   =  "-f" "elf64" "-g"
+WINDRESFLAGS = 
+RES      = untitled_text_rpg_private.res
+OBJ      = character.o battle.o enemy.o main.o player.o $(RES)
+BIN      = untitled_text_rpg.exe
+LINKOBJ  = "character.o" "battle.o" "enemy.o" "main.o" "player.o" "untitled_text_rpg_private.res"
+CLEANOBJ = "character.o" "battle.o" "enemy.o" "main.o" "player.o" "untitled_text_rpg_private.res" "untitled_text_rpg.exe"
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	-$(RM) $(CLEANOBJ) >NUL 2>&1
+
+untitled_text_rpg.exe: $(OBJ)
+
+	$(CXX) $(LINKOBJ) -o "untitled_text_rpg.exe" $(LIBS)
+
+character.o: character.cpp character.h
+	$(CXX) -c "character.cpp" -o "character.o" $(CXXFLAGS) 
+
+battle.o: battle.cpp character.h battle.h enemy.h player.h
+	$(CXX) -c "battle.cpp" -o "battle.o" $(CXXFLAGS) 
+
+enemy.o: enemy.cpp enemy.h
+	$(CXX) -c "enemy.cpp" -o "enemy.o" $(CXXFLAGS) 
+
+main.o: main.cpp character.h battle.h enemy.h player.h
+	$(CXX) -c "main.cpp" -o "main.o" $(CXXFLAGS) 
+
+player.o: player.cpp character.h player.h
+	$(CXX) -c "player.cpp" -o "player.o" $(CXXFLAGS) 
+
+untitled_text_rpg_private.res: untitled_text_rpg_private.rc 
+	$(WINDRES) -i "untitled_text_rpg_private.rc" --input-format=rc -o "untitled_text_rpg_private.res" -O coff $(WINDRESFLAGS) 
+

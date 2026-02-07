@@ -1,0 +1,15 @@
+{
+    "breakpoints": [
+        {
+            "breakpoint_type": 0,
+            "condition": "",
+            "enabled": true,
+            "filename": "battle.cpp",
+            "line": 1,
+            "timestamp": "1770507089839"
+        }
+    ],
+    "timestamp": "1770507300440",
+    "watchvars": [
+    ]
+}
