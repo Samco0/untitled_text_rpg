@@ -1,8 +1,38 @@
 [
     {
-        "caretX": 57,
-        "caretY": 15,
-        "filename": "C:/Users/Henio/Documents/projects/untitled_text_rpg/character.cpp",
+        "caretX": 81,
+        "caretY": 28,
+        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/spell.cpp",
+        "focused": false,
+        "isOpen": true,
+        "left": 0,
+        "order": 10,
+        "top": 0
+    },
+    {
+        "caretX": 23,
+        "caretY": 22,
+        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/enemy.h",
+        "focused": false,
+        "isOpen": true,
+        "left": 0,
+        "order": 5,
+        "top": 120
+    },
+    {
+        "caretX": 33,
+        "caretY": 26,
+        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/main.cpp",
+        "focused": false,
+        "isOpen": true,
+        "left": 0,
+        "order": 0,
+        "top": 0
+    },
+    {
+        "caretX": 1,
+        "caretY": 1,
+        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/character.cpp",
         "focused": false,
         "isOpen": true,
         "left": 0,
@@ -10,29 +40,39 @@
         "top": 0
     },
     {
-        "caretX": 20,
-        "caretY": 1,
-        "filename": "C:/Users/Henio/Documents/projects/untitled_text_rpg/character.h",
-        "focused": false,
-        "isOpen": true,
-        "left": 0,
-        "order": 1,
-        "top": 0
-    },
-    {
         "caretX": 1,
-        "caretY": 16,
-        "filename": "C:/Users/Henio/Documents/projects/untitled_text_rpg/battle.cpp",
-        "focused": false,
+        "caretY": 92,
+        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/battle.cpp",
+        "focused": true,
         "isOpen": true,
         "left": 0,
         "order": 8,
+        "top": 1220
+    },
+    {
+        "caretX": 17,
+        "caretY": 1,
+        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/player.h",
+        "focused": false,
+        "isOpen": true,
+        "left": 0,
+        "order": 3,
         "top": 120
     },
     {
-        "caretX": 26,
-        "caretY": 19,
-        "filename": "C:/Users/Henio/Documents/projects/untitled_text_rpg/enemy.cpp",
+        "caretX": 29,
+        "caretY": 18,
+        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/spell.h",
+        "focused": false,
+        "isOpen": true,
+        "left": 0,
+        "order": 9,
+        "top": 60
+    },
+    {
+        "caretX": 2,
+        "caretY": 67,
+        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/enemy.cpp",
         "focused": false,
         "isOpen": true,
         "left": 0,
@@ -40,49 +80,29 @@
         "top": 0
     },
     {
-        "caretX": 136,
-        "caretY": 37,
-        "filename": "C:/Users/Henio/Documents/projects/untitled_text_rpg/battle.h",
+        "caretX": 21,
+        "caretY": 38,
+        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/battle.h",
         "focused": false,
         "isOpen": true,
         "left": 0,
         "order": 7,
-        "top": 300
+        "top": 240
     },
     {
-        "caretX": 20,
-        "caretY": 3,
-        "filename": "C:/Users/Henio/Documents/projects/untitled_text_rpg/enemy.h",
+        "caretX": 1,
+        "caretY": 1,
+        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/character.h",
         "focused": false,
         "isOpen": true,
         "left": 0,
-        "order": 5,
+        "order": 1,
         "top": 0
     },
     {
         "caretX": 2,
-        "caretY": 22,
-        "filename": "C:/Users/Henio/Documents/projects/untitled_text_rpg/main.cpp",
-        "focused": true,
-        "isOpen": true,
-        "left": 0,
-        "order": 0,
-        "top": 0
-    },
-    {
-        "caretX": 23,
-        "caretY": 13,
-        "filename": "C:/Users/Henio/Documents/projects/untitled_text_rpg/player.h",
-        "focused": false,
-        "isOpen": true,
-        "left": 0,
-        "order": 3,
-        "top": 40
-    },
-    {
-        "caretX": 16,
-        "caretY": 10,
-        "filename": "C:/Users/Henio/Documents/projects/untitled_text_rpg/player.cpp",
+        "caretY": 34,
+        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/player.cpp",
         "focused": false,
         "isOpen": true,
         "left": 0,

@@ -12,8 +12,12 @@ Player::Player(){
 	this->speed = 0;
 	this->critChance = 0;
 	this->critValue = 0;
+	
+	for(int i=0;i<4;i++){
+		this->spells[i] = nullptr;
+	}
 }
-Player::Player(string name, float maxHp, float maxMana, float dmg, int balance, int speed, int critChance, float critValue){
+Player::Player(string name, float maxHp, float maxMana, float dmg, int balance, int speed, int critChance, float critValue, Spell* spells[4]){
 	this->name = name;
 	this->maxHp = maxHp;
 	this->currentHp = this->maxHp;
@@ -23,6 +27,10 @@ Player::Player(string name, float maxHp, float maxMana, float dmg, int balance, 
 	this->speed = speed;
 	this->critChance = critChance;
 	this->critValue = critValue;
+	
+	for(int i=0;i<4;i++){
+		this->spells[i] = spells[i];
+	}
 }
 
 //getters
@@ -35,6 +43,7 @@ int Player::getBalance(){return this->balance;}
 int Player::getSpeed(){return this->speed;}
 int Player::getCritChance(){return this->critChance;}
 float Player::getCritValue(){return this->critValue;}
+Spell** Player::getSpells(){return this->spells;}
 
 //setters
 void Player::setMaxHp(float maxHp){this->maxHp = maxHp;}
@@ -52,3 +61,8 @@ void Player::setBalance(int balance){this->balance = balance;}
 void Player::setSpeed(int speed){this->speed = speed;}
 void Player::setCritChance(int critChance){this->critChance = critChance;}
 void Player::setCritValue(float getCritValue){this->critValue = critValue;}
+void Player::setSpells(Spell* spells[4]){
+	for(int i=0;i<4;i++){
+		this->spells[i] = spells[i];
+	}
+}

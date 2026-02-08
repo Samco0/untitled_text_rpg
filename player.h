@@ -1,12 +1,13 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include "character.h"
+#include "chainingspell.h"
 
 class Player : public Character{
 public:
 	//constructor
 	Player();
-	Player(string name, float maxHp, float maxMana, float dmg, int balance, int speed, int critChance, float critValue);
+	Player(string name, float maxHp, float maxMana, float dmg, int balance, int speed, int critChance, float critValue, Spell* spells[4]);
 	
 	//getters
 	float getMaxHp();
@@ -18,6 +19,7 @@ public:
 	int getSpeed();
 	int getCritChance();
 	float getCritValue();
+	Spell** getSpells();
 	
 	//setters
 	void setMaxHp(float maxHp);
@@ -29,6 +31,7 @@ public:
 	void setSpeed(int speed);
 	void setCritChance(int critChance);
 	void setCritValue(float getCritValue);
+	void setSpells(Spell* spells[4]);
 protected:
 	float maxHp, currentHp;
 	float maxMana, currentMana;
@@ -37,6 +40,7 @@ protected:
 	int speed;
 	int critChance; //0-100
 	float critValue;
+	Spell* spells[4];
 };
 
 #endif

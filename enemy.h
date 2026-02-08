@@ -1,13 +1,14 @@
 #ifndef ENEMY_H
 #define ENEMY_H
 #include <iostream>
+#include "chainingspell.h"
 using namespace std;
 
 class Enemy {
 public:
 	//constructors
 	Enemy();
-	Enemy(string name, float maxHp, float maxMana, float dmg, int speed, int critChance, float critValue);
+	Enemy(string name, float maxHp, float maxMana, float dmg, int speed, int critChance, float critValue, Spell* spells[4]);
 	
 	//getters
 	string getName();
@@ -19,6 +20,7 @@ public:
 	int getSpeed();
 	int getCritChance();
 	float getCritValue();
+	Spell** getSpells();
 	
 	//setters
 	void setName(string name);
@@ -30,7 +32,7 @@ public:
 	void setSpeed(int speed);
 	void setCritChance(int critChance);
 	void setCritValue(float getCritValue);
-	
+	void setSpells(Spell* spells[4]);
 protected:
 	string name;
 	float maxHp, currentHp;
@@ -39,6 +41,7 @@ protected:
 	int speed;
 	int critChance; // 0-100
 	float critValue;
+	Spell* spells[4];
 };
 
 #endif

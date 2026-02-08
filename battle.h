@@ -30,6 +30,10 @@ public:
 	//battle methods
 	void attackEnemy();
 	void attackPlayer();
+	void useSpellOnEnemy(int spellIndex);
+	void useSpellOnPlayer(int spellIndex);
+	
+	//battle misc functions
 	void roundIncrement();
 	void checkDeaths();
 private:

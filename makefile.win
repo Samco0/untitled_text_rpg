@@ -14,10 +14,10 @@ CFLAGS   = $(INCS) "-g3" "-fno-ms-extensions" "-pipe" "-Wall" "-Werror=implicit-
 NASM_FLAGS   =  "-f" "elf64" "-g"
 WINDRESFLAGS = 
 RES      = untitled_text_rpg_private.res
-OBJ      = character.o battle.o enemy.o main.o player.o $(RES)
+OBJ      = spell.o main.o character.o chainingspell.o battle.o enemy.o player.o $(RES)
 BIN      = untitled_text_rpg.exe
-LINKOBJ  = "character.o" "battle.o" "enemy.o" "main.o" "player.o" "untitled_text_rpg_private.res"
-CLEANOBJ = "character.o" "battle.o" "enemy.o" "main.o" "player.o" "untitled_text_rpg_private.res" "untitled_text_rpg.exe"
+LINKOBJ  = "spell.o" "main.o" "character.o" "chainingspell.o" "battle.o" "enemy.o" "player.o" "untitled_text_rpg_private.res"
+CLEANOBJ = "spell.o" "main.o" "character.o" "chainingspell.o" "battle.o" "enemy.o" "player.o" "untitled_text_rpg_private.res" "untitled_text_rpg.exe"
 
 .PHONY: all all-before all-after clean clean-custom
 
@@ -30,19 +30,25 @@ untitled_text_rpg.exe: $(OBJ)
 
 	$(CXX) $(LINKOBJ) -o "untitled_text_rpg.exe" $(LIBS)
 
-character.o: character.cpp character.h
-	$(CXX) -c "character.cpp" -o "character.o" $(CXXFLAGS) 
+spell.o: spell.cpp spell.h
+	$(CXX) -c "spell.cpp" -o "spell.o" $(CXXFLAGS) 
 
-battle.o: battle.cpp character.h battle.h enemy.h player.h
-	$(CXX) -c "battle.cpp" -o "battle.o" $(CXXFLAGS) 
-
-enemy.o: enemy.cpp enemy.h
-	$(CXX) -c "enemy.cpp" -o "enemy.o" $(CXXFLAGS) 
-
-main.o: main.cpp character.h battle.h enemy.h player.h
+main.o: main.cpp enemy.h player.h spell.h chainingspell.h battle.h character.h
 	$(CXX) -c "main.cpp" -o "main.o" $(CXXFLAGS) 
 
-player.o: player.cpp character.h player.h
+character.o: character.cpp character.h
+	$(CXX) -c "character.cpp" -o "character.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+
+chainingspell.o: chainingspell.cpp spell.h chainingspell.h
+	$(CXX) -c "chainingspell.cpp" -o "chainingspell.o" $(CXXFLAGS) 
+
+battle.o: battle.cpp enemy.h player.h spell.h chainingspell.h battle.h character.h
+	$(CXX) -c "battle.cpp" -o "battle.o" $(CXXFLAGS) 
+
+enemy.o: enemy.cpp enemy.h spell.h chainingspell.h
+	$(CXX) -c "enemy.cpp" -o "enemy.o" $(CXXFLAGS) 
+
+player.o: player.cpp player.h spell.h chainingspell.h character.h
 	$(CXX) -c "player.cpp" -o "player.o" $(CXXFLAGS) 
 
 untitled_text_rpg_private.res: untitled_text_rpg_private.rc 

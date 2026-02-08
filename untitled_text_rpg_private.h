@@ -11,13 +11,13 @@
 #define VER_RELEASE	0
 #define VER_BUILD	0
 #define COMPANY_NAME	""
-#define FILE_VERSION	""
+#define FILE_VERSION	"0.1"
 #define FILE_DESCRIPTION	"Developed using the Red Panda C++ IDE"
 #define INTERNAL_NAME	""
 #define LEGAL_COPYRIGHT	""
 #define LEGAL_TRADEMARKS	""
-#define ORIGINAL_FILENAME	""
-#define PRODUCT_NAME	""
-#define PRODUCT_VERSION	""
+#define ORIGINAL_FILENAME	"untitled_text_rpg.exe"
+#define PRODUCT_NAME	"untitled_text_rpg"
+#define PRODUCT_VERSION	"0.1.1.1"
 
 #endif /*UNTITLED_TEXT_RPG_PRIVATE_H*/
