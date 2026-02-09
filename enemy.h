@@ -8,14 +8,12 @@ class Enemy {
 public:
 	//constructors
 	Enemy();
-	Enemy(string name, float maxHp, float maxMana, float dmg, int speed, int critChance, float critValue, Spell* spells[4]);
+	Enemy(string name, float maxHp, float dmg, int speed, int critChance, float critValue, Spell* spells[4]);
 	
 	//getters
 	string getName();
 	float getMaxHp();
 	float getCurrentHp();
-	float getMaxMana();
-	float getCurrentMana();
 	float getDmg();
 	int getSpeed();
 	int getCritChance();
@@ -26,8 +24,6 @@ public:
 	void setName(string name);
 	void setMaxHp(float maxHp);
 	void setCurrentHp(float currentHp);
-	void setMaxMana(float maxMana);
-	void setCurrentMana(float currentMana);
 	void setDmg(float dmg);
 	void setSpeed(int speed);
 	void setCritChance(int critChance);
@@ -36,7 +32,6 @@ public:
 protected:
 	string name;
 	float maxHp, currentHp;
-	float maxMana, currentMana;
 	float dmg;
 	int speed;
 	int critChance; // 0-100

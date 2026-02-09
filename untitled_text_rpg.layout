@@ -1,29 +1,19 @@
 [
     {
-        "caretX": 81,
-        "caretY": 28,
-        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/spell.cpp",
+        "caretX": 1,
+        "caretY": 1,
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/player.cpp",
         "focused": false,
         "isOpen": true,
         "left": 0,
-        "order": 10,
+        "order": 6,
         "top": 0
     },
     {
-        "caretX": 23,
-        "caretY": 22,
-        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/enemy.h",
-        "focused": false,
-        "isOpen": true,
-        "left": 0,
-        "order": 5,
-        "top": 120
-    },
-    {
-        "caretX": 33,
-        "caretY": 26,
-        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/main.cpp",
-        "focused": false,
+        "caretX": 37,
+        "caretY": 32,
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/main.cpp",
+        "focused": true,
         "isOpen": true,
         "left": 0,
         "order": 0,
@@ -32,7 +22,7 @@
     {
         "caretX": 1,
         "caretY": 1,
-        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/character.cpp",
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/battle.cpp",
         "focused": false,
         "isOpen": true,
         "left": 0,
@@ -41,58 +31,48 @@
     },
     {
         "caretX": 1,
-        "caretY": 92,
-        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/battle.cpp",
-        "focused": true,
-        "isOpen": true,
-        "left": 0,
-        "order": 8,
-        "top": 1220
-    },
-    {
-        "caretX": 17,
         "caretY": 1,
-        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/player.h",
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/enemy.h",
         "focused": false,
         "isOpen": true,
         "left": 0,
         "order": 3,
-        "top": 120
-    },
-    {
-        "caretX": 29,
-        "caretY": 18,
-        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/spell.h",
-        "focused": false,
-        "isOpen": true,
-        "left": 0,
-        "order": 9,
-        "top": 60
-    },
-    {
-        "caretX": 2,
-        "caretY": 67,
-        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/enemy.cpp",
-        "focused": false,
-        "isOpen": true,
-        "left": 0,
-        "order": 6,
         "top": 0
     },
     {
-        "caretX": 21,
-        "caretY": 38,
-        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/battle.h",
+        "caretX": 36,
+        "caretY": 17,
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/chainingspell.cpp",
         "focused": false,
         "isOpen": true,
         "left": 0,
-        "order": 7,
-        "top": 240
+        "order": 10,
+        "top": 0
     },
     {
         "caretX": 1,
         "caretY": 1,
-        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/character.h",
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/enemy.cpp",
+        "focused": false,
+        "isOpen": true,
+        "left": 0,
+        "order": 4,
+        "top": 0
+    },
+    {
+        "caretX": 1,
+        "caretY": 1,
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/spell.cpp",
+        "focused": false,
+        "isOpen": true,
+        "left": 0,
+        "order": 8,
+        "top": 0
+    },
+    {
+        "caretX": 1,
+        "caretY": 1,
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/battle.h",
         "focused": false,
         "isOpen": true,
         "left": 0,
@@ -100,13 +80,33 @@
         "top": 0
     },
     {
-        "caretX": 2,
-        "caretY": 34,
-        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/player.cpp",
+        "caretX": 1,
+        "caretY": 1,
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/player.h",
         "focused": false,
         "isOpen": true,
         "left": 0,
-        "order": 4,
+        "order": 5,
+        "top": 0
+    },
+    {
+        "caretX": 1,
+        "caretY": 1,
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/chainingspell.h",
+        "focused": false,
+        "isOpen": true,
+        "left": 0,
+        "order": 9,
+        "top": 0
+    },
+    {
+        "caretX": 1,
+        "caretY": 1,
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/spell.h",
+        "focused": false,
+        "isOpen": true,
+        "left": 0,
+        "order": 7,
         "top": 0
     }
 ]

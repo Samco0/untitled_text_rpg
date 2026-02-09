@@ -33,60 +33,75 @@ void Battle::setEnemy(Enemy* enemy){this->enemy = enemy;}
 void Battle::attackEnemy(){
 	int crit = rand() % 100 + 1;
 	
-	float damage = player->getDmg();
-	if(crit <= player->getCritChance()){
-		damage *= player->getCritValue();
-		cout << "You (" << player->getName() << ") dealt " << damage << " damage to " << enemy->getName() << ". It was a critical hit." << endl << endl;
-	} else {
-		cout << "You (" << player->getName() << ") dealt " << damage << " damage to " << enemy->getName() << "." << endl << endl;
+	if(player->getCurrentHp() > 0){
+		float damage = player->getDmg();
+		if(crit <= player->getCritChance()){
+			damage *= player->getCritValue();
+			cout << " -> " << "You (" << player->getName() << ") dealt " << damage << " damage to " << enemy->getName() << ". It was a critical hit." << endl;
+		} else {
+			cout << " -> " << "You (" << player->getName() << ") dealt " << damage << " damage to " << enemy->getName() << "." << endl;
+		}
+		enemy->setCurrentHp(enemy->getCurrentHp() - damage);
 	}
-	enemy->setCurrentHp(enemy->getCurrentHp() - damage);
 }
 
 void Battle::attackPlayer(){
 	int crit = rand() % 100 + 1;
 	
-	float damage = enemy->getDmg();
-	if(crit <= enemy->getCritChance()){
-		damage *= enemy->getCritValue();
-		cout << enemy->getName() << " dealt " << damage << " damage to you (" << player->getName() << "). It was a critical hit." << endl << endl;
-	} else {
-		cout << enemy->getName() << " dealt " << damage << " damage to you (" << player->getName() << ")." << endl << endl;
+	if(enemy->getCurrentHp() > 0){
+		float damage = enemy->getDmg();
+		if(crit <= enemy->getCritChance()){
+			damage *= enemy->getCritValue();
+			cout << " -> " << enemy->getName() << " dealt " << damage << " damage to you (" << player->getName() << "). It was a critical hit." << endl;
+		} else {
+			cout << " -> " << enemy->getName() << " dealt " << damage << " damage to you (" << player->getName() << ")." << endl;
+		}
+		player->setCurrentHp(player->getCurrentHp() - damage);
 	}
-	player->setCurrentHp(player->getCurrentHp() - damage);
 }
 
 void Battle::useSpellOnEnemy(int spellIndex){
 	Spell* s = player->getSpells()[spellIndex];
 	
 	if(s == nullptr){
-		cout << "No spell in this slot!" << endl;
-		return;
-	}
-	
-	// here we are finding out if our spell is chaining
-	ChainingSpell* cs = dynamic_cast<ChainingSpell*>(s);
-	
-	cout << "You (" << player->getName() << ") casted a spell, " << s->getName() << "." << endl;
-	
-	if(cs != nullptr){
-		// chaining spell
-		int hits = rand() % (cs->getMaxHits() - cs->getMinHits() + 1) + cs->getMinHits();
+		cout << " -> " << "You (" << player->getName() << ") tried to cast a spell." << endl;
+		cout << " -> " << "But didn't notice, that you can't cast a nonexistent spell." << endl;
+		cout << " -> " << "You attacked using your normal attack." << endl;
 		
-		float totalDmg = hits * cs->getDmg();
-		
-		enemy->setCurrentHp(enemy->getCurrentHp() - totalDmg);
-		
-		cout << "Spell hit " << hits << " times!" << endl;
-		cout << "You (" << player->getName() << ") dealt " << totalDmg << " damage to " << enemy->getName() << "." << endl << endl;
+		attackEnemy();
 	}
-	else{
-		// average spell
-		enemy->setCurrentHp(enemy->getCurrentHp() - s->getDmg());
-		cout << "You (" << player->getName() << ") dealt " << s->getDmg() << " damage to " << enemy->getName() << "." << endl << endl;
+	else if(s->getRemainingCooldown() != 0){
+		cout << " -> " << "You (" << player->getName() << ") tried to cast a spell, " << s->getName() << "." << endl;
+		cout << " -> " << "But the spell didn't come out, it's not ready yet." << endl;
+		cout << " -> " << "You attacked using your normal attack." << endl;
+		
+		attackEnemy();
 	}
-	
-	s->setRemainingCooldown(s->getFullCooldown());
+	else if(player->getCurrentHp() > 0 && s->getRemainingCooldown() == 0){
+		// here we are finding out if our spell is chaining
+		ChainingSpell* cs = dynamic_cast<ChainingSpell*>(s);
+		
+		cout << " -> " << "You (" << player->getName() << ") casted a spell, " << s->getName() << "." << endl;
+		
+		if(cs != nullptr){
+			// chaining spell
+			int hits = rand() % (cs->getMaxHits() - cs->getMinHits() + 1) + cs->getMinHits();
+			
+			float totalDmg = hits * cs->getDmg();
+			
+			enemy->setCurrentHp(enemy->getCurrentHp() - totalDmg);
+			
+			cout << " -> " << "Spell hit " << hits << " times!" << endl;
+			cout << " -> " << "You (" << player->getName() << ") dealt " << totalDmg << " damage to " << enemy->getName() << "." << endl;
+		}
+		else{
+			// average spell
+			enemy->setCurrentHp(enemy->getCurrentHp() - s->getDmg());
+			cout << " -> " << "You (" << player->getName() << ") dealt " << s->getDmg() << " damage to " << enemy->getName() << "." << endl;
+		}
+		
+		s->setRemainingCooldown(s->getFullCooldown());
+	}
 }
 
 
@@ -94,34 +109,47 @@ void Battle::useSpellOnPlayer(int spellIndex){
 	Spell* s = enemy->getSpells()[spellIndex];
 	
 	if(s == nullptr){
-		cout << "No spell in this slot!" << endl;
-		return;
-	}
-	
-	// here we are finding out if our spell is chaining
-	ChainingSpell* cs = dynamic_cast<ChainingSpell*>(s);
-	
-	cout << enemy->getName() << " casted a spell, " << s->getName() << "." << endl;
-	
-	if(cs != nullptr){
-		// chaining spell
-		int hits = rand() % (cs->getMaxHits() - cs->getMinHits() + 1) + cs->getMinHits();
+		cout << " -> " << enemy->getName() << " tried to cast a spell." << endl;
+		cout << " -> " << "But there is no spell in that slot." << endl;
+		cout << " -> " << enemy->getName() << " used a basic attack instead." << endl;
 		
-		float totalDmg = hits * cs->getDmg();
-		
-		player->setCurrentHp(player->getCurrentHp() - totalDmg);
-		
-		cout << "Spell hit " << hits << " times!" << endl;
-		cout << enemy->getName() << " dealt " << totalDmg << " damage to you (" << player->getName() << ")." << endl << endl;
+		attackPlayer();
 	}
-	else{
-		// average spell
-		enemy->setCurrentHp(enemy->getCurrentHp() - s->getDmg());
-		cout << enemy->getName() << " dealt " << s->getDmg() << " damage to you (" << player->getName() << ")." << endl << endl;
+	else if(s->getRemainingCooldown() != 0){
+		cout << " -> " << enemy->getName() << " tried to cast " << s->getName() << "." << endl;
+		cout << " -> " << "But the spell is still on cooldown." << endl;
+		cout << " -> " << enemy->getName() << " used a basic attack instead." << endl;
+		
+		attackPlayer();
 	}
-	
-	s->setRemainingCooldown(s->getFullCooldown());
+	else if(enemy->getCurrentHp() > 0 && s->getRemainingCooldown() == 0){
+		// here we are finding out if our spell is chaining
+		ChainingSpell* cs = dynamic_cast<ChainingSpell*>(s);
+		
+		cout << " -> " << enemy->getName() << " casted a spell, " << s->getName() << "." << endl;
+		
+		if(cs != nullptr){
+			// chaining spell
+			int hits = rand() % (cs->getMaxHits() - cs->getMinHits() + 1) + cs->getMinHits();
+			
+			float totalDmg = hits * cs->getDmg();
+			
+			player->setCurrentHp(player->getCurrentHp() - totalDmg);
+			
+			cout << " -> Spell hit " << hits << " times!" << endl;
+			cout << " -> " << enemy->getName() << " dealt " << totalDmg << " damage to you (" << player->getName() << ")." << endl;
+		}
+		else{
+			// average spell
+			player->setCurrentHp(player->getCurrentHp() - s->getDmg());
+			
+			cout << " -> " << enemy->getName() << " dealt " << s->getDmg() << " damage to you (" << player->getName() << ")." << endl;
+		}
+		
+		s->setRemainingCooldown(s->getFullCooldown());
+	}
 }
+
 
 //battle misc
 void Battle::roundIncrement(){
@@ -141,19 +169,15 @@ void Battle::roundIncrement(){
 }
 void Battle::checkDeaths(){
 	if(player->getCurrentHp() <= 0){
-		player->setCurrentHp(0);
-		if(round == 1) cout << "You (" << player->getName() << ") lost the battle in 1 round. Wow." << endl;
-		else cout << "You (" << player->getName() << ") lost the battle in " << round << " rounds." << endl;
+		player->setCurrentHp(0); //player lost
 		isFinished = 1;
 	}
 	else if(enemy->getCurrentHp() <= 0){
-		enemy->setCurrentHp(0);
-		if(round == 1) cout << "You (" << player->getName() << ") won the battle in 1 round. Amazing work!" << endl;
-		else cout << "You (" << player->getName() << ") won the battle in " << round << " rounds." << endl;
+		enemy->setCurrentHp(0); //player won
 		isFinished = 2;
 	}
 	else {
-		isFinished = 0;
+		isFinished = 0; //battle continues
 	}
 }
 
