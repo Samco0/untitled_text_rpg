@@ -6,6 +6,9 @@ Player::Player(){
 	this->maxHp = 0;
 	this->currentHp = this->maxHp;
 	this->dmg = 0;
+	this->currentXp = 0;
+	this->requireXp = 15;
+	this->level = 1;
 	this->balance = 0;
 	this->speed = 0;
 	this->critChance = 0;
@@ -20,6 +23,9 @@ Player::Player(string name, float maxHp, float dmg, int balance, int speed, int 
 	this->maxHp = maxHp;
 	this->currentHp = this->maxHp;
 	this->dmg = dmg;
+	this->currentXp = 0;
+	this->requireXp = 15;
+	this->level = 1;
 	this->balance = balance;
 	this->speed = speed;
 	this->critChance = critChance;
@@ -34,6 +40,9 @@ Player::Player(string name, float maxHp, float dmg, int balance, int speed, int 
 float Player::getMaxHp(){return this->maxHp;}
 float Player::getCurrentHp(){return this->currentHp;}
 float Player::getDmg(){return this->dmg;}
+float Player::getRequireXp(){return this->requireXp;}
+float Player::getCurrentXp(){return this->currentXp;}
+int Player::getLevel(){return this->level;}
 int Player::getBalance(){return this->balance;}
 int Player::getSpeed(){return this->speed;}
 int Player::getCritChance(){return this->critChance;}
@@ -47,6 +56,20 @@ void Player::setCurrentHp(float currentHp){
 	else this->currentHp = currentHp;
 }
 void Player::setDmg(float dmg){this->dmg = dmg;}
+void Player::setRequireXp(float requireXp){this->requireXp = requireXp;}
+void Player::setCurrentXp(float currentXp){
+	this->currentXp += currentXp; 
+	
+	while (this->currentXp >= this->requireXp){
+		this->currentXp -= this->requireXp;
+		this->level++;
+		
+		cout << " -> You (" << this->getName() << ") achieved level " << this->level << "." << endl;
+		this->requireXp *= 1.4f;
+	}
+}
+
+void Player::setLevel(int level){this->level = level;}
 void Player::setBalance(int balance){this->balance = balance;}
 void Player::setSpeed(int speed){this->speed = speed;}
 void Player::setCritChance(int critChance){this->critChance = critChance;}

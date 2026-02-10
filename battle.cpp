@@ -171,10 +171,16 @@ void Battle::checkDeaths(){
 	if(player->getCurrentHp() <= 0){
 		player->setCurrentHp(0); //player lost
 		isFinished = 1;
+		cout << endl << " -> You (" << player->getName() << ") lost the battle." << endl;
+		cout << "==========================================" << endl;
 	}
 	else if(enemy->getCurrentHp() <= 0){
 		enemy->setCurrentHp(0); //player won
 		isFinished = 2;
+		cout << endl << " -> You (" << player->getName() << "} won the battle." << endl;
+		cout << "==========================================" << endl;
+		
+		player->setCurrentXp(player->getCurrentXp() + enemy->getXpToGet());
 	}
 	else {
 		isFinished = 0; //battle continues
