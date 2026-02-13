@@ -13,10 +13,10 @@ CXXFLAGS = $(CXXINCS) "-g3" "-pipe" "-Wall" "-D_DEBUG"
 CFLAGS   = $(INCS) "-g3" "-pipe" "-Wall" "-D_DEBUG"
 WINDRESFLAGS = 
 RES      = untitled_text_rpg_private.res
-OBJ      = chainingspell.o main.o spell.o character.o player.o battle.o enemy.o $(RES)
+OBJ      = battleManager.o character.o enemy.o hpstatuseffect.o statuseffect.o player.o statuseffectspell.o spell.o chainingspell.o main.o combatcharacter.o $(RES)
 BIN      = untitled_text_rpg.exe
-LINKOBJ  = "chainingspell.o" "main.o" "spell.o" "character.o" "player.o" "battle.o" "enemy.o" "untitled_text_rpg_private.res"
-CLEANOBJ = "chainingspell.o" "main.o" "spell.o" "character.o" "player.o" "battle.o" "enemy.o" "untitled_text_rpg_private.res" "untitled_text_rpg.exe"
+LINKOBJ  = "battleManager.o" "character.o" "enemy.o" "hpstatuseffect.o" "statuseffect.o" "player.o" "statuseffectspell.o" "spell.o" "chainingspell.o" "main.o" "combatcharacter.o" "untitled_text_rpg_private.res"
+CLEANOBJ = "battleManager.o" "character.o" "enemy.o" "hpstatuseffect.o" "statuseffect.o" "player.o" "statuseffectspell.o" "spell.o" "chainingspell.o" "main.o" "combatcharacter.o" "untitled_text_rpg_private.res" "untitled_text_rpg.exe"
 
 .PHONY: all all-before all-after clean clean-custom
 
@@ -29,26 +29,38 @@ untitled_text_rpg.exe: $(OBJ)
 
 	$(CXX) $(LINKOBJ) -o "untitled_text_rpg.exe" $(LIBS)
 
-chainingspell.o: chainingspell.cpp spell.h chainingspell.h
-	$(CXX) -c "chainingspell.cpp" -o "chainingspell.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
-
-main.o: main.cpp battle.h enemy.h spell.h character.h player.h chainingspell.h
-	$(CXX) -c "main.cpp" -o "main.o" $(CXXFLAGS) 
-
-spell.o: spell.cpp spell.h
-	$(CXX) -c "spell.cpp" -o "spell.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+battleManager.o: battleManager.cpp chainingspell.h statuseffect.h combatcharacter.h player.h hpstatuseffect.h spell.h character.h enemy.h statuseffectspell.h battleManager.h
+	$(CXX) -c "battleManager.cpp" -o "battleManager.o" $(CXXFLAGS) 
 
 character.o: character.cpp character.h
 	$(CXX) -c "character.cpp" -o "character.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
 
-player.o: player.cpp spell.h character.h player.h chainingspell.h
+enemy.o: enemy.cpp chainingspell.h statuseffect.h combatcharacter.h spell.h character.h enemy.h
+	$(CXX) -c "enemy.cpp" -o "enemy.o" $(CXXFLAGS) 
+
+hpstatuseffect.o: hpstatuseffect.cpp statuseffect.h hpstatuseffect.h
+	$(CXX) -c "hpstatuseffect.cpp" -o "hpstatuseffect.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+
+statuseffect.o: statuseffect.cpp statuseffect.h
+	$(CXX) -c "statuseffect.cpp" -o "statuseffect.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+
+player.o: player.cpp chainingspell.h statuseffect.h combatcharacter.h player.h spell.h character.h
 	$(CXX) -c "player.cpp" -o "player.o" $(CXXFLAGS) 
 
-battle.o: battle.cpp battle.h enemy.h spell.h character.h player.h chainingspell.h
-	$(CXX) -c "battle.cpp" -o "battle.o" $(CXXFLAGS) 
+statuseffectspell.o: statuseffectspell.cpp statuseffect.h hpstatuseffect.h spell.h statuseffectspell.h
+	$(CXX) -c "statuseffectspell.cpp" -o "statuseffectspell.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
 
-enemy.o: enemy.cpp enemy.h spell.h chainingspell.h
-	$(CXX) -c "enemy.cpp" -o "enemy.o" $(CXXFLAGS) 
+spell.o: spell.cpp spell.h
+	$(CXX) -c "spell.cpp" -o "spell.o" $(CXXFLAGS) 
+
+chainingspell.o: chainingspell.cpp chainingspell.h spell.h
+	$(CXX) -c "chainingspell.cpp" -o "chainingspell.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+
+main.o: main.cpp chainingspell.h statuseffect.h combatcharacter.h player.h hpstatuseffect.h spell.h character.h enemy.h statuseffectspell.h battleManager.h
+	$(CXX) -c "main.cpp" -o "main.o" $(CXXFLAGS) 
+
+combatcharacter.o: combatcharacter.cpp chainingspell.h statuseffect.h combatcharacter.h spell.h character.h
+	$(CXX) -c "combatcharacter.cpp" -o "combatcharacter.o" $(CXXFLAGS) 
 
 untitled_text_rpg_private.res: untitled_text_rpg_private.rc 
 	$(WINDRES) -i "untitled_text_rpg_private.rc" --input-format=rc -o "untitled_text_rpg_private.res" -O coff $(WINDRESFLAGS) 
