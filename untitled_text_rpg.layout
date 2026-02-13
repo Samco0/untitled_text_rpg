@@ -4,10 +4,19 @@
         "caretY": 249,
         "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/battleManager.cpp",
         "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 4541
+    },
+    {
+        "caretX": 3,
+        "caretY": 23,
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/item.h",
+        "focused": false,
         "isOpen": true,
         "left": 0,
-        "order": 6,
-        "top": 4541
+        "order": 0,
+        "top": 0
     },
     {
         "caretX": 1,
@@ -41,9 +50,8 @@
         "caretY": 49,
         "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/combatcharacter.h",
         "focused": false,
-        "isOpen": true,
+        "isOpen": false,
         "left": 0,
-        "order": 4,
         "top": 456
     },
     {
@@ -51,9 +59,8 @@
         "caretY": 38,
         "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/enemy.cpp",
         "focused": false,
-        "isOpen": true,
+        "isOpen": false,
         "left": 0,
-        "order": 3,
         "top": 57
     },
     {
@@ -61,9 +68,8 @@
         "caretY": 12,
         "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/player.h",
         "focused": false,
-        "isOpen": true,
+        "isOpen": false,
         "left": 0,
-        "order": 0,
         "top": 0
     },
     {
@@ -85,6 +91,16 @@
         "top": 0
     },
     {
+        "caretX": 30,
+        "caretY": 5,
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/armoritem.h",
+        "focused": false,
+        "isOpen": true,
+        "left": 0,
+        "order": 2,
+        "top": 0
+    },
+    {
         "caretX": 34,
         "caretY": 14,
         "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/statuseffect.cpp",
@@ -97,10 +113,9 @@
         "caretX": 63,
         "caretY": 65,
         "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/player.cpp",
-        "focused": true,
-        "isOpen": true,
+        "focused": false,
+        "isOpen": false,
         "left": 0,
-        "order": 1,
         "top": 0
     },
     {
@@ -117,9 +132,8 @@
         "caretY": 24,
         "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/spell.cpp",
         "focused": false,
-        "isOpen": true,
+        "isOpen": false,
         "left": 0,
-        "order": 8,
         "top": 0
     },
     {
@@ -141,13 +155,22 @@
         "top": 0
     },
     {
-        "caretX": 37,
-        "caretY": 19,
+        "caretX": 29,
+        "caretY": 4,
         "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/enemy.h",
         "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    },
+    {
+        "caretX": 77,
+        "caretY": 27,
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/armoritem.cpp",
+        "focused": true,
         "isOpen": true,
         "left": 0,
-        "order": 2,
+        "order": 3,
         "top": 0
     },
     {
@@ -164,19 +187,27 @@
         "caretY": 38,
         "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/main.cpp",
         "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 228
+    },
+    {
+        "caretX": 18,
+        "caretY": 1,
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/item.cpp",
+        "focused": false,
         "isOpen": true,
         "left": 0,
-        "order": 9,
-        "top": 228
+        "order": 1,
+        "top": 0
     },
     {
         "caretX": 23,
         "caretY": 14,
         "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/combatcharacter.cpp",
         "focused": false,
-        "isOpen": true,
+        "isOpen": false,
         "left": 0,
-        "order": 5,
         "top": 684
     },
     {
@@ -193,9 +224,8 @@
         "caretY": 32,
         "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/battleManager.h",
         "focused": false,
-        "isOpen": true,
+        "isOpen": false,
         "left": 0,
-        "order": 7,
         "top": 874
     }
 ]
