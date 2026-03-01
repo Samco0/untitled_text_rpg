@@ -30,6 +30,7 @@ void Inventory::removeItem(int index) {
 }
 ostream& operator<<(ostream& os, Inventory inv) {
 	Weapon* placeholderW;
+	Scroll* placeholderS;
 	
 	if(inv.getStorage().empty()) {
 		os << "Inventory is empty.";
@@ -38,10 +39,13 @@ ostream& operator<<(ostream& os, Inventory inv) {
 	
 	for(int i = 0; i < inv.storage.size(); i++) {
 		placeholderW = dynamic_cast<Weapon*>(inv.getStorage()[i]);
+		placeholderS = dynamic_cast<Scroll*>(inv.getStorage()[i]);
 		
 		if(inv.storage[i] != nullptr) {
-			os << i << ". " << inv.getStorage()[i]->getName();
-			if(placeholderW != nullptr) cout << " | A " << placeholderW->getName() << ", " << placeholderW->getDmg() << ", " << placeholderW->getDescription();
+			if(i!=0) cout << endl;
+			os << i+1 << ". ";
+			if(placeholderW != nullptr) cout << "Weapon | " << *placeholderW;
+			else if(placeholderS != nullptr) cout << "Scroll | " << *placeholderS;
 		}
 	}
 	

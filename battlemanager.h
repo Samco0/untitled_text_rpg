@@ -5,6 +5,7 @@
 #include "enemy.h"
 #include "hpstatuseffect.h"
 #include "statuseffectspell.h"
+#include "hpstatuseffect.h"
 
 using namespace std;
 

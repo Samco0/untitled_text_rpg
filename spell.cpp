@@ -32,3 +32,18 @@ void Spell::setRemainingCooldown(int remainingCooldown){this->remainingCooldown 
 
 //decrease cooldown function
 void Spell::decreaseRemainingCooldown() {if(this->remainingCooldown != 0) this->remainingCooldown = this->remainingCooldown-1;}
+
+//output
+ostream& operator<<(ostream& output, Spell s){
+	output << s.getName();
+	
+	if(s.getRemainingCooldown() == 0) output << endl << " -> Status: Ready" << endl;
+	else if(s.getRemainingCooldown() == 1) output << endl << " -> Status: 1 round until ready" << endl;
+	else output << endl << " -> Status: " << s.getRemainingCooldown() << " rounds until ready" << endl;
+	
+	cout << " -> Type of spell: Basic attack spell" << endl;
+	cout << " -> Damage: " << s.getDmg() << endl;
+	
+	output << " -> Description: " << s.getDescription() << endl << endl;
+	return output;
+}

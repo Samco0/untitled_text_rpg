@@ -24,6 +24,9 @@ public:
 	void setBalance(int balance);
 	void setWeapon(Weapon* weapon);
 	void setInventory(Inventory inventory);
+	
+	//output
+	friend ostream& operator<<(ostream& output, Player player);
 protected:
 	float requireXp, currentXp;
 	/*

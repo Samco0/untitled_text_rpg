@@ -15,6 +15,9 @@ public:
 	//setters
 	void setDmg(float dmg);
 	void setType(string type);
+	
+	//output
+	friend ostream& operator<<(ostream& output, Weapon w);
 private:
 	float dmg;
 	string type;

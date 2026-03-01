@@ -27,3 +27,20 @@ int ChainingSpell::getMaxHits(){return this->maxHits;}
 //setters
 void ChainingSpell::setMinHits(int minHits){this->minHits = minHits;}
 void ChainingSpell::setMaxHits(int maxHits){this->maxHits = maxHits;}
+
+//output
+ostream& operator<<(ostream& output, ChainingSpell cs){
+	output << cs.getName();
+	
+	if(cs.getRemainingCooldown() == 0) output << endl << " -> Status: Ready" << endl;
+	else if(cs.getRemainingCooldown() == 1) output << endl << " -> Status: 1 round until ready" << endl;
+	else output << endl << " -> Status: " << cs.getRemainingCooldown() << " rounds until ready" << endl;
+	
+	output << " -> Type of spell: Chaining attack spell" << endl;
+	output << " -> Damage per hit: " << cs.getDmg() << " damage" << endl;
+	output << " -> Minimal hits: " << cs.getMinHits() << " hits" << endl;
+	output << " -> Maximal hits: " << cs.getMaxHits() << " hits" << endl;
+	
+	output << " -> Description: " << cs.getDescription() << endl << endl;
+	return output;
+}

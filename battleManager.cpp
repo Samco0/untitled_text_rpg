@@ -51,17 +51,26 @@ void BattleManager::attack(CombatCharacter* attacker, CombatCharacter* target){
 	target->setCurrentHp(target->getCurrentHp() - damage);
 	
 	if(pA != nullptr){
-		cout << " -> You (" << attacker->getName() << ") dealt " << damage << " damage to " << target->getName() << " using " << pA->getWeapon()->getName();
+		string weaponName = pA->getWeapon()->getName();
+		string targetName = target->getName();
 		
-		if(isCrit) cout << ". It was a critical hit.";
+		if(pA->getWeapon()->getType() == "Sword"){
+			cout << " -> You (" << attacker->getName() << ") slash with " << weaponName << ", rending through " << targetName << "'s defenses for " << damage << " damage";
+			if(isCrit) cout << ". The strike cleaves bone and spirit!" ;
+		}
+		else{
+			cout << " -> You (" << attacker->getName() << ") attack with " << weaponName << ", dealing " << damage << " damage to " << targetName;
+			if(isCrit) cout << ". A vicious strike!" ;
+		}
+		
 		cout << endl;
 	}
 	else{
 		Player* pT = dynamic_cast<Player*>(target);
 		
-		cout << " -> " << attacker->getName() << " dealt " << damage << " damage to you (" << pT->getName() << ")";
+		cout << " -> " << attacker->getName() << " lashes out at you (" << pT->getName() << "), rending " << damage << " damage";
+		if(isCrit) cout << ". A critical strike!" ;
 		
-		if(isCrit) cout << ". It was a critical hit.";
 		cout << endl;
 	}
 }
@@ -76,14 +85,14 @@ void BattleManager::attackUsingSpell(CombatCharacter* attacker, CombatCharacter*
 	//spell is invalid
 	if(s == nullptr){
 		if(attackerIsPlayer){
-			cout << " -> You (" << attacker->getName() << ") tried to cast a spell." << endl;
-			cout << " -> But didn't notice, that you can't cast a nonexistent spell." << endl;
-			cout << " -> You attacked using your normal attack." << endl;
+			cout << " -> You (" << attacker->getName() << ") reached into the void to summon a spell." << endl;
+			cout << " -> But the abyss answered with silence. No such power exists." << endl;
+			cout << " -> Steel it is, then. You strike with a mortal blow." << endl;
 		}
 		else{
-			cout << " -> " << attacker->getName() << " tried to cast a spell." << endl;
-			cout << " -> But there is no spell in that slot." << endl;
-			cout << " -> " << attacker->getName() << " used a basic attack instead." << endl;
+			cout << " -> " << attacker->getName() << " whispered to unseen forces." << endl;
+			cout << " -> Nothing answered. The spell was but an empty promise." << endl;
+			cout << " -> " << attacker->getName() << " lunged forward with a crude, physical strike." << endl;
 		}
 		
 		attack(attacker, target);
@@ -93,24 +102,21 @@ void BattleManager::attackUsingSpell(CombatCharacter* attacker, CombatCharacter*
 	//cooldown
 	if(s->getRemainingCooldown() != 0){
 		if(attackerIsPlayer){
-			cout << " -> You (" << attacker->getName()
-			<< ") tried to cast a spell, " << s->getName() << "." << endl;
-			cout << " -> But the spell didn't come out, it's not ready yet." << endl;
-			cout << " -> You attacked using your normal attack." << endl;
+			cout << " -> You (" << attacker->getName() << ") invoked the forbidden name of " << s->getName() << "." << endl;
+			cout << " -> Yet its power still slumbers, bound by unseen chains." << endl;
+			cout << " -> Frustrated, you carve your will into flesh with a basic attack." << endl;
 		}
 		else{
-			cout << " -> " << attacker->getName()
-			<< " tried to cast " << s->getName() << "." << endl;
-			cout << " -> But the spell is still on cooldown." << endl;
-			cout << " -> " << attacker->getName()
-			<< " used a basic attack instead." << endl;
+			cout << " -> " << attacker->getName() << " attempted to unleash " << s->getName() << "." << endl;
+			cout << " -> But the spell flickered and died — its essence not yet restored." << endl;
+			cout << " -> With a snarl, " << attacker->getName() << " resorts to a savage physical assault." << endl;
 		}
 		
 		attack(attacker, target);
 		return;
 	}
 	
-	cout << " -> " << (attackerIsPlayer ? "You (" : "") << attacker->getName()<< (attackerIsPlayer ? ")" : "") << " casted a spell, " << s->getName() << "." << endl;
+	cout << " -> " << (attackerIsPlayer ? "You (" : "") << attacker->getName() << (attackerIsPlayer ? ")" : "") << " muttered the cursed words of " << s->getName()  << ", and shadows writhed around your hands." << endl;
 	
 	ChainingSpell* cs = dynamic_cast<ChainingSpell*>(s);
 	StatusEffectSpell* ses = dynamic_cast<StatusEffectSpell*>(s);
@@ -126,16 +132,10 @@ void BattleManager::attackUsingSpell(CombatCharacter* attacker, CombatCharacter*
 		
 		cout << " -> Spell hit " << hits << " times!" << endl;
 		
-		if(attackerIsPlayer){
-			cout << " -> You (" << attacker->getName()
-			<< ") dealt " << totalDmg
-			<< " damage to " << target->getName() << "." << endl;
-		}
-		else{
-			cout << " -> " << attacker->getName()
-			<< " dealt " << totalDmg
-			<< " damage to you (" << target->getName() << ")." << endl;
-		}
+		cout << " -> The spell lashes out " << hits << " times, shadows and fire converging!" << endl;
+		
+		if(attackerIsPlayer) cout << " -> You (" << attacker->getName() << ") sear " << target->getName() << " for " << totalDmg << " damage." << endl;
+		else	cout << " -> " << attacker->getName() << "'s spell scorches you, inflicting " << totalDmg << " damage!" << endl;
 	}
 	
 	//status effect spell
@@ -143,21 +143,13 @@ void BattleManager::attackUsingSpell(CombatCharacter* attacker, CombatCharacter*
 		target->setCurrentHp(target->getCurrentHp() - s->getDmg());
 		
 		if(attackerIsPlayer){
-			cout << " -> You (" << attacker->getName()
-			<< ") dealt " << s->getDmg()
-			<< " damage to " << target->getName() << "." << endl;
-		}
-		else{
-			cout << " -> " << attacker->getName()
-			<< " dealt " << s->getDmg()
-			<< " damage to you (" << target->getName() << ")." << endl;
+			cout << " -> Your " << s->getName() << " wracks " << target->getName() << " for " << s->getDmg() << " damage." << endl;
+		} else {
+			cout << " -> " << s->getName() << " tears into you (" << target->getName() << "), dealing " << s->getDmg() << " damage." << endl;
 		}
 		
 		if(rand() % 100 + 1 <= ses->getChanceToRecieve() && ses->getStatusToGive() != nullptr){
-			cout << " -> " << target->getName()
-			<< " received the "
-			<< ses->getStatusToGive()->getName()
-			<< " status effect." << endl;
+			cout << " -> " << target->getName() << " is cursed with " << ses->getStatusToGive()->getName() << ", a lingering shadow over their vitality." << endl;
 			
 			target->addStatusEffect(ses->getStatusToGive());
 		}
@@ -167,16 +159,8 @@ void BattleManager::attackUsingSpell(CombatCharacter* attacker, CombatCharacter*
 	else{
 		target->setCurrentHp(target->getCurrentHp() - s->getDmg());
 		
-		if(attackerIsPlayer){
-			cout << " -> You (" << attacker->getName()
-			<< ") dealt " << s->getDmg()
-			<< " damage to " << target->getName() << "." << endl;
-		}
-		else{
-			cout << " -> " << attacker->getName()
-			<< " dealt " << s->getDmg()
-			<< " damage to you (" << target->getName() << ")." << endl;
-		}
+		if(attackerIsPlayer) cout << " -> You (" << attacker->getName() << ") unleash the arcane fury of " << s->getName() << ", rending " << target->getName()	<< " for " << s->getDmg() << " damage!" << endl;
+		else cout << " -> " << attacker->getName() << " strikes you with " << s->getName() << ", searing flesh and spirit for " << s->getDmg() << " damage!" << endl;
 	}
 	
 	s->setRemainingCooldown(s->getFullCooldown());
@@ -190,15 +174,13 @@ void BattleManager::roundIncrement(){
 	for(int i=0;i<4;i++){
 		if(this->player->getSpells()[i] != nullptr){
 			if(this->player->getSpells()[i]->getRemainingCooldown() != 0){
-				this->player->getSpells()[i]->setRemainingCooldown(
-					this->player->getSpells()[i]->getRemainingCooldown() - 1);
+				this->player->getSpells()[i]->setRemainingCooldown(this->player->getSpells()[i]->getRemainingCooldown() - 1);
 			}
 		}
 		
 		if(this->enemy->getSpells()[i] != nullptr){
 			if(this->enemy->getSpells()[i]->getRemainingCooldown() != 0){
-				this->enemy->getSpells()[i]->setRemainingCooldown(
-					this->enemy->getSpells()[i]->getRemainingCooldown() - 1);
+				this->enemy->getSpells()[i]->setRemainingCooldown(this->enemy->getSpells()[i]->getRemainingCooldown() - 1);
 			}
 		}
 	}
@@ -210,21 +192,29 @@ void BattleManager::checkDeaths(){
 		this->isFinished = 1;
 		
 		cout << "==========================================" << endl;
-		cout << " -> You (" << this->player->getName() << ") lost the battle." << endl;
+		cout << " -> You (" << this->player->getName() << ") have fallen… the shadows claim you." << endl;
+		cout << " -> Your journey ends here, at the edge of blood and ruin." << endl;
 		cout << "==========================================" << endl;
+		
+		system("pause");
 	}
 	else if(this->enemy->getCurrentHp() <= 0){
 		this->enemy->setCurrentHp(0);
 		this->isFinished = 2;
 		
 		cout << "==========================================" << endl;
-		cout << " -> You (" << this->player->getName() << ") won the battle." << endl;
+		cout << " -> Victory! You (" << this->player->getName() << ") stand over the vanquished " << this->enemy->getName() << "." << endl;
+		cout << " -> Their life force fuels your growth." << endl;
 		cout << "==========================================" << endl;
 		
 		Player* p = dynamic_cast<Player*>(this->player);
 		Enemy* e = dynamic_cast<Enemy*>(this->enemy);
 		
-		p->setCurrentXp(p->getCurrentXp() + e->getXpToGet());
+		float xpGained = e->getXpToGet();
+		p->setCurrentXp(p->getCurrentXp() + xpGained);
+		cout << " -> You gained " << xpGained << " XP from this battle." << endl;
+		
+		system("pause");
 	}
 	else{
 		this->isFinished = 0;
@@ -256,12 +246,15 @@ void BattleManager::checkStatusEffects(){
 			bool isPlayer = (current == player);
 			
 			if(hps->getHpAffection() < 0.0){
-				if(isPlayer) cout << " -> You (" << player->getName() << ") got hurt by the " << hps->getName() << " status effect. It did " << hps->getHpAffection()*(-1) << " damage." << endl;
-				else cout << " -> " << enemy->getName() << " got hurt by the " << hps->getName() << " status effect. It did " << hps->getHpAffection()*(-1) << " damage." << endl;
-			}
-			else {
-				if(isPlayer) cout << " -> You (" << player->getName() << ") got healed by the " << hps->getName() << " status effect. It recovered " << hps->getHpAffection() << " hp." << endl;
-				else cout << " -> " << enemy->getName() << " got healed by the " << hps->getName() << " status effect. It recovered " << hps->getHpAffection() << " hp." << endl;
+				if(isPlayer) 
+					cout << " -> Dark forces from " << hps->getName() << " bite you, dealing " << -hps->getHpAffection() << " damage." << endl;
+				else 
+					cout << " -> " << enemy->getName() << " suffers from " << hps->getName() << ", losing " << -hps->getHpAffection() << " hp." << endl;
+			} else {
+				if(isPlayer)
+					cout << " -> A gentle light of " << hps->getName() << " heals you for " << hps->getHpAffection() << " hp." << endl;
+				else
+					cout << " -> " << enemy->getName() << " is restored by " << hps->getName() << " for " << hps->getHpAffection() << " hp." << endl;
 			}
 		}
 	}
@@ -277,105 +270,82 @@ void BattleManager::battle() {
 		int randomiseSpellEnemy = rand() % 4;
 		
 		cout << "==========================================" << endl;
-		cout << player->getName() << endl;
-		cout << " -> Health: " << player->getCurrentHp() << "/" << player->getMaxHp() << "hp" << endl;
-		cout << " -> Level: " << player->getLevel() << endl;
-		cout << " -> Speed: " << player->getSpeed() << endl;
+		cout << *player;
 		cout << "------------------------------------------" << endl;
-		cout << enemy->getName() << endl;
-		cout << " -> Health: " << enemy->getCurrentHp() << "/" << enemy->getMaxHp() << "hp" << endl;
-		cout << " -> Level: " << enemy->getLevel() << endl;
-		cout << " -> Speed: " << enemy->getSpeed() << endl;
+		cout << *enemy;
 		cout << "==========================================" << endl;
 		
 		cout << "Your Options:" << endl;
-		cout << " 1. Basic attack" << endl;
-		cout << " 2. Use spell" << endl;
+		cout << " 1. Strike with weapon" << endl;
+		cout << " 2. Invoke a spell" << endl;
 		cout << "------------------------------------------" << endl;
-		cout << "Whats your choice, adventurer? ";
+		cout << "Choose your fate, adventurer: ";
 		cin >> choice;
 		cout << "==========================================" << endl << endl;
 		system("cls");
 		
 		switch(choice) {
 			case 1: {
-				cout << "==========================================" << endl;
-				if(player->getSpeed() >= enemy->getSpeed()) {
-					attack(player, enemy);
-					cout << endl;
-					
-					Spell* es = enemy->getSpells()[randomiseSpellEnemy];
-					if(randomiseAttackEnemy < 7 || es == nullptr || es->getRemainingCooldown() > 0) {
-						attack(enemy, player);
-					} else {
-						attackUsingSpell(enemy, player, randomiseSpellEnemy);
-					}
+			cout << "==========================================" << endl;
+			if(player->getSpeed() >= enemy->getSpeed()) {
+				attack(player, enemy);
+				cout << endl;
+				
+				Spell* es = enemy->getSpells()[randomiseSpellEnemy];
+				if(randomiseAttackEnemy < 7 || es == nullptr || es->getRemainingCooldown() > 0) {
+					attack(enemy, player);
 				} else {
-					Spell* es = enemy->getSpells()[randomiseSpellEnemy];
-					if(randomiseAttackEnemy < 7 || es == nullptr || es->getRemainingCooldown() > 0) {
-						attack(enemy, player);
-					} else {
-						attackUsingSpell(enemy, player, randomiseSpellEnemy);
-					}
-					
-					cout << endl;
-					attack(player, enemy);
+					attackUsingSpell(enemy, player, randomiseSpellEnemy);
 				}
-				break;
+			} else {
+				Spell* es = enemy->getSpells()[randomiseSpellEnemy];
+				if(randomiseAttackEnemy < 7 || es == nullptr || es->getRemainingCooldown() > 0) {
+					attack(enemy, player);
+				} else {
+					attackUsingSpell(enemy, player, randomiseSpellEnemy);
+				}
+				
+				cout << endl;
+				attack(player, enemy);
 			}
+			break;
+		}
 			
 			case 2: {
+				Spell* s;
 				ChainingSpell* cs;
 				StatusEffectSpell* sas;
 				
 				cout << "==========================================" << endl;
-				cout << player->getName() << endl;
-				cout << " -> Health: " << player->getCurrentHp() << "/" << player->getMaxHp() << "hp" << endl;
-				cout << " -> Level: " << player->getLevel() << endl;
-				cout << " -> Speed: " << player->getSpeed() << endl;
+				cout << *player;
 				cout << "------------------------------------------" << endl;
-				cout << enemy->getName() << endl;
-				cout << " -> Health: " << enemy->getCurrentHp() << "/" << enemy->getMaxHp() << "hp" << endl;
-				cout << " -> Level: " << enemy->getLevel() << endl;
-				cout << " -> Speed: " << enemy->getSpeed() << endl;
+				cout << *enemy;
 				cout << "==========================================" << endl;
 				
-				cout << "Your spells:" << endl << endl;
+				cout << "Your spells, etched into your soul:" << endl << endl;
 				for(int i = 0; i < 4; i++) {
-					if(player->getSpells()[i] == nullptr) {
-						cout << " " << i+1 << ". Empty spell slot" << endl;
+					Spell *s = player->getSpells()[i];
+					
+					cout << " " << i+1 << ". ";
+					cout << "Etched into your soul: ";
+					if(s == nullptr) { 
+						cout << "A hollow space within your mind." << endl << endl;
 					} else {
-						cs = dynamic_cast<ChainingSpell*>(player->getSpells()[i]);
-						sas = dynamic_cast<StatusEffectSpell*>(player->getSpells()[i]);
-						cout << " " << i+1 << ". " << player->getSpells()[i]->getName();
-						
-						if(player->getSpells()[i]->getRemainingCooldown() == 0)
-							cout << endl << " -> Status: Ready" << endl;
-						else if(player->getSpells()[i]->getRemainingCooldown() == 1)
-							cout << endl << " -> Status: 1 round until ready" << endl;
-						else
-							cout << endl << " -> Status: " << player->getSpells()[i]->getRemainingCooldown() << " rounds until ready" << endl;
+						ChainingSpell* cs = dynamic_cast<ChainingSpell*>(player->getSpells()[i]);
+						StatusEffectSpell* sas = dynamic_cast<StatusEffectSpell*>(player->getSpells()[i]);
 						
 						if(cs != nullptr) {
-							cout << " -> Type of spell: Chaining attack spell" << endl;
-							cout << " -> Damage per hit: " << cs->getDmg() << " damage" << endl;
-							cout << " -> Minimal hits: " << cs->getMinHits() << " hits" << endl;
-							cout << " -> Maximal hits: " << cs->getMaxHits() << " hits" << endl;
+							cout << *cs;
 						} else if(sas != nullptr) {
-							cout << " -> Type of spell: Status effect spell" << endl;
-							cout << " -> Damage: " << sas->getDmg() << endl;
-							cout << " -> Status effect: " << sas->getStatusToGive()->getName() << endl;
+							cout << *sas;
 						} else {
-							cout << " -> Type of spell: Basic attack spell" << endl;
-							cout << " -> Damage: " << player->getSpells()[i]->getDmg() << endl;
+							cout << *s;
 						}
-						
-						cout << " -> Description: " << player->getSpells()[i]->getDescription() << endl << endl;
 					}
 				}
 				
 				cout << "------------------------------------------" << endl;
-				cout << "Whats your choice, adventurer? ";
+				cout << "Which spell shall you unleash, adventurer? ";
 				cin >> choice;
 				cout << "==========================================" << endl;
 				system("cls");
@@ -414,4 +384,3 @@ void BattleManager::battle() {
 		checkDeaths();
 	}
 }
-

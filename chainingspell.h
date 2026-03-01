@@ -15,6 +15,9 @@ public:
 	//setters
 	void setMinHits(int minHits);
 	void setMaxHits(int maxHits);
+	
+	//output
+	friend ostream& operator<<(ostream& output, ChainingSpell cs);
 private:
 	int minHits;
 	int maxHits;

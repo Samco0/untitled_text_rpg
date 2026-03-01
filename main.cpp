@@ -11,18 +11,21 @@ using namespace std;
 int main(int argc, char** argv) {
 	srand(time(NULL));
 	
-	HpStatusEffect hps1("Burning", 5, 1, -5);
+	HpStatusEffect hps1("Burning", 5, 1, -1);
 	HpStatusEffect hps2("Carbonmonoxide Poisoning", 7, 3, -1);
+	HpStatusEffect hps3("Saturation", 5, 1, 5);
 	
 	Spell sp1("Shadow claw", "Claw of shadow", 10, 3);
-	Spell sp2("Frostball", "A ball of frost lol", 4, 3);
 	ChainingSpell sp3("Thunder barrage", "Barrage of thunders", 2.5, 5, 1, 6);
 	StatusEffectSpell sp4("Dragons breath", "From your mouth comes out a flame.", 5, 5, 80, &hps1);
-	Spell* s1[4] = { &sp1, &sp2, &sp3, &sp4 };
+	Spell* s1[4] = { &sp1, nullptr, &sp3, &sp4 };
 	
-	Spell se1("Gob-ball!", "A ball of fire lol", 5, 3);
-	Spell se2("Energy Surge", "Energy surge lol", 4, 3);
-	ChainingSpell se3("Coin Rush", "Barrage of coins", 2.5, 5, 1, 6);
+	StatusEffectSpell sp5("KEBAB", "A kebab spawns in the air and you eat it.", 0, 5, 80, &hps3);
+	Scroll scr1("Idk.", &sp5);
+	
+	Spell se1("Gob-ball!", "A ball of liquid gold.", 5, 3);
+	Spell se2("Energy Surge", "Energy surge.", 4, 3);
+	ChainingSpell se3("Coin Rush", "Barrage of coins.", 2.5, 5, 1, 6);
 	Spell* s2[4] = { &se1, &se2, &se3, nullptr };
 	
 	Spell se4("Jewish Ripper", "Jews", 7, 3);
@@ -39,6 +42,7 @@ int main(int argc, char** argv) {
 	
 	Player p1("Samqo", 55, 2, 0, 4, 20, 1.2, &w1, s1);
 	p1.getInventory().addItem(&w2);
+	p1.getInventory().addItem(&scr1);
 	
 	Enemy e1("Gozu the Goblin", 15, 1, 1, 1, 5, 10, 3, s2);
 	CombatLocation cl1("Goblinville Street 1", &e1);
@@ -57,4 +61,3 @@ int main(int argc, char** argv) {
 	
 	return 0;
 }
-

@@ -28,6 +28,9 @@ public:
 
 	//decrease cooldown function
 	void decreaseRemainingCooldown();
+	
+	//output
+	friend ostream& operator<<(ostream& output, Spell s);
 protected:
 	string name;
 	string description;

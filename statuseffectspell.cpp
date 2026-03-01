@@ -27,3 +27,19 @@ StatusEffect* StatusEffectSpell::getStatusToGive(){return this->statusToGive;}
 //setter
 void StatusEffectSpell::setChanceToRecieve(int chanceToRecieve){this->chanceToRecieve = chanceToRecieve;}
 void StatusEffectSpell::setStatusToGive(StatusEffect* statusToGive){this->statusToGive = statusToGive;}
+
+//output
+ostream& operator<<(ostream& output, StatusEffectSpell sas){
+	output << sas.getName();
+	
+	if(sas.getRemainingCooldown() == 0) output << endl << " -> Status: Ready" << endl;
+	else if(sas.getRemainingCooldown() == 1) output << endl << " -> Status: 1 round until ready" << endl;
+	else output << endl << " -> Status: " << sas.getRemainingCooldown() << " rounds until ready" << endl;
+	
+	output << " -> Type of spell: Status effect spell" << endl;
+	output << " -> Damage: " << sas.getDmg() << endl;
+	output << " -> Status effect: " << sas.getStatusToGive()->getName() << endl;
+	
+	output << " -> Description: " << sas.getDescription() << endl << endl;
+	return output;
+}

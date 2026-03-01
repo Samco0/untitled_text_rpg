@@ -16,6 +16,9 @@ public:
 	//setter
 	void setChanceToRecieve(int chanceToRecieve);
 	void setStatusToGive(StatusEffect* statusToGive);
+	
+	//output
+	friend ostream& operator<<(ostream& output, StatusEffectSpell cs);
 private:
 	int chanceToRecieve; //1-100 chance to recieve the status effect, that is held by this spell
 	StatusEffect* statusToGive; //status effect held by this spell

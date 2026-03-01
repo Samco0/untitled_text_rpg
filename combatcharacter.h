@@ -36,12 +36,16 @@ public:
 	void setCritChance(int critChance);
 	void setCritValue(float critValue);
 	void setSpells(Spell* spells[4]);
+	void setSpell(int index, Spell* spell);
 	void setStatusEffect(StatusEffect* statusEffect[4]);
 	
 	//statuseffect connected functions
 	void addStatusEffect(StatusEffect* statusEffect); //this function adds a status at the end, if it doesnt, it means the array is full
 	void removeStatusEffect(int arrayIndex); //this function turns a statuseffect into a null pointer, and sorts it to the end of the array
 	void checkStatusEffects(); // this function checks if any of the statuses in the array can be turned into a nullptr, if yes, then uses removeStatusEffect
+	
+	//output
+	friend ostream& operator<<(ostream& output, CombatCharacter character);
 protected:
 	float maxHp, currentHp;
 	float dmg;
@@ -55,4 +59,3 @@ protected:
 };
 
 #endif
-

@@ -1,5 +1,5 @@
 # Project: untitled_text_rpg
-# Makefile created by Red Panda C++ 3.1.2871
+# Makefile created by Red Panda C++ 3.4.3279
 
 CXX      = "g++.exe"
 CC       = "gcc.exe"
@@ -9,14 +9,15 @@ CD       = cd /d
 LIBS     = "-Wl,--stack,12582912"
 INCS     = 
 CXXINCS  = 
-CXXFLAGS = $(CXXINCS) "-g3" "-pipe" "-Wall" "-D_DEBUG"
-CFLAGS   = $(INCS) "-g3" "-pipe" "-Wall" "-D_DEBUG"
+CXXFLAGS = $(CXXINCS) "-g3" "-fno-ms-extensions" "-pipe" "-Wall" "-Werror=return-type" "-Werror=vla" "-D_DEBUG"
+CFLAGS   = $(INCS) "-g3" "-fno-ms-extensions" "-pipe" "-Wall" "-Werror=implicit-int" "-Werror=return-type" "-Werror=vla" "-D_DEBUG"
+NASM_FLAGS   =  "-f" "elf64" "-g"
 WINDRESFLAGS = 
 RES      = untitled_text_rpg_private.res
-OBJ      = hpstatuseffect.o item.o map.o battleManager.o main.o character.o weapon.o spell.o combatcharacter.o inventory.o location.o player.o statuseffect.o combatlocation.o chainingspell.o enemy.o statuseffectspell.o $(RES)
+OBJ      = statuseffectspell.o hpstatuseffect.o player.o character.o weapon.o location.o chainingspell.o statuseffect.o battleManager.o item.o scroll.o combatcharacter.o main.o enemy.o spell.o combatlocation.o map.o inventory.o $(RES)
 BIN      = untitled_text_rpg.exe
-LINKOBJ  = "hpstatuseffect.o" "item.o" "map.o" "battleManager.o" "main.o" "character.o" "weapon.o" "spell.o" "combatcharacter.o" "inventory.o" "location.o" "player.o" "statuseffect.o" "combatlocation.o" "chainingspell.o" "enemy.o" "statuseffectspell.o" "untitled_text_rpg_private.res"
-CLEANOBJ = "hpstatuseffect.o" "item.o" "map.o" "battleManager.o" "main.o" "character.o" "weapon.o" "spell.o" "combatcharacter.o" "inventory.o" "location.o" "player.o" "statuseffect.o" "combatlocation.o" "chainingspell.o" "enemy.o" "statuseffectspell.o" "untitled_text_rpg_private.res" "untitled_text_rpg.exe"
+LINKOBJ  = "statuseffectspell.o" "hpstatuseffect.o" "player.o" "character.o" "weapon.o" "location.o" "chainingspell.o" "statuseffect.o" "battleManager.o" "item.o" "scroll.o" "combatcharacter.o" "main.o" "enemy.o" "spell.o" "combatlocation.o" "map.o" "inventory.o" "untitled_text_rpg_private.res"
+CLEANOBJ = "statuseffectspell.o" "hpstatuseffect.o" "player.o" "character.o" "weapon.o" "location.o" "chainingspell.o" "statuseffect.o" "battleManager.o" "item.o" "scroll.o" "combatcharacter.o" "main.o" "enemy.o" "spell.o" "combatlocation.o" "map.o" "inventory.o" "untitled_text_rpg_private.res" "untitled_text_rpg.exe"
 
 .PHONY: all all-before all-after clean clean-custom
 
@@ -29,20 +30,14 @@ untitled_text_rpg.exe: $(OBJ)
 
 	$(CXX) $(LINKOBJ) -o "untitled_text_rpg.exe" $(LIBS)
 
-hpstatuseffect.o: hpstatuseffect.cpp statuseffect.h hpstatuseffect.h
+statuseffectspell.o: statuseffectspell.cpp scroll.h player.h map.h weapon.h combatcharacter.h battleManager.h enemy.h inventory.h chainingspell.h combatlocation.h statuseffectspell.h location.h hpstatuseffect.h spell.h item.h character.h statuseffect.h
+	$(CXX) -c "statuseffectspell.cpp" -o "statuseffectspell.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+
+hpstatuseffect.o: hpstatuseffect.cpp hpstatuseffect.h statuseffect.h
 	$(CXX) -c "hpstatuseffect.cpp" -o "hpstatuseffect.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
 
-item.o: item.cpp item.h
-	$(CXX) -c "item.cpp" -o "item.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
-
-map.o: map.cpp statuseffect.h inventory.h map.h chainingspell.h player.h weapon.h character.h location.h spell.h combatcharacter.h enemy.h item.h combatlocation.h
-	$(CXX) -c "map.cpp" -o "map.o" $(CXXFLAGS) 
-
-battleManager.o: battleManager.cpp statuseffect.h statuseffectspell.h inventory.h battleManager.h chainingspell.h player.h weapon.h character.h spell.h combatcharacter.h hpstatuseffect.h enemy.h item.h
-	$(CXX) -c "battleManager.cpp" -o "battleManager.o" $(CXXFLAGS) 
-
-main.o: main.cpp statuseffect.h statuseffectspell.h inventory.h battleManager.h map.h chainingspell.h player.h weapon.h character.h location.h spell.h combatcharacter.h hpstatuseffect.h enemy.h item.h combatlocation.h
-	$(CXX) -c "main.cpp" -o "main.o" $(CXXFLAGS) 
+player.o: player.cpp scroll.h player.h weapon.h combatcharacter.h inventory.h chainingspell.h spell.h item.h character.h statuseffect.h
+	$(CXX) -c "player.cpp" -o "player.o" $(CXXFLAGS) 
 
 character.o: character.cpp character.h
 	$(CXX) -c "character.cpp" -o "character.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
@@ -50,35 +45,44 @@ character.o: character.cpp character.h
 weapon.o: weapon.cpp weapon.h item.h
 	$(CXX) -c "weapon.cpp" -o "weapon.o" $(CXXFLAGS) 
 
-spell.o: spell.cpp spell.h
-	$(CXX) -c "spell.cpp" -o "spell.o" $(CXXFLAGS) 
-
-combatcharacter.o: combatcharacter.cpp statuseffect.h chainingspell.h character.h spell.h combatcharacter.h
-	$(CXX) -c "combatcharacter.cpp" -o "combatcharacter.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
-
-inventory.o: inventory.cpp inventory.h weapon.h item.h
-	$(CXX) -c "inventory.cpp" -o "inventory.o" $(CXXFLAGS) 
-
 location.o: location.cpp location.h
 	$(CXX) -c "location.cpp" -o "location.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
 
-player.o: player.cpp statuseffect.h inventory.h chainingspell.h player.h weapon.h character.h spell.h combatcharacter.h item.h
-	$(CXX) -c "player.cpp" -o "player.o" $(CXXFLAGS) 
+chainingspell.o: chainingspell.cpp chainingspell.h spell.h
+	$(CXX) -c "chainingspell.cpp" -o "chainingspell.o" $(CXXFLAGS) 
 
 statuseffect.o: statuseffect.cpp statuseffect.h
 	$(CXX) -c "statuseffect.cpp" -o "statuseffect.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
 
-combatlocation.o: combatlocation.cpp statuseffect.h chainingspell.h character.h location.h spell.h combatcharacter.h enemy.h combatlocation.h
-	$(CXX) -c "combatlocation.cpp" -o "combatlocation.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+battleManager.o: battleManager.cpp scroll.h player.h weapon.h combatcharacter.h battleManager.h enemy.h inventory.h chainingspell.h statuseffectspell.h hpstatuseffect.h spell.h item.h character.h statuseffect.h
+	$(CXX) -c "battleManager.cpp" -o "battleManager.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
 
-chainingspell.o: chainingspell.cpp chainingspell.h spell.h
-	$(CXX) -c "chainingspell.cpp" -o "chainingspell.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+item.o: item.cpp item.h
+	$(CXX) -c "item.cpp" -o "item.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
 
-enemy.o: enemy.cpp statuseffect.h chainingspell.h character.h spell.h combatcharacter.h enemy.h
+scroll.o: scroll.cpp scroll.h spell.h item.h
+	$(CXX) -c "scroll.cpp" -o "scroll.o" $(CXXFLAGS) 
+
+combatcharacter.o: combatcharacter.cpp combatcharacter.h chainingspell.h spell.h character.h statuseffect.h
+	$(CXX) -c "combatcharacter.cpp" -o "combatcharacter.o" $(CXXFLAGS) 
+
+main.o: main.cpp scroll.h player.h map.h weapon.h combatcharacter.h battleManager.h enemy.h inventory.h chainingspell.h combatlocation.h statuseffectspell.h location.h hpstatuseffect.h spell.h item.h character.h statuseffect.h
+	$(CXX) -c "main.cpp" -o "main.o" $(CXXFLAGS) 
+
+enemy.o: enemy.cpp combatcharacter.h enemy.h chainingspell.h spell.h character.h statuseffect.h
 	$(CXX) -c "enemy.cpp" -o "enemy.o" $(CXXFLAGS) 
 
-statuseffectspell.o: statuseffectspell.cpp statuseffect.h statuseffectspell.h spell.h hpstatuseffect.h
-	$(CXX) -c "statuseffectspell.cpp" -o "statuseffectspell.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+spell.o: spell.cpp spell.h
+	$(CXX) -c "spell.cpp" -o "spell.o" $(CXXFLAGS) 
+
+combatlocation.o: combatlocation.cpp combatcharacter.h enemy.h chainingspell.h combatlocation.h location.h spell.h character.h statuseffect.h
+	$(CXX) -c "combatlocation.cpp" -o "combatlocation.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+
+map.o: map.cpp scroll.h player.h map.h weapon.h combatcharacter.h enemy.h inventory.h chainingspell.h combatlocation.h location.h spell.h item.h character.h statuseffect.h
+	$(CXX) -c "map.cpp" -o "map.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+
+inventory.o: inventory.cpp scroll.h weapon.h inventory.h spell.h item.h
+	$(CXX) -c "inventory.cpp" -o "inventory.o" $(CXXFLAGS) 
 
 untitled_text_rpg_private.res: untitled_text_rpg_private.rc 
 	$(WINDRES) -i "untitled_text_rpg_private.rc" --input-format=rc -o "untitled_text_rpg_private.res" -O coff $(WINDRESFLAGS) 

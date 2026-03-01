@@ -1,6 +1,7 @@
 #ifndef INVENTORY_H
 #define INVENTORY_H
 #include "weapon.h"
+#include "scroll.h"
 #include <vector>
 
 class Inventory {

@@ -49,3 +49,13 @@ int Enemy::getDifficulty(){return this->difficulty;}
 void Enemy::setXpToGet(float xpToGet){this->xpToGet = xpToGet;}
 void Enemy::setDifficulty(int difficulty){this->difficulty = difficulty;}
 
+//output
+ostream& operator<<(ostream& output, Enemy enemy){
+	cout << enemy.getName() << endl;
+	cout << " -> Vitality: " << enemy.getCurrentHp() << "/" << enemy.getMaxHp() << "hp" << endl;
+	cout << " -> Wisdom: " << enemy.getLevel() << ". level"<< endl;
+	cout << " -> Agility: " << enemy.getSpeed() << endl;
+	return output;
+}
+
+

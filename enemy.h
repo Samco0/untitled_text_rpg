@@ -1,3 +1,4 @@
+
 #ifndef ENEMY_H
 #define ENEMY_H
 #include <iostream>
@@ -17,6 +18,9 @@ public:
 	//setters
 	void setXpToGet(float xpToGet);
 	void setDifficulty(int difficulty);
+	
+	//output
+	friend ostream& operator<<(ostream& output, Enemy player);
 protected:
 	float xpToGet;
 	int difficulty; //how much does player get per enemy? level*(difficulty*14)

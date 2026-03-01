@@ -21,3 +21,10 @@ string Weapon::getType(){return this->type;}
 //setters
 void Weapon::setDmg(float dmg){this->dmg = dmg;}
 void Weapon::setType(string type){this->type = type;}
+
+//output
+ostream& operator<<(ostream& output, Weapon w){
+	output << w.getName() << " | A " << w.getType() << ", " << w.getDmg() << " dmg, " << w.getDescription();
+	
+	return output;
+}

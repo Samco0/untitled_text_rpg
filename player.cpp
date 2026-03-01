@@ -56,18 +56,32 @@ Inventory& Player::getInventory(){return this->inventory;}
 //setters
 void Player::setRequireXp(float requireXp){this->requireXp = requireXp;}
 void Player::setCurrentXp(float currentXp){
+	int levelBefore = this->level;
 	this->currentXp += currentXp; 
 	
 	while (this->currentXp >= this->requireXp){
 		this->currentXp -= this->requireXp;
 		this->level++;
 		
-		cout << " -> You (" << this->getName() << ") achieved level " << this->level << "." << endl;
+		cout << " -> " << this->getName() << "\'s wisdom rises to level " << this->level << "." << endl;
 		this->requireXp *= 1.4f;
 	}
 	
+	if(levelBefore < this->level){
+	cout << " -> Your strength grows... the journey continues." << endl;
 	cout << "==========================================" << endl;
+	}
 }
 void Player::setBalance(int balance){this->balance = balance;}
 void Player::setWeapon(Weapon* weapon){this->weapon = weapon;}
 void Player::setInventory(Inventory inventory){this->inventory = inventory;}
+
+//output
+ostream& operator<<(ostream& output, Player player){
+	cout << player.getName() << endl;
+	cout << " -> Vitality: " << player.getCurrentHp() << "/" << player.getMaxHp() << "hp" << endl;
+	cout << " -> Wisdom: " << player.getLevel() << ". level"<< endl;
+	cout << " -> Agility: " << player.getSpeed() << endl;
+	return output;
+}
+
