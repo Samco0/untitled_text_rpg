@@ -1,41 +1,5 @@
 [
     {
-        "caretX": 1,
-        "caretY": 23,
-        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/scroll.h",
-        "focused": false,
-        "isOpen": false,
-        "left": 0,
-        "top": 0
-    },
-    {
-        "caretX": 41,
-        "caretY": 26,
-        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/player.h",
-        "focused": false,
-        "isOpen": false,
-        "left": 0,
-        "top": 0
-    },
-    {
-        "caretX": 49,
-        "caretY": 25,
-        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/statuseffectspell.cpp",
-        "focused": false,
-        "isOpen": false,
-        "left": 0,
-        "top": 0
-    },
-    {
-        "caretX": 10,
-        "caretY": 19,
-        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/weapon.h",
-        "focused": false,
-        "isOpen": false,
-        "left": 0,
-        "top": 0
-    },
-    {
         "caretX": 39,
         "caretY": 39,
         "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/combatcharacter.h",
@@ -43,117 +7,6 @@
         "isOpen": false,
         "left": 0,
         "top": 225
-    },
-    {
-        "caretX": 28,
-        "caretY": 8,
-        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/hpstatuseffect.cpp",
-        "focused": false,
-        "isOpen": false,
-        "left": 0,
-        "top": 0
-    },
-    {
-        "caretX": 28,
-        "caretY": 8,
-        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/battleManager.h",
-        "focused": false,
-        "isOpen": true,
-        "left": 0,
-        "order": 5,
-        "top": 0
-    },
-    {
-        "caretX": 3,
-        "caretY": 73,
-        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/player.cpp",
-        "focused": false,
-        "isOpen": false,
-        "left": 0,
-        "top": 390
-    },
-    {
-        "caretX": 1,
-        "caretY": 1,
-        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/character.cpp",
-        "focused": false,
-        "isOpen": false,
-        "left": 0,
-        "top": 0
-    },
-    {
-        "caretX": 2,
-        "caretY": 30,
-        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/weapon.cpp",
-        "focused": false,
-        "isOpen": false,
-        "left": 0,
-        "top": 0
-    },
-    {
-        "caretX": 7,
-        "caretY": 29,
-        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/enemy.h",
-        "focused": false,
-        "isOpen": false,
-        "left": 0,
-        "top": 0
-    },
-    {
-        "caretX": 1,
-        "caretY": 6,
-        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/inventory.h",
-        "focused": false,
-        "isOpen": false,
-        "left": 0,
-        "top": 0
-    },
-    {
-        "caretX": 70,
-        "caretY": 29,
-        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/chainingspell.cpp",
-        "focused": false,
-        "isOpen": false,
-        "left": 0,
-        "top": 135
-    },
-    {
-        "caretX": 1,
-        "caretY": 1,
-        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/statuseffect.cpp",
-        "focused": false,
-        "isOpen": true,
-        "left": 0,
-        "order": 3,
-        "top": 0
-    },
-    {
-        "caretX": 28,
-        "caretY": 296,
-        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/battleManager.cpp",
-        "focused": true,
-        "isOpen": true,
-        "left": 0,
-        "order": 0,
-        "top": 1980
-    },
-    {
-        "caretX": 10,
-        "caretY": 19,
-        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/chainingspell.h",
-        "focused": false,
-        "isOpen": false,
-        "left": 0,
-        "top": 0
-    },
-    {
-        "caretX": 2,
-        "caretY": 7,
-        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/item.cpp",
-        "focused": false,
-        "isOpen": false,
-        "left": 0,
-        "top": 0
     },
     {
         "caretX": 2,
@@ -165,47 +18,9 @@
         "top": 0
     },
     {
-        "caretX": 28,
-        "caretY": 4,
-        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/statuseffectspell.h",
-        "focused": false,
-        "isOpen": true,
-        "left": 0,
-        "order": 4,
-        "top": 0
-    },
-    {
-        "caretX": 2,
-        "caretY": 78,
-        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/combatcharacter.cpp",
-        "focused": false,
-        "isOpen": false,
-        "left": 0,
-        "top": 468
-    },
-    {
-        "caretX": 41,
-        "caretY": 15,
-        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/hpstatuseffect.h",
-        "focused": false,
-        "isOpen": false,
-        "left": 0,
-        "top": 0
-    },
-    {
-        "caretX": 32,
-        "caretY": 21,
-        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/main.cpp",
-        "focused": false,
-        "isOpen": true,
-        "left": 0,
-        "order": 1,
-        "top": 135
-    },
-    {
-        "caretX": 34,
-        "caretY": 54,
-        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/enemy.cpp",
+        "caretX": 1,
+        "caretY": 28,
+        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/spell.h",
         "focused": false,
         "isOpen": false,
         "left": 0,
@@ -221,31 +36,256 @@
         "top": 165
     },
     {
-        "caretX": 1,
-        "caretY": 28,
-        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/spell.h",
-        "focused": false,
-        "isOpen": true,
-        "left": 0,
-        "order": 2,
-        "top": 0
-    },
-    {
-        "caretX": 38,
-        "caretY": 186,
-        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/map.cpp",
+        "caretX": 7,
+        "caretY": 23,
+        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/consumable.h",
         "focused": false,
         "isOpen": false,
         "left": 0,
-        "top": 330
+        "top": 0
     },
     {
-        "caretX": 3,
-        "caretY": 50,
-        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/inventory.cpp",
+        "caretX": 28,
+        "caretY": 4,
+        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/statuseffectspell.h",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    },
+    {
+        "caretX": 49,
+        "caretY": 25,
+        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/statuseffectspell.cpp",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    },
+    {
+        "caretX": 34,
+        "caretY": 54,
+        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/enemy.cpp",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    },
+    {
+        "caretX": 70,
+        "caretY": 29,
+        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/chainingspell.cpp",
         "focused": false,
         "isOpen": false,
         "left": 0,
         "top": 135
+    },
+    {
+        "caretX": 10,
+        "caretY": 19,
+        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/chainingspell.h",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    },
+    {
+        "caretX": 2,
+        "caretY": 30,
+        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/weapon.cpp",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    },
+    {
+        "caretX": 41,
+        "caretY": 15,
+        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/hpstatuseffect.h",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    },
+    {
+        "caretX": 2,
+        "caretY": 18,
+        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/weapon.h",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    },
+    {
+        "caretX": 36,
+        "caretY": 36,
+        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/armor.cpp",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 225
+    },
+    {
+        "caretX": 1,
+        "caretY": 23,
+        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/scroll.h",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    },
+    {
+        "caretX": 73,
+        "caretY": 54,
+        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/inventory.cpp",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 156
+    },
+    {
+        "caretX": 8,
+        "caretY": 6,
+        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/armor.h",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    },
+    {
+        "caretX": 7,
+        "caretY": 29,
+        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/enemy.h",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    },
+    {
+        "caretX": 17,
+        "caretY": 2,
+        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/player.h",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    },
+    {
+        "caretX": 50,
+        "caretY": 35,
+        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/main.cpp",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    },
+    {
+        "caretX": 38,
+        "caretY": 80,
+        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/player.cpp",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 765
+    },
+    {
+        "caretX": 2,
+        "caretY": 78,
+        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/combatcharacter.cpp",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 468
+    },
+    {
+        "caretX": 2,
+        "caretY": 26,
+        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/consumable.cpp",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    },
+    {
+        "caretX": 2,
+        "caretY": 9,
+        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/item.h",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    },
+    {
+        "caretX": 30,
+        "caretY": 16,
+        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/inventory.h",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    },
+    {
+        "caretX": 28,
+        "caretY": 8,
+        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/hpstatuseffect.cpp",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    },
+    {
+        "caretX": 2,
+        "caretY": 7,
+        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/item.cpp",
+        "focused": true,
+        "isOpen": true,
+        "left": 0,
+        "order": 0,
+        "top": 0
+    },
+    {
+        "caretX": 42,
+        "caretY": 156,
+        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/map.cpp",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 1053
+    },
+    {
+        "caretX": 1,
+        "caretY": 1,
+        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/statuseffect.cpp",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    },
+    {
+        "caretX": 21,
+        "caretY": 199,
+        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/battleManager.cpp",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 2400
+    },
+    {
+        "caretX": 40,
+        "caretY": 32,
+        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/battleManager.h",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    },
+    {
+        "caretX": 1,
+        "caretY": 1,
+        "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/character.cpp",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
     }
 ]

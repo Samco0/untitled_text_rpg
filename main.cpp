@@ -10,6 +10,8 @@ using namespace std;
 
 int main(int argc, char** argv) {
 	srand(time(NULL));
+	Armor helmet1("Helmet of the damned", "That damn helmet", 20, 1);
+	Consumable cons1("Bandage", "A piece of cloth used to wrap wounds.", 25);
 	
 	HpStatusEffect hps1("Burning", 5, 1, -1);
 	HpStatusEffect hps2("Carbonmonoxide Poisoning", 7, 3, -1);
@@ -43,12 +45,14 @@ int main(int argc, char** argv) {
 	Player p1("Samqo", 55, 2, 0, 4, 20, 1.2, &w1, s1);
 	p1.getInventory().addItem(&w2);
 	p1.getInventory().addItem(&scr1);
+	p1.getInventory().addItem(&helmet1);
+	p1.getInventory().addItem(&cons1);
 	
 	Enemy e1("Gozu the Goblin", 15, 1, 1, 1, 5, 10, 3, s2);
 	CombatLocation cl1("Goblinville Street 1", &e1);
 	Enemy e2("Maro the Goblin", 25, 1.5, 1, 2, 4, 12.5, 2.5, s3);
 	CombatLocation cl2("Goblinville Street 2", &e2);
-	Enemy e3("GoblinBeg", 50, 2.25, 2, 3, 7, 15, 1.5, s4);
+	Enemy e3("GoblinBeg", 50, 4, 2, 3, 7, 15, 1.5, s4);
 	CombatLocation cl3("The Gringot's Bank", &e3);
 	
 	vector<Location*> l = {&cl1, &cl2, &cl3};

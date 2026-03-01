@@ -1,6 +1,7 @@
 #ifndef BATTLE_H
 #define BATTLE_H
 #include <iostream>
+#include <cmath>
 #include "player.h"
 #include "enemy.h"
 #include "hpstatuseffect.h"

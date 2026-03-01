@@ -2,6 +2,8 @@
 #define INVENTORY_H
 #include "weapon.h"
 #include "scroll.h"
+#include "armor.h"
+#include "consumable.h"
 #include <vector>
 
 class Inventory {

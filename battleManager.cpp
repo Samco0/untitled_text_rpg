@@ -35,6 +35,7 @@ void BattleManager::attack(CombatCharacter* attacker, CombatCharacter* target){
 	
 	int crit = rand() % 100 + 1;
 	
+	//if the attacker is a player, he typically wields a weapon, here is the counting of it basically
 	Player* pA = dynamic_cast<Player*>(attacker);
 	float damage = attacker->getDmg();
 	if(pA != nullptr){
@@ -43,10 +44,12 @@ void BattleManager::attack(CombatCharacter* attacker, CombatCharacter* target){
 	
 	bool isCrit = false;
 	
+	//this one is for both attackers, its just multiplying the damage by value of critical hit and setting a bool to true
 	if(crit <= attacker->getCritChance()){
 		damage *= attacker->getCritValue();
 		isCrit = true;
 	}
+	
 	
 	target->setCurrentHp(target->getCurrentHp() - damage);
 	
@@ -68,6 +71,17 @@ void BattleManager::attack(CombatCharacter* attacker, CombatCharacter* target){
 	else{
 		Player* pT = dynamic_cast<Player*>(target);
 		
+		if(pT != nullptr){
+			//if player has some kind of armor, he gets less damage, as simple as that
+			if(pT->getHelmet() != nullptr) damage = damage / 100.0 * (100.0 - pT->getHelmet()->getDamageReduction());
+			if(pT->getChestplate() != nullptr) damage = damage / 100.0 * (100.0 - pT->getChestplate()->getDamageReduction());
+			if(pT->getGloves() != nullptr) damage = damage / 100.0 * (100.0 - pT->getGloves()->getDamageReduction());
+			if(pT->getLeggings() != nullptr) damage = damage / 100.0* (100.0 - pT->getLeggings()->getDamageReduction());
+			if(pT->getBoots() != nullptr) damage = damage / 100.0 * (100.0 - pT->getBoots()->getDamageReduction());
+		}
+		
+		damage = std::round(damage * 100.0) / 100.0;
+		
 		cout << " -> " << attacker->getName() << " lashes out at you (" << pT->getName() << "), rending " << damage << " damage";
 		if(isCrit) cout << ". A critical strike!" ;
 		
@@ -79,6 +93,7 @@ void BattleManager::attackUsingSpell(CombatCharacter* attacker, CombatCharacter*
 	if(attacker->getCurrentHp() <= 0) return;
 	
 	bool attackerIsPlayer = (dynamic_cast<Player*>(attacker) != nullptr);
+	Player* pT = dynamic_cast<Player*>(target);
 	
 	Spell* s = attacker->getSpells()[spellIndex];
 	
@@ -128,11 +143,21 @@ void BattleManager::attackUsingSpell(CombatCharacter* attacker, CombatCharacter*
 		
 		float totalDmg = hits * cs->getDmg();
 		
-		target->setCurrentHp(target->getCurrentHp() - totalDmg);
-		
 		cout << " -> Spell hit " << hits << " times!" << endl;
 		
 		cout << " -> The spell lashes out " << hits << " times, shadows and fire converging!" << endl;
+		
+		if(pT != nullptr){
+			//if player has some kind of armor, he gets less damage, as simple as that
+			if(pT->getHelmet() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getHelmet()->getDamageReduction());
+			if(pT->getChestplate() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getChestplate()->getDamageReduction());
+			if(pT->getGloves() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getGloves()->getDamageReduction());
+			if(pT->getLeggings() != nullptr) totalDmg = totalDmg / 100.0* (100.0 - pT->getLeggings()->getDamageReduction());
+			if(pT->getBoots() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getBoots()->getDamageReduction());
+		}
+		totalDmg = std::round(totalDmg * 100.0) / 100.0;
+		
+		target->setCurrentHp(target->getCurrentHp() - totalDmg);
 		
 		if(attackerIsPlayer) cout << " -> You (" << attacker->getName() << ") sear " << target->getName() << " for " << totalDmg << " damage." << endl;
 		else	cout << " -> " << attacker->getName() << "'s spell scorches you, inflicting " << totalDmg << " damage!" << endl;
@@ -140,12 +165,24 @@ void BattleManager::attackUsingSpell(CombatCharacter* attacker, CombatCharacter*
 	
 	//status effect spell
 	else if(ses != nullptr){
-		target->setCurrentHp(target->getCurrentHp() - s->getDmg());
+		float totalDmg = s->getDmg();
+		
+		if(pT != nullptr){
+			//if player has some kind of armor, he gets less damage, as simple as that
+			if(pT->getHelmet() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getHelmet()->getDamageReduction());
+			if(pT->getChestplate() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getChestplate()->getDamageReduction());
+			if(pT->getGloves() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getGloves()->getDamageReduction());
+			if(pT->getLeggings() != nullptr) totalDmg = totalDmg / 100.0* (100.0 - pT->getLeggings()->getDamageReduction());
+			if(pT->getBoots() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getBoots()->getDamageReduction());
+		}
+		totalDmg = std::round(totalDmg * 100.0) / 100.0;
+		
+		target->setCurrentHp(target->getCurrentHp() - totalDmg);
 		
 		if(attackerIsPlayer){
-			cout << " -> Your " << s->getName() << " wracks " << target->getName() << " for " << s->getDmg() << " damage." << endl;
+			cout << " -> Your " << s->getName() << " wracks " << target->getName() << " for " << totalDmg << " damage." << endl;
 		} else {
-			cout << " -> " << s->getName() << " tears into you (" << target->getName() << "), dealing " << s->getDmg() << " damage." << endl;
+			cout << " -> " << s->getName() << " tears into you (" << target->getName() << "), dealing " << totalDmg << " damage." << endl;
 		}
 		
 		if(rand() % 100 + 1 <= ses->getChanceToRecieve() && ses->getStatusToGive() != nullptr){
@@ -157,10 +194,22 @@ void BattleManager::attackUsingSpell(CombatCharacter* attacker, CombatCharacter*
 	
 	//normal spell
 	else{
-		target->setCurrentHp(target->getCurrentHp() - s->getDmg());
+		float totalDmg = s->getDmg();
 		
-		if(attackerIsPlayer) cout << " -> You (" << attacker->getName() << ") unleash the arcane fury of " << s->getName() << ", rending " << target->getName()	<< " for " << s->getDmg() << " damage!" << endl;
-		else cout << " -> " << attacker->getName() << " strikes you with " << s->getName() << ", searing flesh and spirit for " << s->getDmg() << " damage!" << endl;
+		if(pT != nullptr){
+			//if player has some kind of armor, he gets less damage, as simple as that
+			if(pT->getHelmet() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getHelmet()->getDamageReduction());
+			if(pT->getChestplate() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getChestplate()->getDamageReduction());
+			if(pT->getGloves() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getGloves()->getDamageReduction());
+			if(pT->getLeggings() != nullptr) totalDmg = totalDmg / 100.0* (100.0 - pT->getLeggings()->getDamageReduction());
+			if(pT->getBoots() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getBoots()->getDamageReduction());
+		}
+		totalDmg = std::round(totalDmg * 100.0) / 100.0;
+		
+		target->setCurrentHp(target->getCurrentHp() - totalDmg);
+		
+		if(attackerIsPlayer) cout << " -> You (" << attacker->getName() << ") unleash the arcane fury of " << s->getName() << ", rending " << target->getName()	<< " for " << totalDmg << " damage!" << endl;
+		else cout << " -> " << attacker->getName() << " strikes you with " << s->getName() << ", searing flesh and spirit for " << totalDmg << " damage!" << endl;
 	}
 	
 	s->setRemainingCooldown(s->getFullCooldown());
