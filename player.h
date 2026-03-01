@@ -3,22 +3,27 @@
 #include "combatcharacter.h"
 #include "chainingspell.h"
 #include "statuseffect.h"
+#include "inventory.h"
 
 class Player : public CombatCharacter{
 public:
 	//constructor
 	Player();
-	Player(string name, float maxHp, float dmg, int balance, int speed, int critChance, float critValue, Spell* spells[4]);
+	Player(string name, float maxHp, float dmg, int balance, int speed, int critChance, float critValue, Weapon* weapon, Spell* spells[4]);
 	
 	//getters
 	float getRequireXp();
 	float getCurrentXp();
 	int getBalance();
+	Weapon* getWeapon();
+	Inventory& getInventory();
 	
 	//setters
 	void setRequireXp(float requireXp);
 	void setCurrentXp(float currentXp);
 	void setBalance(int balance);
+	void setWeapon(Weapon* weapon);
+	void setInventory(Inventory inventory);
 protected:
 	float requireXp, currentXp;
 	/*
@@ -26,6 +31,8 @@ protected:
 	for each next level it requires the previous amount x1.4
 	*/
 	int balance;
+	Weapon* weapon;
+	Inventory inventory;
 };
 
 #endif

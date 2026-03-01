@@ -35,7 +35,12 @@ void BattleManager::attack(CombatCharacter* attacker, CombatCharacter* target){
 	
 	int crit = rand() % 100 + 1;
 	
+	Player* pA = dynamic_cast<Player*>(attacker);
 	float damage = attacker->getDmg();
+	if(pA != nullptr){
+		damage += pA->getWeapon()->getDmg();
+	}
+	
 	bool isCrit = false;
 	
 	if(crit <= attacker->getCritChance()){
@@ -45,16 +50,16 @@ void BattleManager::attack(CombatCharacter* attacker, CombatCharacter* target){
 	
 	target->setCurrentHp(target->getCurrentHp() - damage);
 	
-	Player* p = dynamic_cast<Player*>(attacker);
-	
-	if(p != nullptr){
-		cout << " -> You (" << attacker->getName() << ") dealt " << damage << " damage to " << target->getName();
+	if(pA != nullptr){
+		cout << " -> You (" << attacker->getName() << ") dealt " << damage << " damage to " << target->getName() << " using " << pA->getWeapon()->getName();
 		
 		if(isCrit) cout << ". It was a critical hit.";
 		cout << endl;
 	}
 	else{
-		cout << " -> " << attacker->getName() << " dealt " << damage << " damage to you (" << target->getName() << ")";
+		Player* pT = dynamic_cast<Player*>(target);
+		
+		cout << " -> " << attacker->getName() << " dealt " << damage << " damage to you (" << pT->getName() << ")";
 		
 		if(isCrit) cout << ". It was a critical hit.";
 		cout << endl;

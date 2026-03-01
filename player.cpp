@@ -13,6 +13,7 @@ Player::Player(){
 	this->speed = 0;
 	this->critChance = 0;
 	this->critValue = 0;
+	this->weapon = nullptr;
 	
 	for(int i=0;i<4;i++){
 		this->spells[i] = nullptr;
@@ -22,7 +23,7 @@ Player::Player(){
 		this->statusEffect[i] = nullptr;
 	}
 }
-Player::Player(string name, float maxHp, float dmg, int balance, int speed, int critChance, float critValue, Spell* spells[4]){
+Player::Player(string name, float maxHp, float dmg, int balance, int speed, int critChance, float critValue, Weapon* weapon, Spell* spells[4]){
 	this->name = name;
 	this->maxHp = maxHp;
 	this->currentHp = this->maxHp;
@@ -34,6 +35,7 @@ Player::Player(string name, float maxHp, float dmg, int balance, int speed, int 
 	this->speed = speed;
 	this->critChance = critChance;
 	this->critValue = critValue;
+	this->weapon = weapon;
 	
 	for(int i=0;i<4;i++){
 		this->spells[i] = spells[i];
@@ -48,6 +50,8 @@ Player::Player(string name, float maxHp, float dmg, int balance, int speed, int 
 float Player::getRequireXp(){return this->requireXp;}
 float Player::getCurrentXp(){return this->currentXp;}
 int Player::getBalance(){return this->balance;}
+Weapon* Player::getWeapon(){return this->weapon;}
+Inventory& Player::getInventory(){return this->inventory;}
 
 //setters
 void Player::setRequireXp(float requireXp){this->requireXp = requireXp;}
@@ -65,3 +69,5 @@ void Player::setCurrentXp(float currentXp){
 	cout << "==========================================" << endl;
 }
 void Player::setBalance(int balance){this->balance = balance;}
+void Player::setWeapon(Weapon* weapon){this->weapon = weapon;}
+void Player::setInventory(Inventory inventory){this->inventory = inventory;}
