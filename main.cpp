@@ -13,16 +13,16 @@ int main(int argc, char** argv) {
 	Armor helmet1("Helmet of the damned", "That damn helmet", 20, 1);
 	Consumable cons1("Bandage", "A piece of cloth used to wrap wounds.", 25);
 	
-	HpStatusEffect hps1("Burning", 5, 1, -1);
+	HpStatusEffect hps1("Burning", 5, 1, -5);
 	HpStatusEffect hps2("Carbonmonoxide Poisoning", 7, 3, -1);
-	HpStatusEffect hps3("Saturation", 5, 1, 5);
+	HpStatusEffect hps3("Envenomated", 5, 1, -10);
 	
 	Spell sp1("Shadow claw", "Claw of shadow", 10, 3);
 	ChainingSpell sp3("Thunder barrage", "Barrage of thunders", 2.5, 5, 1, 6);
 	StatusEffectSpell sp4("Dragons breath", "From your mouth comes out a flame.", 5, 5, 80, &hps1);
 	Spell* s1[4] = { &sp1, nullptr, &sp3, &sp4 };
 	
-	StatusEffectSpell sp5("KEBAB", "A kebab spawns in the air and you eat it.", 0, 5, 80, &hps3);
+	StatusEffectSpell sp5("Kiss of a Serpent", "The user casts a snake, that bites the target.", 5, 5, 80, &hps3);
 	Scroll scr1("Idk.", &sp5);
 	
 	Spell se1("Gob-ball!", "A ball of liquid gold.", 5, 3);
@@ -52,7 +52,7 @@ int main(int argc, char** argv) {
 	CombatLocation cl1("Goblinville Street 1", &e1);
 	Enemy e2("Maro the Goblin", 25, 1.5, 1, 2, 4, 12.5, 2.5, s3);
 	CombatLocation cl2("Goblinville Street 2", &e2);
-	Enemy e3("GoblinBeg", 50, 4, 2, 3, 7, 15, 1.5, s4);
+	Enemy e3("GoblinBeg", 80, 4, 2, 3, 7, 15, 1.5, s4);
 	CombatLocation cl3("The Gringot's Bank", &e3);
 	
 	vector<Location*> l = {&cl1, &cl2, &cl3};

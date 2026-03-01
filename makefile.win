@@ -79,7 +79,7 @@ item.o: item.cpp item.h
 	$(CXX) -c "item.cpp" -o "item.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
 
 map.o: map.cpp combatcharacter.h combatlocation.h location.h spell.h consumable.h chainingspell.h map.h character.h weapon.h scroll.h armor.h enemy.h player.h item.h inventory.h statuseffect.h
-	$(CXX) -c "map.cpp" -o "map.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+	$(CXX) -c "map.cpp" -o "map.o" $(CXXFLAGS) 
 
 statuseffect.o: statuseffect.cpp statuseffect.h
 	$(CXX) -c "statuseffect.cpp" -o "statuseffect.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250

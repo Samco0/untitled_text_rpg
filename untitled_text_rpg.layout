@@ -171,13 +171,14 @@
         "top": 0
     },
     {
-        "caretX": 50,
-        "caretY": 35,
+        "caretX": 47,
+        "caretY": 23,
         "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/main.cpp",
         "focused": false,
-        "isOpen": false,
+        "isOpen": true,
         "left": 0,
-        "top": 0
+        "order": 0,
+        "top": 78
     },
     {
         "caretX": 38,
@@ -228,19 +229,19 @@
         "caretX": 28,
         "caretY": 8,
         "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/hpstatuseffect.cpp",
-        "focused": false,
-        "isOpen": false,
+        "focused": true,
+        "isOpen": true,
         "left": 0,
+        "order": 1,
         "top": 0
     },
     {
         "caretX": 2,
         "caretY": 7,
         "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/item.cpp",
-        "focused": true,
-        "isOpen": true,
+        "focused": false,
+        "isOpen": false,
         "left": 0,
-        "order": 0,
         "top": 0
     },
     {
@@ -262,22 +263,22 @@
         "top": 0
     },
     {
-        "caretX": 21,
-        "caretY": 199,
+        "caretX": 2,
+        "caretY": 240,
         "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/battleManager.cpp",
         "focused": false,
         "isOpen": false,
         "left": 0,
-        "top": 2400
+        "top": 1118
     },
     {
-        "caretX": 40,
-        "caretY": 32,
+        "caretX": 18,
+        "caretY": 8,
         "filename": "C:/Users/Henio/Documents/GitHub/untitled_text_rpg/battleManager.h",
         "focused": false,
         "isOpen": false,
         "left": 0,
-        "top": 0
+        "top": 39
     },
     {
         "caretX": 1,
