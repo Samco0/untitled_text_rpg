@@ -1,6 +1,6 @@
 #include "enemy.h"
 
-//constructor
+// constructors (ponecháno, jen doplníme reward vector init)
 Enemy::Enemy(){
 	this->name = "";
 	this->maxHp = 0;
@@ -12,14 +12,10 @@ Enemy::Enemy(){
 	this->critChance = 0;
 	this->critValue = 0;
 	
-	for(int i=0;i<4;i++){
-		this->spells[i] = nullptr;
-	}
-	
-	for(int i=0;i<4;i++){
-		this->statusEffect[i] = nullptr;
-	}
+	for(int i=0;i<4;i++) this->spells[i] = nullptr;
+	for(int i=0;i<4;i++) this->statusEffect[i] = nullptr;
 }
+
 Enemy::Enemy(string name, float maxHp, float dmg, int level, int difficulty, int speed, int critChance, float critValue, Spell* spells[4]){
 	this->name = name;
 	this->maxHp = maxHp;
@@ -32,24 +28,23 @@ Enemy::Enemy(string name, float maxHp, float dmg, int level, int difficulty, int
 	this->critChance = critChance;
 	this->critValue = critValue;
 	
-	for(int i=0;i<4;i++){
-		this->spells[i] = spells[i];
-	}
-	
-	for(int i=0;i<4;i++){
-		this->statusEffect[i] = nullptr;
-	}
+	for(int i=0;i<4;i++) this->spells[i] = spells[i];
+	for(int i=0;i<4;i++) this->statusEffect[i] = nullptr;
 }
 
-//getters
+// getters
 float Enemy::getXpToGet(){return this->xpToGet;}
 int Enemy::getDifficulty(){return this->difficulty;}
 
-//setters
+// setters
 void Enemy::setXpToGet(float xpToGet){this->xpToGet = xpToGet;}
 void Enemy::setDifficulty(int difficulty){this->difficulty = difficulty;}
+void Enemy::addReward(Item* item, int chance){
+	rewardItems.push_back(item);
+	rewardChances.push_back(chance);
+}
 
-//output
+// output
 ostream& operator<<(ostream& output, Enemy enemy){
 	cout << enemy.getName() << endl;
 	cout << " -> Vitality: " << enemy.getCurrentHp() << "/" << enemy.getMaxHp() << "hp" << endl;
@@ -57,5 +52,3 @@ ostream& operator<<(ostream& output, Enemy enemy){
 	cout << " -> Agility: " << enemy.getSpeed() << endl;
 	return output;
 }
-
-

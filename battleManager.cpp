@@ -259,9 +259,26 @@ void BattleManager::checkDeaths(){
 		Player* p = dynamic_cast<Player*>(this->player);
 		Enemy* e = dynamic_cast<Enemy*>(this->enemy);
 		
+		//XP gain
 		float xpGained = e->getXpToGet();
 		p->setCurrentXp(p->getCurrentXp() + xpGained);
 		cout << " -> You gained " << xpGained << " XP from this battle." << endl;
+		
+		//Reward system
+		vector<Item*>& items = e->getRewardItems();
+		vector<int>& chances = e->getRewardChances();
+		
+		cout << " -> Loot dropped:" << endl;
+		bool anyDrop = false;
+		for(size_t i=0; i < items.size(); i++){
+			int roll = rand() % 100 + 1;
+			if(roll <= chances[i]){
+				cout << "     - " << items[i]->getName() << " (chance " << chances[i] << "%, rolled " << roll << ")" << endl;
+				p->getInventory().addItem(items[i]);
+				anyDrop = true;
+			}
+		}
+		if(!anyDrop) cout << " -> None. The enemy kept its treasures hidden..." << endl;
 		
 		system("pause");
 	}
