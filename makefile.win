@@ -51,7 +51,7 @@ chainingspell.o: chainingspell.cpp chainingspell.h spell.h
 	$(CXX) -c "chainingspell.cpp" -o "chainingspell.o" $(CXXFLAGS) 
 
 inventory.o: inventory.cpp armor.h scroll.h spell.h weapon.h inventory.h consumable.h item.h
-	$(CXX) -c "inventory.cpp" -o "inventory.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+	$(CXX) -c "inventory.cpp" -o "inventory.o" $(CXXFLAGS) 
 
 weapon.o: weapon.cpp weapon.h item.h
 	$(CXX) -c "weapon.cpp" -o "weapon.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250

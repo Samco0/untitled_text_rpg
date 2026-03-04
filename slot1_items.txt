@@ -1,22 +1,10 @@
-5
-4
-Blood-Slick Leech Meat
-Warm, rubbery flesh that still pulses faintly, as if reluctant to die.
-5.5
-4
-Snail Flesh
-A grisly chunk of snail, tough and faintly metallic.
-5
-4
-Glimmering Snail Flesh
-A chunk of snail flesh, glinting faintly as if it holds a strange, inner light.
-7.5
-4
-Snail Flesh
-A grisly chunk of snail, tough and faintly metallic.
-5
-2
-Ironshell Gauntlets
-Gauntlets of dense metal plating, still scarred from battle.
-1.5
+1
 3
+Scroll of Petal Maelstrom
+Scroll of Petal Maelstrom
+0
+Petal Maelstrom
+The user summons a spiraling storm of brittle, blackened petals that slice at anything in its path.
+5
+3
+0

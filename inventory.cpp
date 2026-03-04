@@ -20,14 +20,6 @@ void Inventory::addItem(Item* item) {
 		storage.push_back(item);
 	}
 }
-void Inventory::removeItem(int index) {
-	if(index < 0 || index >= storage.size()) {
-		return;
-	}
-	
-	delete storage[index];
-	storage.erase(storage.begin() + index);
-}
 ostream& operator<<(ostream& os, Inventory inv) {
 	Weapon* placeholderW;
 	Scroll* placeholderS;

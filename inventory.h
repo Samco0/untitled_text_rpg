@@ -20,7 +20,6 @@ public:
 	
 	//manipulation with items
 	void addItem(Item* item);
-	void removeItem(int index);
 	
 	friend ostream& operator<<(ostream& os, Inventory inv);
 private:

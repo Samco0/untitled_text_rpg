@@ -18,32 +18,16 @@ BattleManager::BattleManager(CombatCharacter* player, CombatCharacter* enemy) {
 }
 
 //getters
-int BattleManager::getRound() {
-	return this->round;
-}
-int BattleManager::getIsFinished() {
-	return this->isFinished;
-}
-CombatCharacter* BattleManager::getPlayer() {
-	return this->player;
-}
-CombatCharacter* BattleManager::getEnemy() {
-	return this->enemy;
-}
+int BattleManager::getRound() {return this->round;}
+int BattleManager::getIsFinished() {return this->isFinished;}
+CombatCharacter* BattleManager::getPlayer() {return this->player;}
+CombatCharacter* BattleManager::getEnemy() {return this->enemy;}
 
 //setters
-void BattleManager::setRound(int round) {
-	this->round = round;
-}
-void BattleManager::setIsFinished(int isFinished) {
-	this->isFinished = isFinished;
-}
-void BattleManager::setPlayer(CombatCharacter* player) {
-	this->player = player;
-}
-void BattleManager::setEnemy(CombatCharacter* enemy) {
-	this->enemy = enemy;
-}
+void BattleManager::setRound(int round) {this->round = round;}
+void BattleManager::setIsFinished(int isFinished) {this->isFinished = isFinished;}
+void BattleManager::setPlayer(CombatCharacter* player) {this->player = player;}
+void BattleManager::setEnemy(CombatCharacter* enemy) {this->enemy = enemy;}
 
 //battle methods
 void BattleManager::attack(CombatCharacter* attacker, CombatCharacter* target) {
@@ -503,7 +487,6 @@ void BattleManager::battle() {
 			case 3: {
 				Player* p = dynamic_cast<Player*>(player);
 				vector<Item*>& items = p->getInventory().getStorage();
-				
 				vector<int> consumableIndexes;
 				
 				
@@ -553,19 +536,18 @@ void BattleManager::battle() {
 					cout << "==========================================" << endl;
 					cout << " -> You devour " << used->getName() << ". Its flavor is grim, yet " << healAmount << " vitality crawls back into your veins." << endl;
 					
-					p->getInventory().removeItem(realIndex);
+					cout << realIndex;
+					items.erase(items.begin() +  realIndex);
 				} else {
 					cout << " -> Something went wrong. That item is unusable." << endl;
 				}
 				
 				cout << endl;
 				
-				Spell* es = enemy->getSpells()[randomiseSpellEnemy];
-				if (randomiseAttackEnemy < 7 || es == nullptr || es->getRemainingCooldown() > 0)
-					attack(enemy, player);
-				else
-					attackUsingSpell(enemy, player, randomiseSpellEnemy);
 				
+				Spell* es = enemy->getSpells()[randomiseSpellEnemy];
+				if (randomiseAttackEnemy < 7 || es == nullptr || es->getRemainingCooldown() > 0) attack(enemy, player);
+				else attackUsingSpell(enemy, player, randomiseSpellEnemy);
 				break;
 			}	
 			
