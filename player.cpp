@@ -9,7 +9,6 @@ Player::Player(){
 	this->currentXp = 0;
 	this->requireXp = 15;
 	this->level = 1;
-	this->balance = 0;
 	this->speed = 0;
 	this->critChance = 0;
 	this->critValue = 0;
@@ -37,7 +36,6 @@ Player::Player(string name, float maxHp, float dmg, int balance, int speed, int 
 	this->currentXp = 0;
 	this->requireXp = 15;
 	this->level = 1;
-	this->balance = balance;
 	this->speed = speed;
 	this->critChance = critChance;
 	this->critValue = critValue;
@@ -61,7 +59,6 @@ Player::Player(string name, float maxHp, float dmg, int balance, int speed, int 
 //getters
 float Player::getRequireXp(){return this->requireXp;}
 float Player::getCurrentXp(){return this->currentXp;}
-int Player::getBalance(){return this->balance;}
 Weapon* Player::getWeapon(){return this->weapon;}
 Inventory& Player::getInventory(){return this->inventory;}
 Armor* Player::getHelmet(){return this->helmet;}
@@ -98,7 +95,6 @@ void Player::setCurrentXp(float xpGained){
 		cout << "==========================================" << endl;
 	}
 }
-void Player::setBalance(int balance){this->balance = balance;}
 void Player::setWeapon(Weapon* weapon){this->weapon = weapon;}
 void Player::setInventory(Inventory inventory){this->inventory = inventory;}
 void Player::setHelmet(Armor* helmet){if(helmet->getType() == 1) this->helmet = helmet;}

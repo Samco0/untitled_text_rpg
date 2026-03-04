@@ -1,23 +1,26 @@
 #ifndef LOCATION_H
 #define LOCATION_H
+
 #include <iostream>
 using namespace std;
 
+// Base class for any place in the game
 class Location {
 public:
 	virtual ~Location() {}
 	
-	//constructors
+	// Constructors
 	Location();
 	Location(string name);
 	
-	//getters
+	// Getter
 	string getName();
 	
-	//setters
+	// Setter
 	void setName(string name);
+	
 protected:
-	string name;
+	string name; // location's name
 };
 
 #endif

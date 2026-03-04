@@ -1,25 +1,29 @@
 #ifndef ITEM_H
 #define ITEM_H
+
 #include <iostream>
 using namespace std;
 
+// Base class for all items
 class Item {
 public:
 	virtual ~Item() {}
 	
-	//constructors
+	// Constructors
 	Item();
 	Item(string name, string description);
 	
-	//getters
+	// Getters
 	string getName();
 	string getDescription();
 	
-	//setters
+	// Setters
 	void setName(string name);
 	void setDescription(string description);
+	
 protected:
-	string name, description;
+	string name;        // item name
+	string description; // item description
 };
 
 #endif

@@ -1,26 +1,39 @@
 #ifndef ARMOR_H
 #define ARMOR_H
+
 #include "item.h"
 
+// Armor class inherits from Item
 class Armor : public Item {
 public:
-	//constructors
-	Armor();
+	
+	// ===== Constructors =====
+	
+	Armor(); // Default constructor
+	
+	// Initializes armor with name, description, damage reduction value and type
 	Armor(string name, string description, float damageReduction, int type);
 	
-	//getter
-	float getDamageReduction();
-	int getType();
 	
-	//setter
+	// ===== Getters =====
+	
+	float getDamageReduction(); // Returns damage reduction value
+	int getType();              // Returns armor type (e.g. helmet, chestplate, etc.)
+	
+	
+	// ===== Setters =====
+	
 	void setDamageReduction(float damageReduction);
 	void setType(int type);
 	
-	//output
+	
+	// Allows printing Armor object using cout
 	friend ostream& operator<<(ostream& output, Armor a);
+	
 private:
-	float damageReduction;
-	int type;
+	
+	float damageReduction; // Percentage of damage reduction
+	int type;              // Armor slot/type identifier
 };
 
 #endif

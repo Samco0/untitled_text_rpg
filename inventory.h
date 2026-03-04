@@ -1,29 +1,35 @@
 #ifndef INVENTORY_H
 #define INVENTORY_H
+
 #include "weapon.h"
 #include "scroll.h"
 #include "armor.h"
 #include "consumable.h"
 #include <vector>
+#include <iostream>
+using namespace std;
 
+// Inventory class, holds items
 class Inventory {
 public:
-	//constructors
+	// Constructors
 	Inventory();
 	Inventory(vector<Item*> storage);
 	
-	//getters
+	// Getter
 	vector<Item*>& getStorage();
 	
-	//setter
+	// Setter
 	void setStorage(vector<Item*> storage);
 	
-	//manipulation with items
+	// Add an item
 	void addItem(Item* item);
 	
+	// Output
 	friend ostream& operator<<(ostream& os, Inventory inv);
+	
 private:
-	vector<Item*> storage;
+	vector<Item*> storage; // all items in inventory
 };
 
 #endif

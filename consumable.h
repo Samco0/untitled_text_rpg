@@ -1,23 +1,26 @@
 #ifndef CONSUMABLE_H
 #define CONSUMABLE_H
+
 #include "item.h"
 
+// Items that restore HP
 class Consumable : public Item {
 public:
-	//constructors
+	// Constructors
 	Consumable();
 	Consumable(string name, string description, float hpToRecover);
 	
-	//getters
+	// Getter
 	float getHpToRecover();
 	
-	//setters
+	// Setter
 	void setHpToRecover(float hpToRecover);
 	
-	//output
+	// Output
 	friend ostream& operator<<(ostream& output, Consumable c);
+	
 private:
-	float hpToRecover;
+	float hpToRecover; // how much HP this item restores
 };
 
 #endif

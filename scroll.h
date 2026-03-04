@@ -1,24 +1,27 @@
 #ifndef SCROLL_H
 #define SCROLL_H
+
 #include "item.h"
 #include "spell.h"
 
-class Scroll : public Item{
+// Scroll item that holds a spell
+class Scroll : public Item {
 public:
-	//constructors
+	// Constructors
 	Scroll();
 	Scroll(string description, Spell* heldSpell);
 	
-	//getters
+	// Getter
 	Spell* getHeldSpell();
 	
-	//setters
+	// Setter
 	void setHeldSpell(Spell* heldSpell);
 	
-	//output
+	// Output
 	friend ostream& operator<<(ostream& output, Scroll s);
+	
 private:
-	Spell* heldSpell;
+	Spell* heldSpell; // spell stored in this scroll
 };
 
 #endif

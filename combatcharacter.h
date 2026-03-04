@@ -1,22 +1,22 @@
 #ifndef COMBATCHARACTER_H
 #define COMBATCHARACTER_H
+
 #include "character.h"
 #include "chainingspell.h"
 #include "statuseffect.h"
 
-//why did i choose to make this class? simple 
-//enemy and player have many things in common, 
-//but i cant put them in Character due to Character being a parent class to civil characters too (characters who dont fight)
+// This class is for characters that fight (player or enemy)
+// Can't put fighting stuff in Character, because some characters don't fight
 
-class CombatCharacter : public Character{
+class CombatCharacter : public Character {
 public:
 	virtual ~CombatCharacter() {}
 	
-	//constructors
+	// Constructors
 	CombatCharacter();
 	CombatCharacter(string name, float maxHp, float currentHp, float dmg, int level, int speed, int critChance, float critValue, Spell* spells[4]);
 	
-	//getters
+	// Getters
 	float getMaxHp();
 	float getCurrentHp();
 	float getDmg();
@@ -27,7 +27,7 @@ public:
 	Spell** getSpells();
 	StatusEffect** getStatusEffect();
 	
-	//setters
+	// Setters
 	void setMaxHp(float maxHp);
 	void setCurrentHp(float currentHp);
 	void setDmg(float dmg);
@@ -39,13 +39,14 @@ public:
 	void setSpell(int index, Spell* spell);
 	void setStatusEffect(StatusEffect* statusEffect[4]);
 	
-	//statuseffect connected functions
-	void addStatusEffect(StatusEffect* statusEffect); //this function adds a status at the end, if it doesnt, it means the array is full
-	void removeStatusEffect(int arrayIndex); //this function turns a statuseffect into a null pointer, and sorts it to the end of the array
-	void checkStatusEffects(); // this function checks if any of the statuses in the array can be turned into a nullptr, if yes, then uses removeStatusEffect
+	// Status effect stuff
+	void addStatusEffect(StatusEffect* statusEffect);   // add to end, if full, do nothing
+	void removeStatusEffect(int arrayIndex);             // remove and push nullptr to end
+	void checkStatusEffects();                           // check if any can be removed
 	
-	//output
+	// Output
 	friend ostream& operator<<(ostream& output, CombatCharacter character);
+	
 protected:
 	float maxHp, currentHp;
 	float dmg;
@@ -54,8 +55,7 @@ protected:
 	int critChance;
 	float critValue;
 	Spell* spells[4];
-	StatusEffect* statusEffect[4];
-	//the combat character can have max 4 status effects, after that he cannot get another one unless one slot frees up
+	StatusEffect* statusEffect[4];  // max 4, can't add more unless a slot frees
 };
 
 #endif

@@ -1,26 +1,30 @@
 #ifndef CHAININGSPELL_H
 #define CHAININGSPELL_H
+
 #include "spell.h"
 
-class ChainingSpell : public Spell{
+// ChainingSpell is a special type of Spell
+// that can hit multiple times in one use.
+class ChainingSpell : public Spell {
 public:
-	//constructors
+	// Constructors
 	ChainingSpell();
 	ChainingSpell(string name, string description, float dmg, int fullCooldown, int minHits, int maxHits);
 	
-	//getters
+	// Returns minimum and maximum number of hits
 	int getMinHits();
 	int getMaxHits();
 	
-	//setters
+	// Sets hit range
 	void setMinHits(int minHits);
 	void setMaxHits(int maxHits);
 	
-	//output
+	// Enables printing spell info using cout
 	friend ostream& operator<<(ostream& output, ChainingSpell cs);
+	
 private:
-	int minHits;
-	int maxHits;
+	int minHits; // minimum number of hits per cast
+	int maxHits; // maximum number of hits per cast
 };
 
 #endif

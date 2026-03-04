@@ -1,34 +1,38 @@
 #ifndef ENEMY_H
 #define ENEMY_H
+
 #include <iostream>
 #include <vector>
 #include "combatcharacter.h"
 #include "item.h"
 using namespace std;
 
+// Enemy class, inherits combat stuff
 class Enemy : public CombatCharacter {
 public:
+	// Constructors
 	Enemy();
 	Enemy(string name, float maxHp, float dmg, int level, int speed, int critChance, float critValue, Spell* spells[4]);
 	
-	// getters
+	// Getters
 	float getXpToGet();
 	vector<Item*>& getRewardItems();
 	vector<int>& getRewardChances();
 	
-	// setters
+	// Setters
 	void setXpToGet(float xpToGet);
-	void addReward(Item* item, int chance); // chance in % 1-100
+	void addReward(Item* item, int chance); // % chance 1-100
 	
-	// resetter (hahahah get it, it resets ahahahahahhaha)
+	// Reset enemy stats (lol reset)
 	void reset();
 	
-	// output
-	friend ostream& operator<<(ostream& output, Enemy player);
+	// Output
+	friend ostream& operator<<(ostream& output, Enemy enemy);
+	
 protected:
-	float xpToGet;
-	vector<Item*> rewardItems;
-	vector<int> rewardChances;
+	float xpToGet;                  // XP player gets when defeated
+	vector<Item*> rewardItems;      // Items dropped
+	vector<int> rewardChances;      // % chances for each item
 };
 
 #endif

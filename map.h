@@ -1,5 +1,6 @@
 #ifndef MAP_H
 #define MAP_H
+
 #include "combatlocation.h"
 #include "player.h"
 #include "battlemanager.h"
@@ -8,48 +9,50 @@
 #include <ctime>
 using namespace std;
 
+// Class representing the game map
 class Map {
 public:
-	// constructors
+	// Constructors
 	Map();
 	Map(string name, Player* player, vector<Location*> locations);
 	Map(string name, Player* player);
 	
-	// getters
+	// Getters
 	string getName();
 	Player* getPlayer();
 	vector<Location*>& getLocations();
 	int getPlayerPosition();
 	bool getPlayerFinished();
 	
-	// setters
+	// Setters
 	void setName(string name);
 	void setPlayer(Player* player);
 	void setLocations(vector<Location*> locations);
 	void setPlayerPosition(int playerPosition);
 	void setPlayerFinished(bool playerFinished);
 	
-	// working with the array
+	// Working with locations
 	void addLocation(Location* location);
 	void removeLocation(int index);
 	
-	// typing out map
+	// Output
 	friend ostream& operator<<(ostream& output, Map m);
 	
-	// function related to moving the player on the map
+	// Player movement
 	void movePlayer();
 	
-	// function that checks if player finished the map
+	// Check if player finished the map
 	void checkPlayerFinished();
 	
-	//function that generates a map based on the vectors given
+	// Generate map based on difficulty pools
 	void generateMap(vector<Location*>& easyLocations, vector<Location*>& mediumLocations, vector<Location*>& hardLocations, vector<Location*>& bossLocations, int easyCount, int mediumCount, int hardCount);
+	
 private:
-	string name;
-	Player* player;
-	vector<Location*> locations;
-	int playerPosition;
-	bool playerFinished;
+	string name;                  // map name
+	Player* player;               // the player on this map
+	vector<Location*> locations;  // all locations on the map
+	int playerPosition;           // index of player's current location
+	bool playerFinished;          // true if player reached end
 };
 
 #endif

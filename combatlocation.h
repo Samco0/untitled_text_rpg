@@ -1,21 +1,24 @@
 #ifndef COMBATLOCATION_H
 #define COMBATLOCATION_H
+
 #include "location.h"
 #include "enemy.h"
 
+// Location where combat happens
 class CombatLocation : public Location {
 public:
-	//constructors
+	// Constructors
 	CombatLocation();
 	CombatLocation(string name, Enemy* attacker);
 	
-	//getters
+	// Getter
 	Enemy* getAttacker();
 	
-	//setters
+	// Setter
 	void setAttacker(Enemy* attacker);
+	
 private:
-	Enemy* attacker;
+	Enemy* attacker; // the enemy waiting in this location
 };
 
 #endif

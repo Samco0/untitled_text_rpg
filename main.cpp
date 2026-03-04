@@ -429,48 +429,92 @@ int main() {
 	CombatLocation boss_snailsville_clocation4("The Sunken Spire of Torment", &snailsville_boss4);
 	boss_snailsville_locations.push_back(&boss_snailsville_clocation4);
 	
+	// MAP INITIALIZATION
 	
+	// Create map instance and pass player reference to it
+	// The map interacts directly with the player object (combat, movement, etc.)
 	Map snailsville("The Snailsville", &player);
-	snailsville.generateMap(easy_snailsville_locations, medium_snailsville_locations, hard_snailsville_locations, boss_snailsville_locations, 6, 4, 2);
-	vector<Map*> maps = {&snailsville};
 	
+	// Generate map structure
+	// Parameters:
+	// - easy locations vector
+	// - medium locations vector
+	// - hard locations vector
+	// - boss locations vector
+	// - number of easy rooms
+	// - number of medium rooms
+	// - number of hard rooms
+	snailsville.generateMap(
+		easy_snailsville_locations,
+		medium_snailsville_locations,
+		hard_snailsville_locations,
+		boss_snailsville_locations,
+		6, 4, 2
+		);
+	
+	// Store maps in a vector (allows future expansion to multiple maps)
+	vector<Map*> maps = { &snailsville };
+	
+	
+	// Load saved progress (player stats + map index)
 	loadGame(currentMapIndex, player, slot);
 	
+	
+	// MAIN GAME LOOP
 	while (true) {
+		// Get currently active map
 		Map* currentMap = maps[currentMapIndex];
 		
+		// Save checkpoint before each turn/movement
 		saveGame(currentMapIndex, player, slot);
 		
 		system("cls");
+		
+		// Display basic UI information
 		cout << "==============================" << endl;
 		cout << "Current map: " << currentMapIndex << endl;
-		cout << "HP: " << player.getCurrentHp() << "/" << player.getMaxHp() << endl;
+		cout << "HP: " << player.getCurrentHp()
+		<< "/" << player.getMaxHp() << endl;
 		cout << "==============================" << endl;
 		
+		// Handle player movement (may trigger combat or events)
 		currentMap->movePlayer();
 		
+		// PLAYER DEATH HANDLING
+		// If player HP drops to 0 or below
 		if (player.getCurrentHp() <= 0) {
+			
 			cout << "\nYou died. Reloading checkpoint...\n";
 			
+			// Attempt to reload last saved state
 			if (loadGame(currentMapIndex, player, slot)) {
 				cout << "Checkpoint loaded successfully.\n";
 				system("pause");
-				continue;
-			} else {
+				continue;  // Continue game loop after loading
+			}
+			else {
+				// If no save exists, end the game
 				cout << "No save found. Game over.\n";
 				break;
 			}
 		}
 		
+		// MAP COMPLETION CHECK
+		// If player finished current map
 		if (currentMap->getPlayerFinished()) {
+			
 			cout << "Map cleared!\n";
+			
+			// Move to next map
 			currentMapIndex++;
 			
+			// If no more maps exist → game completed
 			if (currentMapIndex >= maps.size()) {
 				cout << "You completed all maps!\n";
 				break;
 			}
 		}
 	}
+	
 	return 0;
 }

@@ -1,22 +1,26 @@
 #ifndef CHARACTER_H
 #define CHARACTER_H
+
 #include <iostream>
 
 using namespace std;
 
+// Base class representing any character in the game.
+// Stores only basic identity data.
 class Character {
 public:
-	//constructor
+	// Constructors
 	Character();
 	Character(string name);
 	
-	//getters
+	// Returns character name
 	string getName();
 	
-	//setters
+	// Sets character name
 	void setName(string name);
+	
 protected:
-	string name;
+	string name; // character's name
 };
 
 #endif

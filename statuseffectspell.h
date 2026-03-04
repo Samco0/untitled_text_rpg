@@ -1,27 +1,30 @@
 #ifndef STATUSEFFECTSPELL_H
 #define STATUSEFFECTSPELL_H
+
 #include "spell.h"
 #include "hpstatuseffect.h"
 
-class StatusEffectSpell : public Spell{
+// Spell that can apply a status effect to target
+class StatusEffectSpell : public Spell {
 public:
-	//constructor
+	// Constructors
 	StatusEffectSpell();
 	StatusEffectSpell(string name, string description, float dmg, int fullCooldown, int chanceToRecieve, StatusEffect* statusToGive);
 	
-	//getters
+	// Getters
 	int getChanceToRecieve();
 	StatusEffect* getStatusToGive();
 	
-	//setter
+	// Setters
 	void setChanceToRecieve(int chanceToRecieve);
 	void setStatusToGive(StatusEffect* statusToGive);
 	
-	//output
+	// Output
 	friend ostream& operator<<(ostream& output, StatusEffectSpell cs);
+	
 private:
-	int chanceToRecieve; //1-100 chance to recieve the status effect, that is held by this spell
-	StatusEffect* statusToGive; //status effect held by this spell
+	int chanceToRecieve;        // 1-100 chance to apply the status effect
+	StatusEffect* statusToGive; // the status effect this spell gives
 };
 
 #endif
