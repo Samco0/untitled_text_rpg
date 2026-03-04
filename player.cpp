@@ -72,39 +72,40 @@ Armor* Player::getBoots(){return this->boots;}
 
 //setters
 void Player::setRequireXp(float requireXp){this->requireXp = requireXp;}
-void Player::setCurrentXp(float currentXp){
-	int levelBefore = this->level;
-	this->currentXp += currentXp; 
+void Player::setCurrentXp(float xpGained){
+	
+	this->currentXp += xpGained;
 	
 	while (this->currentXp >= this->requireXp){
+		
 		this->currentXp -= this->requireXp;
 		this->level++;
 		
-		//level increases maxHp
-		this->maxHp = this->maxHp * 1.15;
+		this->maxHp *= 1.12f;
 		this->maxHp = std::round(this->maxHp * 10) / 10;
 		
-		//level increases dmg
-		this->dmg = this->dmg * 1.15;
+		this->dmg *= 1.07f;
 		this->dmg = std::round(this->dmg * 10) / 10;
 		
-		cout << " -> " << this->getName() << "\'s wisdom rises to level " << this->level << "." << endl;
-		this->requireXp *= 1.4f;
-	}
-	
-	if(levelBefore < this->level){
-	cout << " -> Your strength grows... the journey continues." << endl;
-	cout << "==========================================" << endl;
+		this->currentHp = this->maxHp;
+		
+		this->requireXp *= 1.8f;
+		
+		cout << "==========================================" << endl;
+		cout << " -> Power surges through your veins." << endl;
+		cout << " -> " << this->getName() << " ascends to level " << this->level << "." << endl;
+		cout << " -> Vitality restored." << endl;
+		cout << "==========================================" << endl;
 	}
 }
 void Player::setBalance(int balance){this->balance = balance;}
 void Player::setWeapon(Weapon* weapon){this->weapon = weapon;}
 void Player::setInventory(Inventory inventory){this->inventory = inventory;}
 void Player::setHelmet(Armor* helmet){if(helmet->getType() == 1) this->helmet = helmet;}
-void Player::setChestplate(Armor* chestplate){if(helmet->getType() == 2) this->chestplate = chestplate;}
-void Player::setGloves(Armor* gloves){if(helmet->getType() == 3) this->gloves = gloves;}
-void Player::setLeggings(Armor* leggings){if(helmet->getType() == 4) this->leggings = leggings;}
-void Player::setBoots(Armor* boots){if(helmet->getType() == 5) this->boots = boots;}
+void Player::setChestplate(Armor* chestplate){if(chestplate->getType() == 2) this->chestplate = chestplate;}
+void Player::setGloves(Armor* gloves){if(gloves->getType() == 3) this->gloves = gloves;}
+void Player::setLeggings(Armor* leggings){if(leggings->getType() == 4) this->leggings = leggings;}
+void Player::setBoots(Armor* boots){if(boots->getType() == 5) this->boots = boots;}
 
 //output
 ostream& operator<<(ostream& output, Player player){

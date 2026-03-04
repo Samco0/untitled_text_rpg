@@ -1,14 +1,22 @@
-3
+5
+4
+Blood-Slick Leech Meat
+Warm, rubbery flesh that still pulses faintly, as if reluctant to die.
+5.5
+4
+Snail Flesh
+A grisly chunk of snail, tough and faintly metallic.
+5
+4
+Glimmering Snail Flesh
+A chunk of snail flesh, glinting faintly as if it holds a strange, inner light.
+7.5
+4
+Snail Flesh
+A grisly chunk of snail, tough and faintly metallic.
+5
 2
-Helmet of the damned
-That damn helmet
-20
-1
-4
-Bandage
-A piece of cloth used to wrap wounds.
-25
-4
-Apple
-Restores 15 HP
-15
+Ironshell Gauntlets
+Gauntlets of dense metal plating, still scarred from battle.
+1.5
+3

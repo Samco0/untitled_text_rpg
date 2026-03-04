@@ -4,6 +4,8 @@
 #include "player.h"
 #include "battlemanager.h"
 #include <vector>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 
 class Map {
@@ -11,6 +13,7 @@ public:
 	// constructors
 	Map();
 	Map(string name, Player* player, vector<Location*> locations);
+	Map(string name, Player* player);
 	
 	// getters
 	string getName();
@@ -39,6 +42,8 @@ public:
 	// function that checks if player finished the map
 	void checkPlayerFinished();
 	
+	//function that generates a map based on the vectors given
+	void generateMap(vector<Location*>& easyLocations, vector<Location*>& mediumLocations, vector<Location*>& hardLocations, vector<Location*>& bossLocations, int easyCount, int mediumCount, int hardCount);
 private:
 	string name;
 	Player* player;

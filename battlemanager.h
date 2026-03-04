@@ -6,7 +6,7 @@
 #include "enemy.h"
 #include "hpstatuseffect.h"
 #include "statuseffectspell.h"
-#include "hpstatuseffect.h"
+#include "lifestealspell.h"
 
 using namespace std;
 
@@ -18,28 +18,28 @@ public:
 	//constructors
 	BattleManager();
 	BattleManager(CombatCharacter* player, CombatCharacter* enemy);
-	
+
 	//getters
 	int getRound();
 	int getIsFinished();
 	CombatCharacter* getPlayer();
 	CombatCharacter* getEnemy();
-	
+
 	//setters
 	void setRound(int round);
 	void setIsFinished(int isFinished);
 	void setPlayer(CombatCharacter* player);
 	void setEnemy(CombatCharacter* enemy);
-	
+
 	//battle methods
 	void attack(CombatCharacter* attacker, CombatCharacter* target);
 	void attackUsingSpell(CombatCharacter* attacker, CombatCharacter* target, int spellIndex);
-	
+
 	//battle misc functions
 	void roundIncrement();
 	void checkDeaths();
 	void checkStatusEffects();
-	
+
 	//the battle itself
 	void battle();
 private:

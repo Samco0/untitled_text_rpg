@@ -1,8 +1,24 @@
+#include <iostream>
+#include <fstream>
+#include <vector>
 #include "savesystem.h"
+#include "player.h"
+#include "spell.h"
+#include "chainingSpell.h"
+#include "statuseffectspell.h"
+#include "lifestealspell.h"
+#include "item.h"
+#include "weapon.h"
+#include "armor.h"
+#include "scroll.h"
+#include "consumable.h"
 
-// --- uloží jeden spell do souboru ---
+using namespace std;
+
 void saveSpell(ofstream& file, Spell* spell) {
-	if (dynamic_cast<ChainingSpell*>(spell))
+	if (dynamic_cast<LifeStealSpell*>(spell))
+		file << 3 << "\n";
+	else if (dynamic_cast<ChainingSpell*>(spell))
 		file << 1 << "\n";
 	else if (dynamic_cast<StatusEffectSpell*>(spell))
 		file << 2 << "\n";
@@ -22,7 +38,6 @@ void saveSpell(ofstream& file, Spell* spell) {
 	
 	if (StatusEffectSpell* ss = dynamic_cast<StatusEffectSpell*>(spell)) {
 		file << ss->getChanceToRecieve() << "\n";
-		
 		StatusEffect* status = ss->getStatusToGive();
 		if (dynamic_cast<HpStatusEffect*>(status))
 			file << 1 << "\n";
@@ -39,49 +54,12 @@ void saveSpell(ofstream& file, Spell* spell) {
 			file << hp->getHpAffection() << "\n";
 		}
 	}
+	
+	if (LifeStealSpell* lss = dynamic_cast<LifeStealSpell*>(spell)) {
+		file << lss->getLifeStealRate() << "\n";
+	}
 }
 
-// --- uloží všechny položky hráče ---
-void saveItems(Player& player, int slot) {
-	ofstream file("slot" + to_string(slot) + "_items.txt");
-	if (!file.is_open()) {
-		cout << "Chyba pri ukladani itemu!\n";
-		return;
-	}
-	
-	vector<Item*>& storage = player.getInventory().getStorage();
-	file << storage.size() << "\n";
-	
-	for (Item* item : storage) {
-		if (Weapon* w = dynamic_cast<Weapon*>(item)) {
-			file << 1 << "\n";
-			file << w->getName() << "\n";
-			file << w->getDescription() << "\n";
-			file << w->getDmg() << "\n";
-			file << w->getType() << "\n";
-		} else if (Armor* a = dynamic_cast<Armor*>(item)) {
-			file << 2 << "\n";
-			file << a->getName() << "\n";
-			file << a->getDescription() << "\n";
-			file << a->getDamageReduction() << "\n";
-			file << a->getType() << "\n";
-		} else if (Scroll* s = dynamic_cast<Scroll*>(item)) {
-			file << 3 << "\n";
-			file << s->getName() << "\n";
-			file << s->getDescription() << "\n";
-			saveSpell(file, s->getHeldSpell());
-		} else if (Consumable* c = dynamic_cast<Consumable*>(item)) {
-			file << 4 << "\n";
-			file << c->getName() << "\n";
-			file << c->getDescription() << "\n";
-			file << c->getHpToRecover() << "\n";
-		}
-	}
-	
-	file.close();
-}
-
-// --- načte jeden spell ---
 Spell* loadSpell(ifstream& file) {
 	int spellType;
 	file >> spellType;
@@ -134,18 +112,55 @@ Spell* loadSpell(ifstream& file) {
 		
 		spell = new StatusEffectSpell(name, description, dmg, fullCd, chance, status);
 		spell->setRemainingCooldown(remainingCd);
+	} else if (spellType == 3) {
+		int lifeSteal;
+		file >> lifeSteal;
+		spell = new LifeStealSpell(name, description, dmg, fullCd, lifeSteal);
+		spell->setRemainingCooldown(remainingCd);
 	}
 	
 	return spell;
 }
 
-// --- načte všechny položky hráče ---
+void saveItems(Player& player, int slot) {
+	ofstream file("slot" + to_string(slot) + "_items.txt");
+	if (!file.is_open()) return;
+	
+	vector<Item*>& storage = player.getInventory().getStorage();
+	file << storage.size() << "\n";
+	
+	for (Item* item : storage) {
+		if (Weapon* w = dynamic_cast<Weapon*>(item)) {
+			file << 1 << "\n";
+			file << w->getName() << "\n";
+			file << w->getDescription() << "\n";
+			file << w->getDmg() << "\n";
+			file << w->getType() << "\n";
+		} else if (Armor* a = dynamic_cast<Armor*>(item)) {
+			file << 2 << "\n";
+			file << a->getName() << "\n";
+			file << a->getDescription() << "\n";
+			file << a->getDamageReduction() << "\n";
+			file << a->getType() << "\n";
+		} else if (Scroll* s = dynamic_cast<Scroll*>(item)) {
+			file << 3 << "\n";
+			file << s->getName() << "\n";
+			file << s->getDescription() << "\n";
+			saveSpell(file, s->getHeldSpell());
+		} else if (Consumable* c = dynamic_cast<Consumable*>(item)) {
+			file << 4 << "\n";
+			file << c->getName() << "\n";
+			file << c->getDescription() << "\n";
+			file << c->getHpToRecover() << "\n";
+		}
+	}
+	
+	file.close();
+}
+
 void loadItems(Player& player, int slot) {
 	ifstream file("slot" + to_string(slot) + "_items.txt");
-	if (!file.is_open()) {
-		cout << "Item save neexistuje.\n";
-		return;
-	}
+	if (!file.is_open()) return;
 	
 	player.getInventory().getStorage().clear();
 	
@@ -188,11 +203,11 @@ void loadItems(Player& player, int slot) {
 	file.close();
 }
 
-// --- uloží a načte celou hru ---
 void saveGame(int mapIndex, Player& player, int slot) {
 	ofstream file("slot" + to_string(slot) + "_map.txt");
 	if (file.is_open()) {
 		file << mapIndex << "\n";
+		file << player.getCurrentHp() << "\n";
 		file.close();
 	}
 	saveItems(player, slot);
@@ -203,6 +218,10 @@ bool loadGame(int& mapIndex, Player& player, int slot) {
 	if (!file.is_open()) return false;
 	
 	file >> mapIndex;
+	float currentHp;
+	file >> currentHp;
+	player.setCurrentHp(currentHp);
+	
 	file.close();
 	loadItems(player, slot);
 	return true;
