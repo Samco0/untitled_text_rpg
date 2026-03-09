@@ -130,7 +130,7 @@ int main() {
 	Spell easy_snailsville_enemy1_spell1("Cracked Hammer", "The user shapes a jagged, darkened hammer from twisted metal and strikes the target's skull with a resonant clang.", 5, 3);
 	Spell* easy_snailsville_enemy1_spells[4] = {&easy_snailsville_enemy1_spell1, nullptr, nullptr, nullptr};
 	Enemy easy_snailsville_enemy1("Sputter the Smith", 12, 2, 1, 5, 15, 1.5, easy_snailsville_enemy1_spells);
-	Consumable easy_snailsville_enemy1_drop1("Snail Flesh", "A grisly chunk of snail, tough and faintly metallic.", 5);
+	Consumable easy_snailsville_enemy1_drop1("Snail Flesh", "A grisly chunk of snail, tough and faintly metallic.", 7.5);
 	Scroll easy_snailsville_enemy1_drop2("Scroll of Cracked Hammer", &easy_snailsville_enemy1_spell1);
 	Weapon easy_snailsville_enemy1_drop3("Blackened Shell Sword", "Sword", "Forged from shell and blackened iron, it hums faintly with a restless energy.", 2.5);
 	easy_snailsville_enemy1.addReward(&easy_snailsville_enemy1_drop1, 60);
@@ -144,7 +144,7 @@ int main() {
 	ChainingSpell easy_snailsville_enemy2_spell2("Pebble Barrage", "A swarm of sharp, unnatural pebbles erupts from the user's hands, cutting at the target relentlessly.", 1, 5, 4, 10);
 	Spell* easy_snailsville_enemy2_spells[4] = {&easy_snailsville_enemy2_spell1, &easy_snailsville_enemy2_spell2, nullptr, nullptr};
 	Enemy easy_snailsville_enemy2("Shellcarver Apprentice", 14, 3, 2, 4, 15, 1.5, easy_snailsville_enemy2_spells);
-	Consumable easy_snailsville_enemy2_drop1("Snail Flesh", "A grisly chunk of snail, tough and faintly metallic.", 5);
+	Consumable easy_snailsville_enemy2_drop1("Snail Flesh", "A grisly chunk of snail, tough and faintly metallic.", 7.5);
 	Scroll easy_snailsville_enemy2_drop2("Scroll of Shattered Rock", &easy_snailsville_enemy2_spell1);
 	Scroll easy_snailsville_enemy2_drop3("Scroll of Pebble Barrage", &easy_snailsville_enemy2_spell2);
 	easy_snailsville_enemy2.addReward(&easy_snailsville_enemy2_drop1, 65);
@@ -157,7 +157,7 @@ int main() {
 	Spell easy_snailsville_enemy3_spell1("Blinding Flash", "The user emits a sudden, piercing light that sears the target's eyes, leaving a lingering sting.", 4, 2);
 	Spell* easy_snailsville_enemy3_spells[4] = {&easy_snailsville_enemy3_spell1, nullptr, nullptr, nullptr};
 	Enemy easy_snailsville_enemy3("Glimmering Courier", 10, 1.5, 2, 7, 20, 2, easy_snailsville_enemy3_spells);
-	Consumable easy_snailsville_enemy3_drop1("Glimmering Snail Flesh", "A chunk of snail flesh, glinting faintly as if it holds a strange, inner light.", 7.5);
+	Consumable easy_snailsville_enemy3_drop1("Glimmering Snail Flesh", "A chunk of snail flesh, glinting faintly as if it holds a strange, inner light.", 10);
 	Scroll easy_snailsville_enemy3_drop2("Scroll of Blinding Flash", &easy_snailsville_enemy3_spell1);
 	easy_snailsville_enemy3.addReward(&easy_snailsville_enemy3_drop1, 75);
 	easy_snailsville_enemy3.addReward(&easy_snailsville_enemy3_drop2, 25);
@@ -169,8 +169,8 @@ int main() {
 	Spell easy_snailsville_enemy4_spell2("Thorn Lash", "The user lashes thorned vines at the target, tearing through flesh and armor alike.", 3.5, 2);
 	Spell* easy_snailsville_enemy4_spells[4] = {&easy_snailsville_enemy4_spell1, &easy_snailsville_enemy4_spell2, nullptr, nullptr};
 	Enemy easy_snailsville_enemy4("Herbalist Snail", 10, 2, 1, 4, 10, 3, easy_snailsville_enemy4_spells);
-	Consumable easy_snailsville_enemy4_drop1("Snail Flesh", "A grisly chunk of snail, tough and faintly metallic.", 5);
-	Consumable easy_snailsville_enemy4_drop2("Withered Rose", "A decayed, blackened rose oozing a faint, sticky residue.", 10);
+	Consumable easy_snailsville_enemy4_drop1("Snail Flesh", "A grisly chunk of snail, tough and faintly metallic.", 7.5);
+	Consumable easy_snailsville_enemy4_drop2("Withered Rose", "A decayed, blackened rose oozing a faint, sticky residue.", 12.5);
 	Scroll easy_snailsville_enemy4_drop3("Scroll of Petal Maelstrom", &easy_snailsville_enemy4_spell1);
 	Weapon easy_snailsville_enemy4_drop4("Thorned Vine Whip", "Whip", "A whip braided from thorned vines, dark and twisted, leaving deep scratches.", 2);
 	easy_snailsville_enemy4.addReward(&easy_snailsville_enemy4_drop1, 50);
@@ -185,7 +185,7 @@ int main() {
 	ChainingSpell easy_snailsville_enemy5_spell2("Waxstorm", "The user trembles violently, raining molten wax shards that stick and burn, scalding flesh and armor alike.", 0.5, 5, 5, 20);
 	Spell* easy_snailsville_enemy5_spells[4] = {&easy_snailsville_enemy5_spell1, &easy_snailsville_enemy5_spell2, nullptr, nullptr};
 	Enemy easy_snailsville_enemy5("Lampbearer Snail", 12.5, 2, 1, 4, 10, 1.25, easy_snailsville_enemy5_spells);
-	Consumable easy_snailsville_enemy5_drop1("Snail Flesh", "A grisly chunk of snail, tough and faintly metallic.", 5);
+	Consumable easy_snailsville_enemy5_drop1("Snail Flesh", "A grisly chunk of snail, tough and faintly metallic.", 7.5);
 	Weapon easy_snailsville_enemy5_drop2("Slimebound Lantern", "Lamp", "A warped lantern covered in snail slime; its flickering light dances unnaturally across the walls.", 1.5);
 	Scroll easy_snailsville_enemy5_drop3("Scroll of Waxstorm", &easy_snailsville_enemy5_spell2);
 	easy_snailsville_enemy5.addReward(&easy_snailsville_enemy5_drop1, 60);
@@ -200,8 +200,8 @@ int main() {
 	Spell easy_snailsville_enemy6_spell3("Shattered Plate", "A jagged plate materializes in the snail's hand and flies like a deadly disc at the target.", 3, 2);
 	Spell* easy_snailsville_enemy6_spells[4] = {&easy_snailsville_enemy6_spell1, &easy_snailsville_enemy6_spell2, &easy_snailsville_enemy6_spell3, nullptr};
 	Enemy easy_snailsville_enemy6("Tavern Worker Snail", 15, 3, 3, 3, 7.5, 2, easy_snailsville_enemy6_spells);
-	Consumable easy_snailsville_enemy6_drop1("Muccus Ale", "A thick, murky brew that sloshes with unsettling bubbles; not for the faint-hearted.", 10);
-	Consumable easy_snailsville_enemy6_drop2("Slime Wine", "A viscous, dark alcoholic concoction that burns like molten tar.", 10);
+	Consumable easy_snailsville_enemy6_drop1("Muccus Ale", "A thick, murky brew that sloshes with unsettling bubbles; not for the faint-hearted.", 12.5);
+	Consumable easy_snailsville_enemy6_drop2("Slime Wine", "A viscous, dark alcoholic concoction that burns like molten tar.", 15);
 	Scroll easy_snailsville_enemy6_drop3("Scroll of Barrel Smash", &easy_snailsville_enemy6_spell1);
 	Scroll easy_snailsville_enemy6_drop4("Scroll of Piercing Brew", &easy_snailsville_enemy6_spell2);
 	Scroll easy_snailsville_enemy6_drop5("Scroll of Shattered Plate", &easy_snailsville_enemy6_spell3);
@@ -217,7 +217,7 @@ int main() {
 	Spell easy_snailsville_enemy7_spell1("Mire Bubble", "The snail exhales a swollen, murky bubble of mucus that drifts forward before bursting violently against the target.", 5, 3);
 	Spell* easy_snailsville_enemy7_spells[4] = {&easy_snailsville_enemy7_spell1, nullptr, nullptr, nullptr};
 	Enemy easy_snailsville_enemy7("Fisher Snail", 10, 1.5, 1, 3, 15, 2, easy_snailsville_enemy7_spells);
-	Consumable easy_snailsville_enemy7_drop1("Mirelake Catch", "A pale fish dragged from the depths of the mucus lake. Its skin feels wrong to the touch.", 7);
+	Consumable easy_snailsville_enemy7_drop1("Mirelake Catch", "A pale fish dragged from the depths of the mucus lake. Its skin feels wrong to the touch.", 7.5);
 	Scroll easy_snailsville_enemy7_drop2("Scroll of Mire Bubble", &easy_snailsville_enemy7_spell1);
 	Weapon easy_snailsville_enemy7_drop3("Mirebound Fishing Rod", "Fishing Rod", "A warped rod stiffened by dried slime and lake residue. It smells faintly of rot.", 1.75);
 	easy_snailsville_enemy7.addReward(&easy_snailsville_enemy7_drop1, 50);
@@ -231,7 +231,7 @@ int main() {
 	Spell easy_snailsville_enemy8_spell2("Grave Mud Slam", "A hulking mass of grave-cold mud forms into a hand and crashes down upon the target.", 5, 3);
 	Spell* easy_snailsville_enemy8_spells[4] = {&easy_snailsville_enemy8_spell1, &easy_snailsville_enemy8_spell2, nullptr, nullptr};
 	Enemy easy_snailsville_enemy8("Mud Leech", 12.5, 1.5, 2, 6, 15, 2, easy_snailsville_enemy8_spells);
-	Consumable easy_snailsville_enemy8_drop1("Blood-Slick Leech Meat", "Warm, rubbery flesh that still pulses faintly, as if reluctant to die.", 5.5);
+	Consumable easy_snailsville_enemy8_drop1("Blood-Slick Leech Meat", "Warm, rubbery flesh that still pulses faintly, as if reluctant to die.", 10);
 	Scroll easy_snailsville_enemy8_drop2("Scroll of Sanguine Leech", &easy_snailsville_enemy8_spell1);
 	easy_snailsville_enemy8.addReward(&easy_snailsville_enemy8_drop1, 60);
 	easy_snailsville_enemy8.addReward(&easy_snailsville_enemy8_drop2, 40);
@@ -243,7 +243,7 @@ int main() {
 	Spell easy_snailsville_enemy9_spell2("Blight Spit", "The worm spits a string of foul, decaying bile at the target.", 3, 2);
 	Spell* easy_snailsville_enemy9_spells[4] = {&easy_snailsville_enemy9_spell1, &easy_snailsville_enemy9_spell2, nullptr, nullptr};
 	Enemy easy_snailsville_enemy9("Tiny Rotworm", 10, 2, 1, 4, 10, 3, easy_snailsville_enemy9_spells);
-	Consumable easy_snailsville_enemy9_drop1("Blood-Slick Leech Meat", "Warm, rubbery flesh that still pulses faintly, as if reluctant to die.", 5.5);
+	Consumable easy_snailsville_enemy9_drop1("Blood-Slick Leech Meat", "Warm, rubbery flesh that still pulses faintly, as if reluctant to die.", 10);
 	Scroll easy_snailsville_enemy9_drop2("Scroll of Frail Siphon", &easy_snailsville_enemy9_spell1);
 	Scroll easy_snailsville_enemy9_drop3("Scroll of Blight Spit", &easy_snailsville_enemy9_spell2);
 	easy_snailsville_enemy9.addReward(&easy_snailsville_enemy9_drop1, 60);
@@ -261,11 +261,13 @@ int main() {
 	Armor medium_snailsville_enemy1_drop3("Ironshell Gauntlets", "Gauntlets of dense metal plating, still scarred from battle.", 1.5, 3);
 	Armor medium_snailsville_enemy1_drop4("Ironshell Greaves", "Leg armor shaped from hardened shell segments.", 3, 4);
 	Armor medium_snailsville_enemy1_drop5("Ironshell Sabatons", "Boots plated in iron, heavy with purpose.", 2, 5);
+	Scroll medium_snailsville_enemy1_drop6("Scroll of Ferric Impact", &medium_snailsville_enemy1_spell1);
 	medium_snailsville_enemy1.addReward(&medium_snailsville_enemy1_drop1, 20);
 	medium_snailsville_enemy1.addReward(&medium_snailsville_enemy1_drop2, 20);
 	medium_snailsville_enemy1.addReward(&medium_snailsville_enemy1_drop3, 20);
 	medium_snailsville_enemy1.addReward(&medium_snailsville_enemy1_drop4, 20);
 	medium_snailsville_enemy1.addReward(&medium_snailsville_enemy1_drop5, 20);
+	medium_snailsville_enemy1.addReward(&medium_snailsville_enemy1_drop6, 10);
 	CombatLocation medium_snailsville_clocation1("The Ironbound Hall", &medium_snailsville_enemy1);
 	vector<Location*> medium_snailsville_locations = {&medium_snailsville_clocation1};
 	
@@ -291,16 +293,86 @@ int main() {
 	LifeStealSpell medium_snailsville_enemy3_spell1("Crimson Siphon Strike", "A brutal tendril-infused blow that tears vitality straight from the veins.", 8, 4, 85);
 	Spell* medium_snailsville_enemy3_spells[4] = {&medium_snailsville_enemy3_spell1, nullptr, nullptr, nullptr};
 	Enemy medium_snailsville_enemy3("Leech Scout", 15, 4, 3, 5, 15, 1.5, medium_snailsville_enemy3_spells);
-	Consumable medium_snailsville_enemy3_drop1("Blood-Slick Leech Meat", "Warm, rubbery flesh that still pulses faintly, as if reluctant to die.", 5.5);
+	Consumable medium_snailsville_enemy3_drop1("Blood-Slick Leech Meat", "Warm, rubbery flesh that still pulses faintly, as if reluctant to die.", 10);
 	Scroll medium_snailsville_enemy3_drop2("Scroll of Crimson Siphon Strike", &medium_snailsville_enemy3_spell1);
 	medium_snailsville_enemy3.addReward(&medium_snailsville_enemy3_drop1, 75);
 	medium_snailsville_enemy3.addReward(&medium_snailsville_enemy3_drop2, 25);
 	CombatLocation medium_snailsville_clocation3("The Drowned Vein-Tunnel", &medium_snailsville_enemy3);
 	medium_snailsville_locations.push_back(&medium_snailsville_clocation3);
 	
+//Snailsville | Medium Enemy no.4
+	Spell medium_snailsville_enemy4_spell1("Shadowfist Strike", "The user envelops their claw in living shadow and slams it into the foe, chilling the soul", 7.5, 3);
+	Spell* medium_snailsville_enemy4_spells[4] = {&medium_snailsville_enemy4_spell1, nullptr, nullptr, nullptr};
+	Enemy medium_snailsville_enemy4("Obsidian Shell Snail", 20, 5, 3, 4, 10, 1.5, medium_snailsville_enemy4_spells);
+	Armor medium_snailsville_enemy4_drop1("Helm of Eternal Night", "A blackened helm that whispers with the voices of the damned", 2.5, 1);
+	Armor medium_snailsville_enemy4_drop2("Cursed Carapace", "An obsidian chestplate etched with runes that sap warmth from the wearer", 4, 2);
+	Armor medium_snailsville_enemy4_drop3("Gauntlets of Umbral Grip", "Shadow-forged gauntlets that chill to the touch", 1.5, 3);
+	Armor medium_snailsville_enemy4_drop4("Leggings of the Hollow Shell", "Dark leggings that seem to absorb light around them", 3, 4);
+	Armor medium_snailsville_enemy4_drop5("Boots of the Blackened Trail", "Boots that leave faint trails of shadow behind with every step", 2, 5);
+	Scroll medium_snailsville_enemy4_drop6("Tome of Shadowfist Strike", &medium_snailsville_enemy4_spell1);
+	medium_snailsville_enemy4.addReward(&medium_snailsville_enemy4_drop1, 20);
+	medium_snailsville_enemy4.addReward(&medium_snailsville_enemy4_drop2, 20);
+	medium_snailsville_enemy4.addReward(&medium_snailsville_enemy4_drop3, 20);
+	medium_snailsville_enemy4.addReward(&medium_snailsville_enemy4_drop4, 20);
+	medium_snailsville_enemy4.addReward(&medium_snailsville_enemy4_drop5, 20);
+	medium_snailsville_enemy4.addReward(&medium_snailsville_enemy4_drop6, 10);
+	CombatLocation medium_snailsville_clocation4("Obsidianbound Hall of Whispers", &medium_snailsville_enemy4);
+	medium_snailsville_locations.push_back(&medium_snailsville_clocation4);
+	
+//Snailsville | Medium Enemy no.5
+	HpStatusEffect medium_snailsville_enemy5_status1("Corrosive Venom", 5, 1, -1.5);
+	StatusEffectSpell medium_snailsville_enemy5_spell1("Venomous Fang Strike", "A fang coated in a writhing black venom tears into the target, burning flesh and soul alike", 7.5, 4, 80, &medium_snailsville_enemy5_status1);
+	HpStatusEffect medium_snailsville_enemy5_status2("Blight Poison", 3, 1, -1);
+	StatusEffectSpell medium_snailsville_enemy5_spell2("Blighted Jab", "A quick strike that injects a creeping poison, leaving the target weakened and shivering", 5, 3, 80, &medium_snailsville_enemy5_status2);
+	Spell* medium_snailsville_enemy5_spells[4] = {&medium_snailsville_enemy5_spell1, &medium_snailsville_enemy5_spell2, nullptr, nullptr};
+	Enemy medium_snailsville_enemy5("Venomspire Snail", 19, 5, 3, 4, 12.5, 1.5, medium_snailsville_enemy5_spells);
+	Consumable medium_snailsville_enemy5_drop1("Venomous Snail Meat", "The corpse of the snail radiates a dark, toxic essence; consuming it emboldens the daring and poisons the weak", 7.5);
+	Scroll medium_snailsville_enemy5_drop2("Tome of Venomous Fang Strike", &medium_snailsville_enemy5_spell1);
+	Scroll medium_snailsville_enemy5_drop3("Tome of Blighted Jab", &medium_snailsville_enemy5_spell2);
+	Weapon medium_snailsville_enemy5_drop4("Shard of Venomspire Shell", "Knife", "A jagged shard from the snail's shell, still pulsing with dark energy", 2);
+	medium_snailsville_enemy5.addReward(&medium_snailsville_enemy5_drop1, 50);
+	medium_snailsville_enemy5.addReward(&medium_snailsville_enemy5_drop2, 20);
+	medium_snailsville_enemy5.addReward(&medium_snailsville_enemy5_drop3, 20);
+	medium_snailsville_enemy5.addReward(&medium_snailsville_enemy5_drop4, 10);
+	CombatLocation medium_snailsville_clocation5("Venomspire Tower of Dread", &medium_snailsville_enemy5);
+	medium_snailsville_locations.push_back(&medium_snailsville_clocation5);
+	
+//Snailsville | Medium Enemy no.6
+	Spell medium_snailsville_enemy6_spell1("Umbral Strike", "The user emerges from creeping darkness and delivers a sudden, silent blow", 7.5, 3);
+	Spell medium_snailsville_enemy6_spell2("Shadowfall Kick", "The user bursts from the shadows and crashes into the target with a brutal kick", 10, 4);
+	Spell* medium_snailsville_enemy6_spells[4] = {&medium_snailsville_enemy6_spell1, &medium_snailsville_enemy6_spell2, nullptr, nullptr};
+	Enemy medium_snailsville_enemy6("Creeping Mollusk", 18, 5, 3, 7, 10, 2, medium_snailsville_enemy6_spells);
+	Consumable medium_snailsville_enemy6_drop1("Cursed Mollusk Flesh", "A dark, rubbery slab of mollusk meat that carries a faint metallic taste and a whisper of corruption.", 7.5);
+	Armor medium_snailsville_enemy6_drop2("Hood of the Silent Stalker", "A shadow-soaked hood once worn by a lurking predator of the night.", 2, 1);
+	Armor medium_snailsville_enemy6_drop3("Robes of the Silent Stalker", "Tattered robes that swallow light, once belonging to a creature that hunted from darkness.", 3, 2);
+	Weapon medium_snailsville_enemy6_drop4("Whispering Blade", "Knife", "A thin, sinister knife forged for silent kills in dark corners.", 2.5);
+	medium_snailsville_enemy6.addReward(&medium_snailsville_enemy6_drop1, 50);
+	medium_snailsville_enemy6.addReward(&medium_snailsville_enemy6_drop2, 20);
+	medium_snailsville_enemy6.addReward(&medium_snailsville_enemy6_drop3, 20);
+	medium_snailsville_enemy6.addReward(&medium_snailsville_enemy6_drop4, 10);
+	CombatLocation medium_snailsville_clocation6("Whispering Alley", &medium_snailsville_enemy6);
+	medium_snailsville_locations.push_back(&medium_snailsville_clocation6);
+	
+//Snailsville | Medium Enemy no.7
+	ChainingSpell medium_snailsville_enemy7_spell1("Whirling Abyss Dance", "The user twists into a violent spinning assault, striking the target again and again with relentless force", 0.5, 4, 3, 20);
+	LifeStealSpell medium_snailsville_enemy7_spell2("Thorn of the Bloodleecher", "The user launches a cursed thorn that burrows into the target and siphons their life essence", 7.5, 4, 90);
+	ChainingSpell medium_snailsville_enemy7_spell3("Storm of Mire Spikes", "The user hurls a barrage of jagged mudspikes that rip through flesh like shards of stone", 1, 4, 3, 10);
+	Spell* medium_snailsville_enemy7_spells[4] = {&medium_snailsville_enemy7_spell1, &medium_snailsville_enemy7_spell2, &medium_snailsville_enemy7_spell3, nullptr};
+	Enemy medium_snailsville_enemy7("Mudspike Leech", 17, 6, 3, 5, 15, 1.25, medium_snailsville_enemy7_spells);
+	Consumable medium_snailsville_enemy7_drop1("Blood-Slick Leech Meat", "Warm, rubbery flesh that still pulses faintly, as if reluctant to die.", 10);
+	Scroll medium_snailsville_enemy7_drop2("Scroll of Whirling Abyss Dance", &medium_snailsville_enemy7_spell1);
+	Scroll medium_snailsville_enemy7_drop3("Scroll of Thorn of the Bloodleecher", &medium_snailsville_enemy7_spell2);
+	Scroll medium_snailsville_enemy7_drop4("Scroll of Storm of Mire Spikes", &medium_snailsville_enemy7_spell3);
+	medium_snailsville_enemy7.addReward(&medium_snailsville_enemy7_drop1, 50);
+	medium_snailsville_enemy7.addReward(&medium_snailsville_enemy7_drop2, 20);
+	medium_snailsville_enemy7.addReward(&medium_snailsville_enemy7_drop3, 20);
+	medium_snailsville_enemy7.addReward(&medium_snailsville_enemy7_drop4, 20);
+	CombatLocation medium_snailsville_clocation7("The Rotting Mire", &medium_snailsville_enemy7);
+	medium_snailsville_locations.push_back(&medium_snailsville_clocation7);
+	
 //Snailsville | Hard Enemy no.1
 	Spell hard_snailsville_enemy1_spell1("Iron Cataclysm Fist", "The marauder encases his arm in jagged metal and delivers a devastating strike.", 15, 4);
-	HpStatusEffect hard_snailsville_enemy1_status1("Hemorrhage", 5, 2, 2);
+	HpStatusEffect hard_snailsville_enemy1_status1("Hemorrhage", 5, 2, -2);
 	StatusEffectSpell hard_snailsville_enemy1_spell2("Carapace Rend", "Hardened claws tear deep, leaving a brutal bleeding wound.", 7.5, 2, 80, &hard_snailsville_enemy1_status1);
 	LifeStealSpell hard_snailsville_enemy1_spell3("Crimson Devourer", "A massive tendril lashes out and drains vitality without mercy.", 10, 3, 100);
 	Spell* hard_snailsville_enemy1_spells[4] = {&hard_snailsville_enemy1_spell1, &hard_snailsville_enemy1_spell2, &hard_snailsville_enemy1_spell3, nullptr};
@@ -321,7 +393,7 @@ int main() {
 	ChainingSpell hard_snailsville_enemy2_spell2("Eternal Soulstorm", "Shattered fragments of fallen souls erupt in a relentless barrage.", 1, 5, 5, 15);
 	Spell* hard_snailsville_enemy2_spells[4] = {&hard_snailsville_enemy2_spell1, &hard_snailsville_enemy2_spell2, nullptr, nullptr};
 	Enemy hard_snailsville_enemy2("Soulbound Enforcer", 38, 7, 5, 5, 10, 1.5, hard_snailsville_enemy2_spells);
-	Consumable hard_snailsville_enemy2_drop1("Fractured Soul Core", "A dim, whispering remnant of a warrior consumed by the Enforcer.", 10);
+	Consumable hard_snailsville_enemy2_drop1("Fractured Soul Core", "A dim, whispering remnant of a warrior consumed by the Enforcer.", 20);
 	Scroll hard_snailsville_enemy2_drop2("Scroll of Soulbreaker Fist", &hard_snailsville_enemy2_spell1);
 	Armor hard_snailsville_enemy2_drop3("Soulbound Carapace Helm", "A dense snail-metal helm infused with restless spirits.", 4, 1);
 	Armor hard_snailsville_enemy2_drop4("Soulbound Carapace Gauntlets", "Heavy gauntlets pulsing faintly with trapped souls.", 2.5, 3);
@@ -331,6 +403,30 @@ int main() {
 	hard_snailsville_enemy2.addReward(&hard_snailsville_enemy2_drop4, 30);
 	CombatLocation hard_snailsville_clocation2("The Soulbound Bastion", &hard_snailsville_enemy2);
 	hard_snailsville_locations.push_back(&hard_snailsville_clocation2);
+	
+//Snailsville | Hard Enemy no.3
+	HpStatusEffect hard_snailsville_enemy3_status1("Black Venom", 3, 6, -3);	
+	StatusEffectSpell hard_snailsville_enemy3_spell1("Venomspike Shot", "The user launches a razor-sharp venomspike infused with deadly toxin", 12, 3, 80, &hard_snailsville_enemy3_status1);
+	Spell hard_snailsville_enemy3_spell2("Umbral Jab", "The user melts into shadow, reappearing behind the target to drive a precise strike into their side", 8, 2);
+	Spell hard_snailsville_enemy3_spell3("Umbral Kick", "The user emerges from the darkness and lands a brutal kick before fading back into shadow", 10, 3);
+	Spell* hard_snailsville_enemy3_spells[4] = {&hard_snailsville_enemy3_spell1, &hard_snailsville_enemy3_spell2, &hard_snailsville_enemy3_spell3, nullptr};
+	Enemy hard_snailsville_enemy3("Venomspike Assassin", 36, 8, 5, 6, 10, 1.5, hard_snailsville_enemy3_spells);
+	Consumable hard_snailsville_enemy3_drop1("Venomous Snail Meat", "The corpse of the snail radiates a dark, toxic essence; consuming it emboldens the daring and poisons the weak", 7.5);
+	Scroll hard_snailsville_enemy3_drop2("Scroll of Venomspike Shot", &hard_snailsville_enemy3_spell1);
+	Scroll hard_snailsville_enemy3_drop3("Scroll of Umbral Jab", &hard_snailsville_enemy3_spell2);
+	Scroll hard_snailsville_enemy3_drop4("Scroll of Umbral Kick", &hard_snailsville_enemy3_spell3);
+	Weapon hard_snailsville_enemy3_drop5("Venomspike Fangblade", "Knife", "A jagged fang taken from the Venomspike Assassin, still slick with lethal poison", 4);
+	hard_snailsville_enemy3.addReward(&hard_snailsville_enemy3_drop1, 50);
+	hard_snailsville_enemy3.addReward(&hard_snailsville_enemy3_drop2, 25);
+	hard_snailsville_enemy3.addReward(&hard_snailsville_enemy3_drop3, 25);
+	hard_snailsville_enemy3.addReward(&hard_snailsville_enemy3_drop4, 25);
+	hard_snailsville_enemy3.addReward(&hard_snailsville_enemy3_drop5, 15);
+	CombatLocation hard_snailsville_clocation3("The Venomshroud Bastion", &hard_snailsville_enemy3);
+	hard_snailsville_locations.push_back(&hard_snailsville_clocation3);
+	
+//Snailsville | Hard Enemy no.4
+	Spell* hard_snailsville_enemy4_spells[4] = {nullptr, nullptr, nullptr, nullptr};
+	Enemy hard_snailsville_enemy4("Deathcoil Snail", 34, 9, 5, 7, 10, 1.5, hard_snailsville_enemy4_spells);
 	
 //Snailsville | Boss no.1
 	HpStatusEffect snailsville_boss1_status1("Corrosive Venom", 5, 2, 3);
@@ -449,7 +545,7 @@ int main() {
 		medium_snailsville_locations,
 		hard_snailsville_locations,
 		boss_snailsville_locations,
-		6, 4, 2
+		5, 4, 3
 		);
 	
 	// Store maps in a vector (allows future expansion to multiple maps)

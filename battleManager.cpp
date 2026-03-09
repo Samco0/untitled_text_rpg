@@ -80,6 +80,9 @@ void BattleManager::attack(CombatCharacter* attacker, CombatCharacter* target) {
 		} else if (weaponType == "Spear") {
 			cout << " -> You (" << attacker->getName() << ") thrust " << weaponName << " with deadly precision at " << targetName << ", dealing " << damage << " damage";
 			if (isCrit) cout << ". The spear pierces armor and bone, driving them to the ground in agony!";
+		} else if (weaponType == "Knife") {
+			cout << " -> You (" << attacker->getName() << ") slash with " << weaponName << " at " << targetName << ", dealing " << damage << " damage";
+			if (isCrit) cout << ". The blade cuts deep, tearing flesh and leaving a shadowy wound that seeps with cursed venom!";
 		} else {
 			cout << " -> You (" << attacker->getName() << ") strike " << targetName << " with " << weaponName << ", dealing " << damage << " damage";
 			if (isCrit) cout << ". A vicious blow rends flesh and spirit!";

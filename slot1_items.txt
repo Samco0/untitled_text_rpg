@@ -1,10 +1,15 @@
 2
-1
-Slimebound Lantern
-A warped lantern covered in snail slime; its flickering light dances unnaturally across the walls.
-1.5
-Lamp
-4
-Blood-Slick Leech Meat
-Warm, rubbery flesh that still pulses faintly, as if reluctant to die.
-5.5
+3
+Scroll of Umbral Jab
+Scroll of Umbral Jab
+0
+Umbral Jab
+The user melts into shadow, reappearing behind the target to drive a precise strike into their side
+8
+2
+0
+2
+Crimson Carapace Cuirass
+A heavy chestplate forged from blood-hardened snail carapace, scarred by countless battles.
+7
+2
