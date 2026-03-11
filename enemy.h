@@ -21,7 +21,7 @@ public:
 	
 	// Setters
 	void setXpToGet(float xpToGet);
-	void addReward(Item* item, int chance); // % chance 1-100
+	void addReward(Item* item, int chance, int count); // % chance 1-100
 	
 	// Reset enemy stats (lol reset)
 	void reset();

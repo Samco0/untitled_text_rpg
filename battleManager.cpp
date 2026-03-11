@@ -83,6 +83,12 @@ void BattleManager::attack(CombatCharacter* attacker, CombatCharacter* target) {
 		} else if (weaponType == "Knife") {
 			cout << " -> You (" << attacker->getName() << ") slash with " << weaponName << " at " << targetName << ", dealing " << damage << " damage";
 			if (isCrit) cout << ". The blade cuts deep, tearing flesh and leaving a shadowy wound that seeps with cursed venom!";
+		} else if (weaponType == "War Axe") {
+			cout << " -> You (" << attacker->getName() << ") swing " << weaponName << " in a brutal arc at " << targetName << ", dealing " << damage << " damage";
+			if (isCrit) cout << ". The axe bites deep, cleaving flesh and bone with savage force!";
+		} else if (weaponType == "Club") {
+			cout << " -> You (" << attacker->getName() << ") smash " << weaponName << " against " << targetName << ", dealing " << damage << " damage";
+			if (isCrit) cout << ". The club crushes armor and bone, leaving a brutal impact!";
 		} else {
 			cout << " -> You (" << attacker->getName() << ") strike " << targetName << " with " << weaponName << ", dealing " << damage << " damage";
 			if (isCrit) cout << ". A vicious blow rends flesh and spirit!";

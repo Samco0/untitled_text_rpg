@@ -74,12 +74,11 @@ void Player::setCurrentXp(float xpGained){
 	this->currentXp += xpGained;
 	
 	while (this->currentXp >= this->requireXp){
-		
 		this->currentXp -= this->requireXp;
 		this->level++;
 		
-		this->maxHp *= 1.12f;
-		this->maxHp = std::round(this->maxHp * 10) / 10;
+		this->maxHp *= 1.20f;
+		this->maxHp = std::round(this->maxHp * 10.0f) / 10.0f;
 		
 		this->dmg *= 1.07f;
 		this->dmg = std::round(this->dmg * 10) / 10;

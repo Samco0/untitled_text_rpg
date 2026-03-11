@@ -1,15 +1,28 @@
-2
-3
-Scroll of Umbral Jab
-Scroll of Umbral Jab
-0
-Umbral Jab
-The user melts into shadow, reappearing behind the target to drive a precise strike into their side
-8
-2
-0
-2
-Crimson Carapace Cuirass
-A heavy chestplate forged from blood-hardened snail carapace, scarred by countless battles.
+4
+4
+Snail Flesh
+A grisly chunk of snail, tough and faintly metallic.
 7
 2
+Coral Carapace
+Chest armor grown from hardened coral, slick with algae
+7
+2
+3
+Scroll of Dust Vortex
+Scroll of Dust Vortex
+0
+Dust Vortex
+The snail spins at terrifying speed, unleashing a choking storm of dust and debris
+8
+2
+1
+3
+Scroll of Obsidian Fist
+Scroll of Obsidian Fist
+0
+Obsidian Fist
+The champion cloaks its fist in jagged obsidian and strikes with crushing force
+16
+4
+0

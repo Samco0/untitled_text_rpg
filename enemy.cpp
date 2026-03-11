@@ -40,9 +40,11 @@ vector<int>& Enemy::getRewardChances() {return this->rewardChances;}
 // setters
 void Enemy::setXpToGet(float xpToGet){ this->xpToGet = xpToGet; }
 
-void Enemy::addReward(Item* item, int chance){
-	rewardItems.push_back(item);
-	rewardChances.push_back(chance);
+void Enemy::addReward(Item* item, int chance, int count){
+	for(int i = 0; i < count; i++){
+		rewardItems.push_back(item);
+		rewardChances.push_back(chance);
+	}
 }
 
 //reset

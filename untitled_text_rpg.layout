@@ -2,158 +2,11 @@
     {
         "caretX": 7,
         "caretY": 26,
-        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/lifestealspell.h",
-        "focused": false,
-        "isOpen": false,
-        "left": 0,
-        "top": 0
-    },
-    {
-        "caretX": 7,
-        "caretY": 26,
-        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/consumable.h",
-        "focused": false,
-        "isOpen": false,
-        "left": 0,
-        "top": 0
-    },
-    {
-        "caretX": 7,
-        "caretY": 35,
-        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/inventory.h",
-        "focused": false,
-        "isOpen": false,
-        "left": 0,
-        "top": 38
-    },
-    {
-        "caretX": 7,
-        "caretY": 41,
-        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/statuseffect.h",
-        "focused": false,
-        "isOpen": false,
-        "left": 0,
-        "top": 152
-    },
-    {
-        "caretX": 69,
-        "caretY": 38,
-        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/enemy.cpp",
-        "focused": false,
-        "isOpen": true,
-        "left": 0,
-        "order": 3,
-        "top": 0
-    },
-    {
-        "caretX": 7,
-        "caretY": 26,
         "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/character.h",
         "focused": false,
         "isOpen": false,
         "left": 0,
         "top": 0
-    },
-    {
-        "caretX": 7,
-        "caretY": 67,
-        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/battleManager.h",
-        "focused": false,
-        "isOpen": false,
-        "left": 0,
-        "top": 646
-    },
-    {
-        "caretX": 7,
-        "caretY": 26,
-        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/location.h",
-        "focused": false,
-        "isOpen": false,
-        "left": 0,
-        "top": 0
-    },
-    {
-        "caretX": 2,
-        "caretY": 25,
-        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/enemy.h",
-        "focused": false,
-        "isOpen": false,
-        "left": 0,
-        "top": 95
-    },
-    {
-        "caretX": 7,
-        "caretY": 58,
-        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/map.h",
-        "focused": false,
-        "isOpen": false,
-        "left": 0,
-        "top": 475
-    },
-    {
-        "caretX": 2,
-        "caretY": 228,
-        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/savesystem.cpp",
-        "focused": false,
-        "isOpen": false,
-        "left": 0,
-        "top": 2646
-    },
-    {
-        "caretX": 5,
-        "caretY": 86,
-        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/battleManager.cpp",
-        "focused": false,
-        "isOpen": true,
-        "left": 0,
-        "order": 0,
-        "top": 1340
-    },
-    {
-        "caretX": 32,
-        "caretY": 427,
-        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/main.cpp",
-        "focused": true,
-        "isOpen": true,
-        "left": 0,
-        "order": 2,
-        "top": 7980
-    },
-    {
-        "caretX": 7,
-        "caretY": 29,
-        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/weapon.h",
-        "focused": false,
-        "isOpen": false,
-        "left": 0,
-        "top": 0
-    },
-    {
-        "caretX": 7,
-        "caretY": 61,
-        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/combatcharacter.h",
-        "focused": false,
-        "isOpen": false,
-        "left": 0,
-        "top": 684
-    },
-    {
-        "caretX": 1,
-        "caretY": 1,
-        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/chainingspell.cpp",
-        "focused": false,
-        "isOpen": false,
-        "left": 0,
-        "top": 456
-    },
-    {
-        "caretX": 38,
-        "caretY": 35,
-        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/armor.h",
-        "focused": false,
-        "isOpen": false,
-        "left": 0,
-        "top": 114
     },
     {
         "caretX": 7,
@@ -165,131 +18,13 @@
         "top": 0
     },
     {
-        "caretX": 34,
-        "caretY": 529,
-        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/map.cpp",
-        "focused": false,
-        "isOpen": true,
-        "left": 0,
-        "order": 1,
-        "top": 9920
-    },
-    {
         "caretX": 7,
-        "caretY": 27,
-        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/scroll.h",
+        "caretY": 41,
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/statuseffect.h",
         "focused": false,
         "isOpen": false,
         "left": 0,
-        "top": 0
-    },
-    {
-        "caretX": 7,
-        "caretY": 44,
-        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/spell.h",
-        "focused": false,
-        "isOpen": false,
-        "left": 0,
-        "top": 209
-    },
-    {
-        "caretX": 2,
-        "caretY": 58,
-        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/armor.cpp",
-        "focused": false,
-        "isOpen": false,
-        "left": 0,
-        "top": 475
-    },
-    {
-        "caretX": 9,
-        "caretY": 21,
-        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/consumable.cpp",
-        "focused": false,
-        "isOpen": false,
-        "left": 0,
-        "top": 0
-    },
-    {
-        "caretX": 51,
-        "caretY": 10,
-        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/scroll.cpp",
-        "focused": false,
-        "isOpen": false,
-        "left": 0,
-        "top": 0
-    },
-    {
-        "caretX": 7,
-        "caretY": 30,
-        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/statuseffectspell.h",
-        "focused": false,
-        "isOpen": false,
-        "left": 0,
-        "top": 0
-    },
-    {
-        "caretX": 47,
-        "caretY": 37,
-        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/spell.cpp",
-        "focused": false,
-        "isOpen": false,
-        "left": 0,
-        "top": 144
-    },
-    {
-        "caretX": 2,
-        "caretY": 67,
-        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/player.h",
-        "focused": false,
-        "isOpen": false,
-        "left": 0,
-        "top": 931
-    },
-    {
-        "caretX": 7,
-        "caretY": 23,
-        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/hpstatuseffect.h",
-        "focused": false,
-        "isOpen": false,
-        "left": 0,
-        "top": 0
-    },
-    {
-        "caretX": 30,
-        "caretY": 17,
-        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/lifestealspell.cpp",
-        "focused": false,
-        "isOpen": false,
-        "left": 0,
-        "top": 0
-    },
-    {
-        "caretX": 2,
-        "caretY": 97,
-        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/player.cpp",
-        "focused": false,
-        "isOpen": false,
-        "left": 0,
-        "top": 1425
-    },
-    {
-        "caretX": 11,
-        "caretY": 14,
-        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/combatlocation.h",
-        "focused": false,
-        "isOpen": false,
-        "left": 0,
-        "top": 0
-    },
-    {
-        "caretX": 18,
-        "caretY": 1,
-        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/item.cpp",
-        "focused": false,
-        "isOpen": false,
-        "left": 0,
-        "top": 0
+        "top": 152
     },
     {
         "caretX": 2,
@@ -310,6 +45,170 @@
         "top": 0
     },
     {
+        "caretX": 11,
+        "caretY": 14,
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/combatlocation.h",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    },
+    {
+        "caretX": 18,
+        "caretY": 1,
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/item.cpp",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    },
+    {
+        "caretX": 47,
+        "caretY": 37,
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/spell.cpp",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 144
+    },
+    {
+        "caretX": 1,
+        "caretY": 1,
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/chainingspell.cpp",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 456
+    },
+    {
+        "caretX": 2,
+        "caretY": 97,
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/player.cpp",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 1425
+    },
+    {
+        "caretX": 69,
+        "caretY": 38,
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/enemy.cpp",
+        "focused": false,
+        "isOpen": true,
+        "left": 0,
+        "order": 3,
+        "top": 0
+    },
+    {
+        "caretX": 2,
+        "caretY": 25,
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/enemy.h",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 95
+    },
+    {
+        "caretX": 7,
+        "caretY": 27,
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/scroll.h",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    },
+    {
+        "caretX": 7,
+        "caretY": 61,
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/combatcharacter.h",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 684
+    },
+    {
+        "caretX": 60,
+        "caretY": 519,
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/main.cpp",
+        "focused": true,
+        "isOpen": true,
+        "left": 0,
+        "order": 2,
+        "top": 9900
+    },
+    {
+        "caretX": 2,
+        "caretY": 228,
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/savesystem.cpp",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 2646
+    },
+    {
+        "caretX": 51,
+        "caretY": 10,
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/scroll.cpp",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    },
+    {
+        "caretX": 7,
+        "caretY": 30,
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/statuseffectspell.h",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    },
+    {
+        "caretX": 7,
+        "caretY": 23,
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/hpstatuseffect.h",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    },
+    {
+        "caretX": 7,
+        "caretY": 26,
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/consumable.h",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    },
+    {
+        "caretX": 7,
+        "caretY": 29,
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/weapon.h",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    },
+    {
+        "caretX": 7,
+        "caretY": 44,
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/spell.h",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 209
+    },
+    {
+        "caretX": 2,
+        "caretY": 67,
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/player.h",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 931
+    },
+    {
         "caretX": 7,
         "caretY": 23,
         "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/savesystem.h",
@@ -317,5 +216,106 @@
         "isOpen": false,
         "left": 0,
         "top": 0
+    },
+    {
+        "caretX": 7,
+        "caretY": 58,
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/map.h",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 475
+    },
+    {
+        "caretX": 7,
+        "caretY": 35,
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/inventory.h",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 38
+    },
+    {
+        "caretX": 2,
+        "caretY": 58,
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/armor.cpp",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 475
+    },
+    {
+        "caretX": 7,
+        "caretY": 26,
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/lifestealspell.h",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    },
+    {
+        "caretX": 7,
+        "caretY": 26,
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/location.h",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    },
+    {
+        "caretX": 9,
+        "caretY": 21,
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/consumable.cpp",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    },
+    {
+        "caretX": 30,
+        "caretY": 17,
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/lifestealspell.cpp",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 0
+    },
+    {
+        "caretX": 7,
+        "caretY": 67,
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/battleManager.h",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 646
+    },
+    {
+        "caretX": 5,
+        "caretY": 86,
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/battleManager.cpp",
+        "focused": false,
+        "isOpen": true,
+        "left": 0,
+        "order": 0,
+        "top": 1340
+    },
+    {
+        "caretX": 38,
+        "caretY": 35,
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/armor.h",
+        "focused": false,
+        "isOpen": false,
+        "left": 0,
+        "top": 114
+    },
+    {
+        "caretX": 34,
+        "caretY": 529,
+        "filename": "C:/Users/Samuel/Documents/GitHub/untitled_text_rpg/map.cpp",
+        "focused": false,
+        "isOpen": true,
+        "left": 0,
+        "order": 1,
+        "top": 9920
     }
 ]
