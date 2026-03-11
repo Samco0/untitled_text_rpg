@@ -232,6 +232,7 @@ void Map::movePlayer() {
 						} else if (placeholderS != nullptr) {
 							ChainingSpell* scrollCs = dynamic_cast<ChainingSpell*>(placeholderS->getHeldSpell());
 							StatusEffectSpell* scrollSas = dynamic_cast<StatusEffectSpell*>(placeholderS->getHeldSpell());
+							LifeStealSpell* scrollLss = dynamic_cast<LifeStealSpell*>(placeholderS->getHeldSpell());
 							int wantsToLearn = 0;
 
 							cout << "==========================================" << endl;
@@ -246,11 +247,14 @@ void Map::movePlayer() {
 								} else {
 									ChainingSpell* cs = dynamic_cast<ChainingSpell*>(player->getSpells()[i]);
 									StatusEffectSpell* sas = dynamic_cast<StatusEffectSpell*>(player->getSpells()[i]);
+									LifeStealSpell* lss = dynamic_cast<LifeStealSpell*>(player->getSpells()[i]);
 
 									if (cs != nullptr) {
 										cout << *cs;
 									} else if (sas != nullptr) {
 										cout << *sas;
+									} else if (lss != nullptr) {
+										cout << *lss;
 									} else {
 										cout << *s;
 									}
@@ -261,6 +265,7 @@ void Map::movePlayer() {
 							cout << "And the forbidden words bound within the scroll:" << endl << endl;
 							if (scrollCs != nullptr) cout << *scrollCs;
 							else if (scrollSas != nullptr) cout << *scrollSas;
+							else if (scrollLss != nullptr) cout << *scrollLss;
 							else cout << *placeholderS->getHeldSpell();
 							cout << "==========================================" << endl;
 							cout << "Adventure, this knowledge comes at a price. Your old spell will be lost." << endl;

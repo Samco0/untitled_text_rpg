@@ -33,7 +33,7 @@ statuseffectspell.o: statuseffectspell.cpp hpstatuseffect.h statuseffect.h statu
 	$(CXX) -c "statuseffectspell.cpp" -o "statuseffectspell.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
 
 map.o: map.cpp chainingspell.h scroll.h hpstatuseffect.h armor.h consumable.h weapon.h statuseffect.h lifestealspell.h enemy.h combatcharacter.h player.h character.h statuseffectspell.h spell.h item.h inventory.h location.h combatlocation.h map.h
-	$(CXX) -c "map.cpp" -o "map.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+	$(CXX) -c "map.cpp" -o "map.o" $(CXXFLAGS) 
 
 main.o: main.cpp chainingspell.h scroll.h hpstatuseffect.h armor.h consumable.h weapon.h statuseffect.h lifestealspell.h savesystem.h battleManager.h enemy.h combatcharacter.h player.h character.h statuseffectspell.h spell.h item.h inventory.h location.h combatlocation.h map.h
 	$(CXX) -c "main.cpp" -o "main.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
@@ -72,7 +72,7 @@ character.o: character.cpp character.h
 	$(CXX) -c "character.cpp" -o "character.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
 
 lifestealspell.o: lifestealspell.cpp lifestealspell.h spell.h
-	$(CXX) -c "lifestealspell.cpp" -o "lifestealspell.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+	$(CXX) -c "lifestealspell.cpp" -o "lifestealspell.o" $(CXXFLAGS) 
 
 location.o: location.cpp location.h
 	$(CXX) -c "location.cpp" -o "location.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
@@ -87,7 +87,7 @@ battleManager.o: battleManager.cpp battleManager.h
 	$(CXX) -c "battleManager.cpp" -o "battleManager.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
 
 enemy.o: enemy.cpp chainingspell.h statuseffect.h enemy.h combatcharacter.h character.h spell.h item.h
-	$(CXX) -c "enemy.cpp" -o "enemy.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+	$(CXX) -c "enemy.cpp" -o "enemy.o" $(CXXFLAGS) 
 
 statuseffect.o: statuseffect.cpp statuseffect.h
 	$(CXX) -c "statuseffect.cpp" -o "statuseffect.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250

@@ -34,7 +34,7 @@ ostream& operator<<(ostream& output, LifeStealSpell lss){
 	
 	cout << " -> Type of spell: Life steal spell" << endl;
 	cout << " -> Damage: " << lss.getDmg() << endl;
-	
+	cout << " -> Lifesteal rate: " << lss.getLifeStealRate() << endl;
 	output << " -> Description: " << lss.getDescription() << endl << endl;
 	return output;
 }

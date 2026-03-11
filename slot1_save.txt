@@ -1,0 +1,107 @@
+Samco
+8
+2
+12
+89.5
+30.83
+2.2
+4
+15
+1.5
+7031.88
+918.33
+1
+Charred Wooden Tanto
+Sword
+A simple wooden tanto, slightly burnt and brittle, whispering faint dark secrets.
+1.5
+0
+Cracked Hammer
+The user shapes a jagged, darkened hammer from twisted metal and strikes the target's skull with a resonant clang.
+4
+3
+0
+3
+Sanguine Leech
+A writhing, vein-thick tendril lashes out and drains vitality straight from the victim's veins.
+6
+4
+0
+60
+2
+Venomous Fang Strike
+A fang coated in a writhing black venom tears into the target, burning flesh and soul alike
+6
+4
+0
+70
+1
+Corrosive Venom
+1
+5
+3
+0
+-1
+1
+Waxstorm
+The user trembles violently, raining molten wax shards that stick and burn, scalding flesh and armor alike.
+0.5
+4
+0
+3
+10
+0
+0
+0
+1
+Ironshell Greaves
+Leg armor shaped from hardened shell segments.
+3
+4
+0
+10
+4
+Blood-Slick Leech Meat
+Warm, rubbery flesh that still pulses faintly, as if reluctant to die.
+10
+4
+Blood-Slick Leech Meat
+Warm, rubbery flesh that still pulses faintly, as if reluctant to die.
+10
+4
+Blood-Slick Leech Meat
+Warm, rubbery flesh that still pulses faintly, as if reluctant to die.
+10
+4
+Blood-Slick Leech Meat
+Warm, rubbery flesh that still pulses faintly, as if reluctant to die.
+10
+4
+Venomous Snail Meat
+The corpse of the snail radiates a dark, toxic essence; consuming it emboldens the daring and poisons the weak
+7.5
+4
+Venomous Snail Meat
+The corpse of the snail radiates a dark, toxic essence; consuming it emboldens the daring and poisons the weak
+7.5
+4
+Blood-Slick Leech Meat
+Warm, rubbery flesh that still pulses faintly, as if reluctant to die.
+10
+4
+Venomous Snail Meat
+The corpse of the snail radiates a dark, toxic essence; consuming it emboldens the daring and poisons the weak
+7.5
+4
+Deathcoil Snail Meat
+Dense flesh from a violently spinning snail, still trembling with residual force.
+8.5
+3
+Scroll of Dust Vortex
+Scroll of Dust Vortex
+0
+Dust Vortex
+The snail spins at terrifying speed, unleashing a choking storm of dust and debris
+7
+2
+0

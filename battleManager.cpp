@@ -32,31 +32,31 @@ void BattleManager::setEnemy(CombatCharacter* enemy) {this->enemy = enemy;}
 //battle methods
 void BattleManager::attack(CombatCharacter* attacker, CombatCharacter* target) {
 	if (attacker->getCurrentHp() <= 0) return;
-
+	
 	int crit = rand() % 100 + 1;
-
+	
 	//if the attacker is a player, he typically wields a weapon, here is the counting of it basically
 	Player* pA = dynamic_cast<Player*>(attacker);
 	float damage = attacker->getDmg();
 	if (pA != nullptr) {
 		damage += pA->getWeapon()->getDmg();
 	}
-
+	
 	bool isCrit = false;
-
+	
 	//this one is for both attackers, its just multiplying the damage by value of critical hit and setting a bool to true
 	if (crit <= attacker->getCritChance()) {
 		damage *= attacker->getCritValue();
 		isCrit = true;
 	}
-
-
+	
+	
 	target->setCurrentHp(target->getCurrentHp() - damage);
-
+	
 	if (pA != nullptr) {
 		string weaponName = pA->getWeapon()->getName();
 		string targetName = target->getName();
-
+		
 		string weaponType = pA->getWeapon()->getType();
 		
 		if (weaponType == "Sword") {
@@ -93,11 +93,11 @@ void BattleManager::attack(CombatCharacter* attacker, CombatCharacter* target) {
 			cout << " -> You (" << attacker->getName() << ") strike " << targetName << " with " << weaponName << ", dealing " << damage << " damage";
 			if (isCrit) cout << ". A vicious blow rends flesh and spirit!";
 		}
-
+		
 		cout << endl;
 	} else {
 		Player* pT = dynamic_cast<Player*>(target);
-
+		
 		if (pT != nullptr) {
 			//if player has some kind of armor, he gets less damage, as simple as that
 			if (pT->getHelmet() != nullptr) damage = damage / 100.0 * (100.0 - pT->getHelmet()->getDamageReduction());
@@ -106,24 +106,24 @@ void BattleManager::attack(CombatCharacter* attacker, CombatCharacter* target) {
 			if (pT->getLeggings() != nullptr) damage = damage / 100.0 * (100.0 - pT->getLeggings()->getDamageReduction());
 			if (pT->getBoots() != nullptr) damage = damage / 100.0 * (100.0 - pT->getBoots()->getDamageReduction());
 		}
-
+		
 		damage = std::round(damage * 100.0) / 100.0;
-
+		
 		cout << " -> " << attacker->getName() << " lashes out at you (" << pT->getName() << "), rending " << damage << " damage";
 		if (isCrit) cout << ". A critical strike!" ;
-
+		
 		cout << endl;
 	}
 }
 
 void BattleManager::attackUsingSpell(CombatCharacter* attacker, CombatCharacter* target, int spellIndex) {
 	if (attacker->getCurrentHp() <= 0) return;
-
+	
 	bool attackerIsPlayer = (dynamic_cast<Player*>(attacker) != nullptr);
 	Player* pT = dynamic_cast<Player*>(target);
-
+	
 	Spell* s = attacker->getSpells()[spellIndex];
-
+	
 	//spell is invalid
 	if (s == nullptr) {
 		if (attackerIsPlayer) {
@@ -135,11 +135,11 @@ void BattleManager::attackUsingSpell(CombatCharacter* attacker, CombatCharacter*
 			cout << " -> Nothing answered. The spell was but an empty promise." << endl;
 			cout << " -> " << attacker->getName() << " lunged forward with a crude, physical strike." << endl;
 		}
-
+		
 		attack(attacker, target);
 		return;
 	}
-
+	
 	//cooldown
 	if (s->getRemainingCooldown() != 0) {
 		if (attackerIsPlayer) {
@@ -151,28 +151,28 @@ void BattleManager::attackUsingSpell(CombatCharacter* attacker, CombatCharacter*
 			cout << " -> But the spell flickered and died — its essence not yet restored." << endl;
 			cout << " -> With a snarl, " << attacker->getName() << " resorts to a savage physical assault." << endl;
 		}
-
+		
 		attack(attacker, target);
 		return;
 	}
-
+	
 	cout << " -> " << (attackerIsPlayer ? "You (" : "") << attacker->getName() << (attackerIsPlayer ? ")" : "") << " muttered the cursed words of " << s->getName()  << ", and shadows writhed around your hands." << endl;
-
+	
 	ChainingSpell* cs = dynamic_cast<ChainingSpell*>(s);
 	StatusEffectSpell* ses = dynamic_cast<StatusEffectSpell*>(s);
 	LifeStealSpell* lss = dynamic_cast<LifeStealSpell*>(s);
-
+	
 	//chaining spell
 	if (cs != nullptr) {
 		int hits = rand() % (cs->getMaxHits() - cs->getMinHits() + 1)
-		           + cs->getMinHits();
-
+		+ cs->getMinHits();
+		
 		float totalDmg = hits * cs->getDmg();
-
+		
 		cout << " -> Spell hit " << hits << " times!" << endl;
-
+		
 		cout << " -> The spell lashes out " << hits << " times, shadows and fire converging!" << endl;
-
+		
 		if (pT != nullptr) {
 			//if player has some kind of armor, he gets less damage, as simple as that
 			if (pT->getHelmet() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getHelmet()->getDamageReduction());
@@ -182,17 +182,17 @@ void BattleManager::attackUsingSpell(CombatCharacter* attacker, CombatCharacter*
 			if (pT->getBoots() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getBoots()->getDamageReduction());
 		}
 		totalDmg = std::round(totalDmg * 100.0) / 100.0;
-
+		
 		target->setCurrentHp(target->getCurrentHp() - totalDmg);
-
+		
 		if (attackerIsPlayer) cout << " -> You (" << attacker->getName() << ") sear " << target->getName() << " for " << totalDmg << " damage." << endl;
 		else	cout << " -> " << attacker->getName() << "'s spell scorches you, inflicting " << totalDmg << " damage!" << endl;
 	}
-
+	
 	//status effect spell
 	else if (ses != nullptr) {
 		float totalDmg = s->getDmg();
-
+		
 		if (pT != nullptr) {
 			//if player has some kind of armor, he gets less damage, as simple as that
 			if (pT->getHelmet() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getHelmet()->getDamageReduction());
@@ -202,18 +202,18 @@ void BattleManager::attackUsingSpell(CombatCharacter* attacker, CombatCharacter*
 			if (pT->getBoots() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getBoots()->getDamageReduction());
 		}
 		totalDmg = std::round(totalDmg * 100.0) / 100.0;
-
+		
 		target->setCurrentHp(target->getCurrentHp() - totalDmg);
-
+		
 		if (attackerIsPlayer) {
 			cout << " -> Your " << s->getName() << " wracks " << target->getName() << " for " << totalDmg << " damage." << endl;
 		} else {
 			cout << " -> " << s->getName() << " tears into you (" << target->getName() << "), dealing " << totalDmg << " damage." << endl;
 		}
-
+		
 		if (rand() % 100 + 1 <= ses->getChanceToRecieve() && ses->getStatusToGive() != nullptr) {
 			cout << " -> " << target->getName() << " is cursed with " << ses->getStatusToGive()->getName() << ", a lingering shadow over their vitality." << endl;
-
+			
 			target->addStatusEffect(ses->getStatusToGive());
 		}
 	}
@@ -244,7 +244,7 @@ void BattleManager::attackUsingSpell(CombatCharacter* attacker, CombatCharacter*
 	//normal spell
 	else {
 		float totalDmg = s->getDmg();
-
+		
 		if (pT != nullptr) {
 			//if player has some kind of armor, he gets less damage, as simple as that
 			if (pT->getHelmet() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getHelmet()->getDamageReduction());
@@ -254,13 +254,13 @@ void BattleManager::attackUsingSpell(CombatCharacter* attacker, CombatCharacter*
 			if (pT->getBoots() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getBoots()->getDamageReduction());
 		}
 		totalDmg = std::round(totalDmg * 100.0) / 100.0;
-
+		
 		target->setCurrentHp(target->getCurrentHp() - totalDmg);
-
+		
 		if (attackerIsPlayer) cout << " -> You (" << attacker->getName() << ") unleash the arcane fury of " << s->getName() << ", rending " << target->getName()	<< " for " << totalDmg << " damage!" << endl;
 		else cout << " -> " << attacker->getName() << " strikes you with " << s->getName() << ", searing flesh and spirit for " << totalDmg << " damage!" << endl;
 	}
-
+	
 	s->setRemainingCooldown(s->getFullCooldown());
 }
 
@@ -268,14 +268,14 @@ void BattleManager::attackUsingSpell(CombatCharacter* attacker, CombatCharacter*
 //battle misc
 void BattleManager::roundIncrement() {
 	this->round++;
-
+	
 	for (int i = 0; i < 4; i++) {
 		if (this->player->getSpells()[i] != nullptr) {
 			if (this->player->getSpells()[i]->getRemainingCooldown() != 0) {
 				this->player->getSpells()[i]->setRemainingCooldown(this->player->getSpells()[i]->getRemainingCooldown() - 1);
 			}
 		}
-
+		
 		if (this->enemy->getSpells()[i] != nullptr) {
 			if (this->enemy->getSpells()[i]->getRemainingCooldown() != 0) {
 				this->enemy->getSpells()[i]->setRemainingCooldown(this->enemy->getSpells()[i]->getRemainingCooldown() - 1);
@@ -288,47 +288,71 @@ void BattleManager::checkDeaths() {
 	if (this->player->getCurrentHp() <= 0) {
 		this->player->setCurrentHp(0);
 		this->isFinished = 1;
-
+		
 		cout << "==========================================" << endl;
-		cout << " -> You (" << this->player->getName() << ") have fallen… the shadows claim you." << endl;
-		cout << " -> Your journey ends here, at the edge of blood and ruin." << endl;
+		cout << " -> You (" << this->player->getName() << ") have fallen..." << endl;
+		cout << " -> The darkness swallows you whole." << endl;
 		cout << "==========================================" << endl;
-
+		
 		system("pause");
+		
 	} else if (this->enemy->getCurrentHp() <= 0) {
 		this->enemy->setCurrentHp(0);
 		this->isFinished = 2;
-
-		cout << "==========================================" << endl;
-		cout << " -> Victory! You (" << this->player->getName() << ") stand over the vanquished " << this->enemy->getName() << "." << endl;
-		cout << " -> Their life force fuels your growth." << endl;
-		cout << "==========================================" << endl;
-
+		
 		Player* p = dynamic_cast<Player*>(this->player);
-		Enemy* e = dynamic_cast<Enemy*>(this->enemy);
-
-		//XP gain
+		Enemy*  e = dynamic_cast<Enemy*>(this->enemy);
+		
+		cout << "==========================================" << endl;
+		cout << " -> Victory! You (" << p->getName() << ") stand over the fallen " << e->getName() << "." << endl;
+		cout << " -> Their life force fuels your ascent." << endl;
+		cout << "==========================================" << endl;
+		
+		// XP
 		float xpGained = e->getXpToGet();
 		p->setCurrentXp(p->getCurrentXp() + xpGained);
-		cout << " -> You gained " << xpGained << " XP from this battle." << endl;
-
-		//Reward system
-		vector<Item*>& items = e->getRewardItems();
-		vector<int>& chances = e->getRewardChances();
-
-		cout << " -> Loot dropped:" << endl;
+		cout << " -> You gained " << xpGained << " XP." << endl;
+		
+		// Soul Stone drop
+		int ssChance = e->getSoulStoneDropChance();
+		if (ssChance > 0) {
+			int ssRoll = rand() % 100 + 1;
+			if (ssRoll <= ssChance) {
+				if (p->getSoulStones() < 9) {
+					p->addSoulStone();
+					cout << endl;
+					cout << " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+					cout << " -> A faint glimmer escapes the corpse." << endl;
+					cout << " -> You reach out. A Soul Stone — cold and humming — settles in your palm." << endl;
+					cout << " -> Soul Stones: ";
+					for (int i = 0; i < p->getSoulStones(); i++) cout << "[*] ";
+					cout << endl;
+					cout << " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+				} else {
+					cout << " -> A Soul Stone glows at your feet, but your spirit is already full." << endl;
+					cout << " -> It crumbles into ash." << endl;
+				}
+			}
+		}
+		
+		// Loot
+		vector<Item*>& items   = e->getRewardItems();
+		vector<int>&   chances = e->getRewardChances();
+		
+		cout << " -> Loot:" << endl;
 		bool anyDrop = false;
 		for (size_t i = 0; i < items.size(); i++) {
 			int roll = rand() % 100 + 1;
 			if (roll <= chances[i]) {
-				cout << "     - " << items[i]->getName() << " (chance " << chances[i] << "%, rolled " << roll << ")" << endl;
+				cout << "     - " << items[i]->getName() << endl;
 				p->getInventory().addItem(items[i]);
 				anyDrop = true;
 			}
 		}
-		if (!anyDrop) cout << " -> None. The enemy kept its treasures hidden..." << endl;
-
+		if (!anyDrop) cout << "     - Nothing. The creature carried only spite." << endl;
+		
 		system("pause");
+		
 	} else {
 		this->isFinished = 0;
 	}
@@ -336,28 +360,28 @@ void BattleManager::checkDeaths() {
 
 void BattleManager::checkStatusEffects() {
 	HpStatusEffect* hps;
-
+	
 	bool playerFirst = this->player->getSpeed() >= this->enemy->getSpeed();
-
+	
 	for (int i = 0; i < 4; i++) {
 		CombatCharacter* first  = playerFirst ? (CombatCharacter*)player : (CombatCharacter*)enemy;
 		CombatCharacter* second = playerFirst ? (CombatCharacter*)enemy : (CombatCharacter*)player;
-
+		
 		for (int turn = 0; turn < 2; turn++) {
 			CombatCharacter* current = (turn == 0 ? first : second);
-
+			
 			StatusEffect* se = current->getStatusEffect()[i];
 			if (se == nullptr) continue;
-
+			
 			hps = dynamic_cast<HpStatusEffect*>(se);
 			if (hps == nullptr) continue;
-
+			
 			current->setCurrentHp(current->getCurrentHp() + hps->getHpAffection());
-
+			
 			cout << "==========================================" << endl;
-
+			
 			bool isPlayer = (current == player);
-
+			
 			if (hps->getHpAffection() < 0.0) {
 				if (isPlayer)
 					cout << " -> Dark forces from " << hps->getName() << " bite you, dealing " << -hps->getHpAffection() << " damage." << endl;
@@ -377,11 +401,11 @@ void BattleManager::checkStatusEffects() {
 void BattleManager::battle() {
 	int choice;
 	srand(time(0));
-
+	
 	while (this->isFinished == 0) {
 		int randomiseAttackEnemy = rand() % 10;
 		int randomiseSpellEnemy = rand() % 4;
-
+		
 		cout << "==========================================" << endl;
 		cout << *player;
 		cout << "------------------------------------------" << endl;
@@ -396,14 +420,14 @@ void BattleManager::battle() {
 		cin >> choice;
 		cout << "==========================================" << endl << endl;
 		system("cls");
-
+		
 		switch (choice) {
 			case 1: {
 				cout << "==========================================" << endl;
 				if (player->getSpeed() >= enemy->getSpeed()) {
 					attack(player, enemy);
 					cout << endl;
-
+					
 					Spell* es = enemy->getSpells()[randomiseSpellEnemy];
 					if (randomiseAttackEnemy < 7 || es == nullptr || es->getRemainingCooldown() > 0) {
 						attack(enemy, player);
@@ -417,25 +441,25 @@ void BattleManager::battle() {
 					} else {
 						attackUsingSpell(enemy, player, randomiseSpellEnemy);
 					}
-
+					
 					cout << endl;
 					attack(player, enemy);
 				}
 				break;
 			}
-
+			
 			case 2: {
 				Spell* s;
 				ChainingSpell* cs;
 				StatusEffectSpell* sas;
 				LifeStealSpell* lss;
-
+				
 				cout << "==========================================" << endl;
 				cout << *player;
 				cout << "------------------------------------------" << endl;
 				cout << *enemy;
 				cout << "==========================================" << endl;
-
+				
 				cout << "Your spells, etched into your soul:" << endl << endl;
 				for (int i = 0; i < 4; i++) {
 					Spell *s = player->getSpells()[i];
@@ -460,20 +484,20 @@ void BattleManager::battle() {
 						}
 					}
 				}
-
+				
 				cout << "------------------------------------------" << endl;
 				cout << "Which spell shall you unleash, adventurer? ";
 				cin >> choice;
 				cout << "==========================================" << endl;
 				system("cls");
-
+				
 				while (choice > 4) choice -= 4;
-
+				
 				cout << "==========================================" << endl;
 				if (player->getSpeed() >= enemy->getSpeed()) {
 					attackUsingSpell(player, enemy, choice - 1);
 					cout << endl;
-
+					
 					Spell* es = enemy->getSpells()[randomiseSpellEnemy];
 					if (randomiseAttackEnemy < 7 || es == nullptr || es->getRemainingCooldown() > 0)
 						attack(enemy, player);
@@ -485,14 +509,14 @@ void BattleManager::battle() {
 						attack(enemy, player);
 					else
 						attackUsingSpell(enemy, player, randomiseSpellEnemy);
-
+					
 					cout << endl;
 					attackUsingSpell(player, enemy, choice - 1);
 				}
-
+				
 				break;
 			}
-
+			
 			case 3: {
 				Player* p = dynamic_cast<Player*>(player);
 				vector<Item*>& items = p->getInventory().getStorage();
@@ -560,10 +584,10 @@ void BattleManager::battle() {
 				break;
 			}	
 			
-			default:
-				break;
+		default:
+			break;
 		}
-
+		
 		roundIncrement();
 		checkStatusEffects();
 		checkDeaths();

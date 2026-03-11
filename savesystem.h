@@ -3,6 +3,7 @@
 
 #include <fstream>
 #include <iostream>
+#include <string>
 #include <vector>
 #include "player.h"
 #include "weapon.h"
@@ -11,13 +12,32 @@
 #include "scroll.h"
 #include "chainingspell.h"
 #include "statuseffectspell.h"
+#include "lifestealspell.h"
 using namespace std;
 
-// Functions to save and load spells/games
-void saveSpell(ofstream& file, Spell* spell);
+// ---- Spell helpers ----
+void   saveSpell(ofstream& file, Spell* spell);
 Spell* loadSpell(ifstream& file);
 
+// ---- Full game save/load ----
+// Everything goes into a single slot<N>_save.txt file
 void saveGame(int mapIndex, Player& player, int slot);
 bool loadGame(int& mapIndex, Player& player, int slot);
+
+// ---- Delete a save slot (removes the file) ----
+void deleteSave(int slot);
+
+// ---- Quick summary for the start menu ----
+struct SaveInfo {
+	bool   exists     = false;
+	string playerName = "";
+	int    level      = 0;
+	int    soulStones = 0;
+	int    mapIndex   = 0;
+};
+SaveInfo getSaveInfo(int slot);
+
+// ---- Scan for existing save files and return their slot numbers ----
+vector<int> getExistingSlots();
 
 #endif
