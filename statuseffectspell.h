@@ -9,7 +9,7 @@ class StatusEffectSpell : public Spell {
 public:
 	// Constructors
 	StatusEffectSpell();
-	StatusEffectSpell(string name, string description, float dmg, int fullCooldown, int chanceToRecieve, StatusEffect* statusToGive);
+	StatusEffectSpell(string name, string description, float dmg, int fullCooldown, int chanceToRecieve, StatusEffect* statusToGive, string type = "Dark");
 	
 	// Getters
 	int getChanceToRecieve();

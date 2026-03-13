@@ -9,7 +9,7 @@ class ChainingSpell : public Spell {
 public:
 	// Constructors
 	ChainingSpell();
-	ChainingSpell(string name, string description, float dmg, int fullCooldown, int minHits, int maxHits);
+	ChainingSpell(string name, string description, float dmg, int fullCooldown, int minHits, int maxHits, string type = "Physical");
 	
 	// Returns minimum and maximum number of hits
 	int getMinHits();

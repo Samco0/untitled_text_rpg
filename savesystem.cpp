@@ -175,13 +175,15 @@ static void loadInventory(ifstream& f, Player& player){
 		string name, desc;
 		getline(f, name); getline(f, desc);
 		if (type == 1){
-			string wtype; getline(f, wtype);
+			string wtype; getline(f, wtype); // save order: name, wtype, desc, dmg
+			getline(f, desc);
 			float dmg; f >> dmg; f.ignore();
 			player.getInventory().addItem(new Weapon(name, wtype, desc, dmg));
 		} else if (type == 2){
 			float dr; int atype; f >> dr >> atype; f.ignore();
 			player.getInventory().addItem(new Armor(name, desc, dr, atype));
 		} else if (type == 3){
+			// name is auto-derived from spell in Scroll constructor — only desc was saved
 			Spell* sp = loadSpell(f);
 			player.getInventory().addItem(new Scroll(desc, sp));
 		} else if (type == 4){
@@ -194,7 +196,7 @@ static void loadInventory(ifstream& f, Player& player){
 // ============================================================
 //  FULL SAVE  — single file, every piece of player state
 // ============================================================
-void saveGame(int mapIndex, Player& player, int slot){
+void saveGame(int mapIndex, Player& player, int slot, const string& locationLabel){
 	ofstream f(slotFile(slot));
 	if (!f.is_open()) return;
 	
@@ -203,6 +205,7 @@ void saveGame(int mapIndex, Player& player, int slot){
 	f << player.getLevel()     << "\n";   // line 2
 	f << player.getSoulStones()<< "\n";   // line 3
 	f << mapIndex              << "\n";   // line 4
+	f << locationLabel         << "\n";   // line 5
 	
 	// --- full stats ---
 	f << player.getMaxHp()     << "\n";
@@ -244,6 +247,7 @@ bool loadGame(int& mapIndex, Player& player, int slot){
 	string name; getline(f, name); player.setName(name);
 	int level, soulStones; f >> level >> soulStones; f.ignore();
 	f >> mapIndex; f.ignore();
+	string locationLabel; getline(f, locationLabel); // consume label line — must not skip
 	
 	// stats
 	float maxHp, curHp, dmg, critVal, curXp, reqXp;
@@ -257,15 +261,12 @@ bool loadGame(int& mapIndex, Player& player, int slot){
 	player.setSpeed(speed);
 	player.setCritChance(critChance);
 	player.setCritValue(critVal);
-	// restore level without triggering XP loop
+	// restore level/xp without triggering level-up loop
 	player.setLevel(level);
 	player.setRequireXp(reqXp);
-	// set currentXp directly — setCurrentXp adds, so use the raw field approach:
-	// we abuse requireXp trick: give 0 xp so loop doesn't fire, then manually set
-	// Actually safest: expose a raw setter. For now, temporarily set requireXp huge, add curXp, restore.
-	player.setRequireXp(99999.f);
-	player.setCurrentXp(curXp);
-	player.setRequireXp(reqXp);
+	// setCurrentXp is additive (does +=), so zero it out first then add saved value
+	player.setCurrentXp(-player.getCurrentXp()); // zero
+	player.setCurrentXp(curXp);                  // restore exact amount
 	
 	player.setSoulStones(soulStones);
 	
@@ -311,6 +312,8 @@ SaveInfo getSaveInfo(int slot){
 	info.exists = true;
 	getline(f, info.playerName);
 	f >> info.level >> info.soulStones >> info.mapIndex;
+	f.ignore();
+	getline(f, info.locationLabel);
 	f.close();
 	return info;
 }

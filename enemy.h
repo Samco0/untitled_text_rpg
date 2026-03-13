@@ -14,21 +14,25 @@ public:
 	
 	// Getters
 	float getXpToGet();
+	string getDescription();
 	vector<Item*>& getRewardItems();
 	vector<int>& getRewardChances();
 	int getSoulStoneDropChance();     // 0-100 % chance this enemy drops a Soul Stone on death
 	
 	// Setters
 	void setXpToGet(float xpToGet);
+	void setDescription(string description);
 	void addReward(Item* item, int chance, int count);
 	void setSoulStoneDropChance(int chance);
 	
 	void reset();
 	
+	void print(ostream& output) override;
 	friend ostream& operator<<(ostream& output, Enemy enemy);
 	
 protected:
 	float xpToGet;
+	string description;
 	vector<Item*> rewardItems;
 	vector<int>   rewardChances;
 	int soulStoneDropChance;

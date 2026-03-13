@@ -10,7 +10,7 @@ ChainingSpell::ChainingSpell(){
 	this->minHits = 0;
 	this->maxHits = 0;
 }
-ChainingSpell::ChainingSpell(string name, string description, float dmg, int fullCooldown, int minHits, int maxHits){
+ChainingSpell::ChainingSpell(string name, string description, float dmg, int fullCooldown, int minHits, int maxHits, string type){
 	this->name = name;
 	this->description = description;
 	this->dmg = dmg;
@@ -18,6 +18,7 @@ ChainingSpell::ChainingSpell(string name, string description, float dmg, int ful
 	this->remainingCooldown = 0;
 	this->minHits = minHits;
 	this->maxHits = maxHits;
+	this->type = type;
 }
 
 //getters

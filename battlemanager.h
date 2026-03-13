@@ -6,6 +6,8 @@
 #include "player.h"
 #include "enemy.h"
 #include "hpstatuseffect.h"
+#include "armorbreakstatuseffect.h"
+#include "tauntstatuseffect.h"
 #include "statuseffectspell.h"
 #include "lifestealspell.h"
 

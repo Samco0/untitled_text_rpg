@@ -21,7 +21,7 @@ Spell* loadSpell(ifstream& file);
 
 // ---- Full game save/load ----
 // Everything goes into a single slot<N>_save.txt file
-void saveGame(int mapIndex, Player& player, int slot);
+void saveGame(int mapIndex, Player& player, int slot, const string& locationLabel = "");
 bool loadGame(int& mapIndex, Player& player, int slot);
 
 // ---- Delete a save slot (removes the file) ----
@@ -29,11 +29,12 @@ void deleteSave(int slot);
 
 // ---- Quick summary for the start menu ----
 struct SaveInfo {
-	bool   exists     = false;
-	string playerName = "";
-	int    level      = 0;
-	int    soulStones = 0;
-	int    mapIndex   = 0;
+	bool   exists         = false;
+	string playerName     = "";
+	int    level          = 0;
+	int    soulStones     = 0;
+	int    mapIndex       = 0;
+	string locationLabel  = "";
 };
 SaveInfo getSaveInfo(int slot);
 

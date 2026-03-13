@@ -8,7 +8,7 @@ class LifeStealSpell : public Spell {
 public:
 	// Constructors
 	LifeStealSpell();
-	LifeStealSpell(string name, string description, float dmg, int fullCooldown, int lifeStealRate);
+	LifeStealSpell(string name, string description, float dmg, int fullCooldown, int lifeStealRate, string type = "Blood");
 	
 	// Getter
 	int getLifeStealRate();

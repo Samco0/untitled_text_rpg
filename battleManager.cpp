@@ -100,11 +100,22 @@ void BattleManager::attack(CombatCharacter* attacker, CombatCharacter* target) {
 		
 		if (pT != nullptr) {
 			//if player has some kind of armor, he gets less damage, as simple as that
-			if (pT->getHelmet() != nullptr) damage = damage / 100.0 * (100.0 - pT->getHelmet()->getDamageReduction());
-			if (pT->getChestplate() != nullptr) damage = damage / 100.0 * (100.0 - pT->getChestplate()->getDamageReduction());
-			if (pT->getGloves() != nullptr) damage = damage / 100.0 * (100.0 - pT->getGloves()->getDamageReduction());
-			if (pT->getLeggings() != nullptr) damage = damage / 100.0 * (100.0 - pT->getLeggings()->getDamageReduction());
-			if (pT->getBoots() != nullptr) damage = damage / 100.0 * (100.0 - pT->getBoots()->getDamageReduction());
+			// armor is ignored if ArmorBreakStatusEffect is active
+			// check if ArmorBreakStatusEffect (type 1) is active on the player
+			bool armorBroken = false;
+			for (int i = 0; i < 4; i++) {
+				if (dynamic_cast<ArmorBreakStatusEffect*>(pT->getStatusEffect()[i]) != nullptr) {
+					armorBroken = true;
+					break;
+				}
+			}
+			if (!armorBroken) {
+				if (pT->getHelmet() != nullptr) damage = damage / 100.0 * (100.0 - pT->getHelmet()->getDamageReduction());
+				if (pT->getChestplate() != nullptr) damage = damage / 100.0 * (100.0 - pT->getChestplate()->getDamageReduction());
+				if (pT->getGloves() != nullptr) damage = damage / 100.0 * (100.0 - pT->getGloves()->getDamageReduction());
+				if (pT->getLeggings() != nullptr) damage = damage / 100.0 * (100.0 - pT->getLeggings()->getDamageReduction());
+				if (pT->getBoots() != nullptr) damage = damage / 100.0 * (100.0 - pT->getBoots()->getDamageReduction());
+			}
 		}
 		
 		damage = std::round(damage * 100.0) / 100.0;
@@ -156,7 +167,16 @@ void BattleManager::attackUsingSpell(CombatCharacter* attacker, CombatCharacter*
 		return;
 	}
 	
-	cout << " -> " << (attackerIsPlayer ? "You (" : "") << attacker->getName() << (attackerIsPlayer ? ")" : "") << " muttered the cursed words of " << s->getName()  << ", and shadows writhed around your hands." << endl;
+	string spellType = s->getType();
+	string conjureMsg;
+	if(spellType == "Fire") conjureMsg = "flames ignite around " + attacker->getName() + "'s hands.";
+	else if(spellType == "Blood") conjureMsg = "dark crimson energy seeps from " + attacker->getName() + "'s veins.";
+	else if(spellType == "Water") conjureMsg = "water swirls and churns around " + attacker->getName() + ".";
+	else if(spellType == "Dark") conjureMsg = "darkness writhes and coils around " + attacker->getName() + ".";
+	else if(spellType == "Nature") conjureMsg = "thorned vines and roots spiral around " + attacker->getName() + ".";
+	else if(spellType == "Light") conjureMsg = "a blinding radiance flares from " + attacker->getName() + "'s palms.";
+	else conjureMsg = "a dark energy forms around " + attacker->getName() + "'s hands.";
+	cout << " -> " << (attackerIsPlayer ? "You (" : "") << attacker->getName() << (attackerIsPlayer ? ")" : "") << " muttered the cursed words of " << s->getName()  << ", and " << conjureMsg << endl;
 	
 	ChainingSpell* cs = dynamic_cast<ChainingSpell*>(s);
 	StatusEffectSpell* ses = dynamic_cast<StatusEffectSpell*>(s);
@@ -175,11 +195,21 @@ void BattleManager::attackUsingSpell(CombatCharacter* attacker, CombatCharacter*
 		
 		if (pT != nullptr) {
 			//if player has some kind of armor, he gets less damage, as simple as that
-			if (pT->getHelmet() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getHelmet()->getDamageReduction());
-			if (pT->getChestplate() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getChestplate()->getDamageReduction());
-			if (pT->getGloves() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getGloves()->getDamageReduction());
-			if (pT->getLeggings() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getLeggings()->getDamageReduction());
-			if (pT->getBoots() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getBoots()->getDamageReduction());
+			// armor is ignored if ArmorBreakStatusEffect is active
+			bool armorBroken = false;
+			for (int i = 0; i < 4; i++) {
+				if (dynamic_cast<ArmorBreakStatusEffect*>(pT->getStatusEffect()[i]) != nullptr) {
+					armorBroken = true;
+					break;
+				}
+			}
+			if (!armorBroken) {
+				if (pT->getHelmet() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getHelmet()->getDamageReduction());
+				if (pT->getChestplate() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getChestplate()->getDamageReduction());
+				if (pT->getGloves() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getGloves()->getDamageReduction());
+				if (pT->getLeggings() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getLeggings()->getDamageReduction());
+				if (pT->getBoots() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getBoots()->getDamageReduction());
+			}
 		}
 		totalDmg = std::round(totalDmg * 100.0) / 100.0;
 		
@@ -195,11 +225,21 @@ void BattleManager::attackUsingSpell(CombatCharacter* attacker, CombatCharacter*
 		
 		if (pT != nullptr) {
 			//if player has some kind of armor, he gets less damage, as simple as that
-			if (pT->getHelmet() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getHelmet()->getDamageReduction());
-			if (pT->getChestplate() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getChestplate()->getDamageReduction());
-			if (pT->getGloves() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getGloves()->getDamageReduction());
-			if (pT->getLeggings() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getLeggings()->getDamageReduction());
-			if (pT->getBoots() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getBoots()->getDamageReduction());
+			// armor is ignored if ArmorBreakStatusEffect is active
+			bool armorBroken = false;
+			for (int i = 0; i < 4; i++) {
+				if (dynamic_cast<ArmorBreakStatusEffect*>(pT->getStatusEffect()[i]) != nullptr) {
+					armorBroken = true;
+					break;
+				}
+			}
+			if (!armorBroken) {
+				if (pT->getHelmet() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getHelmet()->getDamageReduction());
+				if (pT->getChestplate() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getChestplate()->getDamageReduction());
+				if (pT->getGloves() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getGloves()->getDamageReduction());
+				if (pT->getLeggings() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getLeggings()->getDamageReduction());
+				if (pT->getBoots() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getBoots()->getDamageReduction());
+			}
 		}
 		totalDmg = std::round(totalDmg * 100.0) / 100.0;
 		
@@ -225,11 +265,21 @@ void BattleManager::attackUsingSpell(CombatCharacter* attacker, CombatCharacter*
 		
 		if (pT != nullptr) {
 			//if player has some kind of armor, he gets less damage, as simple as that
-			if (pT->getHelmet() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getHelmet()->getDamageReduction());
-			if (pT->getChestplate() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getChestplate()->getDamageReduction());
-			if (pT->getGloves() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getGloves()->getDamageReduction());
-			if (pT->getLeggings() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getLeggings()->getDamageReduction());
-			if (pT->getBoots() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getBoots()->getDamageReduction());
+			// armor is ignored if ArmorBreakStatusEffect is active
+			bool armorBroken = false;
+			for (int i = 0; i < 4; i++) {
+				if (dynamic_cast<ArmorBreakStatusEffect*>(pT->getStatusEffect()[i]) != nullptr) {
+					armorBroken = true;
+					break;
+				}
+			}
+			if (!armorBroken) {
+				if (pT->getHelmet() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getHelmet()->getDamageReduction());
+				if (pT->getChestplate() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getChestplate()->getDamageReduction());
+				if (pT->getGloves() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getGloves()->getDamageReduction());
+				if (pT->getLeggings() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getLeggings()->getDamageReduction());
+				if (pT->getBoots() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getBoots()->getDamageReduction());
+			}
 		}
 		totalDmg = std::round(totalDmg * 100.0) / 100.0;
 		totalLifesteal = s->getDmg() / 100 * lss->getLifeStealRate();
@@ -247,11 +297,21 @@ void BattleManager::attackUsingSpell(CombatCharacter* attacker, CombatCharacter*
 		
 		if (pT != nullptr) {
 			//if player has some kind of armor, he gets less damage, as simple as that
-			if (pT->getHelmet() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getHelmet()->getDamageReduction());
-			if (pT->getChestplate() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getChestplate()->getDamageReduction());
-			if (pT->getGloves() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getGloves()->getDamageReduction());
-			if (pT->getLeggings() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getLeggings()->getDamageReduction());
-			if (pT->getBoots() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getBoots()->getDamageReduction());
+			// armor is ignored if ArmorBreakStatusEffect is active
+			bool armorBroken = false;
+			for (int i = 0; i < 4; i++) {
+				if (dynamic_cast<ArmorBreakStatusEffect*>(pT->getStatusEffect()[i]) != nullptr) {
+					armorBroken = true;
+					break;
+				}
+			}
+			if (!armorBroken) {
+				if (pT->getHelmet() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getHelmet()->getDamageReduction());
+				if (pT->getChestplate() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getChestplate()->getDamageReduction());
+				if (pT->getGloves() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getGloves()->getDamageReduction());
+				if (pT->getLeggings() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getLeggings()->getDamageReduction());
+				if (pT->getBoots() != nullptr) totalDmg = totalDmg / 100.0 * (100.0 - pT->getBoots()->getDamageReduction());
+			}
 		}
 		totalDmg = std::round(totalDmg * 100.0) / 100.0;
 		
@@ -373,14 +433,49 @@ void BattleManager::checkStatusEffects() {
 			StatusEffect* se = current->getStatusEffect()[i];
 			if (se == nullptr) continue;
 			
+			bool isPlayer = (current == player);
+			
+			// ArmorBreakStatusEffect (type 1): no damage, just reminds player their armor is disabled
+			ArmorBreakStatusEffect* abs = dynamic_cast<ArmorBreakStatusEffect*>(se);
+			if (abs != nullptr) {
+				if (isPlayer) {
+					cout << "==========================================" << endl;
+					int remaining = abs->getCurrentDuration() - abs->getCurrentRound() - 1;
+					if (remaining > 0)
+						cout << " -> " << abs->getName() << " holds — your armor is powerless against the blows. (" << remaining << " round(s) left)" << endl;
+					else
+						cout << " -> " << abs->getName() << " fades away. Your armor stands firm once more." << endl;
+				}
+				abs->increaseRound();
+				continue;
+			}
+			
+			// TauntStatusEffect (type 2): no damage, reminds the holder they cannot cast spells
+			TauntStatusEffect* ts = dynamic_cast<TauntStatusEffect*>(se);
+			if (ts != nullptr) {
+				cout << "==========================================" << endl;
+				int remaining = ts->getCurrentDuration() - ts->getCurrentRound() - 1;
+				if (isPlayer) {
+					if (remaining > 0)
+						cout << " -> " << ts->getName() << " burns in your blood — your spells slip from your mind. (" << remaining << " round(s) left)" << endl;
+					else
+						cout << " -> The " << ts->getName() << " subsides. Your focus returns — spells are yours once more." << endl;
+				} else {
+					if (remaining > 0)
+						cout << " -> " << ts->getName() << " holds " << enemy->getName() << " in its grip — its spells are out of reach. (" << remaining << " round(s) left)" << endl;
+					else
+						cout << " -> The " << ts->getName() << " on " << enemy->getName() << " wears off. It regains its arcane focus." << endl;
+				}
+				ts->increaseRound();
+				continue;
+			}
+			
 			hps = dynamic_cast<HpStatusEffect*>(se);
 			if (hps == nullptr) continue;
 			
 			current->setCurrentHp(current->getCurrentHp() + hps->getHpAffection());
 			
 			cout << "==========================================" << endl;
-			
-			bool isPlayer = (current == player);
 			
 			if (hps->getHpAffection() < 0.0) {
 				if (isPlayer)
@@ -395,6 +490,10 @@ void BattleManager::checkStatusEffects() {
 			}
 		}
 	}
+	
+	// remove any status effects that have run their full duration
+	this->player->checkStatusEffects();
+	this->enemy->checkStatusEffects();
 }
 
 //the battle itself
@@ -429,14 +528,26 @@ void BattleManager::battle() {
 					cout << endl;
 					
 					Spell* es = enemy->getSpells()[randomiseSpellEnemy];
-					if (randomiseAttackEnemy < 7 || es == nullptr || es->getRemainingCooldown() > 0) {
+					bool enemyTaunted = false;
+					for (int ti = 0; ti < 4; ti++) {
+						if (dynamic_cast<TauntStatusEffect*>(enemy->getStatusEffect()[ti]) != nullptr) {
+							enemyTaunted = true; break;
+						}
+					}
+					if (enemyTaunted || randomiseAttackEnemy < 7 || es == nullptr || es->getRemainingCooldown() > 0) {
 						attack(enemy, player);
 					} else {
 						attackUsingSpell(enemy, player, randomiseSpellEnemy);
 					}
 				} else {
 					Spell* es = enemy->getSpells()[randomiseSpellEnemy];
-					if (randomiseAttackEnemy < 7 || es == nullptr || es->getRemainingCooldown() > 0) {
+					bool enemyTaunted = false;
+					for (int ti = 0; ti < 4; ti++) {
+						if (dynamic_cast<TauntStatusEffect*>(enemy->getStatusEffect()[ti]) != nullptr) {
+							enemyTaunted = true; break;
+						}
+					}
+					if (enemyTaunted || randomiseAttackEnemy < 7 || es == nullptr || es->getRemainingCooldown() > 0) {
 						attack(enemy, player);
 					} else {
 						attackUsingSpell(enemy, player, randomiseSpellEnemy);
@@ -449,6 +560,41 @@ void BattleManager::battle() {
 			}
 			
 			case 2: {
+				// check if player is taunted - if so, force a normal attack instead
+				bool playerTaunted = false;
+				for (int i = 0; i < 4; i++) {
+					if (dynamic_cast<TauntStatusEffect*>(player->getStatusEffect()[i]) != nullptr) {
+						playerTaunted = true;
+						break;
+					}
+				}
+				
+				if (playerTaunted) {
+					cout << "==========================================" << endl;
+					cout << " -> The " << player->getName() << " is gripped by the Taunt — the words of your spells dissolve before they form." << endl;
+					cout << " -> Your body acts on instinct, hurling itself forward into a basic strike." << endl;
+					cout << "==========================================" << endl;
+					
+					if (player->getSpeed() >= enemy->getSpeed()) {
+						attack(player, enemy);
+						cout << endl;
+						Spell* es = enemy->getSpells()[randomiseSpellEnemy];
+						if (randomiseAttackEnemy < 7 || es == nullptr || es->getRemainingCooldown() > 0)
+							attack(enemy, player);
+						else
+							attackUsingSpell(enemy, player, randomiseSpellEnemy);
+					} else {
+						Spell* es = enemy->getSpells()[randomiseSpellEnemy];
+						if (randomiseAttackEnemy < 7 || es == nullptr || es->getRemainingCooldown() > 0)
+							attack(enemy, player);
+						else
+							attackUsingSpell(enemy, player, randomiseSpellEnemy);
+						cout << endl;
+						attack(player, enemy);
+					}
+					break;
+				}
+				
 				Spell* s;
 				ChainingSpell* cs;
 				StatusEffectSpell* sas;
@@ -499,13 +645,25 @@ void BattleManager::battle() {
 					cout << endl;
 					
 					Spell* es = enemy->getSpells()[randomiseSpellEnemy];
-					if (randomiseAttackEnemy < 7 || es == nullptr || es->getRemainingCooldown() > 0)
+					bool enemyTaunted = false;
+					for (int ti = 0; ti < 4; ti++) {
+						if (dynamic_cast<TauntStatusEffect*>(enemy->getStatusEffect()[ti]) != nullptr) {
+							enemyTaunted = true; break;
+						}
+					}
+					if (enemyTaunted || randomiseAttackEnemy < 7 || es == nullptr || es->getRemainingCooldown() > 0)
 						attack(enemy, player);
 					else
 						attackUsingSpell(enemy, player, randomiseSpellEnemy);
 				} else {
 					Spell* es = enemy->getSpells()[randomiseSpellEnemy];
-					if (randomiseAttackEnemy < 7 || es == nullptr || es->getRemainingCooldown() > 0)
+					bool enemyTaunted = false;
+					for (int ti = 0; ti < 4; ti++) {
+						if (dynamic_cast<TauntStatusEffect*>(enemy->getStatusEffect()[ti]) != nullptr) {
+							enemyTaunted = true; break;
+						}
+					}
+					if (enemyTaunted || randomiseAttackEnemy < 7 || es == nullptr || es->getRemainingCooldown() > 0)
 						attack(enemy, player);
 					else
 						attackUsingSpell(enemy, player, randomiseSpellEnemy);
@@ -528,7 +686,7 @@ void BattleManager::battle() {
 				cout << "------------------------------------------" << endl;
 				cout << *enemy;
 				cout << "==========================================" << endl;
-				cout << "Dark sustenance in your pack, grim and foul:" << endl << endl;
+				cout << "Provisions in your pack, worn from the road:" << endl << endl;
 				
 				for (size_t i = 0; i < items.size(); i++) {
 					Consumable* c = dynamic_cast<Consumable*>(items[i]);
@@ -539,21 +697,21 @@ void BattleManager::battle() {
 				}
 				
 				if (consumableIndexes.empty()) {
-					cout << " -> You rummage through your pack, but only stale crumbs and bitter draughts greet your hand." << endl;
+					cout << " -> You search your pack, but find nothing left to use." << endl;
 					system("pause");
 					system("cls");
 					break;
 				}
 				
 				cout << "==========================================" << endl;
-				cout << "Which morsel or draught will you dare to consume? ";
+				cout << "Which provision will you use? ";
 				cin >> choice;
 				cout << "==========================================" << endl;
 				
 				system("cls");
 				
 				if (choice <= 0 || choice > consumableIndexes.size()) {
-					cout << " -> Hesitation claws at you. The chance to act withers like rotting bread." << endl;
+					cout << " -> You put it away. The moment to act passes." << endl;
 					break;
 				}
 				
@@ -567,19 +725,25 @@ void BattleManager::battle() {
 					if (player->getCurrentHp() > player->getMaxHp()) player->setCurrentHp(player->getMaxHp());
 					
 					cout << "==========================================" << endl;
-					cout << " -> You devour " << used->getName() << ". Its flavor is grim, yet " << healAmount << " vitality crawls back into your veins." << endl;
+					cout << " -> You use " << used->getName() << ". " << healAmount << " vitality flows back into your veins." << endl;
 					
 					cout << realIndex;
 					items.erase(items.begin() +  realIndex);
 				} else {
-					cout << " -> Something went wrong. That item is unusable." << endl;
+					cout << " -> That item cannot be used." << endl;
 				}
 				
 				cout << endl;
 				
 				
 				Spell* es = enemy->getSpells()[randomiseSpellEnemy];
-				if (randomiseAttackEnemy < 7 || es == nullptr || es->getRemainingCooldown() > 0) attack(enemy, player);
+				bool enemyTaunted = false;
+				for (int ti = 0; ti < 4; ti++) {
+					if (dynamic_cast<TauntStatusEffect*>(enemy->getStatusEffect()[ti]) != nullptr) {
+						enemyTaunted = true; break;
+					}
+				}
+				if (enemyTaunted || randomiseAttackEnemy < 7 || es == nullptr || es->getRemainingCooldown() > 0) attack(enemy, player);
 				else attackUsingSpell(enemy, player, randomiseSpellEnemy);
 				break;
 			}	

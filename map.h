@@ -2,6 +2,7 @@
 #define MAP_H
 
 #include "combatlocation.h"
+#include "treasurelocation.h"
 #include "player.h"
 #include "battlemanager.h"
 #include <vector>

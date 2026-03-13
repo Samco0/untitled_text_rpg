@@ -9,13 +9,14 @@ LifeStealSpell::LifeStealSpell(){
 	this->remainingCooldown = 0;
 	this->lifeStealRate = 0;
 }
-LifeStealSpell::LifeStealSpell(string name, string description, float dmg, int fullCooldown, int lifeStealRate){
+LifeStealSpell::LifeStealSpell(string name, string description, float dmg, int fullCooldown, int lifeStealRate, string type){
 	this->name = name;
 	this->description = description;
 	this->dmg = dmg;
 	this->fullCooldown = fullCooldown;
 	this->remainingCooldown = 0;
 	this->lifeStealRate = lifeStealRate;
+	this->type = type;
 }
 
 //getter

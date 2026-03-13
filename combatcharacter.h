@@ -45,7 +45,8 @@ public:
 	void checkStatusEffects();                           // check if any can be removed
 	
 	// Output
-	friend ostream& operator<<(ostream& output, CombatCharacter character);
+	virtual void print(ostream& output);
+	friend ostream& operator<<(ostream& output, CombatCharacter& character);
 	
 protected:
 	float maxHp, currentHp;

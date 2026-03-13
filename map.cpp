@@ -75,9 +75,9 @@ ostream& operator<<(ostream& output, Map m) {
 	for (int i = 0; i < 3; i++) {
 		for (int j = m.getPlayerPosition(); j < m.locations.size(); j++) {
 			Location* loc = m.locations[j];
-
+			
 			if (loc != nullptr) {
-
+				
 				if (i == 0) {
 					if (j == m.getPlayerPosition()) {
 						output << "++---++ ";
@@ -85,27 +85,31 @@ ostream& operator<<(ostream& output, Map m) {
 						output << "+---+ ";
 					}
 				}
-
+				
 				else if (i == 1) {
 					if (j == m.getPlayerPosition()) {
 						output << "|| ";
 					} else {
 						output << "| ";
 					}
-
+					
 					if (dynamic_cast<CombatLocation * >(loc) != nullptr) {
 						output << "C ";
+					} else if(dynamic_cast<TreasureLocation * >(loc) != nullptr) {
+						output << "T ";	
 					} else {
 						output << "  ";
 					}
-
+					
+					
+					
 					if (j == m.getPlayerPosition()) {
 						output << "|| ";
 					} else {
 						output << "| ";
 					}
 				}
-
+				
 				else if (i == 2) {
 					if (j == m.getPlayerPosition()) {
 						output << "++---++ ";
@@ -117,12 +121,12 @@ ostream& operator<<(ostream& output, Map m) {
 		}
 		output << endl;
 	}
-
+	
 	if (!m.locations.empty() && m.getPlayerPosition() < m.locations.size()) {
 		output << m.name << " - "
-		       << m.locations[m.getPlayerPosition()]->getName();
+		<< m.locations[m.getPlayerPosition()]->getName();
 	}
-
+	
 	return output;
 }
 
@@ -134,14 +138,15 @@ void Map::movePlayer() {
 		checkPlayerFinished();
 		return;
 	}
-
+	
 	CombatLocation* cL = dynamic_cast<CombatLocation*>(locations[playerPosition]);
+	TreasureLocation* tL = dynamic_cast<TreasureLocation*>(locations[playerPosition]);
 	BattleManager b(this->player, nullptr);
-
+	
 	if (cL != nullptr) {
 		b = BattleManager(this->player, cL->getAttacker());
 	}
-
+	
 	checkPlayerFinished();
 	if (this->playerFinished) {
 		system("cls");
@@ -152,7 +157,7 @@ void Map::movePlayer() {
 		cout << "==========================================" << endl;
 		return;
 	}
-
+	
 	do {
 		playerChoice = -1;
 		system("cls");
@@ -164,48 +169,48 @@ void Map::movePlayer() {
 		cout << "==========================================" << endl;
 		cout << "What is your choice? " << endl;
 		cin >> playerChoice;
-
+		
 		if (playerChoice == 2) {
 			int inventoryChoice = -1;
 			do {
 				system("cls");
-
+				
 				cout << "==========================================" << endl;
 				cout << *this->player;
 				cout << "==========================================" << endl;
 				cout << "You open your pack. The weight of your journey rests within." << endl;
 				cout << "------------------------------------------" << endl;
-
+				
 				cout << this->player->getInventory() << endl;
-
+				
 				cout << "==========================================" << endl;
 				cout << "0. Close your pack and return to the shadows." << endl;
 				cout << "Choose an item to inspect... or disturb." << endl;
 				cout << "==========================================" << endl;
-
+				
 				cin >> inventoryChoice;
-
+				
 				if (inventoryChoice == 0) {
 					break;
 				}
-
+				
 				vector<Item*>& items = this->player->getInventory().getStorage();
-
+				
 				if (inventoryChoice > 0 && inventoryChoice <= items.size()) {
 					system("cls");
-
+					
 					Item* selectedItem = items[inventoryChoice - 1];
 					if (selectedItem != nullptr) {
 						Weapon* placeholderW = dynamic_cast<Weapon*>(items[inventoryChoice - 1]);
 						Scroll* placeholderS = dynamic_cast<Scroll*>(items[inventoryChoice - 1]);
 						Armor* placeholderA = dynamic_cast<Armor*>(items[inventoryChoice - 1]);
 						Consumable* placeholderC = dynamic_cast<Consumable*>(items[inventoryChoice - 1]);
-
+						
 						if (placeholderW != nullptr) {
 							Weapon* playerW = player->getWeapon();
 							Weapon* safe;
 							int wantsToEquip = 0;
-
+							
 							cout << "==========================================" << endl;
 							cout << "Your current weapon bears the scars of your journey." << endl;
 							cout << *playerW << " (your trusted steel)" << endl;
@@ -215,14 +220,14 @@ void Map::movePlayer() {
 							cout << "==========================================" << endl;
 							cout << "Only one may remain in your hand. Choose. (1 - Take it)" << endl;
 							cin >> wantsToEquip;
-
+							
 							if (wantsToEquip == 1) {
 								safe = playerW;
-
+								
 								player->setWeapon(placeholderW);
-
+								
 								items[inventoryChoice - 1] = safe;
-
+								
 								cout << "------------------------------------------" << endl;
 								cout << "The old blade falls silent." << endl;
 								cout << "The new one answers your will." << endl;
@@ -234,12 +239,12 @@ void Map::movePlayer() {
 							StatusEffectSpell* scrollSas = dynamic_cast<StatusEffectSpell*>(placeholderS->getHeldSpell());
 							LifeStealSpell* scrollLss = dynamic_cast<LifeStealSpell*>(placeholderS->getHeldSpell());
 							int wantsToLearn = 0;
-
+							
 							cout << "==========================================" << endl;
 							cout << "The knowledge carved into your mind:" << endl << endl;
 							for (int i = 0; i < 4; i++) {
 								Spell *s = player->getSpells()[i];
-
+								
 								cout << " " << i + 1 << ". ";
 								cout << "Etched into your soul: ";
 								if (s == nullptr) {
@@ -248,7 +253,7 @@ void Map::movePlayer() {
 									ChainingSpell* cs = dynamic_cast<ChainingSpell*>(player->getSpells()[i]);
 									StatusEffectSpell* sas = dynamic_cast<StatusEffectSpell*>(player->getSpells()[i]);
 									LifeStealSpell* lss = dynamic_cast<LifeStealSpell*>(player->getSpells()[i]);
-
+									
 									if (cs != nullptr) {
 										cout << *cs;
 									} else if (sas != nullptr) {
@@ -260,7 +265,7 @@ void Map::movePlayer() {
 									}
 								}
 							}
-
+							
 							cout << "------------------------------------------" << endl;
 							cout << "And the forbidden words bound within the scroll:" << endl << endl;
 							if (scrollCs != nullptr) cout << *scrollCs;
@@ -271,14 +276,14 @@ void Map::movePlayer() {
 							cout << "Adventure, this knowledge comes at a price. Your old spell will be lost." << endl;
 							cout << "Select the spell you wish to sacrifice: ";
 							cin >> wantsToLearn;
-
+							
 							if (wantsToLearn > 0 && wantsToLearn < 5) {
 								player->setSpell(wantsToLearn - 1, placeholderS->getHeldSpell());
-
+								
 								cout << "------------------------------------------" << endl;
 								cout << "A memory tears free from your mind." << endl;
 								cout << "You can no longer recall its words." << endl;
-
+								
 								items.erase(items.begin() + (inventoryChoice - 1));
 							}
 							cout << "==========================================" << endl;
@@ -287,221 +292,221 @@ void Map::movePlayer() {
 							int wantsToEquip = 0;
 							Armor* playerA;
 							Armor* safe;
-
+							
 							switch (placeholderA->getType()) {
-								case 1:
-									//case where player is trying to equip helmet
-									playerA = player->getHelmet();
-									cout << "==========================================" << endl;
-									if (player->getHelmet() == nullptr) cout << "Your crown rests bare, your spirit unguarded." << endl;
-									else cout << "The helmet you bear hums softly against your mind..." << endl << *playerA << endl;
-
+							case 1:
+								//case where player is trying to equip helmet
+								playerA = player->getHelmet();
+								cout << "==========================================" << endl;
+								if (player->getHelmet() == nullptr) cout << "Your crown rests bare, your spirit unguarded." << endl;
+								else cout << "The helmet you bear hums softly against your mind..." << endl << *playerA << endl;
+								
+								cout << "------------------------------------------" << endl;
+								cout << "A new helm awaits, whispering as though it knows your soul:" << endl << *placeholderA << endl;
+								cout << "==========================================" << endl;
+								cout << "Only one may merge with your essence. Will you claim it? (1 - Bind it)" << endl;
+								cin >> wantsToEquip;
+								
+								if (wantsToEquip == 1 && playerA != nullptr) {
+									safe = playerA;
+									
+									player->setHelmet(placeholderA);
+									
+									items[inventoryChoice - 1] = safe;
+									
 									cout << "------------------------------------------" << endl;
-									cout << "A new helm awaits, whispering as though it knows your soul:" << endl << *placeholderA << endl;
-									cout << "==========================================" << endl;
-									cout << "Only one may merge with your essence. Will you claim it? (1 - Bind it)" << endl;
-									cin >> wantsToEquip;
-
-									if (wantsToEquip == 1 && playerA != nullptr) {
-										safe = playerA;
-
-										player->setHelmet(placeholderA);
-
-										items[inventoryChoice - 1] = safe;
-
-										cout << "------------------------------------------" << endl;
-										cout << "The old helmet releases its hold with a final sigh." << endl;
-										cout << "The new one melds with your spirit, its will now entwined with yours." << endl;
-									} else if (wantsToEquip == 1 && playerA == nullptr) {
-										player->setHelmet(placeholderA);
-										items.erase(items.begin() + (inventoryChoice - 1));
-
-										cout << "------------------------------------------" << endl;
-										cout << "You place the helmet upon your head." << endl;
-										cout << "It molds to your thoughts and becomes one with you." << endl;
-									}
-
-									cout << "==========================================" << endl;
-									system("pause");
-									break;
-								case 2:
-									//case where player is trying to equip chestplate
-									playerA = player->getChestplate();
-									cout << "==========================================" << endl;
-									if (player->getChestplate() == nullptr) cout << "Your chest feels naked, exposed to the void." << endl;
-									else cout << "The chestplate you wear hums against your flesh, aware of you..." << endl << *playerA << endl;
-
+									cout << "The old helmet releases its hold with a final sigh." << endl;
+									cout << "The new one melds with your spirit, its will now entwined with yours." << endl;
+								} else if (wantsToEquip == 1 && playerA == nullptr) {
+									player->setHelmet(placeholderA);
+									items.erase(items.begin() + (inventoryChoice - 1));
+									
 									cout << "------------------------------------------" << endl;
-									cout << "A new chestplate waits, pulsing like it knows your heartbeat:" << endl << *placeholderA << endl;
-									cout << "==========================================" << endl;
-									cout << "Only one can claim your body and your will. Will you let it? (1 - Take it)" << endl;
-									cin >> wantsToEquip;
-
-									if (wantsToEquip == 1 && playerA != nullptr) {
-										safe = playerA;
-
-										player->setChestplate(placeholderA);
-
-										items[inventoryChoice - 1] = safe;
-
-										cout << "------------------------------------------" << endl;
-										cout << "The old chestplate slides away, its grip released." << endl;
-										cout << "The new one melds with your form, its presence now part of you." << endl;
-									} else if (wantsToEquip == 1 && playerA == nullptr) {
-										player->setChestplate(placeholderA);
-										items.erase(items.begin() + (inventoryChoice - 1));
-
-										cout << "------------------------------------------" << endl;
-										cout << "You don the chestplate for the first time." << endl;
-										cout << "It settles over your body, intertwining with your very essence." << endl;
-									}
-
-									cout << "==========================================" << endl;
-									system("pause");
-									break;
-								case 3:
-									//case where player is trying to equip gloves
-									playerA = player->getGloves();
-									cout << "==========================================" << endl;
-									if (player->getGloves() == nullptr) cout << "Your hands are bare, feeling the weight of the world." << endl;
-									else cout << "The gloves you wear hum against your skin, sensing your touch..." << endl << *playerA << endl;
-
+									cout << "You place the helmet upon your head." << endl;
+									cout << "It molds to your thoughts and becomes one with you." << endl;
+								}
+								
+								cout << "==========================================" << endl;
+								system("pause");
+								break;
+							case 2:
+								//case where player is trying to equip chestplate
+								playerA = player->getChestplate();
+								cout << "==========================================" << endl;
+								if (player->getChestplate() == nullptr) cout << "Your chest feels naked, exposed to the void." << endl;
+								else cout << "The chestplate you wear catches the light, tested in battle:" << endl << *playerA << endl;
+								
+								cout << "------------------------------------------" << endl;
+								cout << "A new chestplate awaits, ready to serve you:" << endl << *placeholderA << endl;
+								cout << "==========================================" << endl;
+								cout << "Only one can claim your body and your will. Will you let it? (1 - Take it)" << endl;
+								cin >> wantsToEquip;
+								
+								if (wantsToEquip == 1 && playerA != nullptr) {
+									safe = playerA;
+									
+									player->setChestplate(placeholderA);
+									
+									items[inventoryChoice - 1] = safe;
+									
 									cout << "------------------------------------------" << endl;
-									cout << "A new pair of gloves waits, as if alive with your intent:" << endl << *placeholderA << endl;
-									cout << "==========================================" << endl;
-									cout << "Only one may bind to your hands and your will. Will you take them? (1 - Bind them)" << endl;
-									cin >> wantsToEquip;
-
-									if (wantsToEquip == 1 && playerA != nullptr) {
-										safe = playerA;
-
-										player->setGloves(placeholderA);
-
-										items[inventoryChoice - 1] = safe;
-
-										cout << "------------------------------------------" << endl;
-										cout << "The old gloves fall away, releasing their hold." << endl;
-										cout << "The new pair molds to your hands, ready to obey your command." << endl;
-									} else if (wantsToEquip == 1 && playerA == nullptr) {
-										player->setGloves(placeholderA);
-										items.erase(items.begin() + (inventoryChoice - 1));
-
-										cout << "------------------------------------------" << endl;
-										cout << "You slip your hands into the gloves for the first time." << endl;
-										cout << "They cling to your fingers, as if they were made to move with your very will." << endl;
-									}
-
-									cout << "==========================================" << endl;
-									system("pause");
-									break;
-								case 4:
-									//case where player is trying to equip leggings
-									playerA = player->getLeggings();
-									cout << "==========================================" << endl;
-									if (player->getLeggings() == nullptr) cout << "Your legs move unguarded, every step unshielded." << endl;
-									else cout << "The leggings you wear shift with you, sensing every motion..." << endl << *playerA << endl;
-
+									cout << "The old chestplate slides away, its grip released." << endl;
+									cout << "The new one settles into place, solid and sure." << endl;
+								} else if (wantsToEquip == 1 && playerA == nullptr) {
+									player->setChestplate(placeholderA);
+									items.erase(items.begin() + (inventoryChoice - 1));
+									
 									cout << "------------------------------------------" << endl;
-									cout << "A new pair of leggings lies before you, eager to meld with your form:" << endl << *placeholderA << endl;
-									cout << "==========================================" << endl;
-									cout << "Only one may bind to your legs and your will. Will you take them? (1 - Bind them)" << endl;
-									cin >> wantsToEquip;
-
-									if (wantsToEquip == 1 && playerA != nullptr) {
-										safe = playerA;
-
-										player->setLeggings(placeholderA);
-
-										items[inventoryChoice - 1] = safe;
-
-										cout << "------------------------------------------" << endl;
-										cout << "The old leggings release their hold, falling away." << endl;
-										cout << "The new pair melds with your legs, moving as one with your body." << endl;
-									} else if (wantsToEquip == 1 && playerA == nullptr) {
-										player->setLeggings(placeholderA);
-										items.erase(items.begin() + (inventoryChoice - 1));
-
-										cout << "------------------------------------------" << endl;
-										cout << "You step into the leggings for the first time." << endl;
-										cout << "They wrap around your legs, moving as if part of your own body." << endl;
-									}
-
-									cout << "==========================================" << endl;
-									system("pause");
-									break;
-								case 5:
-									//case where player is trying to equip boots
-									playerA = player->getBoots();
-									cout << "==========================================" << endl;
-									if (player->getBoots() == nullptr) cout << "Your feet strike the ground unshielded, every step bare." << endl;
-									else cout << "The boots you wear cling to your movements, alive with your stride..." << endl << *playerA << endl;
-
+									cout << "You don the chestplate for the first time." << endl;
+									cout << "It settles over your body, intertwining with your very essence." << endl;
+								}
+								
+								cout << "==========================================" << endl;
+								system("pause");
+								break;
+							case 3:
+								//case where player is trying to equip gloves
+								playerA = player->getGloves();
+								cout << "==========================================" << endl;
+								if (player->getGloves() == nullptr) cout << "Your hands are bare, feeling the weight of the world." << endl;
+								else cout << "The gloves you wear have served you well so far:" << endl << *playerA << endl;
+								
+								cout << "------------------------------------------" << endl;
+								cout << "A new pair of gloves waits, ready for your hand:" << endl << *placeholderA << endl;
+								cout << "==========================================" << endl;
+								cout << "Only one may bind to your hands and your will. Will you take them? (1 - Bind them)" << endl;
+								cin >> wantsToEquip;
+								
+								if (wantsToEquip == 1 && playerA != nullptr) {
+									safe = playerA;
+									
+									player->setGloves(placeholderA);
+									
+									items[inventoryChoice - 1] = safe;
+									
 									cout << "------------------------------------------" << endl;
-									cout << "A new pair of boots waits, eager to merge with your steps:" << endl << *placeholderA << endl;
-									cout << "==========================================" << endl;
-									cout << "Only one may bind to your feet and your will. Will you take them? (1 - Bind them)" << endl;
-									cin >> wantsToEquip;
-
-									if (wantsToEquip == 1 && playerA != nullptr) {
-										safe = playerA;
-
-										player->setBoots(placeholderA);
-
-										items[inventoryChoice - 1] = safe;
-
-										cout << "------------------------------------------" << endl;
-										cout << "The old boots loosen their hold and fall away." << endl;
-										cout << "The new pair melds with your steps, moving as one with your body." << endl;
-									} else if (wantsToEquip == 1 && playerA == nullptr) {
-										player->setBoots(placeholderA);
-										items.erase(items.begin() + (inventoryChoice - 1));
-
-										cout << "------------------------------------------" << endl;
-										cout << "You slide your feet into the boots for the first time." << endl;
-										cout << "They wrap around your stride, moving as if one with your legs and will." << endl;
-									}
-
-									cout << "==========================================" << endl;
-									system("pause");
-									break;
-								default:
-									break;
+									cout << "The old gloves fall away, releasing their hold." << endl;
+									cout << "The new pair fits your hands well." << endl;
+								} else if (wantsToEquip == 1 && playerA == nullptr) {
+									player->setGloves(placeholderA);
+									items.erase(items.begin() + (inventoryChoice - 1));
+									
+									cout << "------------------------------------------" << endl;
+									cout << "You slip your hands into the gloves for the first time." << endl;
+									cout << "They fit well, fingers moving freely within." << endl;
+								}
+								
+								cout << "==========================================" << endl;
+								system("pause");
+								break;
+							case 4:
+								//case where player is trying to equip leggings
+								playerA = player->getLeggings();
+								cout << "==========================================" << endl;
+								if (player->getLeggings() == nullptr) cout << "Your legs move unguarded, every step unshielded." << endl;
+								else cout << "The leggings you wear have carried you through many roads:" << endl << *playerA << endl;
+								
+								cout << "------------------------------------------" << endl;
+								cout << "A new pair of leggings lies before you, ready to be worn:" << endl << *placeholderA << endl;
+								cout << "==========================================" << endl;
+								cout << "Only one may bind to your legs and your will. Will you take them? (1 - Bind them)" << endl;
+								cin >> wantsToEquip;
+								
+								if (wantsToEquip == 1 && playerA != nullptr) {
+									safe = playerA;
+									
+									player->setLeggings(placeholderA);
+									
+									items[inventoryChoice - 1] = safe;
+									
+									cout << "------------------------------------------" << endl;
+									cout << "The old leggings release their hold, falling away." << endl;
+									cout << "The new pair fits well, sturdy around your legs." << endl;
+								} else if (wantsToEquip == 1 && playerA == nullptr) {
+									player->setLeggings(placeholderA);
+									items.erase(items.begin() + (inventoryChoice - 1));
+									
+									cout << "------------------------------------------" << endl;
+									cout << "You step into the leggings for the first time." << endl;
+									cout << "They fit snugly, ready for the road ahead." << endl;
+								}
+								
+								cout << "==========================================" << endl;
+								system("pause");
+								break;
+							case 5:
+								//case where player is trying to equip boots
+								playerA = player->getBoots();
+								cout << "==========================================" << endl;
+								if (player->getBoots() == nullptr) cout << "Your feet strike the ground unshielded, every step bare." << endl;
+								else cout << "The boots you wear have kept pace with every step of your journey:" << endl << *playerA << endl;
+								
+								cout << "------------------------------------------" << endl;
+								cout << "A new pair of boots waits, ready to carry you forward:" << endl << *placeholderA << endl;
+								cout << "==========================================" << endl;
+								cout << "Only one may bind to your feet and your will. Will you take them? (1 - Bind them)" << endl;
+								cin >> wantsToEquip;
+								
+								if (wantsToEquip == 1 && playerA != nullptr) {
+									safe = playerA;
+									
+									player->setBoots(placeholderA);
+									
+									items[inventoryChoice - 1] = safe;
+									
+									cout << "------------------------------------------" << endl;
+									cout << "The old boots loosen their hold and fall away." << endl;
+									cout << "The new pair fits well, steady beneath your feet." << endl;
+								} else if (wantsToEquip == 1 && playerA == nullptr) {
+									player->setBoots(placeholderA);
+									items.erase(items.begin() + (inventoryChoice - 1));
+									
+									cout << "------------------------------------------" << endl;
+									cout << "You slide your feet into the boots for the first time." << endl;
+									cout << "They fit well, solid and ready for the miles ahead." << endl;
+								}
+								
+								cout << "==========================================" << endl;
+								system("pause");
+								break;
+							default:
+								break;
 							}
-
+							
 						} else if (placeholderC != nullptr) {
 							int wantsToConsume = 0;
-
+							
 							cout << "==========================================" << endl;
 							cout << *player;
 							cout << "------------------------------------------" << endl;
-							cout << "The item rests in your palm, stained by struggle." << endl;
+							cout << "The item rests in your palm, worn from the road." << endl;
 							cout << *placeholderC << endl;
 							cout << "==========================================" << endl;
-							cout << "Use it, and deny death a little longer? (1 - Use it)" << endl;
+							cout << "Use it now? (1 - Use it)" << endl;
 							cin >> wantsToConsume;
-
+							
 							if (wantsToConsume == 1) {
 								player->setCurrentHp(player->getCurrentHp() + placeholderC->getHpToRecover());
-
+								
 								cout << "------------------------------------------" << endl;
-								cout << "You endure the taste of iron and ash." << endl;
-								cout << "Your wounds tighten, reluctantly closing." << endl;
+								cout << "You drink it down." << endl;
+								cout << "Your wounds begin to close." << endl;
 								cout << "You regain " << placeholderC->getHpToRecover() << " vitality." << endl;
-
+								
 								if (player->getMaxHp() <= player->getCurrentHp())
-									cout << "For now, death turns its gaze elsewhere." << endl;
-
+									cout << "You feel restored." << endl;
+								
 								items.erase(items.begin() + (inventoryChoice - 1));
 							} else {
-								cout << "You lower it. Pain keeps you sharp." << endl;
+								cout << "You put it away." << endl;
 							}
-
+							
 							cout << "==========================================" << endl;
 							system("pause");
 						}
 					}
 				}
-
+				
 			} while (inventoryChoice != 0);
 		}
 	} while (playerChoice != 1);
@@ -510,16 +515,89 @@ void Map::movePlayer() {
 	
 	if (cL != nullptr) {
 		b.battle();
-
+		
 		// stop if player died
 		if (this->player->getCurrentHp() <= 0) {
 			return;
 		}
 	}
-
+	else if(tL != nullptr){
+		system("cls");
+		cout << "==========================================" << endl;
+		cout << " Before you sits " << tL->getTreasureName() << ", resting quietly at " << tL->getName() << "." << endl;
+		cout << "------------------------------------------" << endl;
+		cout << " 1. Pry it open" << endl;
+		cout << " 2. Leave it be" << endl;
+		cout << "------------------------------------------" << endl;
+		cout << " What do you wish to do? ";
+		int treasureChoice; cin >> treasureChoice;
+		
+		if (treasureChoice == 1) {
+			// --- reward distribution (same logic as enemy loot) ---
+			vector<Item*>& tItems   = tL->getRewardItems();
+			vector<int>&   tChances = tL->getRewardChances();
+			
+			cout << "==========================================" << endl;
+			cout << " You heave open " << tL->getTreasureName() << ". The lid groans and gives way..." << endl;
+			cout << "------------------------------------------" << endl;
+			
+			// Soul Stone drop
+			int ssChance = tL->getSoulStoneDropChance();
+			if (ssChance > 0) {
+				int ssRoll = rand() % 100 + 1;
+				if (ssRoll <= ssChance) {
+					if (this->player->getSoulStones() < 9) {
+						this->player->addSoulStone();
+						cout << " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+						cout << " -> A cold glimmer rests at the very bottom." << endl;
+						cout << " -> You reach in. A Soul Stone — humming faintly — settles in your palm." << endl;
+						cout << " -> Soul Stones: ";
+						for (int i = 0; i < this->player->getSoulStones(); i++) cout << "[*] ";
+						cout << endl;
+						cout << " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+					} else {
+						cout << " -> A Soul Stone glows inside, but your spirit is already full." << endl;
+						cout << " -> It crumbles into ash as you touch it." << endl;
+					}
+				}
+			}
+			
+			// Loot
+			cout << " -> Within, you find:" << endl;
+			bool anyDrop = false;
+			for (size_t i = 0; i < tItems.size(); i++) {
+				int roll = rand() % 100 + 1;
+				if (roll <= tChances[i]) {
+					cout << "     - " << tItems[i]->getName() << endl;
+					this->player->getInventory().addItem(tItems[i]);
+					anyDrop = true;
+				}
+			}
+			if (!anyDrop) cout << "     - Nothing. Dust and old air — someone got here before you." << endl;
+			
+			// XP reward
+			if (tL->getXpReward() > 0) {
+				Player* p = dynamic_cast<Player*>(this->player);
+				if (p != nullptr) {
+					p->setCurrentXp(p->getCurrentXp() + tL->getXpReward());
+					cout << " -> The knowledge hidden within stirs something in you. You gain " << tL->getXpReward() << " XP." << endl;
+				}
+			}
+			
+			cout << "==========================================" << endl;
+			system("pause");
+		} else {
+			cout << "==========================================" << endl;
+			cout << " You turn away from " << tL->getTreasureName() << ", leaving it untouched." << endl;
+			cout << " Perhaps that was wise. Perhaps not." << endl;
+			cout << "==========================================" << endl;
+			system("pause");
+		}
+	}
+	
 // move forward only if alive
 	this->playerPosition += 1;
-
+	
 // check if finished
 	checkPlayerFinished();
 }
@@ -538,7 +616,7 @@ void Map::generateMap(vector<Location*>& easyLocations, vector<Location*>& mediu
 	this->playerFinished = false;
 	
 	srand(time(NULL));
-
+	
 	//easy locations
 	vector<Location*> easyRandom;
 	if (!easyLocations.empty()) {
@@ -552,7 +630,7 @@ void Map::generateMap(vector<Location*>& easyLocations, vector<Location*>& mediu
 		}
 	}
 	locations.insert(locations.end(), easyRandom.begin(), easyRandom.end());
-
+	
 	//medium locations
 	vector<Location*> mediumRandom;
 	if (!mediumLocations.empty()) {
@@ -566,7 +644,7 @@ void Map::generateMap(vector<Location*>& easyLocations, vector<Location*>& mediu
 		}
 	}
 	locations.insert(locations.end(), mediumRandom.begin(), mediumRandom.end());
-
+	
 	//hard locations
 	vector<Location*> hardRandom;
 	if (!hardLocations.empty()) {
@@ -580,13 +658,13 @@ void Map::generateMap(vector<Location*>& easyLocations, vector<Location*>& mediu
 		}
 	}
 	locations.insert(locations.end(), hardRandom.begin(), hardRandom.end());
-
+	
 	//boss location
 	if (!bossLocations.empty()) {
 		int idx = rand() % bossLocations.size();
 		locations.push_back(bossLocations[idx]);
 	}
-
+	
 	for (Location* loc : locations) {
 		CombatLocation* cL = dynamic_cast<CombatLocation*>(loc);
 		if (cL != nullptr && cL->getAttacker() != nullptr) {
@@ -597,4 +675,3 @@ void Map::generateMap(vector<Location*>& easyLocations, vector<Location*>& mediu
 	playerPosition = 0;
 	playerFinished = false;
 }
-

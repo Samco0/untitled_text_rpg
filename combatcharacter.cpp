@@ -95,7 +95,7 @@ void CombatCharacter::checkStatusEffects(){
 	// this function checks if any of the statuses in the array can be turned into a nullptr, if yes, then uses removeStatusEffect
 	for(int i = 0; i < 4; i++){
 		if(this->statusEffect[i] != nullptr &&
-		   this->statusEffect[i]->getCurrentRound() >= this->statusEffect[i]->getCurrentDuration()){
+			this->statusEffect[i]->getCurrentRound() >= this->statusEffect[i]->getCurrentDuration()){
 			removeStatusEffect(i);
 			i--;
 		}
@@ -103,11 +103,14 @@ void CombatCharacter::checkStatusEffects(){
 }
 
 //output
-ostream& operator<<(ostream& output, CombatCharacter character){
-	cout << character.getName() << endl;
-	cout << " -> Vitality: " << character.getCurrentHp() << "/" << character.getMaxHp() << "hp" << endl;
-	cout << " -> Wisdom: " << character.getLevel() << ". level"<< endl;
-	cout << " -> Agility: " << character.getSpeed() << endl;
-	return output;
+void CombatCharacter::print(ostream& output){
+	output << this->getName() << endl;
+	output << " -> Vitality: " << this->getCurrentHp() << "/" << this->getMaxHp() << "hp" << endl;
+	output << " -> Wisdom: " << this->getLevel() << ". level" << endl;
+	output << " -> Agility: " << this->getSpeed() << endl;
 }
 
+ostream& operator<<(ostream& output, CombatCharacter& character){
+	character.print(output);
+	return output;
+}

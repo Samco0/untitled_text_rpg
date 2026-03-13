@@ -11,7 +11,7 @@ public:
 	
 	// Constructors
 	Spell();
-	Spell(string name, string description, float dmg, int fullCooldown);
+	Spell(string name, string description, float dmg, int fullCooldown, string type = "Physical");
 	
 	// Getters
 	string getName();
@@ -19,6 +19,7 @@ public:
 	float getDmg();
 	int getFullCooldown();
 	int getRemainingCooldown();
+	string getType();
 	
 	// Setters
 	void setName(string name);
@@ -26,6 +27,7 @@ public:
 	void setDmg(float dmg);
 	void setFullCooldown(int fullCooldown);
 	void setRemainingCooldown(int remainingCooldown);
+	void setType(string type);
 	
 	// Decrease cooldown by 1 (can't go below 0)
 	void decreaseRemainingCooldown();
@@ -39,6 +41,7 @@ protected:
 	float dmg;              // damage dealt
 	int fullCooldown;       // max cooldown
 	int remainingCooldown;  // current cooldown
+	string type;            // spell type (e.g. Fire, Blood, Water, Physical)
 };
 
 #endif

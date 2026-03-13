@@ -10,14 +10,15 @@ StatusEffectSpell::StatusEffectSpell(){
 	this->chanceToRecieve = 0;
 	this->statusToGive = nullptr;
 }
-StatusEffectSpell::StatusEffectSpell(string name, string description, float dmg, int fullCooldown, int chanceToRecieve, StatusEffect* statusToGive){
+StatusEffectSpell::StatusEffectSpell(string name, string description, float dmg, int fullCooldown, int chanceToRecieve, StatusEffect* statusToGive, string type){
 	this->name = name;
 	this->description = description;
 	this->dmg = dmg;
 	this->fullCooldown = fullCooldown;
-	this->remainingCooldown = remainingCooldown;
+	this->remainingCooldown = 0;
 	this->chanceToRecieve = chanceToRecieve;
 	this->statusToGive = statusToGive;
+	this->type = type;
 }
 
 //getters
