@@ -200,7 +200,7 @@ int main() {
 	Spell* easy_snailsville_enemy1_spells[4] = {&easy_snailsville_enemy1_spell1, nullptr, nullptr, nullptr};
 	Enemy easy_snailsville_enemy1("Sputter the Smith", 14, 1.5, 1, 3, 10, 1.3, easy_snailsville_enemy1_spells);
 	Consumable easy_snailsville_enemy1_drop1("Snail Flesh", "A grisly chunk of snail, tough and faintly metallic.", 7.5);
-	Scroll easy_snailsville_enemy1_drop2("Scroll of Cracked Hammer", &easy_snailsville_enemy1_spell1);
+	Scroll easy_snailsville_enemy1_drop2("", &easy_snailsville_enemy1_spell1);
 	Weapon easy_snailsville_enemy1_drop3("Blackened Shell Sword", "Sword", "Forged from shell and blackened iron, it hums faintly with a restless energy.", 2.5);
 	easy_snailsville_enemy1.addReward(&easy_snailsville_enemy1_drop1, 60, 3);
 	easy_snailsville_enemy1.addReward(&easy_snailsville_enemy1_drop2, 25, 1);
@@ -217,8 +217,8 @@ int main() {
 	Spell* easy_snailsville_enemy2_spells[4] = {&easy_snailsville_enemy2_spell1, &easy_snailsville_enemy2_spell2, nullptr, nullptr};
 	Enemy easy_snailsville_enemy2("Shellcarver Apprentice", 15, 1.75, 2, 3, 10, 1.3, easy_snailsville_enemy2_spells);
 	Consumable easy_snailsville_enemy2_drop1("Snail Flesh", "A grisly chunk of snail, tough and faintly metallic.", 7.5);
-	Scroll easy_snailsville_enemy2_drop2("Scroll of Shattered Rock", &easy_snailsville_enemy2_spell1);
-	Scroll easy_snailsville_enemy2_drop3("Scroll of Pebble Barrage", &easy_snailsville_enemy2_spell2);
+	Scroll easy_snailsville_enemy2_drop2("", &easy_snailsville_enemy2_spell1);
+	Scroll easy_snailsville_enemy2_drop3("", &easy_snailsville_enemy2_spell2);
 	easy_snailsville_enemy2.addReward(&easy_snailsville_enemy2_drop1, 65, 3);
 	easy_snailsville_enemy2.addReward(&easy_snailsville_enemy2_drop2, 20, 1);
 	easy_snailsville_enemy2.addReward(&easy_snailsville_enemy2_drop3, 15, 1);
@@ -233,7 +233,7 @@ int main() {
 	Spell* easy_snailsville_enemy3_spells[4] = {&easy_snailsville_enemy3_spell1, nullptr, nullptr, nullptr};
 	Enemy easy_snailsville_enemy3("Glimmering Courier", 9, 1.25, 2, 7, 12, 1.4, easy_snailsville_enemy3_spells);
 	Consumable easy_snailsville_enemy3_drop1("Glimmering Snail Flesh", "A chunk of snail flesh, glinting faintly as if it holds a strange, inner light.", 10);
-	Scroll easy_snailsville_enemy3_drop2("Scroll of Blinding Flash", &easy_snailsville_enemy3_spell1);
+	Scroll easy_snailsville_enemy3_drop2("", &easy_snailsville_enemy3_spell1);
 	easy_snailsville_enemy3.addReward(&easy_snailsville_enemy3_drop1, 75, 3);
 	easy_snailsville_enemy3.addReward(&easy_snailsville_enemy3_drop2, 25, 1);
 	easy_snailsville_enemy3.setSoulStoneDropChance(6);
@@ -249,7 +249,7 @@ int main() {
 	Enemy easy_snailsville_enemy4("Herbalist Snail", 12, 1.5, 1, 5, 10, 1.25, easy_snailsville_enemy4_spells);
 	Consumable easy_snailsville_enemy4_drop1("Snail Flesh", "A grisly chunk of snail, tough and faintly metallic.", 7.5);
 	Consumable easy_snailsville_enemy4_drop2("Withered Rose", "A decayed, blackened rose oozing a faint, sticky residue.", 12.5);
-	Scroll easy_snailsville_enemy4_drop3("Scroll of Petal Maelstrom", &easy_snailsville_enemy4_spell1);
+	Scroll easy_snailsville_enemy4_drop3("", &easy_snailsville_enemy4_spell1);
 	Weapon easy_snailsville_enemy4_drop4("Thorned Vine Whip", "Whip", "A whip braided from thorned vines, dark and twisted, leaving deep scratches.", 2);
 	easy_snailsville_enemy4.addReward(&easy_snailsville_enemy4_drop1, 50, 3);
 	easy_snailsville_enemy4.addReward(&easy_snailsville_enemy4_drop2, 30, 1);
@@ -268,7 +268,7 @@ int main() {
 	Enemy easy_snailsville_enemy5("Lampbearer Snail", 14, 1.75, 1, 4, 10, 1.25, easy_snailsville_enemy5_spells);
 	Consumable easy_snailsville_enemy5_drop1("Snail Flesh", "A grisly chunk of snail, tough and faintly metallic.", 7.5);
 	Weapon easy_snailsville_enemy5_drop2("Slimebound Lantern", "Lamp", "A warped lantern covered in snail slime; its flickering light dances unnaturally across the walls.", 1.5);
-	Scroll easy_snailsville_enemy5_drop3("Scroll of Waxstorm", &easy_snailsville_enemy5_spell2);
+	Scroll easy_snailsville_enemy5_drop3("", &easy_snailsville_enemy5_spell2);
 	easy_snailsville_enemy5.addReward(&easy_snailsville_enemy5_drop1, 60, 3);
 	easy_snailsville_enemy5.addReward(&easy_snailsville_enemy5_drop2, 30, 1);
 	easy_snailsville_enemy5.addReward(&easy_snailsville_enemy5_drop3, 10, 1);
@@ -286,9 +286,9 @@ int main() {
 	Enemy easy_snailsville_enemy6("Tavern Worker Snail", 18, 2, 3, 3, 10, 1.25, easy_snailsville_enemy6_spells);
 	Consumable easy_snailsville_enemy6_drop1("Muccus Ale", "A thick, murky brew that sloshes with unsettling bubbles; not for the faint-hearted.", 12.5);
 	Consumable easy_snailsville_enemy6_drop2("Slime Wine", "A viscous, dark alcoholic concoction that burns like molten tar.", 15);
-	Scroll easy_snailsville_enemy6_drop3("Scroll of Barrel Smash", &easy_snailsville_enemy6_spell1);
-	Scroll easy_snailsville_enemy6_drop4("Scroll of Piercing Brew", &easy_snailsville_enemy6_spell2);
-	Scroll easy_snailsville_enemy6_drop5("Scroll of Shattered Plate", &easy_snailsville_enemy6_spell3);
+	Scroll easy_snailsville_enemy6_drop3("", &easy_snailsville_enemy6_spell1);
+	Scroll easy_snailsville_enemy6_drop4("", &easy_snailsville_enemy6_spell2);
+	Scroll easy_snailsville_enemy6_drop5("", &easy_snailsville_enemy6_spell3);
 	easy_snailsville_enemy6.addReward(&easy_snailsville_enemy6_drop1, 35, 2);
 	easy_snailsville_enemy6.addReward(&easy_snailsville_enemy6_drop2, 25, 2);
 	easy_snailsville_enemy6.addReward(&easy_snailsville_enemy6_drop3, 20, 1);
@@ -305,7 +305,7 @@ int main() {
 	Spell* easy_snailsville_enemy7_spells[4] = {&easy_snailsville_enemy7_spell1, nullptr, nullptr, nullptr};
 	Enemy easy_snailsville_enemy7("Fisher Snail", 13, 1.5, 1, 3, 10, 1.25, easy_snailsville_enemy7_spells);
 	Consumable easy_snailsville_enemy7_drop1("Mirelake Catch", "A pale fish dragged from the depths of the mucus lake. Its skin feels wrong to the touch.", 7.5);
-	Scroll easy_snailsville_enemy7_drop2("Scroll of Mire Bubble", &easy_snailsville_enemy7_spell1);
+	Scroll easy_snailsville_enemy7_drop2("", &easy_snailsville_enemy7_spell1);
 	Weapon easy_snailsville_enemy7_drop3("Mirebound Fishing Rod", "Fishing Rod", "A warped rod stiffened by dried slime and lake residue. It smells faintly of rot.", 1.75);
 	easy_snailsville_enemy7.addReward(&easy_snailsville_enemy7_drop1, 50, 3);
 	easy_snailsville_enemy7.addReward(&easy_snailsville_enemy7_drop2, 30, 1);
@@ -322,7 +322,7 @@ int main() {
 	Spell* easy_snailsville_enemy8_spells[4] = {&easy_snailsville_enemy8_spell1, &easy_snailsville_enemy8_spell2, nullptr, nullptr};
 	Enemy easy_snailsville_enemy8("Mud Leech", 14, 1.75, 2, 4, 10, 1.25, easy_snailsville_enemy8_spells);
 	Consumable easy_snailsville_enemy8_drop1("Blood-Slick Leech Meat", "Warm, rubbery flesh that still pulses faintly, as if reluctant to die.", 10);
-	Scroll easy_snailsville_enemy8_drop2("Scroll of Sanguine Leech", &easy_snailsville_enemy8_spell1);
+	Scroll easy_snailsville_enemy8_drop2("", &easy_snailsville_enemy8_spell1);
 	easy_snailsville_enemy8.addReward(&easy_snailsville_enemy8_drop1, 60, 3);
 	easy_snailsville_enemy8.addReward(&easy_snailsville_enemy8_drop2, 40, 1);
 	easy_snailsville_enemy8.setSoulStoneDropChance(6);
@@ -337,8 +337,8 @@ int main() {
 	Spell* easy_snailsville_enemy9_spells[4] = {&easy_snailsville_enemy9_spell1, &easy_snailsville_enemy9_spell2, nullptr, nullptr};
 	Enemy easy_snailsville_enemy9("Tiny Rotworm", 8, 1.25, 1, 5, 8, 1.2, easy_snailsville_enemy9_spells);
 	Consumable easy_snailsville_enemy9_drop1("Blood-Slick Leech Meat", "Warm, rubbery flesh that still pulses faintly, as if reluctant to die.", 10);
-	Scroll easy_snailsville_enemy9_drop2("Scroll of Frail Siphon", &easy_snailsville_enemy9_spell1);
-	Scroll easy_snailsville_enemy9_drop3("Scroll of Blight Spit", &easy_snailsville_enemy9_spell2);
+	Scroll easy_snailsville_enemy9_drop2("", &easy_snailsville_enemy9_spell1);
+	Scroll easy_snailsville_enemy9_drop3("", &easy_snailsville_enemy9_spell2);
 	easy_snailsville_enemy9.addReward(&easy_snailsville_enemy9_drop1, 60, 3);
 	easy_snailsville_enemy9.addReward(&easy_snailsville_enemy9_drop2, 20, 1);
 	easy_snailsville_enemy9.addReward(&easy_snailsville_enemy9_drop3, 20, 1);
@@ -351,7 +351,7 @@ int main() {
 	// Found near the forge district — smith tools, low-tier weapon, basic consumable
 	Weapon easy_treasure1_weapon("Soot-Dusted Tack Hammer", "Hammer", "A battered forge hammer still warm from the coals, left behind by a smith who never came back.", 2.0);
 	Consumable easy_treasure1_consumable("Forge Marrow", "A dense lump of rendered snail tallow pressed into a waxy cake. Tastes of iron. Keeps you moving.", 10.0);
-	Scroll easy_treasure1_scroll("Scroll of Cracked Hammer", &easy_snailsville_enemy1_spell1);
+	Scroll easy_treasure1_scroll("", &easy_snailsville_enemy1_spell1);
 	TreasureLocation easy_snailsville_tlocation1("The Snailsmith's Backroom", "Soot-Stained Lockbox");
 	easy_snailsville_tlocation1.addReward(&easy_treasure1_weapon, 50, 1);
 	easy_snailsville_tlocation1.addReward(&easy_treasure1_consumable, 70, 2);
@@ -364,7 +364,7 @@ int main() {
 	// A courier's dropped bag — light armour scraps, a blinding scroll, a restorative
 	Armor easy_treasure2_armor("Courier's Wax-Sealed Cap", "A light cap lacquered in hardened snail wax, faintly luminescent.", 1.0, 1);
 	Consumable easy_treasure2_consumable1("Glimmer Salve", "A pale, faintly glowing ointment smeared from Glimmering Courier flesh. Closes wounds without asking questions.", 12.0);
-	Scroll easy_treasure2_scroll("Scroll of Blinding Flash", &easy_snailsville_enemy3_spell1);
+	Scroll easy_treasure2_scroll("", &easy_snailsville_enemy3_spell1);
 	TreasureLocation easy_snailsville_tlocation2("The Abandoned Post Route", "Dropped Courier Satchel");
 	easy_snailsville_tlocation2.addReward(&easy_treasure2_armor, 40, 1);
 	easy_snailsville_tlocation2.addReward(&easy_treasure2_consumable1, 65, 2);
@@ -378,7 +378,7 @@ int main() {
 	Armor easy_treasure3_armor("Grease-Stained Plate Apron", "A thick apron hammered flat and riveted with shell scraps. Smells of old brew and worse things.", 1.5, 2);
 	Consumable easy_treasure3_consumable1("Muccus Ale", "A thick, murky brew that sloshes with unsettling bubbles; not for the faint-hearted.", 12.5);
 	Consumable easy_treasure3_consumable2("Slime Wine", "A viscous, dark alcoholic concoction that burns like molten tar.", 15.0);
-	Scroll easy_treasure3_scroll("Scroll of Barrel Smash", &easy_snailsville_enemy6_spell1);
+	Scroll easy_treasure3_scroll("", &easy_snailsville_enemy6_spell1);
 	TreasureLocation easy_snailsville_tlocation3("The Rotting Tavern Cellar", "Wax-Sealed Barrel Cache");
 	easy_snailsville_tlocation3.addReward(&easy_treasure3_armor, 35, 1);
 	easy_snailsville_tlocation3.addReward(&easy_treasure3_consumable1, 60, 2);
@@ -399,7 +399,7 @@ int main() {
 	Armor medium_snailsville_enemy1_drop3("Ironshell Gauntlets", "Gauntlets of dense metal plating, still scarred from battle.", 1.5, 3);
 	Armor medium_snailsville_enemy1_drop4("Ironshell Greaves", "Leg armor shaped from hardened shell segments.", 3, 4);
 	Armor medium_snailsville_enemy1_drop5("Ironshell Sabatons", "Boots plated in iron, heavy with purpose.", 2, 5);
-	Scroll medium_snailsville_enemy1_drop6("Scroll of Ferric Impact", &medium_snailsville_enemy1_spell1);
+	Scroll medium_snailsville_enemy1_drop6("", &medium_snailsville_enemy1_spell1);
 	medium_snailsville_enemy1.addReward(&medium_snailsville_enemy1_drop1, 20, 1);
 	medium_snailsville_enemy1.addReward(&medium_snailsville_enemy1_drop2, 20, 1);
 	medium_snailsville_enemy1.addReward(&medium_snailsville_enemy1_drop3, 20, 1);
@@ -420,9 +420,9 @@ int main() {
 	Spell* medium_snailsville_enemy2_spells[4] = {&medium_snailsville_enemy2_spell1, &medium_snailsville_enemy2_spell2, &medium_snailsville_enemy2_spell3, nullptr};
 	Enemy medium_snailsville_enemy2("Shadow Sentry", 24, 2.5, 3, 6, 12, 1.4, medium_snailsville_enemy2_spells);
 	Consumable medium_snailsville_enemy2_drop1("Condensed Shadow Flesh", "Cold, elastic meat infused with lingering darkness.", 15);
-	Scroll medium_snailsville_enemy2_drop2("Scroll of Umbral Kick", &medium_snailsville_enemy2_spell1);
-	Scroll medium_snailsville_enemy2_drop3("Scroll of Gloomblade", &medium_snailsville_enemy2_spell2);
-	Scroll medium_snailsville_enemy2_drop4("Scroll of Eclipse Barrage", &medium_snailsville_enemy2_spell3);
+	Scroll medium_snailsville_enemy2_drop2("", &medium_snailsville_enemy2_spell1);
+	Scroll medium_snailsville_enemy2_drop3("", &medium_snailsville_enemy2_spell2);
+	Scroll medium_snailsville_enemy2_drop4("", &medium_snailsville_enemy2_spell3);
 	medium_snailsville_enemy2.addReward(&medium_snailsville_enemy2_drop1, 55, 3);
 	medium_snailsville_enemy2.addReward(&medium_snailsville_enemy2_drop2, 15, 1);
 	medium_snailsville_enemy2.addReward(&medium_snailsville_enemy2_drop3, 15, 1);
@@ -439,7 +439,7 @@ int main() {
 	Spell* medium_snailsville_enemy3_spells[4] = {&medium_snailsville_enemy3_spell1, nullptr, nullptr, nullptr};
 	Enemy medium_snailsville_enemy3("Leech Scout", 22, 2.5, 3, 5, 12, 1.4, medium_snailsville_enemy3_spells);
 	Consumable medium_snailsville_enemy3_drop1("Blood-Slick Leech Meat", "Warm, rubbery flesh that still pulses faintly, as if reluctant to die.", 10);
-	Scroll medium_snailsville_enemy3_drop2("Scroll of Crimson Siphon Strike", &medium_snailsville_enemy3_spell1);
+	Scroll medium_snailsville_enemy3_drop2("", &medium_snailsville_enemy3_spell1);
 	medium_snailsville_enemy3.addReward(&medium_snailsville_enemy3_drop1, 75, 3);
 	medium_snailsville_enemy3.addReward(&medium_snailsville_enemy3_drop2, 25, 1);
 	medium_snailsville_enemy3.setSoulStoneDropChance(10);
@@ -457,7 +457,7 @@ int main() {
 	Armor medium_snailsville_enemy4_drop3("Gauntlets of Umbral Grip", "Shadow-forged gauntlets that chill to the touch", 1.5, 3);
 	Armor medium_snailsville_enemy4_drop4("Leggings of the Hollow Shell", "Dark leggings that seem to absorb light around them", 3, 4);
 	Armor medium_snailsville_enemy4_drop5("Boots of the Blackened Trail", "Boots that leave faint trails of shadow behind with every step", 2, 5);
-	Scroll medium_snailsville_enemy4_drop6("Tome of Shadowfist Strike", &medium_snailsville_enemy4_spell1);
+	Scroll medium_snailsville_enemy4_drop6("", &medium_snailsville_enemy4_spell1, "Tome");
 	medium_snailsville_enemy4.addReward(&medium_snailsville_enemy4_drop1, 20, 1);
 	medium_snailsville_enemy4.addReward(&medium_snailsville_enemy4_drop2, 20, 1);
 	medium_snailsville_enemy4.addReward(&medium_snailsville_enemy4_drop3, 20, 1);
@@ -479,8 +479,8 @@ int main() {
 	Spell* medium_snailsville_enemy5_spells[4] = {&medium_snailsville_enemy5_spell1, &medium_snailsville_enemy5_spell2, nullptr, nullptr};
 	Enemy medium_snailsville_enemy5("Venomspire Snail", 24, 2, 3, 4, 12, 1.4, medium_snailsville_enemy5_spells);
 	Consumable medium_snailsville_enemy5_drop1("Venomous Snail Meat", "The corpse of the snail radiates a dark, toxic essence; consuming it emboldens the daring and poisons the weak", 7.5);
-	Scroll medium_snailsville_enemy5_drop2("Tome of Venomous Fang Strike", &medium_snailsville_enemy5_spell1);
-	Scroll medium_snailsville_enemy5_drop3("Tome of Blighted Jab", &medium_snailsville_enemy5_spell2);
+	Scroll medium_snailsville_enemy5_drop2("", &medium_snailsville_enemy5_spell1, "Tome");
+	Scroll medium_snailsville_enemy5_drop3("", &medium_snailsville_enemy5_spell2, "Tome");
 	Weapon medium_snailsville_enemy5_drop4("Shard of Venomspire Shell", "Knife", "A jagged shard from the snail's shell, still pulsing with dark energy", 2);
 	medium_snailsville_enemy5.addReward(&medium_snailsville_enemy5_drop1, 50, 3);
 	medium_snailsville_enemy5.addReward(&medium_snailsville_enemy5_drop2, 20, 1);
@@ -520,9 +520,9 @@ int main() {
 	Spell* medium_snailsville_enemy7_spells[4] = {&medium_snailsville_enemy7_spell1, &medium_snailsville_enemy7_spell2, &medium_snailsville_enemy7_spell3, nullptr};
 	Enemy medium_snailsville_enemy7("Mudspike Leech", 25, 2.5, 3, 5, 12, 1.4, medium_snailsville_enemy7_spells);
 	Consumable medium_snailsville_enemy7_drop1("Blood-Slick Leech Meat", "Warm, rubbery flesh that still pulses faintly, as if reluctant to die.", 10);
-	Scroll medium_snailsville_enemy7_drop2("Scroll of Whirling Abyss Dance", &medium_snailsville_enemy7_spell1);
-	Scroll medium_snailsville_enemy7_drop3("Scroll of Thorn of the Bloodleecher", &medium_snailsville_enemy7_spell2);
-	Scroll medium_snailsville_enemy7_drop4("Scroll of Storm of Mire Spikes", &medium_snailsville_enemy7_spell3);
+	Scroll medium_snailsville_enemy7_drop2("", &medium_snailsville_enemy7_spell1);
+	Scroll medium_snailsville_enemy7_drop3("", &medium_snailsville_enemy7_spell2);
+	Scroll medium_snailsville_enemy7_drop4("", &medium_snailsville_enemy7_spell3);
 	medium_snailsville_enemy7.addReward(&medium_snailsville_enemy7_drop1, 50, 3);
 	medium_snailsville_enemy7.addReward(&medium_snailsville_enemy7_drop2, 20, 1);
 	medium_snailsville_enemy7.addReward(&medium_snailsville_enemy7_drop3, 20, 1);
@@ -537,7 +537,7 @@ int main() {
 	Armor medium_treasure1_armor1("Ironshell Faulds", "A wide iron skirt-plate hammered from knight's shell, designed to stop blades that creep low.", 3.5, 4);
 	Armor medium_treasure1_armor2("Ironshell Sabatons", "Boots plated in iron, heavy with purpose.", 2.0, 5);
 	Weapon medium_treasure1_weapon("Ironbound Shell Maul", "Maul", "A two-handed maul built from the layered shell plating of fallen knights. Swings with terrifying momentum.", 4.5);
-	Scroll medium_treasure1_scroll("Scroll of Ferric Impact", &medium_snailsville_enemy1_spell1);
+	Scroll medium_treasure1_scroll("", &medium_snailsville_enemy1_spell1);
 	TreasureLocation medium_snailsville_tlocation1("The Ironbound Hall Reliquary", "Rusted Iron Reliquary");
 	medium_snailsville_tlocation1.addReward(&medium_treasure1_armor1, 45, 1);
 	medium_snailsville_tlocation1.addReward(&medium_treasure1_armor2, 45, 1);
@@ -552,8 +552,8 @@ int main() {
 	Weapon medium_treasure2_weapon("Blighted Fang Dagger", "Knife", "A narrow dagger carved from a venomspire spike, still seeping a dull black residue along its edge.", 3.0);
 	Consumable medium_treasure2_consumable1("Venomous Snail Meat", "The corpse of the snail radiates a dark, toxic essence; consuming it emboldens the daring and poisons the weak.", 7.5);
 	Consumable medium_treasure2_consumable2("Distilled Blight Extract", "A small vial of concentrated poison harvested from venomspire husks. Drinking it burns. Then it heals.", 18.0);
-	Scroll medium_treasure2_scroll1("Tome of Venomous Fang Strike", &medium_snailsville_enemy5_spell1);
-	Scroll medium_treasure2_scroll2("Tome of Blighted Jab", &medium_snailsville_enemy5_spell2);
+	Scroll medium_treasure2_scroll1("", &medium_snailsville_enemy5_spell1, "Tome");
+	Scroll medium_treasure2_scroll2("", &medium_snailsville_enemy5_spell2, "Tome");
 	TreasureLocation medium_snailsville_tlocation2("The Venomspire Tower Alcove", "Sealed Alchemist's Cache");
 	medium_snailsville_tlocation2.addReward(&medium_treasure2_weapon, 40, 1);
 	medium_snailsville_tlocation2.addReward(&medium_treasure2_consumable1, 55, 2);
@@ -574,8 +574,8 @@ int main() {
 	LifeStealSpell hard_snailsville_enemy1_spell3("Crimson Devourer", "A massive tendril lashes out and drains vitality without mercy.", 8, 3, 80, "Blood");
 	Spell* hard_snailsville_enemy1_spells[4] = {&hard_snailsville_enemy1_spell1, &hard_snailsville_enemy1_spell2, &hard_snailsville_enemy1_spell3, nullptr};
 	Enemy hard_snailsville_enemy1("Bloodcarapace Marauder", 40, 4, 5, 4, 12, 1.5, hard_snailsville_enemy1_spells);
-	Scroll hard_snailsville_enemy1_drop1("Scroll of Carapace Rend", &hard_snailsville_enemy1_spell2);
-	Scroll hard_snailsville_enemy1_drop2("Scroll of Crimson Devourer", &hard_snailsville_enemy1_spell3);
+	Scroll hard_snailsville_enemy1_drop1("", &hard_snailsville_enemy1_spell2);
+	Scroll hard_snailsville_enemy1_drop2("", &hard_snailsville_enemy1_spell3);
 	Weapon hard_snailsville_enemy1_drop3("Bloodforged Carapace Mace", "Mace", "A brutal mace forged from dense snail metal.", 5);
 	Armor hard_snailsville_enemy1_drop4("Crimson Carapace Cuirass", "A heavy chestplate forged from blood-hardened snail carapace, scarred by countless battles.", 7, 2);
 	hard_snailsville_enemy1.addReward(&hard_snailsville_enemy1_drop1, 25, 1);
@@ -595,7 +595,7 @@ int main() {
 	Spell* hard_snailsville_enemy2_spells[4] = {&hard_snailsville_enemy2_spell1, &hard_snailsville_enemy2_spell2, nullptr, nullptr};
 	Enemy hard_snailsville_enemy2("Soulbound Enforcer", 42, 4, 5, 5, 12, 1.5, hard_snailsville_enemy2_spells);
 	Consumable hard_snailsville_enemy2_drop1("Fractured Soul Core", "A dim, whispering remnant of a warrior consumed by the Enforcer.", 20);
-	Scroll hard_snailsville_enemy2_drop2("Scroll of Soulbreaker Fist", &hard_snailsville_enemy2_spell1);
+	Scroll hard_snailsville_enemy2_drop2("", &hard_snailsville_enemy2_spell1);
 	Armor hard_snailsville_enemy2_drop3("Soulbound Carapace Helm", "A dense snail-metal helm infused with restless spirits.", 4, 1);
 	Armor hard_snailsville_enemy2_drop4("Soulbound Carapace Gauntlets", "Heavy gauntlets pulsing faintly with trapped souls.", 2.5, 3);
 	hard_snailsville_enemy2.addReward(&hard_snailsville_enemy2_drop1, 30, 3);
@@ -617,9 +617,9 @@ int main() {
 	Spell* hard_snailsville_enemy3_spells[4] = {&hard_snailsville_enemy3_spell1, &hard_snailsville_enemy3_spell2, &hard_snailsville_enemy3_spell3, nullptr};
 	Enemy hard_snailsville_enemy3("Venomspike Assassin", 34, 4, 5, 6, 12, 1.5, hard_snailsville_enemy3_spells);
 	Consumable hard_snailsville_enemy3_drop1("Venomous Snail Meat", "The corpse of the snail radiates a dark, toxic essence; consuming it emboldens the daring and poisons the weak", 7.5);
-	Scroll hard_snailsville_enemy3_drop2("Scroll of Venomspike Shot", &hard_snailsville_enemy3_spell1);
-	Scroll hard_snailsville_enemy3_drop3("Scroll of Umbral Jab", &hard_snailsville_enemy3_spell2);
-	Scroll hard_snailsville_enemy3_drop4("Scroll of Umbral Kick", &hard_snailsville_enemy3_spell3);
+	Scroll hard_snailsville_enemy3_drop2("", &hard_snailsville_enemy3_spell1);
+	Scroll hard_snailsville_enemy3_drop3("", &hard_snailsville_enemy3_spell2);
+	Scroll hard_snailsville_enemy3_drop4("", &hard_snailsville_enemy3_spell3);
 	Weapon hard_snailsville_enemy3_drop5("Venomspike Fangblade", "Knife", "A jagged fang taken from the Venomspike Assassin, still slick with lethal poison", 4);
 	hard_snailsville_enemy3.addReward(&hard_snailsville_enemy3_drop1, 50, 3);
 	hard_snailsville_enemy3.addReward(&hard_snailsville_enemy3_drop2, 25, 1);
@@ -643,9 +643,9 @@ int main() {
 	Armor hard_snailsville_enemy4_drop2("Coilbound Leggings", "Leg armor formed from hardened spiral shell fragments.", 5, 4);
 	Armor hard_snailsville_enemy4_drop3("Coilbound Boots", "Heavy boots reinforced with twisted shell ridges for stability.", 4, 5);
 	Weapon hard_snailsville_enemy4_drop4("Deathcoil Shell Club", "Club", "A brutal club carved from the spiral shell of a Deathcoil Snail.", 4.5);
-	Scroll hard_snailsville_enemy4_drop5("Scroll of Coiling Charge", &hard_snailsville_enemy4_spell1);
-	Scroll hard_snailsville_enemy4_drop6("Scroll of Thunderous Spiral", &hard_snailsville_enemy4_spell2);
-	Scroll hard_snailsville_enemy4_drop7("Scroll of Dust Vortex", &hard_snailsville_enemy4_spell3);
+	Scroll hard_snailsville_enemy4_drop5("", &hard_snailsville_enemy4_spell1);
+	Scroll hard_snailsville_enemy4_drop6("", &hard_snailsville_enemy4_spell2);
+	Scroll hard_snailsville_enemy4_drop7("", &hard_snailsville_enemy4_spell3);
 	hard_snailsville_enemy4.addReward(&hard_snailsville_enemy4_drop1, 50, 3);
 	hard_snailsville_enemy4.addReward(&hard_snailsville_enemy4_drop2, 25, 1);
 	hard_snailsville_enemy4.addReward(&hard_snailsville_enemy4_drop3, 25, 1);
@@ -667,8 +667,8 @@ int main() {
 	Enemy hard_snailsville_enemy5("Obsidian Champion", 44, 4, 5, 3, 12, 1.5, hard_snailsville_enemy5_spells);
 	Armor hard_snailsville_enemy5_drop1("Obsidian Carapace", "A chestplate formed from dark, tempered obsidian", 7.5, 2);
 	Armor hard_snailsville_enemy5_drop2("Obsidian Gauntlets", "Gauntlets crafted from razor-sharp obsidian shards", 3, 3);
-	Scroll hard_snailsville_enemy5_drop3("Scroll of Obsidian Fist", &hard_snailsville_enemy5_spell1);
-	Scroll hard_snailsville_enemy5_drop4("Scroll of Shards of Obsidian", &hard_snailsville_enemy5_spell2);
+	Scroll hard_snailsville_enemy5_drop3("", &hard_snailsville_enemy5_spell1);
+	Scroll hard_snailsville_enemy5_drop4("", &hard_snailsville_enemy5_spell2);
 	hard_snailsville_enemy5.addReward(&hard_snailsville_enemy5_drop1, 25, 1);
 	hard_snailsville_enemy5.addReward(&hard_snailsville_enemy5_drop2, 25, 1);
 	hard_snailsville_enemy5.addReward(&hard_snailsville_enemy5_drop3, 10, 1);
@@ -691,9 +691,9 @@ int main() {
 	Armor hard_snailsville_enemy6_drop1("Coral Carapace", "Chest armor grown from hardened coral, slick with algae", 7, 2);
 	Armor hard_snailsville_enemy6_drop2("Coral Leggings", "Leg armor reinforced with jagged coral formations", 4.5, 4);
 	Weapon hard_snailsville_enemy6_drop3("Coral Club", "Club", "A club carved from dense coral, reinforced by the tides", 4);
-	Scroll hard_snailsville_enemy6_drop4("Scroll of Hydro Drain", &hard_snailsville_enemy6_spell1);
-	Scroll hard_snailsville_enemy6_drop5("Scroll of Water Spike", &hard_snailsville_enemy6_spell2);
-	Scroll hard_snailsville_enemy6_drop6("Scroll of Crimson Bubble Barrage", &hard_snailsville_enemy6_spell3);
+	Scroll hard_snailsville_enemy6_drop4("", &hard_snailsville_enemy6_spell1);
+	Scroll hard_snailsville_enemy6_drop5("", &hard_snailsville_enemy6_spell2);
+	Scroll hard_snailsville_enemy6_drop6("", &hard_snailsville_enemy6_spell3);
 	hard_snailsville_enemy6.addReward(&hard_snailsville_enemy6_drop1, 25, 1);
 	hard_snailsville_enemy6.addReward(&hard_snailsville_enemy6_drop2, 25, 1);
 	hard_snailsville_enemy6.addReward(&hard_snailsville_enemy6_drop3, 25, 1);
@@ -710,8 +710,8 @@ int main() {
 	Armor hard_treasure1_armor1("Marauder's Bloodforged Helm", "A helmet hammered from blood-hardened carapace, its visor cracked and stained. Still terrifying.", 5.0, 1);
 	Armor hard_treasure1_armor2("Marauder's Crimson Greaves", "Leg armour built from layered blood-carapace, heavy and unrelenting.", 4.5, 4);
 	Weapon hard_treasure1_weapon("Serrated Carapace Cleaver", "Cleaver", "A broad, serrated blade hacked from hardened snail carapace. Not elegant. Deeply effective.", 5.5);
-	Scroll hard_treasure1_scroll1("Scroll of Carapace Rend", &hard_snailsville_enemy1_spell2);
-	Scroll hard_treasure1_scroll2("Scroll of Crimson Devourer", &hard_snailsville_enemy1_spell3);
+	Scroll hard_treasure1_scroll1("", &hard_snailsville_enemy1_spell2);
+	Scroll hard_treasure1_scroll2("", &hard_snailsville_enemy1_spell3);
 	TreasureLocation hard_snailsville_tlocation1("The Crimson Bastion War Vault", "Bloodlocked Iron War Chest");
 	hard_snailsville_tlocation1.addReward(&hard_treasure1_armor1, 40, 1);
 	hard_snailsville_tlocation1.addReward(&hard_treasure1_armor2, 40, 1);
@@ -727,8 +727,8 @@ int main() {
 	Armor hard_treasure2_armor1("Obsidian Warlord's Helm", "A helmet carved from a single slab of volcanic obsidian, its surface impossibly smooth. Cold to the touch always.", 5.5, 1);
 	Armor hard_treasure2_armor2("Obsidian Warlord's Gauntlets", "Gauntlets of dense obsidian plate, sharp-edged even on the back of the hands.", 3.5, 3);
 	Consumable hard_treasure2_consumable("Obsidian Marrow Draught", "A thick, black liquid rendered from obsidian snail bone. Drinking it feels like swallowing gravel. Then the wounds close.", 22.0);
-	Scroll hard_treasure2_scroll1("Scroll of Obsidian Fist", &hard_snailsville_enemy5_spell1);
-	Scroll hard_treasure2_scroll2("Scroll of Shards of Obsidian", &hard_snailsville_enemy5_spell2);
+	Scroll hard_treasure2_scroll1("", &hard_snailsville_enemy5_spell1);
+	Scroll hard_treasure2_scroll2("", &hard_snailsville_enemy5_spell2);
 	TreasureLocation hard_snailsville_tlocation2("The Obsidian Bastion Sealed Chamber", "Obsidian-Clasped Warlord's Casket");
 	hard_snailsville_tlocation2.addReward(&hard_treasure2_armor1, 40, 1);
 	hard_snailsville_tlocation2.addReward(&hard_treasure2_armor2, 40, 1);
@@ -753,10 +753,10 @@ int main() {
 	Enemy snailsville_boss1("Claris, the Shell Empress", 80, 6, 7, 4, 12, 1.5, snailsville_boss1_spells);
 	Armor snailsville_boss1_drop1("Claris's Blighted Crown", "A crown throbbing with the corrupt essence of Claris, radiating an unsettling aura.", 5.5, 1);
 	Weapon snailsville_boss1_drop2("Claris's Scepter of Blackened Muccus", "Scepter", "A ceremonial scepter forged from rare snail-metal, imbued with a sinister, lingering power.", 6.5);
-	Scroll snailsville_boss1_drop3("Scroll of Ooze Lash", &snailsville_boss1_spell1);
-	Scroll snailsville_boss1_drop4("Scroll of Carapace Slam", &snailsville_boss1_spell2);
-	Scroll snailsville_boss1_drop5("Scroll of Putrescent Cloud", &snailsville_boss1_spell3);
-	Scroll snailsville_boss1_drop6("Scroll of Spinning Devastation", &snailsville_boss1_spell4);
+	Scroll snailsville_boss1_drop3("", &snailsville_boss1_spell1);
+	Scroll snailsville_boss1_drop4("", &snailsville_boss1_spell2);
+	Scroll snailsville_boss1_drop5("", &snailsville_boss1_spell3);
+	Scroll snailsville_boss1_drop6("", &snailsville_boss1_spell4);
 	Consumable snailsville_boss1_drop7("Royal Venomflesh", "A dense slab of flesh from a royal poison beast, pulsing with concentrated venom.", 25);
 	snailsville_boss1.addReward(&snailsville_boss1_drop1, 50, 1);
 	snailsville_boss1.addReward(&snailsville_boss1_drop2, 35, 1);
@@ -778,17 +778,17 @@ int main() {
 	LifeStealSpell snailsville_boss2_spell1("Sanguine Sap", "The user rends the target's flesh with a cursed cut and siphons their life force.", 8, 3, 65, "Blood");
 	LifeStealSpell snailsville_boss2_spell2("Crimson Leeching", "The user bites deep, draining the vitality of the target through dark blood magic.", 10, 3, 75, "Blood");
 	Spell snailsville_boss2_spell3("Piercing Hemorrhage", "The user slams their hands together, unleashing a pressurized jet of coagulated blood at the target.", 11, 2, "Blood");
-	HpStatusEffect snailsville_boss2_status1("Hemorrhaging", 6, 3, 2.5);
+	HpStatusEffect snailsville_boss2_status1("Hemorrhaging", 6, 3, -2.5);
 	StatusEffectSpell snailsville_boss2_spell4("Bloody Web", "The user conjures a crimson web of congealed blood, slicing through the target.", 5, 3, 70, &snailsville_boss2_status1, "Blood");
 	Spell* snailsville_boss2_spells[4] = {&snailsville_boss2_spell1, &snailsville_boss2_spell2, &snailsville_boss2_spell3, &snailsville_boss2_spell4};
 	Enemy snailsville_boss2("Mathian, the Bloodcarapace", 90, 7, 7, 5, 12, 1.5, snailsville_boss2_spells);
 	Armor snailsville_boss2_drop1("Mathian's Carapace of Hemogore", "A chestplate molded from the hardened blood of countless victims, pulsating with dark vitality.", 8, 2);
 	Armor snailsville_boss2_drop2("Mathian's Veinbound Greaves", "Leggings crafted from interlaced veins and coagulated blood, unnervingly alive.", 5, 4);
 	Weapon snailsville_boss2_drop3("Mathian's Crimson Reaver", "Sword", "A blood-forged blade saturated with the essence of the slain.", 6);
-	Scroll snailsville_boss2_drop4("Scroll of Sanguine Sap", &snailsville_boss2_spell1);
-	Scroll snailsville_boss2_drop5("Scroll of Crimson Leeching", &snailsville_boss2_spell2);
-	Scroll snailsville_boss2_drop6("Scroll of Piercing Hemorrhage", &snailsville_boss2_spell3);
-	Scroll snailsville_boss2_drop7("Scroll of Bloody Web", &snailsville_boss2_spell4);
+	Scroll snailsville_boss2_drop4("", &snailsville_boss2_spell1);
+	Scroll snailsville_boss2_drop5("", &snailsville_boss2_spell2);
+	Scroll snailsville_boss2_drop6("", &snailsville_boss2_spell3);
+	Scroll snailsville_boss2_drop7("", &snailsville_boss2_spell4);
 	Consumable snailsville_boss2_drop8("Royal Leechflesh", "Rubbery flesh from a royal leech, still warm with the blood it once consumed.", 25);
 	snailsville_boss2.setDescription("A colossal leech-snail whose shell has been replaced, piece by piece, with hardened carapace scavenged from things it bled dry. It breathes in slow, wet heaves. It smells of iron and old meat. It has fed on enough blood to remember every face it drained.");
 	snailsville_boss2.addReward(&snailsville_boss2_drop1, 50, 1);
@@ -811,17 +811,17 @@ int main() {
 	// Long fight (100 HP), constant 7 dmg/round bleed.
 	Spell snailsville_boss3_spell1("Tidal Crush", "The user summons a towering wave that smashes down upon the target.", 16, 5, "Water");
 	ChainingSpell snailsville_boss3_spell2("Relentless Drizzle", "The user conjures a stormcloud, raining dagger-like drops upon the target", 0.5, 3, 6, 18, "Physical");
-	HpStatusEffect snailsville_boss3_status1("Drowning", 5, 1, 4);
+	HpStatusEffect snailsville_boss3_status1("Drowning", 5, 1, -4);
 	StatusEffectSpell snailsville_boss3_spell3("Choking Bubble", "The user traps the target in a suffocating bubble", 5, 3, 65, &snailsville_boss3_status1, "Water");
 	Spell snailsville_boss3_spell4("Maelstrom Spin", "The user creates a violent whirlpool that drags the target in", 9, 3, "Water");
 	Spell* snailsville_boss3_spells[4] = {&snailsville_boss3_spell1, &snailsville_boss3_spell2, &snailsville_boss3_spell3, &snailsville_boss3_spell4};
 	Enemy snailsville_boss3("Andreas, the Tidal Snail", 100, 7, 7, 3, 12, 1.5, snailsville_boss3_spells);
 	Armor snailsville_boss3_drop1("Andreas's Carapace of Sunken Bones", "Chestplate forged from the bones of creatures lost to the abyss", 8.5, 2);
 	Weapon snailsville_boss3_drop2("Andreas's Spear of Drowned Monarchs", "Spear", "A long, coral-encrusted spear once wielded by kings swallowed by the deep", 6);
-	Scroll snailsville_boss3_drop3("Scroll of Tidal Crush", &snailsville_boss3_spell1);
-	Scroll snailsville_boss3_drop4("Scroll of Relentless Drizzle", &snailsville_boss3_spell2);
-	Scroll snailsville_boss3_drop5("Scroll of Choking Bubble", &snailsville_boss3_spell3);
-	Scroll snailsville_boss3_drop6("Scroll of Maelstrom Spin", &snailsville_boss3_spell4);
+	Scroll snailsville_boss3_drop3("", &snailsville_boss3_spell1);
+	Scroll snailsville_boss3_drop4("", &snailsville_boss3_spell2);
+	Scroll snailsville_boss3_drop5("", &snailsville_boss3_spell3);
+	Scroll snailsville_boss3_drop6("", &snailsville_boss3_spell4);
 	Consumable snailsville_boss3_drop7("Royal Abyssal Snail Meat", "Cold, rubbery flesh taken from a royal abyssal snail, still smelling of the deep sea.", 25);
 	snailsville_boss3.setDescription("An ancient tidal snail whose shell has calcified into something between a fortress and a reef, encrusted with the bones of the drowned. The water that runs from it never dries. Its presence makes the air taste like depth, like pressure, like something that has never seen the surface.");
 	snailsville_boss3.addReward(&snailsville_boss3_drop1, 50, 1);
@@ -843,9 +843,9 @@ int main() {
 	// Dance of Damnation avg 3.5×2=7 dmg. Searing Fist (14) is the single biggest direct hit.
 	// Player should enter with gear and consumables saved — this is the payoff fight.
 	Spell snailsville_boss4_spell1("Searing Fist", "The user heats up their fist and crushes the target with molten force", 14, 4, "Fire");
-	HpStatusEffect snailsville_boss4_status1("Cursed Flames", 4, 1, 4);
+	HpStatusEffect snailsville_boss4_status1("Cursed Flames", 4, 1, -4);
 	StatusEffectSpell snailsville_boss4_spell2("Infernal Breath", "The user exhales a scorching inferno upon the target", 7, 4, 60, &snailsville_boss4_status1, "Fire");
-	HpStatusEffect snailsville_boss4_status2("Boiling Veins", 3, 1, 6);
+	HpStatusEffect snailsville_boss4_status2("Boiling Veins", 3, 1, -6);
 	StatusEffectSpell snailsville_boss4_spell3("Hellfire Heat", "The user burns the air around the target with demonic fire", 5, 5, 40, &snailsville_boss4_status2, "Fire");
 	ChainingSpell snailsville_boss4_spell4("Dance of Damnation", "The user writhes possessed by dark flames, striking with ferocity", 2, 3, 2, 5, "Fire");
 	Spell* snailsville_boss4_spells[4] = {&snailsville_boss4_spell1, &snailsville_boss4_spell2, &snailsville_boss4_spell3, &snailsville_boss4_spell4};
@@ -853,10 +853,10 @@ int main() {
 	Armor snailsville_boss4_drop1("Peklorex's Obsidian Carapace", "A chestplate forged from cursed snail obsidian, worn by the tyrant", 10, 2);
 	Armor snailsville_boss4_drop2("Peklorex's Gauntlets of Torment", "Gauntlets infused with the essence of fallen victims", 3.5, 3);
 	Weapon snailsville_boss4_drop3("Peklorex's Soulfire War Axe", "War Axe", "A war axe of snailsidian, carrying the souls of the condemned", 6.5);
-	Scroll snailsville_boss4_drop4("Scroll of Searing Fist", &snailsville_boss4_spell1);
-	Scroll snailsville_boss4_drop5("Scroll of Infernal Breath", &snailsville_boss4_spell2);
-	Scroll snailsville_boss4_drop6("Scroll of Hellfire Heat", &snailsville_boss4_spell3);
-	Scroll snailsville_boss4_drop7("Scroll of Dance of Damnation", &snailsville_boss4_spell4);
+	Scroll snailsville_boss4_drop4("", &snailsville_boss4_spell1);
+	Scroll snailsville_boss4_drop5("", &snailsville_boss4_spell2);
+	Scroll snailsville_boss4_drop6("", &snailsville_boss4_spell3);
+	Scroll snailsville_boss4_drop7("", &snailsville_boss4_spell4);
 	Consumable snailsville_boss4_drop8("Royal Ember Snail Meat", "Smoldering flesh from a royal heat-dwelling snail, hot enough to burn the unwary.", 25);
 	snailsville_boss4.setDescription("A slug of monstrous size, its boneless body armoured in cursed obsidian plates fused to flesh by heat and hatred. Flames bleed from the cracks between them. The air around it shimmers. It does not roar, does not posture — it simply turns toward you with the unhurried certainty of something that has never once lost.");
 	snailsville_boss4.addReward(&snailsville_boss4_drop1, 50, 1);
@@ -876,13 +876,336 @@ int main() {
 	//  RUSTHEAP
 	// =============================================
 	
+	// Easy enemies are a little stronger or strong as the hard enemies in Snailsville, theyre not stronger
+	// Medium enemies are as strong as bosses in Snailsville
+	// Hard enemies are harder than bosses in Snailsville
+	// Bosses are strong.
+	
+	// Soulstone drops are simply very close to how its in Snailsville, the chances rely on the difficulty group (easy/medium/hard/boss),
+	// and on the overall strenght of the enemy themself
+	
 	//Rustheap | Easy Enemy no. 1 | Gritclaw the Hollow
-	Spell easy_rustheap_enemy1_spell1("Corroded Junk Throw", "The user forms a coorroded piece of scrap and casts it towards the target", 14, 3, "Metal");
-	Spell easy_rustheap_enemy1_spell2("Corroded junk claw", "The user forms a coorroded scrap claw and lunges towards the enemy", 12, 2, "Metal");
+	Spell easy_rustheap_enemy1_spell1("Rust-Torn Scrap Bolt", "The user conjures a jagged fragment of rust-eaten metal and hurls it violently toward the target.", 10, 3, "Metal");
+	Spell easy_rustheap_enemy1_spell2("Corrosion Talon Lunge", "Twisted scrap talons form around the user's claws as they leap forward in a savage tearing strike.", 9, 2, "Metal");
 	Spell* easy_rustheap_enemy1_spells[4] = {&easy_rustheap_enemy1_spell1, &easy_rustheap_enemy1_spell2, nullptr, nullptr};
-	Enemy easy_rustheap_enemy1("Gritclaw, the Hollow", 50, 5, 9, 6, 15, 1.5, easy_rustheap_enemy1_spells);
+	Enemy easy_rustheap_enemy1("Gritclaw, the Hollow", 55, 8, 5, 6, 15, 1.5, easy_rustheap_enemy1_spells);
+	Consumable easy_rustheap_enemy1_drop1("Heap-Rot Raccoon Flesh", "Stringy raccoon meat soaked in the foul rust-stained filth of the lower heaps.", 10);
+	Scroll easy_rustheap_enemy1_drop2("", &easy_rustheap_enemy1_spell1);
+	Scroll easy_rustheap_enemy1_drop3("", &easy_rustheap_enemy1_spell2);
+	Weapon easy_rustheap_enemy1_drop4("Scrapfang Talons", "Claws", "Crude claws forged from bent and rusted metal shards.", 5);
+	easy_rustheap_enemy1.addReward(&easy_rustheap_enemy1_drop1 ,50, 3);
+	easy_rustheap_enemy1.addReward(&easy_rustheap_enemy1_drop2 ,25, 1);
+	easy_rustheap_enemy1.addReward(&easy_rustheap_enemy1_drop3 ,25, 1);
+	easy_rustheap_enemy1.addReward(&easy_rustheap_enemy1_drop4 ,10, 1);
 	easy_rustheap_enemy1.setSoulStoneDropChance(6);
 	easy_rustheap_enemy1.setDescription("A malnourished young raccoon, barely surviving on the lower heaps. Throws corroded junk with trembling claws — desperate and feral, not yet broken enough to stop fighting.");
+	CombatLocation easy_rustheap_clocation1("Rustheap Foothills – Scrap Burrow", &easy_rustheap_enemy1);
+	vector<Location*> easy_rustheap_locations = {&easy_rustheap_clocation1};
+	
+//Rustheap | Easy Enemy no 2. | Skabscuttle
+	Spell easy_rustheap_enemy2_spell1("Heapfall", "The user drags a mound of rotting garbage and collapses it onto the target.", 11, 4, "Garbage");
+	Spell* easy_rustheap_enemy2_spells[4] = {&easy_rustheap_enemy2_spell1, nullptr, nullptr, nullptr};
+	Enemy easy_rustheap_enemy2("Skabscuttle", 60, 10, 5, 2, 20, 1.25, easy_rustheap_enemy2_spells);
+	Consumable easy_rustheap_enemy2_drop1("Heaproach Leg", "A severed leg from one of the massive cockroaches that infest the lower rustheaps.", 12.5);	
+	Scroll easy_rustheap_enemy2_drop2("", &easy_rustheap_enemy2_spell1);
+	Armor easy_rustheap_enemy2_drop3("Heaproach Carapace", "Armor carved from the hardened shell of a giant heap cockroach.", 8, 2);
+	Armor easy_rustheap_enemy2_drop4("Heaproach Skull Helm", "A grotesque helmet fashioned from the hollow head of a giant cockroach.", 5, 1);
+	easy_rustheap_enemy2.addReward(&easy_rustheap_enemy2_drop1 ,50, 3);
+	easy_rustheap_enemy2.addReward(&easy_rustheap_enemy2_drop2 ,25, 1);
+	easy_rustheap_enemy2.addReward(&easy_rustheap_enemy2_drop3 ,25, 1);
+	easy_rustheap_enemy2.addReward(&easy_rustheap_enemy2_drop4 ,25, 1);
+	easy_rustheap_enemy2.setSoulStoneDropChance(5);
+	easy_rustheap_enemy2.setDescription("A bloated, grime-slick cockroach that infests the heap's underbelly. Shoves rotting debris into paths, more pest than predator — but pests outlive everything.");
+	CombatLocation easy_rustheap_clocation2("Rustheap Foothills – Garbage Chokepoint", &easy_rustheap_enemy2);
+	easy_rustheap_locations.push_back(&easy_rustheap_clocation2);
+	
+//Rustheap | Easy Enemy no. 3 | Dregfist
+	Spell easy_rustheap_enemy3_spell1("Livewire Knuckle", "The user coils frayed live wires around their fists, crackling with stolen current before striking.", 9, 2, "Electric");
+	ChainingSpell easy_rustheap_enemy3_spell2("Pulverized Brickstorm", "The user crushes a brittle brick into choking dust and flings the fragments in a violent scatter.", 1, 4, 6, 16, "Physical");
+	Spell* easy_rustheap_enemy3_spells[4] = {&easy_rustheap_enemy3_spell1, &easy_rustheap_enemy3_spell2, nullptr, nullptr};
+	Enemy easy_rustheap_enemy3("Dregfist", 56, 7, 7, 4, 20, 1.25, easy_rustheap_enemy3_spells);
+	Consumable easy_rustheap_enemy3_drop1("Heaproach Leg", "A severed leg from one of the massive cockroaches that infest the lower rustheaps.", 12.5);
+	Scroll easy_rustheap_enemy3_drop2("", &easy_rustheap_enemy3_spell1);
+	Scroll easy_rustheap_enemy3_drop3("", &easy_rustheap_enemy3_spell2);
+	Weapon easy_rustheap_enemy3_drop4("Crumbling Mason Brick", "Brick", "A cracked brick pried from the collapsing heaps — crude, heavy, and still deadly.", 4.5);
+	easy_rustheap_enemy3.addReward(&easy_rustheap_enemy3_drop1 ,50, 3);
+	easy_rustheap_enemy3.addReward(&easy_rustheap_enemy3_drop2 ,25, 1);
+	easy_rustheap_enemy3.addReward(&easy_rustheap_enemy3_drop3 ,25, 1);
+	easy_rustheap_enemy3.addReward(&easy_rustheap_enemy3_drop4 ,10, 1);
+	easy_rustheap_enemy3.setSoulStoneDropChance(6);
+	easy_rustheap_enemy3.setDescription("A low-rung rat who swings crumbling bricks with knuckles wrapped in wire. Part of Rustheap's scavenging underclass — more scarred than skilled, but hungrier than most.");
+	CombatLocation easy_rustheap_clocation3("Rustheap Foothills – Broken Masonry Runoff", &easy_rustheap_enemy3);
+	easy_rustheap_locations.push_back(&easy_rustheap_clocation3);
+
+//Rustheap | Easy Enemy no. 4 | Ashfinger
+	HpStatusEffect easy_rustheap_enemy4_status1("Suffocating Smoke", 6, 3, 2);
+	StatusEffectSpell easy_rustheap_enemy4_spell1("Smog Eruption", "The user violently exhales a blast of choking black smoke into the target's face.", 10, 4, 75, &easy_rustheap_enemy4_status1, "Smoke");
+	Spell easy_rustheap_enemy4_spell2("Cinder Knuckle", "The user shapes a dense fist of smoldering ash and slams it into the target.", 10, 3, "Ash");
+	HpStatusEffect easy_rustheap_enemy4_status2("Scorching Flames", 6, 3, 3);
+	StatusEffectSpell easy_rustheap_enemy4_spell3("Ember Arrow", "A narrow streak of burning embers is launched toward the target, igniting flesh on impact.", 12, 5, 75, &easy_rustheap_enemy4_status2, "Fire");
+	Spell* easy_rustheap_enemy4_spells[4] = {nullptr, nullptr, nullptr, nullptr};
+	Enemy easy_rustheap_enemy4("Ashfinger", 54, 8, 7, 6, 25, 1.5, easy_rustheap_enemy4_spells);
+	Scroll easy_rustheap_enemy4_drop1("", &easy_rustheap_enemy4_spell1);
+	Scroll easy_rustheap_enemy4_drop2("", &easy_rustheap_enemy4_spell2);
+	Scroll easy_rustheap_enemy4_drop3("", &easy_rustheap_enemy4_spell3);
+	Weapon easy_rustheap_enemy4_drop4("Cinderforged Blade", "Sword", "A brittle blade formed from compressed ash and soot.", 5);
+	easy_rustheap_enemy4.addReward(&easy_rustheap_enemy4_drop1 ,25, 1);
+	easy_rustheap_enemy4.addReward(&easy_rustheap_enemy4_drop2 ,25, 1);
+	easy_rustheap_enemy4.addReward(&easy_rustheap_enemy4_drop3 ,25, 1);
+	easy_rustheap_enemy4.addReward(&easy_rustheap_enemy4_drop4 ,10, 1);
+	easy_rustheap_enemy4.setSoulStoneDropChance(3);
+	easy_rustheap_enemy4.setDescription("A twitchy, burn-scarred creature addicted to the smell of smoke. Ignites small fires out of compulsion — some say they no longer feel pain from flame. Their fingertips are permanently charred black.");
+	CombatLocation easy_rustheap_clocation4("Rustheap Foothills – Smoldering Waste Pit", &easy_rustheap_enemy4);
+	easy_rustheap_locations.push_back(&easy_rustheap_clocation4);
+	
+//Rustheap | Easy Enemy no. 5 | Rattlegrip
+	Spell easy_rustheap_enemy5_spell1("Scrapshot Discharge", "The user crudely shapes a shard of metal into a makeshift projectile and fires it toward the target.", 10, 3, "Metal");
+	Spell easy_rustheap_enemy5_spell2("Forged Iron Blow", "The user coats their fist in hardened scrap metal before driving it into the target.", 12, 4, "Metal");
+	Spell easy_rustheap_enemy5_spell3("Crackling Surge", "A burst of unstable electricity erupts from the user's palm, jolting the target violently.", 9, 2, "Electric");
+	Spell* easy_rustheap_enemy5_spells[4] = {&easy_rustheap_enemy5_spell1, &easy_rustheap_enemy5_spell2, &easy_rustheap_enemy5_spell3, nullptr};
+	Enemy easy_rustheap_enemy5("Rattlegrip", 52, 7, 7, 7, 15, 2, easy_rustheap_enemy5_spells);
+	Armor easy_rustheap_enemy5_drop1("Rustbound Helm", "A crude helmet hammered together from rusted scrap plates.", 4.5, 1);
+	Armor easy_rustheap_enemy5_drop2("Greasebound Work Gloves", "Oil-stained technician gloves reinforced with bits of wire and metal stitching.", 4.5, 3);
+	Armor easy_rustheap_enemy5_drop3("Patchwork Scrap Cuirass", "A chestplate assembled from mismatched pieces of rusted metal.", 7.5, 2);
+	Weapon easy_rustheap_enemy5_drop4("Rustheap Torque Wrench", "Wrench", "A heavy industrial wrench once used by Rustheap engineers.", 4.5);
+	easy_rustheap_enemy5.addReward(&easy_rustheap_enemy5_drop1 ,25, 1);
+	easy_rustheap_enemy5.addReward(&easy_rustheap_enemy5_drop2 ,25, 1);
+	easy_rustheap_enemy5.addReward(&easy_rustheap_enemy5_drop3 ,25, 1);
+	easy_rustheap_enemy5.addReward(&easy_rustheap_enemy5_drop4 ,10, 1);
+	easy_rustheap_enemy5.setSoulStoneDropChance(3);
+	easy_rustheap_enemy5.setDescription("A trembling apprentice barely keeping their contraptions from falling apart. The older engineers beat new techniques into them. Every scar on their hands is a lesson.");
+	CombatLocation easy_rustheap_clocation5("Rustheap Foothills – Abandoned Technician Shack", &easy_rustheap_enemy5);
+	easy_rustheap_locations.push_back(&easy_rustheap_clocation5);
+	
+//Rustheap | Easy Enemy no. 6 | The Visorless
+	Spell easy_rustheap_enemy6_spell1("Speed drive", "The user launches forward in a brutal, bone-rattling charge, slamming into the target with reckless mechanical force.", 12, 5, "Physical");
+	Spell* easy_rustheap_enemy6_spells[4] = {&easy_rustheap_enemy6_spell1, nullptr, nullptr, nullptr};
+	Enemy easy_rustheap_enemy6("The Visorless", 58, 8, 7, 5, 20, 1.25, easy_rustheap_enemy6_spells);
+	Scroll easy_rustheap_enemy6_drop1("", &easy_rustheap_enemy6_spell1);
+	Armor easy_rustheap_enemy6_drop2("Fractured Rust Visor", "A cracked protective visor ripped from a scavenger driver somewhere in the lower Rustheap trails.", 5, 1);
+	easy_rustheap_enemy6.addReward(&easy_rustheap_enemy6_drop1, 50, 1);
+	easy_rustheap_enemy6.addReward(&easy_rustheap_enemy6_drop2, 25, 1);
+	easy_rustheap_enemy6.setSoulStoneDropChance(7);
+	easy_rustheap_enemy6.setDescription("A skeletal one-seat vehicle stitched from wreck parts and spite. The driver's face is never seen beneath the cracked visor — only teeth, when they charge.");
+	CombatLocation easy_rustheap_clocation6("Rustheap Foothills – Wreckslide Path", &easy_rustheap_enemy6);
+	easy_rustheap_locations.push_back(&easy_rustheap_clocation6);
+	
+//Rustheap | Easy Enemy no. 7 | Hookwire
+	Spell easy_rustheap_enemy7_spell1("Rustflail Tail", "The creature lashes its wire-wrapped tail through the air, striking the target with a savage metallic crack.", 10, 3, "Physical");
+	ArmorBreakStatusEffect easy_rustheap_enemy7_status1("Shackled Armor", 1, 5);
+	StatusEffectSpell easy_rustheap_enemy7_spell2("Chain of Despair", "A jagged spectral chain coils around the target, crushing joints in their armor and weakening its protection.", 9, 3, 75, &easy_rustheap_enemy7_status1, "Chains");
+	Spell* easy_rustheap_enemy7_spells[4] = {&easy_rustheap_enemy7_spell1, &easy_rustheap_enemy7_spell2, nullptr, nullptr};
+	Enemy easy_rustheap_enemy7("Hookwire", 54, 10, 7, 5, 30, 1.1, easy_rustheap_enemy7_spells);
+	Consumable easy_rustheap_enemy7_drop1("Heap-Rot Raccoon Flesh", "Stringy raccoon meat soaked in the foul rust-stained filth of the lower heaps.", 10);
+	Weapon easy_rustheap_enemy7_drop2("Barbed Wire Tail", "Club", "A severed raccoon tail stiffened with rusted wire and hooked scrap.", 5);
+	easy_rustheap_enemy7.addReward(&easy_rustheap_enemy7_drop1, 50, 3);
+	easy_rustheap_enemy7.addReward(&easy_rustheap_enemy7_drop2, 25, 1);
+	easy_rustheap_enemy7.setSoulStoneDropChance(5);
+	easy_rustheap_enemy7.setDescription("A young raccoon engineer still learning the heap's dark craft. The tail is wrapped in wire and jagged scrap — not a weapon by design, but by necessity.");
+	CombatLocation easy_rustheap_clocation7("Rustheap Foothills – Tangled Wire Ravine", &easy_rustheap_enemy7);
+	easy_rustheap_locations.push_back(&easy_rustheap_clocation7);
+	
+//Rustheap | Easy Enemy no. 8 | Splicemite
+	HpStatusEffect easy_rustheap_enemy8_status1("Seeping Rot", 5, 1, -5);
+	StatusEffectSpell easy_rustheap_enemy8_spell1("Rotbreath Miasma", "A foul cloud of rot spores leaks from the creature's broken teeth, drifting into the lungs of its target.", 10, 4, 90, &easy_rustheap_enemy8_status1, "Rot");
+	ArmorBreakStatusEffect easy_rustheap_enemy8_status2("Corroded Plating", 1, 3);
+	StatusEffectSpell easy_rustheap_enemy8_spell2("Corrosive Spittle", "The creature hacks up a string of infected rot and spits it onto the target's armor, slowly eating through the material.", 9, 4, 50, &easy_rustheap_enemy8_status2, "Rot");
+	Spell* easy_rustheap_enemy8_spells[4] = {&easy_rustheap_enemy8_spell1, &easy_rustheap_enemy8_spell2, nullptr, nullptr};
+	Enemy easy_rustheap_enemy8("Splicemite", 50, 7.2, 7, 8, 20, 1.4, easy_rustheap_enemy8_spells);
+	Consumable easy_rustheap_enemy8_drop1("Rotroach Leg", "A severed limb from the bloated rustheap cockroaches that crawl through the lower scrap pits.", 12.5);	
+	Scroll easy_rustheap_enemy8_drop2("", &easy_rustheap_enemy8_spell1);
+	easy_rustheap_enemy8.addReward(&easy_rustheap_enemy8_drop1, 50, 3);
+	easy_rustheap_enemy8.addReward(&easy_rustheap_enemy8_drop2, 25, 1);
+	easy_rustheap_enemy8.setSoulStoneDropChance(7);
+	easy_rustheap_enemy8.setDescription("A cockroach whose flesh has been crudely fused with salvaged machine parts — not by choice. The augments are infected, weeping fluid. It bites to spread the rot.");
+	CombatLocation easy_rustheap_clocation8("Rustheap Foothills – Rotting Augment Pit", &easy_rustheap_enemy8);
+	easy_rustheap_locations.push_back(&easy_rustheap_clocation8);
+
+//Rustheap | Easy Enemy no. 9 | Rustvow
+	ChainingSpell easy_rustheap_enemy9_spell1("Shattering Glassstorm", "The user summons a storm of jagged glass splinters and flings them toward the target in rapid succession.", 1, 4, 8, 14, "Glass");
+	ChainingSpell easy_rustheap_enemy9_spell2("Rusted Bolt Volley", "A cluster of crude metal bolts materializes and is hurled violently toward the target.", 3, 5, 3, 5, "Metal");
+	Spell* easy_rustheap_enemy9_spells[4] = {&easy_rustheap_enemy9_spell1, &easy_rustheap_enemy9_spell2, nullptr, nullptr};
+	Enemy easy_rustheap_enemy9("Rustvow", 50, 5, 7, 9, 25, 2, easy_rustheap_enemy9_spells);
+	Consumable easy_rustheap_enemy9_drop1("Heap-Rot Raccoon Flesh", "Stringy raccoon meat soaked in the foul rust-stained filth of the lower heaps.", 10);
+	Scroll easy_rustheap_enemy9_drop2("", &easy_rustheap_enemy9_spell1);
+	Scroll easy_rustheap_enemy9_drop3("", &easy_rustheap_enemy9_spell2);
+	easy_rustheap_enemy9.addReward(&easy_rustheap_enemy9_drop1, 50, 3);
+	easy_rustheap_enemy9.addReward(&easy_rustheap_enemy9_drop2, 25, 1);
+	easy_rustheap_enemy9.addReward(&easy_rustheap_enemy9_drop3, 25, 1);
+	easy_rustheap_enemy9.setSoulStoneDropChance(6);
+	easy_rustheap_enemy9.setDescription("A true believer in Rustheap's creed — society is a cage and order is a disease. Throws anything within reach: bolts, teeth, bones, glass.");
+	CombatLocation easy_rustheap_clocation9("Rustheap Foothills – Shardfall Gutter", &easy_rustheap_enemy9);
+	easy_rustheap_locations.push_back(&easy_rustheap_clocation9);
+	
+//Rustheap | Easy Enemy no. 10 | Gutborer
+	Spell easy_rustheap_enemy10_spell1("Ground and Pound", "The creature burrows beneath the scrap-choked earth before erupting upward with a brutal uppercut.", 15, 5, "Physical");
+	Spell* easy_rustheap_enemy10_spells[4] = {&easy_rustheap_enemy10_spell1, nullptr, nullptr, nullptr};
+	Enemy easy_rustheap_enemy10("Gutborer", 58, 10, 7, 3, 10, 1.5, easy_rustheap_enemy10_spells);
+	Scroll easy_rustheap_enemy10_drop1("", &easy_rustheap_enemy10_spell1);
+	easy_rustheap_enemy10.addReward(&easy_rustheap_enemy10_drop1, 25, 1);
+	easy_rustheap_enemy10.setSoulStoneDropChance(8);
+	easy_rustheap_enemy10.setDescription("A worm-shaped construct of unknown origin, writhing beneath the heap's surface. It erupts from below without warning, dragging things into the dark.");
+	CombatLocation easy_rustheap_clocation10("Rustheap Foothills – Burrowed Scrapbed", &easy_rustheap_enemy10);
+	easy_rustheap_locations.push_back(&easy_rustheap_clocation10);
+	
+//Rustheap | Easy Enemy no. 11 | Shardback
+	Spell easy_rustheap_enemy11_spell1("Spinebreaker Slam", "The creature twists its shard-covered back and crashes into the target with crushing metallic force.", 13, 3, "Metal");
+	ArmorBreakStatusEffect easy_rustheap_enemy11_status1("Shattered Guard", 1, 5);
+	StatusEffectSpell easy_rustheap_enemy11_spell2("Razor Tail Flail", "Its jagged tail lashes out wildly, tearing into armor and sending fragments flying.", 12, 3, 75, &easy_rustheap_enemy11_status1, "Physical");
+	Spell* easy_rustheap_enemy11_spells[4] = {&easy_rustheap_enemy11_spell1, &easy_rustheap_enemy11_spell2, nullptr, nullptr};
+	Enemy easy_rustheap_enemy11("Shardback", 54, 6.5, 7, 8, 15, 2, easy_rustheap_enemy11_spells);
+	Consumable easy_rustheap_enemy11_drop1("Shardscale Gecko Meat", "Dense flesh threaded with metallic splinters from years spent in the rustheap.", 15);
+	Scroll easy_rustheap_enemy11_drop2("", &easy_rustheap_enemy11_spell1);
+	easy_rustheap_enemy11.addReward(&easy_rustheap_enemy11_drop1, 50, 3);
+	easy_rustheap_enemy11.addReward(&easy_rustheap_enemy11_drop2, 25, 1);
+	easy_rustheap_enemy11.setSoulStoneDropChance(5);
+	easy_rustheap_enemy11.setDescription("A gecko whose back has fused with metal shards over years of living in the heap. The tail swings not by training, but by rage — a body becoming one with the refuse.");
+	CombatLocation easy_rustheap_clocation11("Rustheap Foothills – Shardscale Nest", &easy_rustheap_enemy11);
+	easy_rustheap_locations.push_back(&easy_rustheap_clocation11);
+	
+//Rustheap | Easy Enemy no. 12 | Twitch-Copper
+	Spell easy_rustheap_enemy12_spell1("Static Discharge", "The creature drags its copper-threaded body across scrap, building a violent charge before releasing it in a blinding arc of electricity.", 15, 5, "Electricity");
+	ChainingSpell easy_rustheap_enemy12_spell2("Twitching Surge", "Its body convulses uncontrollably as it flickers in and out of sight, striking the target in erratic bursts of crackling energy.", 2.5, 5, 3, 6, "Electricity");
+	Spell* easy_rustheap_enemy12_spells[4] = {&easy_rustheap_enemy12_spell1, &easy_rustheap_enemy12_spell2, nullptr, nullptr};
+	Enemy easy_rustheap_enemy12("Dawe, the Twitch-Copper", 52, 8, 7, 5, 15, 1.5, easy_rustheap_enemy12_spells);
+	Consumable easy_rustheap_enemy12_drop1("Wire-Fed Rat Flesh", "Stringy meat laced with thin copper filaments that still faintly hum with residual charge.", 9.5);
+	Scroll easy_rustheap_enemy12_drop2("", &easy_rustheap_enemy12_spell1);
+	Scroll easy_rustheap_enemy12_drop3("", &easy_rustheap_enemy12_spell2);
+	Weapon easy_rustheap_enemy12_drop4("Livewire Spine", "Livewire Spine", "A spine threaded with copper veins that twitch with leftover current, as if remembering something it shouldn't.", 6);
+	easy_rustheap_enemy12.addReward(&easy_rustheap_enemy12_drop1, 50, 3);
+	easy_rustheap_enemy12.addReward(&easy_rustheap_enemy12_drop2, 25, 1);
+	easy_rustheap_enemy12.addReward(&easy_rustheap_enemy12_drop3, 25, 1);
+	easy_rustheap_enemy12.addReward(&easy_rustheap_enemy12_drop4, 10, 1);
+	easy_rustheap_enemy12.setSoulStoneDropChance(4);
+	easy_rustheap_enemy12.setDescription("A rat whose nervous system has been threaded with exposed copper wire. Every twitch sends sparks flying. Some believe they no longer sleep — just convulse. It mutters about taking someone far beyond the sky, somewhere unreachable.");
+	CombatLocation easy_rustheap_clocation12("Rustheap Foothills – Flickercoil Den", &easy_rustheap_enemy12);
+	easy_rustheap_locations.push_back(&easy_rustheap_clocation12);
+	
+//Rustheap | Easy Enemy no. 13 | Hollowbeat
+	Spell easy_rustheap_enemy13_spell1("Hollow Resonance", "A deep, unnatural hum escapes the creature, vibrating through bone and scrap alike.", 15, 5, "Sound");
+	ArmorBreakStatusEffect easy_rustheap_enemy13_status1("Disrupted Rhythm", 1, 4);
+	StatusEffectSpell easy_rustheap_enemy13_spell2("Rhythm Distortion", "The creature emits a warped, broken cadence that throws the target's armor out of sync, weakening its structure.", 12, 3, 75, &easy_rustheap_enemy13_status1, "Sound");
+	Spell* easy_rustheap_enemy13_spells[4] = {&easy_rustheap_enemy13_spell1, &easy_rustheap_enemy13_spell2, nullptr, nullptr};
+	Enemy easy_rustheap_enemy13("Hollowbeat", 56, 7, 7, 5, 15, 1.5, easy_rustheap_enemy13_spells);
+	Consumable easy_rustheap_enemy13_drop1("Shardscale Gecko Meat", "Dense flesh threaded with metallic splinters from years spent in the rustheap.", 15);
+	Scroll easy_rustheap_enemy13_drop2("", &easy_rustheap_enemy13_spell1);
+	easy_rustheap_enemy13.addReward(&easy_rustheap_enemy13_drop1, 50, 3);
+	easy_rustheap_enemy13.addReward(&easy_rustheap_enemy13_drop2, 25, 1);
+	easy_rustheap_enemy13.setSoulStoneDropChance(6);
+	easy_rustheap_enemy13.setDescription("A gecko who found religion in sound. Beats the ground with its tail in hypnotic rhythms that rattle teeth. The thuds are meditative until they aren't.");
+	CombatLocation easy_rustheap_clocation13("Rustheap Foothills – Resonance Pit", &easy_rustheap_enemy13);
+	easy_rustheap_locations.push_back(&easy_rustheap_clocation13);
+	
+//Rustheap | Easy Enemy no. 14 | Lowmarrow
+	HpStatusEffect easy_rustheap_enemy14_status1("Internal Hemorrhage", 6, 3, -4.5);
+	StatusEffectSpell easy_rustheap_enemy14_spell1("Concussive Rumble", "A deep, sub-audible vibration erupts from the creature's ribcage, pulsing through the body and rupturing tissue from within.", 15, 6, 75, &easy_rustheap_enemy14_status1, "Sound");
+	Spell* easy_rustheap_enemy14_spells[4] = {&easy_rustheap_enemy14_spell1, nullptr, nullptr, nullptr};
+	Enemy easy_rustheap_enemy14("Lowmarrow", 58, 8, 7, 3, 12.5, 1.5, easy_rustheap_enemy14_spells);
+	Consumable easy_rustheap_enemy14_drop1("Heap-Rot Raccoon Flesh", "Stringy raccoon meat soaked in the foul rust-stained filth of the lower heaps.", 10);
+	Armor easy_rustheap_enemy14_drop2("Subsonic Ribcage Plate", "A chestplate formed from a vibrating rib structure that emits a constant, barely audible hum.", 7, 2);
+	Scroll easy_rustheap_enemy14_drop3("", &easy_rustheap_enemy14_spell1);
+	easy_rustheap_enemy14.addReward(&easy_rustheap_enemy14_drop1, 50, 3);
+	easy_rustheap_enemy14.addReward(&easy_rustheap_enemy14_drop2, 25, 1);
+	easy_rustheap_enemy14.addReward(&easy_rustheap_enemy14_drop3, 25, 1);
+	easy_rustheap_enemy14.setSoulStoneDropChance(4);
+	easy_rustheap_enemy14.setDescription("A young raccoon whose ribcage vibrates at sub-audible frequencies. When the sound rises, the air around them shimmers. Internal bleeding is common in those who stand too close.");
+	CombatLocation easy_rustheap_clocation14("Rustheap Foothills – Subsonic Hollow", &easy_rustheap_enemy14);
+	easy_rustheap_locations.push_back(&easy_rustheap_clocation14);
+	
+//Rustheap | Easy Enemy no. 15 | Woundedge
+	Spell easy_rustheap_enemy15_spell1("Ragged Carve", "The user drags a broken, jagged edge across the target, tearing flesh in an uneven, brutal cut.", 12, 2, "Physical");
+	HpStatusEffect easy_rustheap_enemy15_status1("Jagged Bleeding", 1, 5, -3);
+	StatusEffectSpell easy_rustheap_enemy15_spell2("Serrated Rupture", "A vicious slash from the crude blade leaves a wound that refuses to close, continuing to tear with every movement.", 12, 4, 75, &easy_rustheap_enemy15_status1, "Metal");
+	Spell* easy_rustheap_enemy15_spells[4] = {&easy_rustheap_enemy15_spell1, &easy_rustheap_enemy15_spell2, nullptr, nullptr};
+	Enemy easy_rustheap_enemy15("Woundedge", 52, 10, 7, 8, 20, 1.25, easy_rustheap_enemy15_spells);
+	Consumable easy_rustheap_enemy15_drop1("Heap-Rot Raccoon Flesh", "Stringy raccoon meat soaked in the foul rust-stained filth of the lower heaps.", 10);
+	Scroll easy_rustheap_enemy15_drop2("", &easy_rustheap_enemy15_spell1);
+	Scroll easy_rustheap_enemy15_drop3("", &easy_rustheap_enemy15_spell2);
+	Weapon easy_rustheap_enemy15_drop4("Serrated Scrap Blade", "Knife", "A crude blade forged from a shattered augment, its edge uneven and cruel.", 4.5);
+	easy_rustheap_enemy15.addReward(&easy_rustheap_enemy15_drop1, 50, 3);
+	easy_rustheap_enemy15.addReward(&easy_rustheap_enemy15_drop2, 25, 1);
+	easy_rustheap_enemy15.addReward(&easy_rustheap_enemy15_drop3, 25, 1);
+	easy_rustheap_enemy15.addReward(&easy_rustheap_enemy15_drop4, 25, 1);
+	easy_rustheap_enemy15.setSoulStoneDropChance(6);
+	easy_rustheap_enemy15.setDescription("A raccoon who shaped their weapon from their own broken augment after it failed mid-surgery. The blade is ugly and jagged — the anger behind it isn't.");
+	CombatLocation easy_rustheap_clocation15("Rustheap Foothills – Bloodscrap Alley", &easy_rustheap_enemy15);
+	easy_rustheap_locations.push_back(&easy_rustheap_clocation15);
+	
+//Rustheap | Easy Enemy no. 16 | Blastmite
+	Spell easy_rustheap_enemy16_spell1("Sudden Ignition", "Without warning, the creature erupts into violent flames, releasing a contained explosion while its own body remains intact.", 15, 5, "Explosion");
+	Spell* easy_rustheap_enemy16_spells[4] = {&easy_rustheap_enemy16_spell1, nullptr, nullptr, nullptr};
+	Enemy easy_rustheap_enemy16("Blastmite", 50, 10, 7, 9, 10, 1.5, easy_rustheap_enemy16_spells);
+	Consumable easy_rustheap_enemy16_drop1("Shardscale Gecko Meat", "Dense flesh threaded with metallic splinters from years spent in the rustheap.", 15);
+	Scroll easy_rustheap_enemy16_drop2("", &easy_rustheap_enemy16_spell1, "Tome");
+	easy_rustheap_enemy16.addReward(&easy_rustheap_enemy16_drop1, 50, 3);
+	easy_rustheap_enemy16.addReward(&easy_rustheap_enemy16_drop2, 25, 1);
+	easy_rustheap_enemy16.setSoulStoneDropChance(4);
+	easy_rustheap_enemy16.setDescription("A small gecko packed with improvised charges in the folds of its skin. Expendable. Replaceable. The heap produces more of them every season.");
+	CombatLocation easy_rustheap_clocation16("Rustheap Foothills – Ignition Nest", &easy_rustheap_enemy16);
+	easy_rustheap_locations.push_back(&easy_rustheap_clocation16);
+	
+//Rustheap | Easy Enemy no. 17 | Bilespew
+	HpStatusEffect easy_rustheap_enemy17_status1("Clinging Bile Burn", 7, 3, -2.5);
+	StatusEffectSpell easy_rustheap_enemy17_spell1("Scalding Bile Spit", "The creature spews a stream of superheated bile that sticks to flesh, burning long after impact.", 12, 4, 80, &easy_rustheap_enemy17_status1, "Fire");
+	Spell easy_rustheap_enemy17_spell2("Furnace Breath", "A violent stream of fire erupts from the creature's maw, engulfing everything in front of it.", 15, 5, "Fire");
+	HpStatusEffect easy_rustheap_enemy17_status2("Blazing Laceration", 5, 2, -3);
+	StatusEffectSpell easy_rustheap_enemy17_spell3("Emberclaw Rend", "The creature forms claws of living flame and tears into the target, leaving burning wounds behind.", 13, 4, 80, &easy_rustheap_enemy17_status2, "Fire");
+	Spell* easy_rustheap_enemy17_spells[4] = {&easy_rustheap_enemy17_spell1, &easy_rustheap_enemy17_spell2, &easy_rustheap_enemy17_spell3, nullptr};
+	Enemy easy_rustheap_enemy17("Bilespew", 60, 8, 7, 5, 15, 1.25, easy_rustheap_enemy17_spells);
+	Consumable easy_rustheap_enemy17_drop1("Firecore", "A pulsing, heat-warped core that radiates unstable warmth.", 20);
+	Scroll easy_rustheap_enemy17_drop2("", &easy_rustheap_enemy17_spell1);
+	Scroll easy_rustheap_enemy17_drop3("", &easy_rustheap_enemy17_spell2);
+	Scroll easy_rustheap_enemy17_drop4("", &easy_rustheap_enemy17_spell3);
+	Weapon easy_rustheap_enemy17_drop5("Emberforged Blade", "Sword", "A blade formed from condensed flame, flickering as if barely contained.", 4.5);
+	easy_rustheap_enemy17.addReward(&easy_rustheap_enemy17_drop1, 50, 1);
+	easy_rustheap_enemy17.addReward(&easy_rustheap_enemy17_drop2, 25, 1);
+	easy_rustheap_enemy17.addReward(&easy_rustheap_enemy17_drop3, 25, 1);
+	easy_rustheap_enemy17.addReward(&easy_rustheap_enemy17_drop4, 25, 1);
+	easy_rustheap_enemy17.addReward(&easy_rustheap_enemy17_drop5, 15, 1);
+	easy_rustheap_enemy17.setSoulStoneDropChance(8);
+	easy_rustheap_enemy17.setDescription("Born near the heap's furnace pits, their saliva runs hot. Not engineered — adapted. They spit superheated bile that clings to flesh.");
+	CombatLocation easy_rustheap_clocation17("Rustheap Foothills – Furnace Runoff", &easy_rustheap_enemy17);
+	easy_rustheap_locations.push_back(&easy_rustheap_clocation17);
+	
+//Rustheap | Easy Enemy no. 18 | Ashseat
+	Spell easy_rustheap_enemy18_spell1("Ash Drive", "The user ignites a burst of ash beneath them, propelling forward in a violent lunge that leaves a choking trail behind.", 15, 5, "Ash");
+	Spell* easy_rustheap_enemy18_spells[4] = {&easy_rustheap_enemy18_spell1, nullptr, nullptr, nullptr};
+	Enemy easy_rustheap_enemy18("Ashseat", 58, 8.5, 7, 7, 15, 1.2, easy_rustheap_enemy18_spells);
+	Scroll easy_rustheap_enemy18_drop1("", &easy_rustheap_enemy18_spell1);
+	easy_rustheap_enemy18.addReward(&easy_rustheap_enemy18_drop1, 25, 1);
+	easy_rustheap_enemy18.setSoulStoneDropChance(5);
+	easy_rustheap_enemy18.setDescription("A young driver who inherited their vehicle from a dead sibling. Too small for the seat, but too proud to admit it. The vehicle smells of ash and blood.");
+	CombatLocation easy_rustheap_clocation18("Rustheap Foothills – Ashtrail Descent", &easy_rustheap_enemy18);
+	easy_rustheap_locations.push_back(&easy_rustheap_clocation18);
+	
+//Rustheap | Easy Enemy no. 19 | Jerkspring
+	Spell easy_rustheap_enemy19_spell1("Springloaded Kick", "The creature compresses spring-like limbs and releases them in a sudden, snapping kick aimed with unnatural precision.", 16, 6, "Metal");
+	ChainingSpell easy_rustheap_enemy19_spell2("Tick-Twitch Rush", "Its body spasms in rapid mechanical bursts, bouncing erratically as it repeatedly lunges into the target.", 3, 5, 2, 5);
+	Spell* easy_rustheap_enemy19_spells[4] = {&easy_rustheap_enemy19_spell1, &easy_rustheap_enemy19_spell2, nullptr, nullptr};
+	Enemy easy_rustheap_enemy19("Jerkspring", 53, 7.5, 7, 7, 12.5, 2, easy_rustheap_enemy19_spells);
+	Consumable easy_rustheap_enemy19_drop1("Shardscale Gecko Meat", "Dense flesh threaded with metallic splinters from years spent in the rustheap.", 15);
+	Scroll easy_rustheap_enemy19_drop2("", &easy_rustheap_enemy19_spell1);
+	Scroll easy_rustheap_enemy19_drop3("", &easy_rustheap_enemy19_spell2);
+	easy_rustheap_enemy19.addReward(&easy_rustheap_enemy19_drop1, 50, 3);
+	easy_rustheap_enemy19.addReward(&easy_rustheap_enemy19_drop2, 25, 1);
+	easy_rustheap_enemy19.addReward(&easy_rustheap_enemy19_drop3, 25, 1);
+	easy_rustheap_enemy19.setSoulStoneDropChance(4);
+	easy_rustheap_enemy19.setDescription("A tiny mechanical gecko, possibly not alive in any traditional sense. It moves in jerky, mechanical ticks. No one knows who built it or why. It attacks on reflex.");
+	CombatLocation easy_rustheap_clocation19("Rustheap Foothills – Springfracture Ridge", &easy_rustheap_enemy19);
+	easy_rustheap_locations.push_back(&easy_rustheap_clocation19);
+	
+//Rustheap | Easy Enemy no. 20 | Ozone Runt
+	Spell easy_rustheap_enemy20_spell1("Static Surge", "The user releases a sudden burst of built-up static, striking the target with a sharp electric discharge.", 12, 2, "Electricity");
+	Spell* easy_rustheap_enemy20_spells[4] = {&easy_rustheap_enemy20_spell1, nullptr, nullptr, nullptr};
+	Enemy easy_rustheap_enemy20("Ozone Rust", 52, 6, 7, 9, 20, 2.5, easy_rustheap_enemy20_spells);
+	Consumable easy_rustheap_enemy20_drop1("Heap-Rot Raccoon Flesh", "Stringy raccoon meat soaked in the foul rust-stained filth of the lower heaps.", 10);
+	Scroll easy_rustheap_enemy20_drop2("", &easy_rustheap_enemy20_spell1);
+	easy_rustheap_enemy20.addReward(&easy_rustheap_enemy20_drop1, 50, 3);
+	easy_rustheap_enemy20.addReward(&easy_rustheap_enemy20_drop2, 25, 1);
+	easy_rustheap_enemy20.setSoulStoneDropChance(2);
+	easy_rustheap_enemy20.setDescription("A raccoon who brushed against the Tesla-fields too many times as a child. Their fur stands permanently on end, twitching with residual charge. Speech comes in broken fragments, and the air around them carries the sharp scent of ozone.");
+	CombatLocation easy_rustheap_clocation20("Rustheap Foothills – Ozone Drift", &easy_rustheap_enemy20);
+	easy_rustheap_locations.push_back(&easy_rustheap_clocation20);
 	
 	// MAP INITIALIZATION
 	
@@ -912,7 +1235,7 @@ int main() {
 	vector<Map*> maps = { &snailsville };
 	
 	// Fast-forward map to the saved room (for new games = 0, for loads = saved position)
-	snailsville.setPlayerPosition(currentMapIndex);
+	snailsville.setPlayerPosition(currentMapIndex); 
 	
 	// =============================================
 	//  MAIN GAME LOOP

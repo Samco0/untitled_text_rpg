@@ -13,10 +13,10 @@ CXXFLAGS = $(CXXINCS) "-g3" "-pipe" "-Wall" "-D_DEBUG"
 CFLAGS   = $(INCS) "-g3" "-pipe" "-Wall" "-D_DEBUG"
 WINDRESFLAGS = 
 RES      = untitled_text_rpg_private.res
-OBJ      = combatcharacter.o enemy.o armor.o player.o lifestealspell.o map.o battleManager.o statuseffect.o armorbreakstatuseffect.o hpstatuseffect.o combatlocation.o weapon.o item.o savesystem.o statuseffectspell.o main.o spell.o consumable.o chainingspell.o inventory.o character.o treasurelocation.o scroll.o location.o tauntstatuseffect.o $(RES)
+OBJ      = consumable.o chainingspell.o tauntstatuseffect.o armor.o armorbreakstatuseffect.o item.o statuseffectspell.o spell.o main.o map.o character.o inventory.o player.o battleManager.o lifestealspell.o location.o hpstatuseffect.o statuseffect.o enemy.o savesystem.o combatcharacter.o weapon.o treasurelocation.o combatlocation.o scroll.o $(RES)
 BIN      = untitled_text_rpg.exe
-LINKOBJ  = "combatcharacter.o" "enemy.o" "armor.o" "player.o" "lifestealspell.o" "map.o" "battleManager.o" "statuseffect.o" "armorbreakstatuseffect.o" "hpstatuseffect.o" "combatlocation.o" "weapon.o" "item.o" "savesystem.o" "statuseffectspell.o" "main.o" "spell.o" "consumable.o" "chainingspell.o" "inventory.o" "character.o" "treasurelocation.o" "scroll.o" "location.o" "tauntstatuseffect.o" "untitled_text_rpg_private.res"
-CLEANOBJ = "combatcharacter.o" "enemy.o" "armor.o" "player.o" "lifestealspell.o" "map.o" "battleManager.o" "statuseffect.o" "armorbreakstatuseffect.o" "hpstatuseffect.o" "combatlocation.o" "weapon.o" "item.o" "savesystem.o" "statuseffectspell.o" "main.o" "spell.o" "consumable.o" "chainingspell.o" "inventory.o" "character.o" "treasurelocation.o" "scroll.o" "location.o" "tauntstatuseffect.o" "untitled_text_rpg_private.res" "untitled_text_rpg.exe"
+LINKOBJ  = "consumable.o" "chainingspell.o" "tauntstatuseffect.o" "armor.o" "armorbreakstatuseffect.o" "item.o" "statuseffectspell.o" "spell.o" "main.o" "map.o" "character.o" "inventory.o" "player.o" "battleManager.o" "lifestealspell.o" "location.o" "hpstatuseffect.o" "statuseffect.o" "enemy.o" "savesystem.o" "combatcharacter.o" "weapon.o" "treasurelocation.o" "combatlocation.o" "scroll.o" "untitled_text_rpg_private.res"
+CLEANOBJ = "consumable.o" "chainingspell.o" "tauntstatuseffect.o" "armor.o" "armorbreakstatuseffect.o" "item.o" "statuseffectspell.o" "spell.o" "main.o" "map.o" "character.o" "inventory.o" "player.o" "battleManager.o" "lifestealspell.o" "location.o" "hpstatuseffect.o" "statuseffect.o" "enemy.o" "savesystem.o" "combatcharacter.o" "weapon.o" "treasurelocation.o" "combatlocation.o" "scroll.o" "untitled_text_rpg_private.res" "untitled_text_rpg.exe"
 
 .PHONY: all all-before all-after clean clean-custom
 
@@ -29,80 +29,80 @@ untitled_text_rpg.exe: $(OBJ)
 
 	$(CXX) $(LINKOBJ) -o "untitled_text_rpg.exe" $(LIBS)
 
-combatcharacter.o: combatcharacter.cpp player.h spell.h treasurelocation.h weapon.h savesystem.h statuseffectspell.h map.h item.h hpstatuseffect.h inventory.h tauntstatuseffect.h lifestealspell.h enemy.h scroll.h battleManager.h armor.h combatlocation.h chainingspell.h consumable.h combatcharacter.h armorbreakstatuseffect.h character.h statuseffect.h location.h
-	$(CXX) -c "combatcharacter.cpp" -o "combatcharacter.o" $(CXXFLAGS) 
-
-enemy.o: enemy.cpp player.h spell.h treasurelocation.h weapon.h savesystem.h statuseffectspell.h map.h item.h hpstatuseffect.h inventory.h tauntstatuseffect.h lifestealspell.h enemy.h scroll.h battleManager.h armor.h combatlocation.h chainingspell.h consumable.h combatcharacter.h armorbreakstatuseffect.h character.h statuseffect.h location.h
-	$(CXX) -c "enemy.cpp" -o "enemy.o" $(CXXFLAGS) 
-
-armor.o: armor.cpp player.h spell.h treasurelocation.h weapon.h savesystem.h statuseffectspell.h map.h item.h hpstatuseffect.h inventory.h tauntstatuseffect.h lifestealspell.h enemy.h scroll.h battleManager.h armor.h combatlocation.h chainingspell.h consumable.h combatcharacter.h armorbreakstatuseffect.h character.h statuseffect.h location.h
-	$(CXX) -c "armor.cpp" -o "armor.o" $(CXXFLAGS) 
-
-player.o: player.cpp player.h spell.h treasurelocation.h weapon.h savesystem.h statuseffectspell.h map.h item.h hpstatuseffect.h inventory.h tauntstatuseffect.h lifestealspell.h enemy.h scroll.h battleManager.h armor.h combatlocation.h chainingspell.h consumable.h combatcharacter.h armorbreakstatuseffect.h character.h statuseffect.h location.h
-	$(CXX) -c "player.cpp" -o "player.o" $(CXXFLAGS) 
-
-lifestealspell.o: lifestealspell.cpp player.h spell.h treasurelocation.h weapon.h savesystem.h statuseffectspell.h map.h item.h hpstatuseffect.h inventory.h tauntstatuseffect.h lifestealspell.h enemy.h scroll.h battleManager.h armor.h combatlocation.h chainingspell.h consumable.h combatcharacter.h armorbreakstatuseffect.h character.h statuseffect.h location.h
-	$(CXX) -c "lifestealspell.cpp" -o "lifestealspell.o" $(CXXFLAGS) 
-
-map.o: map.cpp player.h spell.h treasurelocation.h weapon.h savesystem.h statuseffectspell.h map.h item.h hpstatuseffect.h inventory.h tauntstatuseffect.h lifestealspell.h enemy.h scroll.h battleManager.h armor.h combatlocation.h chainingspell.h consumable.h combatcharacter.h armorbreakstatuseffect.h character.h statuseffect.h location.h
-	$(CXX) -c "map.cpp" -o "map.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
-
-battleManager.o: battleManager.cpp player.h spell.h treasurelocation.h weapon.h savesystem.h statuseffectspell.h map.h item.h hpstatuseffect.h inventory.h tauntstatuseffect.h lifestealspell.h enemy.h scroll.h battleManager.h armor.h combatlocation.h chainingspell.h consumable.h combatcharacter.h armorbreakstatuseffect.h character.h statuseffect.h location.h
-	$(CXX) -c "battleManager.cpp" -o "battleManager.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
-
-statuseffect.o: statuseffect.cpp player.h spell.h treasurelocation.h weapon.h savesystem.h statuseffectspell.h map.h item.h hpstatuseffect.h inventory.h tauntstatuseffect.h lifestealspell.h enemy.h scroll.h battleManager.h armor.h combatlocation.h chainingspell.h consumable.h combatcharacter.h armorbreakstatuseffect.h character.h statuseffect.h location.h
-	$(CXX) -c "statuseffect.cpp" -o "statuseffect.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
-
-armorbreakstatuseffect.o: armorbreakstatuseffect.cpp player.h spell.h treasurelocation.h weapon.h savesystem.h statuseffectspell.h map.h item.h hpstatuseffect.h inventory.h tauntstatuseffect.h lifestealspell.h enemy.h scroll.h battleManager.h armor.h combatlocation.h chainingspell.h consumable.h combatcharacter.h armorbreakstatuseffect.h character.h statuseffect.h location.h
-	$(CXX) -c "armorbreakstatuseffect.cpp" -o "armorbreakstatuseffect.o" $(CXXFLAGS) 
-
-hpstatuseffect.o: hpstatuseffect.cpp player.h spell.h treasurelocation.h weapon.h savesystem.h statuseffectspell.h map.h item.h hpstatuseffect.h inventory.h tauntstatuseffect.h lifestealspell.h enemy.h scroll.h battleManager.h armor.h combatlocation.h chainingspell.h consumable.h combatcharacter.h armorbreakstatuseffect.h character.h statuseffect.h location.h
-	$(CXX) -c "hpstatuseffect.cpp" -o "hpstatuseffect.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
-
-combatlocation.o: combatlocation.cpp player.h spell.h treasurelocation.h weapon.h savesystem.h statuseffectspell.h map.h item.h hpstatuseffect.h inventory.h tauntstatuseffect.h lifestealspell.h enemy.h scroll.h battleManager.h armor.h combatlocation.h chainingspell.h consumable.h combatcharacter.h armorbreakstatuseffect.h character.h statuseffect.h location.h
-	$(CXX) -c "combatlocation.cpp" -o "combatlocation.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
-
-weapon.o: weapon.cpp player.h spell.h treasurelocation.h weapon.h savesystem.h statuseffectspell.h map.h item.h hpstatuseffect.h inventory.h tauntstatuseffect.h lifestealspell.h enemy.h scroll.h battleManager.h armor.h combatlocation.h chainingspell.h consumable.h combatcharacter.h armorbreakstatuseffect.h character.h statuseffect.h location.h
-	$(CXX) -c "weapon.cpp" -o "weapon.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
-
-item.o: item.cpp player.h spell.h treasurelocation.h weapon.h savesystem.h statuseffectspell.h map.h item.h hpstatuseffect.h inventory.h tauntstatuseffect.h lifestealspell.h enemy.h scroll.h battleManager.h armor.h combatlocation.h chainingspell.h consumable.h combatcharacter.h armorbreakstatuseffect.h character.h statuseffect.h location.h
-	$(CXX) -c "item.cpp" -o "item.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
-
-savesystem.o: savesystem.cpp player.h spell.h treasurelocation.h weapon.h savesystem.h statuseffectspell.h map.h item.h hpstatuseffect.h inventory.h tauntstatuseffect.h lifestealspell.h enemy.h scroll.h battleManager.h armor.h combatlocation.h chainingspell.h consumable.h combatcharacter.h armorbreakstatuseffect.h character.h statuseffect.h location.h
-	$(CXX) -c "savesystem.cpp" -o "savesystem.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
-
-statuseffectspell.o: statuseffectspell.cpp player.h spell.h treasurelocation.h weapon.h savesystem.h statuseffectspell.h map.h item.h hpstatuseffect.h inventory.h tauntstatuseffect.h lifestealspell.h enemy.h scroll.h battleManager.h armor.h combatlocation.h chainingspell.h consumable.h combatcharacter.h armorbreakstatuseffect.h character.h statuseffect.h location.h
-	$(CXX) -c "statuseffectspell.cpp" -o "statuseffectspell.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
-
-main.o: main.cpp player.h spell.h treasurelocation.h weapon.h savesystem.h statuseffectspell.h map.h item.h hpstatuseffect.h inventory.h tauntstatuseffect.h lifestealspell.h enemy.h scroll.h battleManager.h armor.h combatlocation.h chainingspell.h consumable.h combatcharacter.h armorbreakstatuseffect.h character.h statuseffect.h location.h
-	$(CXX) -c "main.cpp" -o "main.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
-
-spell.o: spell.cpp player.h spell.h treasurelocation.h weapon.h savesystem.h statuseffectspell.h map.h item.h hpstatuseffect.h inventory.h tauntstatuseffect.h lifestealspell.h enemy.h scroll.h battleManager.h armor.h combatlocation.h chainingspell.h consumable.h combatcharacter.h armorbreakstatuseffect.h character.h statuseffect.h location.h
-	$(CXX) -c "spell.cpp" -o "spell.o" $(CXXFLAGS) 
-
-consumable.o: consumable.cpp player.h spell.h treasurelocation.h weapon.h savesystem.h statuseffectspell.h map.h item.h hpstatuseffect.h inventory.h tauntstatuseffect.h lifestealspell.h enemy.h scroll.h battleManager.h armor.h combatlocation.h chainingspell.h consumable.h combatcharacter.h armorbreakstatuseffect.h character.h statuseffect.h location.h
+consumable.o: consumable.cpp consumable.h item.h
 	$(CXX) -c "consumable.cpp" -o "consumable.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
 
-chainingspell.o: chainingspell.cpp player.h spell.h treasurelocation.h weapon.h savesystem.h statuseffectspell.h map.h item.h hpstatuseffect.h inventory.h tauntstatuseffect.h lifestealspell.h enemy.h scroll.h battleManager.h armor.h combatlocation.h chainingspell.h consumable.h combatcharacter.h armorbreakstatuseffect.h character.h statuseffect.h location.h
+chainingspell.o: chainingspell.cpp chainingspell.h spell.h
 	$(CXX) -c "chainingspell.cpp" -o "chainingspell.o" $(CXXFLAGS) 
 
-inventory.o: inventory.cpp player.h spell.h treasurelocation.h weapon.h savesystem.h statuseffectspell.h map.h item.h hpstatuseffect.h inventory.h tauntstatuseffect.h lifestealspell.h enemy.h scroll.h battleManager.h armor.h combatlocation.h chainingspell.h consumable.h combatcharacter.h armorbreakstatuseffect.h character.h statuseffect.h location.h
-	$(CXX) -c "inventory.cpp" -o "inventory.o" $(CXXFLAGS) 
+tauntstatuseffect.o: tauntstatuseffect.cpp statuseffect.h tauntstatuseffect.h
+	$(CXX) -c "tauntstatuseffect.cpp" -o "tauntstatuseffect.o" $(CXXFLAGS) 
 
-character.o: character.cpp player.h spell.h treasurelocation.h weapon.h savesystem.h statuseffectspell.h map.h item.h hpstatuseffect.h inventory.h tauntstatuseffect.h lifestealspell.h enemy.h scroll.h battleManager.h armor.h combatlocation.h chainingspell.h consumable.h combatcharacter.h armorbreakstatuseffect.h character.h statuseffect.h location.h
+armor.o: armor.cpp armor.h item.h
+	$(CXX) -c "armor.cpp" -o "armor.o" $(CXXFLAGS) 
+
+armorbreakstatuseffect.o: armorbreakstatuseffect.cpp armorbreakstatuseffect.h statuseffect.h
+	$(CXX) -c "armorbreakstatuseffect.cpp" -o "armorbreakstatuseffect.o" $(CXXFLAGS) 
+
+item.o: item.cpp item.h
+	$(CXX) -c "item.cpp" -o "item.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+
+statuseffectspell.o: statuseffectspell.cpp hpstatuseffect.h statuseffect.h spell.h statuseffectspell.h
+	$(CXX) -c "statuseffectspell.cpp" -o "statuseffectspell.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+
+spell.o: spell.cpp spell.h
+	$(CXX) -c "spell.cpp" -o "spell.o" $(CXXFLAGS) 
+
+main.o: main.cpp location.h scroll.h character.h hpstatuseffect.h battleManager.h consumable.h chainingspell.h player.h weapon.h armorbreakstatuseffect.h armor.h statuseffect.h lifestealspell.h inventory.h item.h combatlocation.h combatcharacter.h treasurelocation.h spell.h savesystem.h enemy.h statuseffectspell.h tauntstatuseffect.h map.h
+	$(CXX) -c "main.cpp" -o "main.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+
+map.o: map.cpp location.h scroll.h character.h hpstatuseffect.h consumable.h chainingspell.h player.h weapon.h armorbreakstatuseffect.h armor.h statuseffect.h lifestealspell.h inventory.h item.h combatlocation.h combatcharacter.h treasurelocation.h spell.h enemy.h statuseffectspell.h tauntstatuseffect.h map.h
+	$(CXX) -c "map.cpp" -o "map.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+
+character.o: character.cpp character.h
 	$(CXX) -c "character.cpp" -o "character.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
 
-treasurelocation.o: treasurelocation.cpp player.h spell.h treasurelocation.h weapon.h savesystem.h statuseffectspell.h map.h item.h hpstatuseffect.h inventory.h tauntstatuseffect.h lifestealspell.h enemy.h scroll.h battleManager.h armor.h combatlocation.h chainingspell.h consumable.h combatcharacter.h armorbreakstatuseffect.h character.h statuseffect.h location.h
-	$(CXX) -c "treasurelocation.cpp" -o "treasurelocation.o" $(CXXFLAGS) 
+inventory.o: inventory.cpp scroll.h consumable.h weapon.h armor.h inventory.h item.h spell.h
+	$(CXX) -c "inventory.cpp" -o "inventory.o" $(CXXFLAGS) 
 
-scroll.o: scroll.cpp player.h spell.h treasurelocation.h weapon.h savesystem.h statuseffectspell.h map.h item.h hpstatuseffect.h inventory.h tauntstatuseffect.h lifestealspell.h enemy.h scroll.h battleManager.h armor.h combatlocation.h chainingspell.h consumable.h combatcharacter.h armorbreakstatuseffect.h character.h statuseffect.h location.h
-	$(CXX) -c "scroll.cpp" -o "scroll.o" $(CXXFLAGS) 
+player.o: player.cpp scroll.h character.h consumable.h chainingspell.h player.h weapon.h armor.h statuseffect.h inventory.h item.h combatcharacter.h spell.h
+	$(CXX) -c "player.cpp" -o "player.o" $(CXXFLAGS) 
 
-location.o: location.cpp player.h spell.h treasurelocation.h weapon.h savesystem.h statuseffectspell.h map.h item.h hpstatuseffect.h inventory.h tauntstatuseffect.h lifestealspell.h enemy.h scroll.h battleManager.h armor.h combatlocation.h chainingspell.h consumable.h combatcharacter.h armorbreakstatuseffect.h character.h statuseffect.h location.h
+battleManager.o: battleManager.cpp battleManager.h
+	$(CXX) -c "battleManager.cpp" -o "battleManager.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+
+lifestealspell.o: lifestealspell.cpp lifestealspell.h spell.h
+	$(CXX) -c "lifestealspell.cpp" -o "lifestealspell.o" $(CXXFLAGS) 
+
+location.o: location.cpp location.h
 	$(CXX) -c "location.cpp" -o "location.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
 
-tauntstatuseffect.o: tauntstatuseffect.cpp player.h spell.h treasurelocation.h weapon.h savesystem.h statuseffectspell.h map.h item.h hpstatuseffect.h inventory.h tauntstatuseffect.h lifestealspell.h enemy.h scroll.h battleManager.h armor.h combatlocation.h chainingspell.h consumable.h combatcharacter.h armorbreakstatuseffect.h character.h statuseffect.h location.h
-	$(CXX) -c "tauntstatuseffect.cpp" -o "tauntstatuseffect.o" $(CXXFLAGS) 
+hpstatuseffect.o: hpstatuseffect.cpp hpstatuseffect.h statuseffect.h
+	$(CXX) -c "hpstatuseffect.cpp" -o "hpstatuseffect.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+
+statuseffect.o: statuseffect.cpp statuseffect.h
+	$(CXX) -c "statuseffect.cpp" -o "statuseffect.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+
+enemy.o: enemy.cpp character.h chainingspell.h statuseffect.h item.h combatcharacter.h spell.h enemy.h
+	$(CXX) -c "enemy.cpp" -o "enemy.o" $(CXXFLAGS) 
+
+savesystem.o: savesystem.cpp scroll.h character.h hpstatuseffect.h consumable.h chainingspell.h player.h weapon.h armor.h statuseffect.h lifestealspell.h inventory.h item.h combatcharacter.h spell.h savesystem.h statuseffectspell.h
+	$(CXX) -c "savesystem.cpp" -o "savesystem.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+
+combatcharacter.o: combatcharacter.cpp character.h chainingspell.h statuseffect.h combatcharacter.h spell.h
+	$(CXX) -c "combatcharacter.cpp" -o "combatcharacter.o" $(CXXFLAGS) 
+
+weapon.o: weapon.cpp weapon.h item.h
+	$(CXX) -c "weapon.cpp" -o "weapon.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+
+treasurelocation.o: treasurelocation.cpp location.h item.h treasurelocation.h
+	$(CXX) -c "treasurelocation.cpp" -o "treasurelocation.o" $(CXXFLAGS) 
+
+combatlocation.o: combatlocation.cpp location.h character.h chainingspell.h statuseffect.h item.h combatlocation.h combatcharacter.h spell.h enemy.h
+	$(CXX) -c "combatlocation.cpp" -o "combatlocation.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+
+scroll.o: scroll.cpp scroll.h item.h spell.h
+	$(CXX) -c "scroll.cpp" -o "scroll.o" $(CXXFLAGS) 
 
 untitled_text_rpg_private.res: untitled_text_rpg_private.rc 
 	$(WINDRES) -i "untitled_text_rpg_private.rc" --input-format=rc -o "untitled_text_rpg_private.res" -O coff $(WINDRESFLAGS) 

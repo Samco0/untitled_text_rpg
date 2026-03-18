@@ -1,0 +1,38 @@
+Samco
+1
+0
+0
+The Snailsville - A Pile of Rocks..?
+25
+25
+1.5
+4
+15
+1.5
+0
+15
+1
+Charred Wooden Tanto
+Sword
+A simple wooden tanto, slightly burnt and brittle, whispering faint dark secrets.
+1.5
+0
+Trembling Blow
+A weak, unsteady punch that barely fazes the target.
+3
+1
+0
+0
+Cursed Kick
+A timid kick, shadowed by a faint curse, barely affects the enemy.
+2.5
+1
+0
+-1
+-1
+0
+0
+0
+0
+0
+0

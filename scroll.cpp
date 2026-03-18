@@ -11,6 +11,11 @@ Scroll::Scroll(string description, Spell* heldSpell){
 	this->description = description;
 	this->heldSpell = heldSpell;
 }
+Scroll::Scroll(string description, Spell* heldSpell, string prefix){
+	this->name = prefix + " of " + heldSpell->getName();
+	this->description = description;
+	this->heldSpell = heldSpell;
+}
 
 //getters
 Spell* Scroll::getHeldSpell(){return heldSpell;}

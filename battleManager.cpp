@@ -89,6 +89,15 @@ void BattleManager::attack(CombatCharacter* attacker, CombatCharacter* target) {
 		} else if (weaponType == "Club") {
 			cout << " -> You (" << attacker->getName() << ") smash " << weaponName << " against " << targetName << ", dealing " << damage << " damage";
 			if (isCrit) cout << ". The club crushes armor and bone, leaving a brutal impact!";
+		} else if (weaponType == "Claws") {
+			cout << " -> You (" << attacker->getName() << ") rake " << weaponName << " across " << targetName << ", dealing " << damage << " damage";
+			if (isCrit) cout << ". The claws tear through flesh and sinew, leaving savage wounds that weep crimson!";
+		} else if (weaponType == "Brick") {
+			cout << " -> You (" << attacker->getName() << ") hurl " << weaponName << " at " << targetName << ", dealing " << damage << " damage";
+			if (isCrit) cout << ". The brick connects with a sickening crunch, leaving them dazed and bloodied!";
+		} else if (weaponType == "Wrench") {
+			cout << " -> You (" << attacker->getName() << ") slam " << weaponName << " into " << targetName << ", dealing " << damage << " damage";
+			if (isCrit) cout << ". The wrench connects with a bone-crunching crack, leaving them crumpled and reeling!";
 		} else {
 			cout << " -> You (" << attacker->getName() << ") strike " << targetName << " with " << weaponName << ", dealing " << damage << " damage";
 			if (isCrit) cout << ". A vicious blow rends flesh and spirit!";
@@ -175,6 +184,17 @@ void BattleManager::attackUsingSpell(CombatCharacter* attacker, CombatCharacter*
 	else if(spellType == "Dark") conjureMsg = "darkness writhes and coils around " + attacker->getName() + ".";
 	else if(spellType == "Nature") conjureMsg = "thorned vines and roots spiral around " + attacker->getName() + ".";
 	else if(spellType == "Light") conjureMsg = "a blinding radiance flares from " + attacker->getName() + "'s palms.";
+	else if(spellType == "Metal") conjureMsg = "jagged shards of dark iron tear free from the earth around " + attacker->getName() + ".";
+	else if(spellType == "Garbage") conjureMsg = "a reeking storm of refuse and rot erupts around " + attacker->getName() + ".";
+	else if(spellType == "Ash") conjureMsg = "a swirling shroud of pale ash rises from the ground around " + attacker->getName() + ".";
+	else if(spellType == "Smoke") conjureMsg = "thick billowing smoke coils and churns around " + attacker->getName() + ".";
+	else if(spellType == "Electric") conjureMsg = "crackling arcs of lightning surge and snap around " + attacker->getName() + ".";
+	else if(spellType == "Physical") conjureMsg = "raw kinetic force ripples and distorts the air around " + attacker->getName() + ".";
+	else if(spellType == "Chains") conjureMsg = "iron chains rattle and coil from the shadows around " + attacker->getName() + ".";
+	else if(spellType == "Rot") conjureMsg = "a festering miasma of decay and putrefaction seeps from the ground around " + attacker->getName() + ".";
+	else if(spellType == "Glass") conjureMsg = "razor-thin shards of translucent glass crystallise and orbit silently around " + attacker->getName() + ".";
+	else if(spellType == "Sound") conjureMsg = "the air around " + attacker->getName() + " begins to thrum and vibrate with a low, resonant frequency.";
+	else if(spellType == "Explosion") conjureMsg = "volatile energy builds and crackles violently around " + attacker->getName() + ", the air itself warping from the pressure.";
 	else conjureMsg = "a dark energy forms around " + attacker->getName() + "'s hands.";
 	cout << " -> " << (attackerIsPlayer ? "You (" : "") << attacker->getName() << (attackerIsPlayer ? ")" : "") << " muttered the cursed words of " << s->getName()  << ", and " << conjureMsg << endl;
 	

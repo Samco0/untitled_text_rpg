@@ -1,0 +1,63 @@
+Samcooo
+3
+0
+2
+The Snailsville - The Drowned Hollow
+36
+36
+1.7
+4
+15
+1.5
+13
+48.6
+1
+Charred Wooden Tanto
+Sword
+A simple wooden tanto, slightly burnt and brittle, whispering faint dark secrets.
+1.5
+0
+Trembling Blow
+A weak, unsteady punch that barely fazes the target.
+3
+1
+0
+0
+Cursed Kick
+A timid kick, shadowed by a faint curse, barely affects the enemy.
+2.5
+1
+0
+-1
+-1
+0
+0
+0
+0
+0
+6
+2
+Grease-Stained Plate Apron
+A thick apron hammered flat and riveted with shell scraps. Smells of old brew and worse things.
+1.5
+2
+4
+Muccus Ale
+A thick, murky brew that sloshes with unsettling bubbles; not for the faint-hearted.
+12.5
+4
+Muccus Ale
+A thick, murky brew that sloshes with unsettling bubbles; not for the faint-hearted.
+12.5
+4
+Slime Wine
+A viscous, dark alcoholic concoction that burns like molten tar.
+15
+4
+Muccus Ale
+A thick, murky brew that sloshes with unsettling bubbles; not for the faint-hearted.
+12.5
+4
+Slime Wine
+A viscous, dark alcoholic concoction that burns like molten tar.
+15
