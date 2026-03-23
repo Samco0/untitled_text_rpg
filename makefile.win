@@ -13,10 +13,10 @@ CXXFLAGS = $(CXXINCS) "-g3" "-pipe" "-Wall" "-D_DEBUG"
 CFLAGS   = $(INCS) "-g3" "-pipe" "-Wall" "-D_DEBUG"
 WINDRESFLAGS = 
 RES      = untitled_text_rpg_private.res
-OBJ      = chainingspell.o armorbreakstatuseffect.o scroll.o combatcharacter.o main.o player.o savesystem.o battleManager.o location.o tauntstatuseffect.o weapon.o spell.o lifestealspell.o consumable.o map.o character.o enemy.o item.o armor.o statuseffect.o combatlocation.o statuseffectspell.o hpstatuseffect.o treasurelocation.o inventory.o $(RES)
+OBJ      = chainingspell.o armorbreakstatuseffect.o scroll.o data_snailsville.o combatcharacter.o main.o player.o savesystem.o battleManager.o location.o tauntstatuseffect.o weapon.o spell.o data_rustheap.o lifestealspell.o consumable.o map.o character.o enemy.o item.o armor.o statuseffect.o combatlocation.o statuseffectspell.o hpstatuseffect.o treasurelocation.o inventory.o $(RES)
 BIN      = untitled_text_rpg.exe
-LINKOBJ  = "chainingspell.o" "armorbreakstatuseffect.o" "scroll.o" "combatcharacter.o" "main.o" "player.o" "savesystem.o" "battleManager.o" "location.o" "tauntstatuseffect.o" "weapon.o" "spell.o" "lifestealspell.o" "consumable.o" "map.o" "character.o" "enemy.o" "item.o" "armor.o" "statuseffect.o" "combatlocation.o" "statuseffectspell.o" "hpstatuseffect.o" "treasurelocation.o" "inventory.o" "untitled_text_rpg_private.res"
-CLEANOBJ = "chainingspell.o" "armorbreakstatuseffect.o" "scroll.o" "combatcharacter.o" "main.o" "player.o" "savesystem.o" "battleManager.o" "location.o" "tauntstatuseffect.o" "weapon.o" "spell.o" "lifestealspell.o" "consumable.o" "map.o" "character.o" "enemy.o" "item.o" "armor.o" "statuseffect.o" "combatlocation.o" "statuseffectspell.o" "hpstatuseffect.o" "treasurelocation.o" "inventory.o" "untitled_text_rpg_private.res" "untitled_text_rpg.exe"
+LINKOBJ  = "chainingspell.o" "armorbreakstatuseffect.o" "scroll.o" "data_snailsville.o" "combatcharacter.o" "main.o" "player.o" "savesystem.o" "battleManager.o" "location.o" "tauntstatuseffect.o" "weapon.o" "spell.o" "data_rustheap.o" "lifestealspell.o" "consumable.o" "map.o" "character.o" "enemy.o" "item.o" "armor.o" "statuseffect.o" "combatlocation.o" "statuseffectspell.o" "hpstatuseffect.o" "treasurelocation.o" "inventory.o" "untitled_text_rpg_private.res"
+CLEANOBJ = "chainingspell.o" "armorbreakstatuseffect.o" "scroll.o" "data_snailsville.o" "combatcharacter.o" "main.o" "player.o" "savesystem.o" "battleManager.o" "location.o" "tauntstatuseffect.o" "weapon.o" "spell.o" "data_rustheap.o" "lifestealspell.o" "consumable.o" "map.o" "character.o" "enemy.o" "item.o" "armor.o" "statuseffect.o" "combatlocation.o" "statuseffectspell.o" "hpstatuseffect.o" "treasurelocation.o" "inventory.o" "untitled_text_rpg_private.res" "untitled_text_rpg.exe"
 
 .PHONY: all all-before all-after clean clean-custom
 
@@ -38,10 +38,13 @@ armorbreakstatuseffect.o: armorbreakstatuseffect.cpp armorbreakstatuseffect.h st
 scroll.o: scroll.cpp spell.h scroll.h item.h
 	$(CXX) -c "scroll.cpp" -o "scroll.o" $(CXXFLAGS) 
 
+data_snailsville.o: data_snailsville.cpp statuseffectspell.h spell.h enemy.h scroll.h item.h map.h inventory.h location.h consumable.h lifestealspell.h character.h player.h combatcharacter.h armor.h data_snailsville.h hpstatuseffect.h statuseffect.h weapon.h treasurelocation.h combatlocation.h chainingspell.h
+	$(CXX) -c "data_snailsville.cpp" -o "data_snailsville.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+
 combatcharacter.o: combatcharacter.cpp spell.h character.h combatcharacter.h statuseffect.h chainingspell.h
 	$(CXX) -c "combatcharacter.cpp" -o "combatcharacter.o" $(CXXFLAGS) 
 
-main.o: main.cpp statuseffectspell.h spell.h armorbreakstatuseffect.h enemy.h scroll.h item.h battleManager.h map.h inventory.h location.h consumable.h savesystem.h lifestealspell.h character.h player.h tauntstatuseffect.h combatcharacter.h armor.h hpstatuseffect.h statuseffect.h weapon.h treasurelocation.h combatlocation.h chainingspell.h
+main.o: main.cpp statuseffectspell.h spell.h armorbreakstatuseffect.h enemy.h scroll.h item.h battleManager.h map.h inventory.h location.h consumable.h savesystem.h lifestealspell.h character.h player.h tauntstatuseffect.h combatcharacter.h armor.h data_snailsville.h hpstatuseffect.h statuseffect.h data_rustheap.h weapon.h treasurelocation.h combatlocation.h chainingspell.h
 	$(CXX) -c "main.cpp" -o "main.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
 
 player.o: player.cpp spell.h scroll.h item.h inventory.h consumable.h character.h player.h combatcharacter.h armor.h statuseffect.h weapon.h chainingspell.h
@@ -64,6 +67,9 @@ weapon.o: weapon.cpp item.h weapon.h
 
 spell.o: spell.cpp spell.h
 	$(CXX) -c "spell.cpp" -o "spell.o" $(CXXFLAGS) 
+
+data_rustheap.o: data_rustheap.cpp statuseffectspell.h spell.h enemy.h scroll.h item.h map.h inventory.h location.h consumable.h lifestealspell.h character.h player.h combatcharacter.h armor.h hpstatuseffect.h statuseffect.h data_rustheap.h weapon.h treasurelocation.h combatlocation.h chainingspell.h
+	$(CXX) -c "data_rustheap.cpp" -o "data_rustheap.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
 
 lifestealspell.o: lifestealspell.cpp spell.h lifestealspell.h
 	$(CXX) -c "lifestealspell.cpp" -o "lifestealspell.o" $(CXXFLAGS) 
