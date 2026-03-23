@@ -1,38 +1,71 @@
-Samco
+gygygy
+9
 1
-0
-0
-The Snailsville - A Pile of Rocks..?
-25
-25
-1.5
+1
+1
+The Rustheap - Rustheap Foothills, Burrowed Scrapbed
+107.4
+107.4
+2.4
 4
 15
 1.5
+765.388
+1652.99
+1
+Blackened Shell Sword
+Sword
+Forged from shell and blackened iron, it hums faintly with a restless energy.
+2.5
+3
+Crimson Siphon Strike
+A brutal tendril-infused blow that tears vitality straight from the veins.
+7
+4
+1
+70
+1
+Shards of Obsidian
+The champion hurls razor-sharp obsidian shards in a deadly scatter towards the target
+1
+3
 0
-15
+1
+10
+-1
+-1
+1
+Soulbound Carapace Helm
+A dense snail-metal helm infused with restless spirits.
+4
+1
+1
+Crimson Carapace Cuirass
+A heavy chestplate forged from blood-hardened snail carapace, scarred by countless battles.
+7
+2
+0
+1
+Ironshell Faulds
+A wide iron skirt-plate hammered from knight's shell, designed to stop blades that creep low.
+3.5
+4
+0
+4
 1
 Charred Wooden Tanto
-Sword
-A simple wooden tanto, slightly burnt and brittle, whispering faint dark secrets.
-1.5
-0
-Trembling Blow
-A weak, unsteady punch that barely fazes the target.
-3
-1
-0
-0
-Cursed Kick
-A timid kick, shadowed by a faint curse, barely affects the enemy.
-2.5
-1
-0
--1
--1
-0
-0
-0
-0
-0
-0
+8.80015e-43
+8.80015e-43
+8.80015e-43
+4
+Wire-Fed Rat Flesh
+Stringy meat laced with thin copper filaments that still faintly hum with residual charge.
+9.5
+4
+Wire-Fed Rat Flesh
+Stringy meat laced with thin copper filaments that still faintly hum with residual charge.
+9.5
+4
+Wire-Fed Rat Flesh
+Stringy meat laced with thin copper filaments that still faintly hum with residual charge.
+9.5

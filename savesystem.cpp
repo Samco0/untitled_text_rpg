@@ -196,7 +196,7 @@ static void loadInventory(ifstream& f, Player& player){
 // ============================================================
 //  FULL SAVE  — single file, every piece of player state
 // ============================================================
-void saveGame(int mapIndex, Player& player, int slot, const string& locationLabel){
+void saveGame(int roomIndex, int mapIdx, Player& player, int slot, const string& locationLabel){
 	ofstream f(slotFile(slot));
 	if (!f.is_open()) return;
 	
@@ -204,8 +204,9 @@ void saveGame(int mapIndex, Player& player, int slot, const string& locationLabe
 	f << player.getName()      << "\n";   // line 1
 	f << player.getLevel()     << "\n";   // line 2
 	f << player.getSoulStones()<< "\n";   // line 3
-	f << mapIndex              << "\n";   // line 4
-	f << locationLabel         << "\n";   // line 5
+	f << mapIdx                << "\n";   // line 4  — which map
+	f << roomIndex             << "\n";   // line 5  — room within that map
+	f << locationLabel         << "\n";   // line 6
 	
 	// --- full stats ---
 	f << player.getMaxHp()     << "\n";
@@ -239,14 +240,14 @@ void saveGame(int mapIndex, Player& player, int slot, const string& locationLabe
 // ============================================================
 //  FULL LOAD
 // ============================================================
-bool loadGame(int& mapIndex, Player& player, int slot){
+bool loadGame(int& roomIndex, int& mapIdx, Player& player, int slot){
 	ifstream f(slotFile(slot));
 	if (!f.is_open()) return false;
 	
 	// header
 	string name; getline(f, name); player.setName(name);
 	int level, soulStones; f >> level >> soulStones; f.ignore();
-	f >> mapIndex; f.ignore();
+	f >> mapIdx >> roomIndex; f.ignore();
 	string locationLabel; getline(f, locationLabel); // consume label line — must not skip
 	
 	// stats
@@ -311,7 +312,8 @@ SaveInfo getSaveInfo(int slot){
 	if (!f.is_open()){ info.exists = false; return info; }
 	info.exists = true;
 	getline(f, info.playerName);
-	f >> info.level >> info.soulStones >> info.mapIndex;
+	int dummy;
+	f >> info.level >> info.soulStones >> dummy >> info.mapIndex; // dummy=mapIdx, mapIndex=roomIndex
 	f.ignore();
 	getline(f, info.locationLabel);
 	f.close();

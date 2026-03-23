@@ -21,8 +21,8 @@ Spell* loadSpell(ifstream& file);
 
 // ---- Full game save/load ----
 // Everything goes into a single slot<N>_save.txt file
-void saveGame(int mapIndex, Player& player, int slot, const string& locationLabel = "");
-bool loadGame(int& mapIndex, Player& player, int slot);
+void saveGame(int roomIndex, int mapIdx, Player& player, int slot, const string& locationLabel = "");
+bool loadGame(int& roomIndex, int& mapIdx, Player& player, int slot);
 
 // ---- Delete a save slot (removes the file) ----
 void deleteSave(int slot);
