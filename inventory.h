@@ -1,10 +1,11 @@
 #ifndef INVENTORY_H
 #define INVENTORY_H
-
 #include "weapon.h"
 #include "scroll.h"
 #include "armor.h"
 #include "consumable.h"
+#include "attackgadget.h"
+
 #include <vector>
 #include <iostream>
 using namespace std;

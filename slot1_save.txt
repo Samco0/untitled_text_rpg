@@ -1,0 +1,75 @@
+MaturitaFormalita
+16
+7
+1
+25
+The Rustheap - Crown of the Rustheap, The Runic Assembly
+384.7
+85.04
+3.9
+4
+15
+1.5
+97440.2
+101200
+1
+Jagged Metal Bolt
+Club
+A massive, jagged bolt ripped from some ruined machine — swings unpredictably and leaves dents in reality.
+7
+0
+Click, Clack, Pow!
+User conjures a makeshift rifle and shoots the target with erratic, yet effective, bursts of scrap metal.
+14
+4
+0
+0
+Detonation March
+Each step cracks the ground with suppressed blasts as the user advances, culminating in a devastating point-blank eruption upon contact.
+16
+5
+0
+2
+Molten Slag Burst
+The user hurls a chunk of superheated metal, splashing molten fragments that cling and burn.
+18
+5
+0
+65
+1
+Searing Burn
+2
+5
+5
+0
+-6
+3
+Chrono Devour
+A warped clock manifests above the user, its hands turning backwards as it siphons fragments of the target’s remaining time.
+14
+4
+0
+80
+1
+Blastproof Helmet
+A helmet forged from layered blast-resistant plating.
+5
+1
+1
+Charge-Bearing Pauldrons
+Shoulder plating threaded with current, warm to the touch and dangerous to grab.
+8.5
+2
+0
+1
+Marauder's Crimson Greaves
+Leg armour built from layered blood-carapace, heavy and unrelenting.
+4.5
+4
+0
+1
+1
+Deathcoil Shell Club
+3.22299e-43
+3.57331e-43
+2.01787e-43

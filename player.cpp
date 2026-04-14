@@ -69,7 +69,6 @@ void Player::setCurrentXp(float xpGained){
 		this->dmg = std::round(this->dmg * 10) / 10;
 		this->currentHp = this->maxHp;
 		this->requireXp *= 1.8f;
-		cout << "==========================================" << endl;
 		cout << " -> Power surges through your veins." << endl;
 		cout << " -> " << this->getName() << " ascends to level " << this->level << "." << endl;
 		cout << " -> Vitality restored." << endl;
@@ -98,17 +97,25 @@ bool Player::useSoulStone(){
 }
 
 // Output
-ostream& operator<<(ostream& output, Player player){
+ostream& operator<<(ostream& output, Player player) {
+	float damageReduction = 0;
+	if (player.getHelmet())     damageReduction += player.getHelmet()->getDamageReduction();
+	if (player.getChestplate()) damageReduction += player.getChestplate()->getDamageReduction();
+	if (player.getGloves())     damageReduction += player.getGloves()->getDamageReduction();
+	if (player.getLeggings())   damageReduction += player.getLeggings()->getDamageReduction();
+	if (player.getBoots())      damageReduction += player.getBoots()->getDamageReduction();
+	
 	output << player.getName() << endl;
 	output << " -> Vitality:    " << player.getCurrentHp() << "/" << player.getMaxHp() << " hp" << endl;
-	output << " -> Wisdom:      level " << player.getLevel() << endl;
+	output << " -> Wisdom:      " << player.getLevel() << ". level" << endl;
+	output << " -> Damage:      " << player.getDmg() << " dmg + " << player.getWeapon()->getDmg() << " dmg (" << player.getWeapon()->getName() << ")" << endl;
 	output << " -> Agility:     " << player.getSpeed() << endl;
-	
+	output << " -> Armor:       " << damageReduction << "% reduction" << endl;
 	output << " -> Soul Stones: ";
-	if (player.getSoulStones() == 0){
-		output << "none  (die again and it ends here)";
+	if (player.getSoulStones() == 0) {
+		output << "none";
 	} else {
-		for(int i = 0; i < player.getSoulStones(); i++) output << "[*] ";
+		for (int i = 0; i < player.getSoulStones(); i++) output << "[*] ";
 	}
 	output << endl;
 	return output;

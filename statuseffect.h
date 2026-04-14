@@ -30,6 +30,8 @@ public:
 	// Increase current round by 1
 	void increaseRound();
 	
+	// Output
+	friend ostream& operator<<(ostream& output, StatusEffect s);
 protected:
 	string name;            // status effect name
 	int minDuration;        // minimum duration in rounds

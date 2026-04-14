@@ -11,6 +11,9 @@ public:
 	// Constructors
 	ArmorBreakStatusEffect();
 	ArmorBreakStatusEffect(string name, int maxDuration, int minDuration);
+	
+	//output
+	friend ostream& operator<<(ostream& output, ArmorBreakStatusEffect s);
 };
 
 #endif

@@ -17,3 +17,10 @@ TauntStatusEffect::TauntStatusEffect(string name, int maxDuration, int minDurati
 	this->currentDuration = rand() % (this->maxDuration - this->minDuration + 1) + this->minDuration;
 	this->currentRound = 0;
 }
+
+//output
+ostream& operator<<(ostream& output, TauntStatusEffect s){
+	output << s.getName() << " (Taunt Status Effect) | Lasts: " << s.getMinDuration() << " to " << s.getMaxDuration() << " rounds";
+	
+	return output;
+}

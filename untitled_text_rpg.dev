@@ -1,7 +1,7 @@
 [Project]
 filename = untitled_text_rpg.dev
 name = untitled_text_rpg
-UnitCount = 53
+UnitCount = 63
 Type = 1
 Ver = 3
 Includes = 
@@ -44,7 +44,7 @@ UseUTF8 = 1
 
 
 [Unit1]
-FileName = chainingspell.cpp
+FileName = statuseffectspell.cpp
 CompileCpp = 1
 Folder = Sources
 Compile = 1
@@ -53,7 +53,7 @@ Priority = 1000
 OverrideBuildCmd = 0
 BuildCmd = 
 FileEncoding = PROJECT
-RealEncoding = ASCII
+RealEncoding = UTF-8
 
 
 [VersionInfo]
@@ -77,11 +77,11 @@ SyncProduct = 1
 
 
 [Unit2]
-FileName = statuseffectspell.h
-CompileCpp = 0
-Folder = Headers
-Compile = 0
-Link = 0
+FileName = main.cpp
+CompileCpp = 1
+Folder = Sources
+Compile = 1
+Link = 1
 Priority = 1000
 OverrideBuildCmd = 0
 BuildCmd = 
@@ -90,11 +90,11 @@ RealEncoding = UTF-8
 
 
 [Unit3]
-FileName = spell.h
-CompileCpp = 0
-Folder = Headers
-Compile = 0
-Link = 0
+FileName = armorbreakstatuseffect.cpp
+CompileCpp = 1
+Folder = Sources
+Compile = 1
+Link = 1
 Priority = 1000
 OverrideBuildCmd = 0
 BuildCmd = 
@@ -103,7 +103,7 @@ RealEncoding = ASCII
 
 
 [Unit4]
-FileName = armorbreakstatuseffect.h
+FileName = tauntstatuseffect.h
 CompileCpp = 0
 Folder = Headers
 Compile = 0
@@ -129,7 +129,7 @@ RealEncoding = ASCII
 
 
 [Unit6]
-FileName = scroll.h
+FileName = groupbattlemanager.h
 CompileCpp = 0
 Folder = Headers
 Compile = 0
@@ -138,179 +138,10 @@ Priority = 1000
 OverrideBuildCmd = 0
 BuildCmd = 
 FileEncoding = PROJECT
-RealEncoding = UTF-8
+RealEncoding = 
 
 
 [Unit7]
-FileName = armorbreakstatuseffect.cpp
-CompileCpp = 1
-Folder = Sources
-Compile = 1
-Link = 1
-Priority = 1000
-OverrideBuildCmd = 0
-BuildCmd = 
-FileEncoding = PROJECT
-RealEncoding = ASCII
-
-
-[Unit8]
-FileName = scroll.cpp
-CompileCpp = 1
-Folder = Sources
-Compile = 1
-Link = 1
-Priority = 1000
-OverrideBuildCmd = 0
-BuildCmd = 
-FileEncoding = PROJECT
-RealEncoding = ASCII
-
-
-[Unit9]
-FileName = data_snailsville.cpp
-CompileCpp = 1
-Folder = Sources
-Compile = 1
-Link = 1
-Priority = 1000
-OverrideBuildCmd = 0
-BuildCmd = 
-FileEncoding = PROJECT
-RealEncoding = UTF-8
-
-
-[Unit10]
-FileName = item.h
-CompileCpp = 0
-Folder = Headers
-Compile = 0
-Link = 0
-Priority = 1000
-OverrideBuildCmd = 0
-BuildCmd = 
-FileEncoding = PROJECT
-RealEncoding = ASCII
-
-
-[Unit11]
-FileName = combatcharacter.cpp
-CompileCpp = 1
-Folder = Sources
-Compile = 1
-Link = 1
-Priority = 1000
-OverrideBuildCmd = 0
-BuildCmd = 
-FileEncoding = PROJECT
-RealEncoding = ASCII
-
-
-[Unit12]
-FileName = battleManager.h
-CompileCpp = 0
-Folder = Headers
-Compile = 0
-Link = 0
-Priority = 1000
-OverrideBuildCmd = 0
-BuildCmd = 
-FileEncoding = PROJECT
-RealEncoding = ASCII
-
-
-[Unit13]
-FileName = main.cpp
-CompileCpp = 1
-Folder = Sources
-Compile = 1
-Link = 1
-Priority = 1000
-OverrideBuildCmd = 0
-BuildCmd = 
-FileEncoding = PROJECT
-RealEncoding = UTF-8
-
-
-[Unit14]
-FileName = player.cpp
-CompileCpp = 1
-Folder = Sources
-Compile = 1
-Link = 1
-Priority = 1000
-OverrideBuildCmd = 0
-BuildCmd = 
-FileEncoding = PROJECT
-RealEncoding = ASCII
-
-
-[Unit15]
-FileName = map.h
-CompileCpp = 0
-Folder = Headers
-Compile = 0
-Link = 0
-Priority = 1000
-OverrideBuildCmd = 0
-BuildCmd = 
-FileEncoding = PROJECT
-RealEncoding = ASCII
-
-
-[Unit16]
-FileName = inventory.h
-CompileCpp = 0
-Folder = Headers
-Compile = 0
-Link = 0
-Priority = 1000
-OverrideBuildCmd = 0
-BuildCmd = 
-FileEncoding = PROJECT
-RealEncoding = ASCII
-
-
-[Unit17]
-FileName = savesystem.cpp
-CompileCpp = 1
-Folder = Sources
-Compile = 1
-Link = 1
-Priority = 1000
-OverrideBuildCmd = 0
-BuildCmd = 
-FileEncoding = PROJECT
-RealEncoding = UTF-8
-
-
-[Unit18]
-FileName = location.h
-CompileCpp = 0
-Folder = Headers
-Compile = 0
-Link = 0
-Priority = 1000
-OverrideBuildCmd = 0
-BuildCmd = 
-FileEncoding = PROJECT
-RealEncoding = ASCII
-
-
-[Unit19]
-FileName = consumable.h
-CompileCpp = 0
-Folder = Headers
-Compile = 0
-Link = 0
-Priority = 1000
-OverrideBuildCmd = 0
-BuildCmd = 
-FileEncoding = PROJECT
-RealEncoding = ASCII
-
-
-[Unit20]
 FileName = battleManager.cpp
 CompileCpp = 1
 Folder = Sources
@@ -323,47 +154,8 @@ FileEncoding = PROJECT
 RealEncoding = UTF-8
 
 
-[Unit21]
-FileName = savesystem.h
-CompileCpp = 0
-Folder = Headers
-Compile = 0
-Link = 0
-Priority = 1000
-OverrideBuildCmd = 0
-BuildCmd = 
-FileEncoding = PROJECT
-RealEncoding = UTF-8
-
-
-[Unit22]
-FileName = lifestealspell.h
-CompileCpp = 0
-Folder = Headers
-Compile = 0
-Link = 0
-Priority = 1000
-OverrideBuildCmd = 0
-BuildCmd = 
-FileEncoding = PROJECT
-RealEncoding = ASCII
-
-
-[Unit23]
-FileName = character.h
-CompileCpp = 0
-Folder = Headers
-Compile = 0
-Link = 0
-Priority = 1000
-OverrideBuildCmd = 0
-BuildCmd = 
-FileEncoding = PROJECT
-RealEncoding = ASCII
-
-
-[Unit24]
-FileName = location.cpp
+[Unit8]
+FileName = statuseffect.cpp
 CompileCpp = 1
 Folder = Sources
 Compile = 1
@@ -375,8 +167,216 @@ FileEncoding = PROJECT
 RealEncoding = UTF-8
 
 
-[Unit25]
+[Unit9]
+FileName = gadget.cpp
+CompileCpp = 1
+Folder = Sources
+Compile = 1
+Link = 1
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = ASCII
+
+
+[Unit10]
+FileName = consumable.cpp
+CompileCpp = 1
+Folder = Sources
+Compile = 1
+Link = 1
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = UTF-8
+
+
+[Unit11]
+FileName = scroll.cpp
+CompileCpp = 1
+Folder = Sources
+Compile = 1
+Link = 1
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = ASCII
+
+
+[Unit12]
 FileName = player.h
+CompileCpp = 0
+Folder = Headers
+Compile = 0
+Link = 0
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = UTF-8
+
+
+[Unit13]
+FileName = map.h
+CompileCpp = 0
+Folder = Headers
+Compile = 0
+Link = 0
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = ASCII
+
+
+[Unit14]
+FileName = combatcharacter.cpp
+CompileCpp = 1
+Folder = Sources
+Compile = 1
+Link = 1
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = ASCII
+
+
+[Unit15]
+FileName = savesystem.h
+CompileCpp = 0
+Folder = Headers
+Compile = 0
+Link = 0
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = ASCII
+
+
+[Unit16]
+FileName = groupcombatlocation.h
+CompileCpp = 0
+Folder = Headers
+Compile = 0
+Link = 0
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = UTF-8
+
+
+[Unit17]
+FileName = treasurelocation.h
+CompileCpp = 0
+Folder = Headers
+Compile = 0
+Link = 0
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = ASCII
+
+
+[Unit18]
+FileName = weapon.cpp
+CompileCpp = 1
+Folder = Sources
+Compile = 1
+Link = 1
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = UTF-8
+
+
+[Unit19]
+FileName = chainingspell.h
+CompileCpp = 0
+Folder = Headers
+Compile = 0
+Link = 0
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = ASCII
+
+
+[Unit20]
+FileName = armor.h
+CompileCpp = 0
+Folder = Headers
+Compile = 0
+Link = 0
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = UTF-8
+
+
+[Unit21]
+FileName = treasurelocation.cpp
+CompileCpp = 1
+Folder = Sources
+Compile = 1
+Link = 1
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = ASCII
+
+
+[Unit22]
+FileName = scroll.h
+CompileCpp = 0
+Folder = Headers
+Compile = 0
+Link = 0
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = UTF-8
+
+
+[Unit23]
+FileName = chainingspell.cpp
+CompileCpp = 1
+Folder = Sources
+Compile = 1
+Link = 1
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = ASCII
+
+
+[Unit24]
+FileName = weapon.h
+CompileCpp = 0
+Folder = Headers
+Compile = 0
+Link = 0
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = ASCII
+
+
+[Unit25]
+FileName = consumable.h
 CompileCpp = 0
 Folder = Headers
 Compile = 0
@@ -389,20 +389,7 @@ RealEncoding = ASCII
 
 
 [Unit26]
-FileName = tauntstatuseffect.h
-CompileCpp = 0
-Folder = Headers
-Compile = 0
-Link = 0
-Priority = 1000
-OverrideBuildCmd = 0
-BuildCmd = 
-FileEncoding = PROJECT
-RealEncoding = ASCII
-
-
-[Unit27]
-FileName = tauntstatuseffect.cpp
+FileName = lifestealspell.cpp
 CompileCpp = 1
 Folder = Sources
 Compile = 1
@@ -411,24 +398,37 @@ Priority = 1000
 OverrideBuildCmd = 0
 BuildCmd = 
 FileEncoding = PROJECT
-RealEncoding = ASCII
+RealEncoding = UTF-8
 
 
-[Unit28]
-FileName = combatcharacter.h
-CompileCpp = 0
-Folder = Headers
-Compile = 0
-Link = 0
+[Unit27]
+FileName = groupbattlemanager.cpp
+CompileCpp = 1
+Folder = Sources
+Compile = 1
+Link = 1
 Priority = 1000
 OverrideBuildCmd = 0
 BuildCmd = 
 FileEncoding = PROJECT
-RealEncoding = ASCII
+RealEncoding = 
+
+
+[Unit28]
+FileName = multiplecombatlocation.cpp
+CompileCpp = 1
+Folder = Sources
+Compile = 1
+Link = 1
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = UTF-8
 
 
 [Unit29]
-FileName = weapon.cpp
+FileName = hpstatuseffect.cpp
 CompileCpp = 1
 Folder = Sources
 Compile = 1
@@ -454,33 +454,20 @@ RealEncoding = ASCII
 
 
 [Unit31]
-FileName = data_rustheap.cpp
-CompileCpp = 1
-Folder = Sources
-Compile = 1
-Link = 1
+FileName = statuseffectspell.h
+CompileCpp = 0
+Folder = Headers
+Compile = 0
+Link = 0
 Priority = 1000
 OverrideBuildCmd = 0
 BuildCmd = 
 FileEncoding = PROJECT
-RealEncoding = 
+RealEncoding = UTF-8
 
 
 [Unit32]
-FileName = lifestealspell.cpp
-CompileCpp = 1
-Folder = Sources
-Compile = 1
-Link = 1
-Priority = 1000
-OverrideBuildCmd = 0
-BuildCmd = 
-FileEncoding = PROJECT
-RealEncoding = ASCII
-
-
-[Unit33]
-FileName = armor.h
+FileName = spell.h
 CompileCpp = 0
 Folder = Headers
 Compile = 0
@@ -492,8 +479,21 @@ FileEncoding = PROJECT
 RealEncoding = ASCII
 
 
+[Unit33]
+FileName = savesystem.cpp
+CompileCpp = 1
+Folder = Sources
+Compile = 1
+Link = 1
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = UTF-8
+
+
 [Unit34]
-FileName = consumable.cpp
+FileName = inventory.cpp
 CompileCpp = 1
 Folder = Sources
 Compile = 1
@@ -506,11 +506,11 @@ RealEncoding = UTF-8
 
 
 [Unit35]
-FileName = map.cpp
-CompileCpp = 1
-Folder = Sources
-Compile = 1
-Link = 1
+FileName = inventory.h
+CompileCpp = 0
+Folder = Headers
+Compile = 0
+Link = 0
 Priority = 1000
 OverrideBuildCmd = 0
 BuildCmd = 
@@ -532,7 +532,7 @@ RealEncoding = ASCII
 
 
 [Unit37]
-FileName = character.cpp
+FileName = location.cpp
 CompileCpp = 1
 Folder = Sources
 Compile = 1
@@ -545,7 +545,7 @@ RealEncoding = UTF-8
 
 
 [Unit38]
-FileName = enemy.cpp
+FileName = tauntstatuseffect.cpp
 CompileCpp = 1
 Folder = Sources
 Compile = 1
@@ -558,11 +558,11 @@ RealEncoding = ASCII
 
 
 [Unit39]
-FileName = hpstatuseffect.h
-CompileCpp = 0
-Folder = Headers
-Compile = 0
-Link = 0
+FileName = enemy.cpp
+CompileCpp = 1
+Folder = Sources
+Compile = 1
+Link = 1
 Priority = 1000
 OverrideBuildCmd = 0
 BuildCmd = 
@@ -571,47 +571,7 @@ RealEncoding = UTF-8
 
 
 [Unit40]
-FileName = item.cpp
-Folder = Sources
-Compile = 1
-Link = 1
-Priority = 1000
-OverrideBuildCmd = 0
-BuildCmd = 
-FileEncoding = PROJECT
-RealEncoding = UTF-8
-CompileCpp = 1
-
-
-[Unit41]
-FileName = armor.cpp
-CompileCpp = 1
-Folder = Sources
-Compile = 1
-Link = 1
-Priority = 1000
-OverrideBuildCmd = 0
-BuildCmd = 
-FileEncoding = PROJECT
-RealEncoding = ASCII
-
-
-[Unit42]
-FileName = statuseffect.cpp
-CompileCpp = 1
-Folder = Sources
-Compile = 1
-Link = 1
-Priority = 1000
-OverrideBuildCmd = 0
-BuildCmd = 
-FileEncoding = PROJECT
-RealEncoding = UTF-8
-
-
-[Unit43]
 FileName = statuseffect.h
-CompileCpp = 0
 Folder = Headers
 Compile = 0
 Link = 0
@@ -620,9 +580,10 @@ OverrideBuildCmd = 0
 BuildCmd = 
 FileEncoding = PROJECT
 RealEncoding = ASCII
+CompileCpp = 0
 
 
-[Unit44]
+[Unit41]
 FileName = combatlocation.cpp
 CompileCpp = 1
 Folder = Sources
@@ -635,8 +596,21 @@ FileEncoding = PROJECT
 RealEncoding = UTF-8
 
 
-[Unit45]
-FileName = statuseffectspell.cpp
+[Unit42]
+FileName = armorbreakstatuseffect.h
+CompileCpp = 0
+Folder = Headers
+Compile = 0
+Link = 0
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = ASCII
+
+
+[Unit43]
+FileName = attackgadget.cpp
 CompileCpp = 1
 Folder = Sources
 Compile = 1
@@ -645,11 +619,37 @@ Priority = 1000
 OverrideBuildCmd = 0
 BuildCmd = 
 FileEncoding = PROJECT
-RealEncoding = UTF-8
+RealEncoding = ASCII
+
+
+[Unit44]
+FileName = data_rustheap.h
+CompileCpp = 0
+Folder = Headers
+Compile = 0
+Link = 0
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = ASCII
+
+
+[Unit45]
+FileName = groupcombatlocation.cpp
+CompileCpp = 1
+Folder = Sources
+Compile = 1
+Link = 1
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = ASCII
 
 
 [Unit46]
-FileName = hpstatuseffect.cpp
+FileName = data_rustheap.cpp
 CompileCpp = 1
 Folder = Sources
 Compile = 1
@@ -662,7 +662,7 @@ RealEncoding = UTF-8
 
 
 [Unit47]
-FileName = data_rustheap.h
+FileName = gadget.h
 CompileCpp = 0
 Folder = Headers
 Compile = 0
@@ -671,49 +671,10 @@ Priority = 1000
 OverrideBuildCmd = 0
 BuildCmd = 
 FileEncoding = PROJECT
-RealEncoding = 
+RealEncoding = UTF-8
 
 
 [Unit48]
-FileName = weapon.h
-CompileCpp = 0
-Folder = Headers
-Compile = 0
-Link = 0
-Priority = 1000
-OverrideBuildCmd = 0
-BuildCmd = 
-FileEncoding = PROJECT
-RealEncoding = ASCII
-
-
-[Unit49]
-FileName = treasurelocation.cpp
-CompileCpp = 1
-Folder = Sources
-Compile = 1
-Link = 1
-Priority = 1000
-OverrideBuildCmd = 0
-BuildCmd = 
-FileEncoding = PROJECT
-RealEncoding = ASCII
-
-
-[Unit50]
-FileName = treasurelocation.h
-CompileCpp = 0
-Folder = Headers
-Compile = 0
-Link = 0
-Priority = 1000
-OverrideBuildCmd = 0
-BuildCmd = 
-FileEncoding = PROJECT
-RealEncoding = ASCII
-
-
-[Unit51]
 FileName = combatlocation.h
 CompileCpp = 0
 Folder = Headers
@@ -726,8 +687,8 @@ FileEncoding = PROJECT
 RealEncoding = UTF-8
 
 
-[Unit52]
-FileName = chainingspell.h
+[Unit49]
+FileName = combatcharacter.h
 CompileCpp = 0
 Folder = Headers
 Compile = 0
@@ -739,8 +700,177 @@ FileEncoding = PROJECT
 RealEncoding = ASCII
 
 
+[Unit50]
+FileName = item.h
+CompileCpp = 0
+Folder = Headers
+Compile = 0
+Link = 0
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = ASCII
+
+
+[Unit51]
+FileName = armor.cpp
+CompileCpp = 1
+Folder = Sources
+Compile = 1
+Link = 1
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = ASCII
+
+
+[Unit52]
+FileName = map.cpp
+CompileCpp = 1
+Folder = Sources
+Compile = 1
+Link = 1
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = UTF-8
+
+
 [Unit53]
-FileName = inventory.cpp
+FileName = battleManager.h
+CompileCpp = 0
+Folder = Headers
+Compile = 0
+Link = 0
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = UTF-8
+
+
+[Unit54]
+FileName = multiplecombatlocation.h
+CompileCpp = 0
+Folder = Headers
+Compile = 0
+Link = 0
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = ASCII
+
+
+[Unit55]
+FileName = location.h
+CompileCpp = 0
+Folder = Headers
+Compile = 0
+Link = 0
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = ASCII
+
+
+[Unit56]
+FileName = hpstatuseffect.h
+CompileCpp = 0
+Folder = Headers
+Compile = 0
+Link = 0
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = UTF-8
+
+
+[Unit57]
+FileName = data_snailsville.cpp
+CompileCpp = 1
+Folder = Sources
+Compile = 1
+Link = 1
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = UTF-8
+
+
+[Unit58]
+FileName = attackgadget.h
+CompileCpp = 0
+Folder = Headers
+Compile = 0
+Link = 0
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = ASCII
+
+
+[Unit59]
+FileName = character.h
+CompileCpp = 0
+Folder = Headers
+Compile = 0
+Link = 0
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = ASCII
+
+
+[Unit60]
+FileName = lifestealspell.h
+CompileCpp = 0
+Folder = Headers
+Compile = 0
+Link = 0
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = ASCII
+
+
+[Unit61]
+FileName = character.cpp
+CompileCpp = 1
+Folder = Sources
+Compile = 1
+Link = 1
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = UTF-8
+
+
+[Unit62]
+FileName = item.cpp
+CompileCpp = 1
+Folder = Sources
+Compile = 1
+Link = 1
+Priority = 1000
+OverrideBuildCmd = 0
+BuildCmd = 
+FileEncoding = PROJECT
+RealEncoding = UTF-8
+
+
+[Unit63]
+FileName = player.cpp
 CompileCpp = 1
 Folder = Sources
 Compile = 1

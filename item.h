@@ -20,7 +20,6 @@ public:
 	// Setters
 	void setName(string name);
 	void setDescription(string description);
-	
 protected:
 	string name;        // item name
 	string description; // item description

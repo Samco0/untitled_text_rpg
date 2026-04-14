@@ -16,6 +16,8 @@ public:
 	// Setter
 	void setHpAffection(float hpAffection);
 	
+	//output
+	friend ostream& operator<<(ostream& output, HpStatusEffect s);
 private:
 	float hpAffection; // how it affects HP, can be + or -
 };

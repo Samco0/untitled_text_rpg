@@ -1,7 +1,8 @@
 #ifndef MAP_H
 #define MAP_H
 
-#include "combatlocation.h"
+#include "multiplecombatlocation.h"
+#include "groupcombatlocation.h"
 #include "treasurelocation.h"
 #include "player.h"
 #include "battlemanager.h"

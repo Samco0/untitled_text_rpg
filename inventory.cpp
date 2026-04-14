@@ -25,6 +25,7 @@ ostream& operator<<(ostream& os, Inventory inv) {
 	Scroll* placeholderS;
 	Armor* placeholderA;
 	Consumable* placeholderC;
+	AttackGadget* placeholderAG;
 	
 	if(inv.getStorage().empty()) {
 		os << "Inventory is empty.";
@@ -36,14 +37,16 @@ ostream& operator<<(ostream& os, Inventory inv) {
 		placeholderS = dynamic_cast<Scroll*>(inv.getStorage()[i]);
 		placeholderA = dynamic_cast<Armor*>(inv.getStorage()[i]);
 		placeholderC = dynamic_cast<Consumable*>(inv.getStorage()[i]);
+		placeholderAG = dynamic_cast<AttackGadget*>(inv.getStorage()[i]);
 		
 		if(inv.storage[i] != nullptr) {
 			if(i!=0) cout << endl;
 			os << i+1 << ". ";
-			if(placeholderW != nullptr) cout << "Weapon | " << *placeholderW;
-			else if(placeholderS != nullptr) cout << "Scroll | " << *placeholderS;
-			else if(placeholderA != nullptr) cout << "Armor  | " << *placeholderA;
-			else if(placeholderC != nullptr) cout << "Cons.  | " << *placeholderC;
+			if(placeholderW != nullptr)       cout << "Weapon    | " << *placeholderW;
+			else if(placeholderS != nullptr)  cout << "Scroll    | " << *placeholderS;
+			else if(placeholderA != nullptr)  cout << "Armor     | " << *placeholderA;
+			else if(placeholderC != nullptr)  cout << "Consum.   | " << *placeholderC;
+			else if(placeholderAG != nullptr) cout << "A. Gadget | " << *placeholderAG;
 		}
 	}
 	

@@ -19,6 +19,7 @@ struct RustheapData {
 	std::vector<std::unique_ptr<Weapon>>                 weapons;
 	std::vector<std::unique_ptr<Armor>>                  armors;
 	std::vector<std::unique_ptr<Scroll>>                 scrolls;
+	std::vector<std::unique_ptr<AttackGadget>>           attackgadgets;
 	std::vector<std::unique_ptr<Location>>               locations;
 	
 	std::vector<Location*> easy;

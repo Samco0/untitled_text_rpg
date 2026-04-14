@@ -98,6 +98,12 @@ void BattleManager::attack(CombatCharacter* attacker, CombatCharacter* target) {
 		} else if (weaponType == "Wrench") {
 			cout << " -> You (" << attacker->getName() << ") slam " << weaponName << " into " << targetName << ", dealing " << damage << " damage";
 			if (isCrit) cout << ". The wrench connects with a bone-crunching crack, leaving them crumpled and reeling!";
+		} else if (weaponType == "Guitar Axe") {
+			cout << " -> You (" << attacker->getName() << ") bring " << weaponName << " down in a heavy, screaming swing at " << targetName << ", dealing " << damage << " damage";
+			if (isCrit) cout << ". The impact howls like a broken chord, splitting them apart!";
+		} else if (weaponType == "Pliers") {
+			cout << " -> You (" << attacker->getName() << ") clamp " << weaponName << " onto " << targetName << ", wrenching hard for " << damage << " damage";
+			if (isCrit) cout << ". Something gives way with a sickening snap!";
 		} else {
 			cout << " -> You (" << attacker->getName() << ") strike " << targetName << " with " << weaponName << ", dealing " << damage << " damage";
 			if (isCrit) cout << ". A vicious blow rends flesh and spirit!";
@@ -195,6 +201,11 @@ void BattleManager::attackUsingSpell(CombatCharacter* attacker, CombatCharacter*
 	else if(spellType == "Glass") conjureMsg = "razor-thin shards of translucent glass crystallise and orbit silently around " + attacker->getName() + ".";
 	else if(spellType == "Sound") conjureMsg = "the air around " + attacker->getName() + " begins to thrum and vibrate with a low, resonant frequency.";
 	else if(spellType == "Explosion") conjureMsg = "volatile energy builds and crackles violently around " + attacker->getName() + ", the air itself warping from the pressure.";
+	else if(spellType == "Molten metal") conjureMsg = "viscous streams of glowing molten metal seep and coil around " + attacker->getName() + ", dripping heat that scorches the ground beneath.";
+	else if(spellType == "Magnetic") conjureMsg = "loose metal trembles and lifts as unseen forces twist around " + attacker->getName() + ", orbiting in a violent, unseen pull.";
+	else if(spellType == "Ground") conjureMsg = "the earth beneath " + attacker->getName() + " cracks and heaves, stones grinding as something deep below answers their call.";
+	else if(spellType == "Ice") conjureMsg = "frozen shards shiver and hover as frigid winds coil around " + attacker->getName() + ", piercing the air with lethal precision.";
+	else if(spellType == "Rune") conjureMsg = "etched sigils flare to life as ancient energy coils around " + attacker->getName() + ", their glow cutting through the air with precise, lethal intent.";
 	else conjureMsg = "a dark energy forms around " + attacker->getName() + "'s hands.";
 	cout << " -> " << (attackerIsPlayer ? "You (" : "") << attacker->getName() << (attackerIsPlayer ? ")" : "") << " muttered the cursed words of " << s->getName()  << ", and " << conjureMsg << endl;
 	
@@ -520,20 +531,22 @@ void BattleManager::checkStatusEffects() {
 void BattleManager::battle() {
 	int choice;
 	srand(time(0));
+	system("cls");
 	
 	while (this->isFinished == 0) {
 		int randomiseAttackEnemy = rand() % 10;
 		int randomiseSpellEnemy = rand() % 4;
+		Player* p = dynamic_cast<Player*>(player);
 		
 		cout << "==========================================" << endl;
-		cout << *player;
+		cout << *p;
 		cout << "------------------------------------------" << endl;
 		cout << *enemy;
 		cout << "==========================================" << endl;
 		cout << "Your Options:" << endl;
 		cout << " 1. Strike with weapon" << endl;
 		cout << " 2. Invoke a spell" << endl;
-		cout << " 3. Use consumable" << endl;
+		cout << " 3. Search you pack" << endl;
 		cout << "------------------------------------------" << endl;
 		cout << "Choose your fate, adventurer: ";
 		cin >> choice;
@@ -621,7 +634,7 @@ void BattleManager::battle() {
 				LifeStealSpell* lss;
 				
 				cout << "==========================================" << endl;
-				cout << *player;
+				cout << *p;
 				cout << "------------------------------------------" << endl;
 				cout << *enemy;
 				cout << "==========================================" << endl;
@@ -698,11 +711,10 @@ void BattleManager::battle() {
 			case 3: {
 				Player* p = dynamic_cast<Player*>(player);
 				vector<Item*>& items = p->getInventory().getStorage();
-				vector<int> consumableIndexes;
-				
+				vector<int> usableIndexes;
 				
 				cout << "==========================================" << endl;
-				cout << *player;
+				cout << *p;
 				cout << "------------------------------------------" << endl;
 				cout << *enemy;
 				cout << "==========================================" << endl;
@@ -710,13 +722,17 @@ void BattleManager::battle() {
 				
 				for (size_t i = 0; i < items.size(); i++) {
 					Consumable* c = dynamic_cast<Consumable*>(items[i]);
+					AttackGadget* ag = dynamic_cast<AttackGadget*>(items[i]);
 					if (c != nullptr) {
-						cout << consumableIndexes.size() + 1 << ". " << *c << endl;
-						consumableIndexes.push_back(i);
+						cout << usableIndexes.size() + 1 << ". Consum.   | " << *c << endl;
+						usableIndexes.push_back(i);
+					} else if (ag != nullptr) {
+						cout << usableIndexes.size() + 1 << ". A. Gadget | " << *ag << endl;
+						usableIndexes.push_back(i);
 					}
 				}
 				
-				if (consumableIndexes.empty()) {
+				if (usableIndexes.empty()) {
 					cout << " -> You search your pack, but find nothing left to use." << endl;
 					system("pause");
 					system("cls");
@@ -730,31 +746,77 @@ void BattleManager::battle() {
 				
 				system("cls");
 				
-				if (choice <= 0 || choice > consumableIndexes.size()) {
+				if (choice <= 0 || choice > (int)usableIndexes.size()) {
 					cout << " -> You put it away. The moment to act passes." << endl;
 					break;
 				}
 				
-				int realIndex = consumableIndexes[choice - 1];
+				int realIndex = usableIndexes[choice - 1];
 				Consumable* used = dynamic_cast<Consumable*>(items[realIndex]);
+				AttackGadget* usedAG = dynamic_cast<AttackGadget*>(items[realIndex]);
 				
 				if (used != nullptr) {
 					float healAmount = used->getHpToRecover();
-					
 					player->setCurrentHp(player->getCurrentHp() + healAmount);
 					if (player->getCurrentHp() > player->getMaxHp()) player->setCurrentHp(player->getMaxHp());
-					
 					cout << "==========================================" << endl;
 					cout << " -> You use " << used->getName() << ". " << healAmount << " vitality flows back into your veins." << endl;
+					items.erase(items.begin() + realIndex);
+				} else if (usedAG != nullptr) {
+					int backfireRoll = rand() % 100 + 1;
+					cout << "==========================================" << endl;
+					string agType = usedAG->getType();
 					
-					cout << realIndex;
-					items.erase(items.begin() +  realIndex);
+					if (backfireRoll <= usedAG->getChanceOfBackfire()) {
+						float selfDmg = usedAG->getDamage() * 0.5;
+						player->setCurrentHp(player->getCurrentHp() - selfDmg);
+						if (agType == "Beer Can") {
+							cout << " -> You pull the tab and hurl it — it explodes before it leaves your hand." << endl;
+							cout << " -> Scalding brew and shrapnel tear into you for " << selfDmg << " damage." << endl;
+						} else if (agType == "Sound Grenade") {
+							cout << " -> You trigger " << usedAG->getName() << " — but it screams to life in your grip." << endl;
+							cout << " -> A deafening rupture shatters your senses, tearing into your skull for " << selfDmg << " damage." << endl;
+						} else if (agType == "Electric Grenade" || agType == "Electric Relic") {
+							cout << " -> You trigger " << usedAG->getName() << " — but the charge backfeeds violently." << endl;
+							cout << " -> Lightning erupts through your body, locking your muscles as " << selfDmg << " damage courses through you." << endl;
+						} else if (agType == "Bottle of Gasoline") {
+							cout << " -> The bottle slips — ignition happens too soon." << endl;
+							cout << " -> Flames engulf you instantly, burning for " << selfDmg << " damage." << endl;
+						} else if (agType == "Explosion Grenade") {
+							cout << " -> You prime " << usedAG->getName() << " — but the timing slips." << endl;
+							cout << " -> The charge detonates prematurely, a controlled blast collapsing inward on you for " << selfDmg << " damage." << endl;
+						} else {
+							cout << " -> You hurl " << usedAG->getName() << " — but it detonates in your hand." << endl;
+							cout << " -> The blast tears back into you for " << selfDmg << " damage." << endl;
+						}
+					} else {
+						enemy->setCurrentHp(enemy->getCurrentHp() - usedAG->getDamage());
+						if (agType == "Beer Can") {
+							cout << " -> You hurl " << usedAG->getName() << " at " << enemy->getName() << "." << endl;
+							cout << " -> It connects. The can erupts on impact — " << usedAG->getDamage() << " damage in a burst of scalding foam and twisted metal." << endl;
+						} else if (agType == "Sound Grenade") {
+							cout << " -> You hurl " << usedAG->getName() << " at " << enemy->getName() << "." << endl;
+							cout << " -> It bursts mid-air — a violent sonic scream crushes into them for " << usedAG->getDamage() << " damage, their body buckling under the pressure." << endl;
+						} else if (agType == "Electric Grenade" || agType == "Electric Relic") {
+							cout << " -> You hurl " << usedAG->getName() << " at " << enemy->getName() << "." << endl;
+							cout << " -> It detonates in a violent surge — arcs of electricity rip through them for " << usedAG->getDamage() << " damage, their body seizing uncontrollably." << endl;
+						} else if (agType == "Bottle of Gasoline") {
+							cout << " -> You hurl " << usedAG->getName() << " at " << enemy->getName() << "." << endl;
+							cout << " -> It shatters — fire blooms violently, engulfing them for " << usedAG->getDamage() << " damage." << endl;
+						} else if (agType == "Explosion Grenade") {
+							cout << " -> You prime " << usedAG->getName() << " — but the timing slips." << endl;
+							cout << " -> The charge detonates prematurely, a controlled blast collapsing inward on you for " << usedAG->getDamage() << " damage." << endl;
+						} else {
+							cout << " -> You hurl " << usedAG->getName() << " at " << enemy->getName() << "." << endl;
+							cout << " -> It connects. " << usedAG->getDamage() << " damage tears through them." << endl;
+						}
+					}
+					items.erase(items.begin() + realIndex);
 				} else {
 					cout << " -> That item cannot be used." << endl;
 				}
 				
 				cout << endl;
-				
 				
 				Spell* es = enemy->getSpells()[randomiseSpellEnemy];
 				bool enemyTaunted = false;
@@ -763,8 +825,10 @@ void BattleManager::battle() {
 						enemyTaunted = true; break;
 					}
 				}
-				if (enemyTaunted || randomiseAttackEnemy < 7 || es == nullptr || es->getRemainingCooldown() > 0) attack(enemy, player);
-				else attackUsingSpell(enemy, player, randomiseSpellEnemy);
+				if (enemyTaunted || randomiseAttackEnemy < 7 || es == nullptr || es->getRemainingCooldown() > 0)
+					attack(enemy, player);
+				else
+					attackUsingSpell(enemy, player, randomiseSpellEnemy);
 				break;
 			}	
 			

@@ -17,3 +17,10 @@ ArmorBreakStatusEffect::ArmorBreakStatusEffect(string name, int maxDuration, int
 	this->currentDuration = rand() % (this->maxDuration - this->minDuration + 1) + this->minDuration;
 	this->currentRound = 0;
 }
+
+//output
+ostream& operator<<(ostream& output, ArmorBreakStatusEffect s){
+	output << s.getName() << " (Armor Status Effect) | Lasts: " << s.getMinDuration() << " to " << s.getMaxDuration() << " rounds";
+	
+	return output;
+}

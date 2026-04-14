@@ -34,3 +34,10 @@ void StatusEffect::setCurrentRound(int currentRound){this->currentRound = curren
 void StatusEffect::increaseRound(){
 	this->currentRound += 1;
 }
+
+// output
+ostream& operator<<(ostream& output, StatusEffect s){
+	output << s.getName() << " (Basic Status Effect) | Lasts: " << s.getMinDuration() << " to " << s.getMaxDuration() << " rounds";
+	
+	return output;
+}

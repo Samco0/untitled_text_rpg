@@ -10,6 +10,7 @@
 #include "armor.h"
 #include "consumable.h"
 #include "scroll.h"
+#include "attackgadget.h"
 #include "chainingspell.h"
 #include "statuseffectspell.h"
 #include "lifestealspell.h"

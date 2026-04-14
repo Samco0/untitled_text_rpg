@@ -21,3 +21,10 @@ float HpStatusEffect::getHpAffection(){return this->hpAffection;}
 
 //setters
 void HpStatusEffect::setHpAffection(float hpAffection){this->hpAffection = hpAffection;}
+
+// output
+ostream& operator<<(ostream& output, HpStatusEffect s){
+	output << s.getName() << " (Health Status Effect) | Health impact: " << s.getHpAffection() << " | Lasts: " << s.getMinDuration() << " to " << s.getMaxDuration() << " rounds";
+	
+	return output;
+}

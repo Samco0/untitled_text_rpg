@@ -33,9 +33,10 @@ ostream& operator<<(ostream& output, LifeStealSpell lss){
 	else if(lss.getRemainingCooldown() == 1) output << endl << " -> Status: 1 round until ready" << endl;
 	else output << endl << " -> Status: " << lss.getRemainingCooldown() << " rounds until ready" << endl;
 	
-	cout << " -> Type of spell: Life steal spell" << endl;
+	cout << " -> Type of spell: Life Steal Spell" << endl;
+	output << " -> Element: " << lss.getType() << endl;
 	cout << " -> Damage: " << lss.getDmg() << endl;
-	cout << " -> Lifesteal rate: " << lss.getLifeStealRate() << endl;
+	cout << " -> Lifesteal rate: " << lss.getLifeStealRate() << "%" << endl;
 	output << " -> Description: " << lss.getDescription() << endl << endl;
 	return output;
 }

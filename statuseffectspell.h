@@ -3,6 +3,8 @@
 
 #include "spell.h"
 #include "hpstatuseffect.h"
+#include "tauntstatuseffect.h"
+#include "armorbreakstatuseffect.h"
 
 // Spell that can apply a status effect to target
 class StatusEffectSpell : public Spell {

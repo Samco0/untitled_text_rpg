@@ -1,4 +1,6 @@
 #include "map.h"
+#include "groupcombatlocation.h"
+#include "groupbattlemanager.h"
 #include <iostream>
 using namespace std;
 
@@ -59,10 +61,7 @@ void Map::setPlayerFinished(bool playerFinished) {
 }
 
 // working with the vector
-void Map::addLocation(Location* location) {
-	if (location != nullptr)
-		this->locations.push_back(location);
-}
+void Map::addLocation(Location* location) {if (location != nullptr) this->locations.push_back(location);}
 
 void Map::removeLocation(int index) {
 	if (index < 0 || index >= locations.size()) return;
@@ -79,43 +78,27 @@ ostream& operator<<(ostream& output, Map m) {
 			if (loc != nullptr) {
 				
 				if (i == 0) {
-					if (j == m.getPlayerPosition()) {
-						output << "++---++ ";
-					} else {
-						output << "+---+ ";
-					}
+					if (j == m.getPlayerPosition()) output << "++---++ ";
+					else output << "+---+ ";
 				}
 				
 				else if (i == 1) {
-					if (j == m.getPlayerPosition()) {
-						output << "|| ";
-					} else {
-						output << "| ";
-					}
+					if (j == m.getPlayerPosition()) output << "|| ";
+					else output << "| ";
 					
-					if (dynamic_cast<CombatLocation * >(loc) != nullptr) {
-						output << "C ";
-					} else if(dynamic_cast<TreasureLocation * >(loc) != nullptr) {
-						output << "T ";	
-					} else {
-						output << "  ";
-					}
+					if(dynamic_cast<GroupCombatLocation * >(loc) != nullptr) output << "G ";
+					else if(dynamic_cast<MultipleCombatLocation * >(loc) != nullptr) output << "M ";
+					else if(dynamic_cast<CombatLocation * >(loc) != nullptr) output << "C ";
+					else if(dynamic_cast<TreasureLocation * >(loc) != nullptr) output << "T ";	
+					else output << "  ";
 					
-					
-					
-					if (j == m.getPlayerPosition()) {
-						output << "|| ";
-					} else {
-						output << "| ";
-					}
+					if (j == m.getPlayerPosition()) output << "|| ";
+					else output << "| ";
 				}
 				
 				else if (i == 2) {
-					if (j == m.getPlayerPosition()) {
-						output << "++---++ ";
-					} else {
-						output << "+---+ ";
-					}
+					if (j == m.getPlayerPosition()) output << "++---++ ";
+					else output << "+---+ ";
 				}
 			}
 		}
@@ -139,13 +122,11 @@ void Map::movePlayer() {
 		return;
 	}
 	
-	CombatLocation* cL = dynamic_cast<CombatLocation*>(locations[playerPosition]);
+	GroupCombatLocation* gcL = dynamic_cast<GroupCombatLocation*>(locations[playerPosition]);
+	MultipleCombatLocation* mcL = dynamic_cast<MultipleCombatLocation*>(locations[playerPosition]);
+	CombatLocation* cL = (gcL == nullptr && mcL == nullptr) ? dynamic_cast<CombatLocation*>(locations[playerPosition]) : nullptr;
 	TreasureLocation* tL = dynamic_cast<TreasureLocation*>(locations[playerPosition]);
 	BattleManager b(this->player, nullptr);
-	
-	if (cL != nullptr) {
-		b = BattleManager(this->player, cL->getAttacker());
-	}
 	
 	checkPlayerFinished();
 	if (this->playerFinished) {
@@ -205,6 +186,7 @@ void Map::movePlayer() {
 						Scroll* placeholderS = dynamic_cast<Scroll*>(items[inventoryChoice - 1]);
 						Armor* placeholderA = dynamic_cast<Armor*>(items[inventoryChoice - 1]);
 						Consumable* placeholderC = dynamic_cast<Consumable*>(items[inventoryChoice - 1]);
+						AttackGadget* placeholderAG = dynamic_cast<AttackGadget*>(items[inventoryChoice - 1]);
 						
 						if (placeholderW != nullptr) {
 							Weapon* playerW = player->getWeapon();
@@ -489,7 +471,7 @@ void Map::movePlayer() {
 								player->setCurrentHp(player->getCurrentHp() + placeholderC->getHpToRecover());
 								
 								cout << "------------------------------------------" << endl;
-								cout << "You drink it down." << endl;
+								cout << "You consume it." << endl;
 								cout << "Your wounds begin to close." << endl;
 								cout << "You regain " << placeholderC->getHpToRecover() << " vitality." << endl;
 								
@@ -503,6 +485,15 @@ void Map::movePlayer() {
 							
 							cout << "==========================================" << endl;
 							system("pause");
+						} else if(placeholderAG != nullptr){
+							cout << "==========================================" << endl;
+							cout << *player;
+							cout << "------------------------------------------" << endl;
+							cout << "You turn the gadget over in your hands. It hums faintly — waiting." << endl;
+							cout << *placeholderAG << endl;
+							cout << "==========================================" << endl;
+							cout << "This is not the place to use it. You tuck it back into the dark of your pack." << endl;
+							system("pause");
 						}
 					}
 				}
@@ -513,13 +504,29 @@ void Map::movePlayer() {
 	
 	system("cls");
 	
-	if (cL != nullptr) {
+	if (gcL != nullptr) {
+		GroupBattleManager gb(this->player, gcL->getEnemies());
+		gb.battle();
+		if (this->player->getCurrentHp() <= 0) return;
+	} else if(mcL != nullptr){
+		do{
+			b = BattleManager(this->player, mcL->getLocations()[0]->getAttacker());
+			b.battle();
+			
+			if (this->player->getCurrentHp() > 0) mcL->deleteLocation(0);
+			
+			// stop between phases if player died
+			if (this->player->getCurrentHp() <= 0) return;
+		} while(!mcL->getLocations().empty());
+		
+		// again, stop if player died
+		if(this->player->getCurrentHp() <= 0) return;
+	} else if (cL != nullptr) {
+		b = BattleManager(this->player, cL->getAttacker());
 		b.battle();
 		
 		// stop if player died
-		if (this->player->getCurrentHp() <= 0) {
-			return;
-		}
+		if (this->player->getCurrentHp() <= 0) return;
 	}
 	else if(tL != nullptr){
 		system("cls");
@@ -579,6 +586,7 @@ void Map::movePlayer() {
 			if (tL->getXpReward() > 0) {
 				Player* p = dynamic_cast<Player*>(this->player);
 				if (p != nullptr) {
+					cout << "==========================================" << endl;
 					p->setCurrentXp(p->getCurrentXp() + tL->getXpReward());
 					cout << " -> The knowledge hidden within stirs something in you. You gain " << tL->getXpReward() << " XP." << endl;
 				}
@@ -666,6 +674,12 @@ void Map::generateMap(vector<Location*>& easyLocations, vector<Location*>& mediu
 	}
 	
 	for (Location* loc : locations) {
+		GroupCombatLocation* gcL2 = dynamic_cast<GroupCombatLocation*>(loc);
+		if (gcL2 != nullptr) {
+			for (Enemy* e : gcL2->getEnemies())
+				if (e != nullptr) e->setCurrentHp(e->getMaxHp());
+			continue;
+		}
 		CombatLocation* cL = dynamic_cast<CombatLocation*>(loc);
 		if (cL != nullptr && cL->getAttacker() != nullptr) {
 			cL->getAttacker()->setCurrentHp(cL->getAttacker()->getMaxHp());

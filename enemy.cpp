@@ -59,9 +59,10 @@ void Enemy::reset(){
 
 void Enemy::print(ostream& output){
 	output << this->getName() << endl;
-	output << " -> Vitality: " << this->getCurrentHp() << "/" << this->getMaxHp() << " hp" << endl;
-	output << " -> Wisdom: " << this->getLevel() << ". level" << endl;
-	output << " -> Agility: " << this->getSpeed() << endl;
+	output << " -> Vitality:    " << this->getCurrentHp() << "/" << this->getMaxHp() << " hp" << endl;
+	output << " -> Wisdom:      " << this->getLevel() << ". level" << endl;
+	output << " -> Damage:      " << this->getDmg() << " dmg" << endl;
+	output << " -> Agility:     " << this->getSpeed() << endl;
 	if (!this->description.empty())
 		output << " -> " << this->description << endl;
 }

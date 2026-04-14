@@ -13,10 +13,10 @@ CXXFLAGS = $(CXXINCS) "-g3" "-pipe" "-Wall" "-D_DEBUG"
 CFLAGS   = $(INCS) "-g3" "-pipe" "-Wall" "-D_DEBUG"
 WINDRESFLAGS = 
 RES      = untitled_text_rpg_private.res
-OBJ      = chainingspell.o armorbreakstatuseffect.o scroll.o data_snailsville.o combatcharacter.o main.o player.o savesystem.o battleManager.o location.o tauntstatuseffect.o weapon.o spell.o data_rustheap.o lifestealspell.o consumable.o map.o character.o enemy.o item.o armor.o statuseffect.o combatlocation.o statuseffectspell.o hpstatuseffect.o treasurelocation.o inventory.o $(RES)
+OBJ      = statuseffectspell.o main.o armorbreakstatuseffect.o battleManager.o statuseffect.o gadget.o consumable.o scroll.o combatcharacter.o weapon.o treasurelocation.o chainingspell.o lifestealspell.o groupbattlemanager.o multiplecombatlocation.o hpstatuseffect.o spell.o savesystem.o inventory.o location.o tauntstatuseffect.o enemy.o combatlocation.o attackgadget.o groupcombatlocation.o data_rustheap.o armor.o map.o data_snailsville.o character.o item.o player.o $(RES)
 BIN      = untitled_text_rpg.exe
-LINKOBJ  = "chainingspell.o" "armorbreakstatuseffect.o" "scroll.o" "data_snailsville.o" "combatcharacter.o" "main.o" "player.o" "savesystem.o" "battleManager.o" "location.o" "tauntstatuseffect.o" "weapon.o" "spell.o" "data_rustheap.o" "lifestealspell.o" "consumable.o" "map.o" "character.o" "enemy.o" "item.o" "armor.o" "statuseffect.o" "combatlocation.o" "statuseffectspell.o" "hpstatuseffect.o" "treasurelocation.o" "inventory.o" "untitled_text_rpg_private.res"
-CLEANOBJ = "chainingspell.o" "armorbreakstatuseffect.o" "scroll.o" "data_snailsville.o" "combatcharacter.o" "main.o" "player.o" "savesystem.o" "battleManager.o" "location.o" "tauntstatuseffect.o" "weapon.o" "spell.o" "data_rustheap.o" "lifestealspell.o" "consumable.o" "map.o" "character.o" "enemy.o" "item.o" "armor.o" "statuseffect.o" "combatlocation.o" "statuseffectspell.o" "hpstatuseffect.o" "treasurelocation.o" "inventory.o" "untitled_text_rpg_private.res" "untitled_text_rpg.exe"
+LINKOBJ  = "statuseffectspell.o" "main.o" "armorbreakstatuseffect.o" "battleManager.o" "statuseffect.o" "gadget.o" "consumable.o" "scroll.o" "combatcharacter.o" "weapon.o" "treasurelocation.o" "chainingspell.o" "lifestealspell.o" "groupbattlemanager.o" "multiplecombatlocation.o" "hpstatuseffect.o" "spell.o" "savesystem.o" "inventory.o" "location.o" "tauntstatuseffect.o" "enemy.o" "combatlocation.o" "attackgadget.o" "groupcombatlocation.o" "data_rustheap.o" "armor.o" "map.o" "data_snailsville.o" "character.o" "item.o" "player.o" "untitled_text_rpg_private.res"
+CLEANOBJ = "statuseffectspell.o" "main.o" "armorbreakstatuseffect.o" "battleManager.o" "statuseffect.o" "gadget.o" "consumable.o" "scroll.o" "combatcharacter.o" "weapon.o" "treasurelocation.o" "chainingspell.o" "lifestealspell.o" "groupbattlemanager.o" "multiplecombatlocation.o" "hpstatuseffect.o" "spell.o" "savesystem.o" "inventory.o" "location.o" "tauntstatuseffect.o" "enemy.o" "combatlocation.o" "attackgadget.o" "groupcombatlocation.o" "data_rustheap.o" "armor.o" "map.o" "data_snailsville.o" "character.o" "item.o" "player.o" "untitled_text_rpg_private.res" "untitled_text_rpg.exe"
 
 .PHONY: all all-before all-after clean clean-custom
 
@@ -29,86 +29,101 @@ untitled_text_rpg.exe: $(OBJ)
 
 	$(CXX) $(LINKOBJ) -o "untitled_text_rpg.exe" $(LIBS)
 
-chainingspell.o: chainingspell.cpp spell.h chainingspell.h
-	$(CXX) -c "chainingspell.cpp" -o "chainingspell.o" $(CXXFLAGS) 
-
-armorbreakstatuseffect.o: armorbreakstatuseffect.cpp armorbreakstatuseffect.h statuseffect.h
-	$(CXX) -c "armorbreakstatuseffect.cpp" -o "armorbreakstatuseffect.o" $(CXXFLAGS) 
-
-scroll.o: scroll.cpp spell.h scroll.h item.h
-	$(CXX) -c "scroll.cpp" -o "scroll.o" $(CXXFLAGS) 
-
-data_snailsville.o: data_snailsville.cpp statuseffectspell.h spell.h enemy.h scroll.h item.h map.h inventory.h location.h consumable.h lifestealspell.h character.h player.h combatcharacter.h armor.h data_snailsville.h hpstatuseffect.h statuseffect.h weapon.h treasurelocation.h combatlocation.h chainingspell.h
-	$(CXX) -c "data_snailsville.cpp" -o "data_snailsville.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
-
-combatcharacter.o: combatcharacter.cpp spell.h character.h combatcharacter.h statuseffect.h chainingspell.h
-	$(CXX) -c "combatcharacter.cpp" -o "combatcharacter.o" $(CXXFLAGS) 
-
-main.o: main.cpp statuseffectspell.h spell.h armorbreakstatuseffect.h enemy.h scroll.h item.h battleManager.h map.h inventory.h location.h consumable.h savesystem.h lifestealspell.h character.h player.h tauntstatuseffect.h combatcharacter.h armor.h data_snailsville.h hpstatuseffect.h statuseffect.h data_rustheap.h weapon.h treasurelocation.h combatlocation.h chainingspell.h
-	$(CXX) -c "main.cpp" -o "main.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
-
-player.o: player.cpp spell.h scroll.h item.h inventory.h consumable.h character.h player.h combatcharacter.h armor.h statuseffect.h weapon.h chainingspell.h
-	$(CXX) -c "player.cpp" -o "player.o" $(CXXFLAGS) 
-
-savesystem.o: savesystem.cpp statuseffectspell.h spell.h scroll.h item.h inventory.h consumable.h savesystem.h lifestealspell.h character.h player.h combatcharacter.h armor.h hpstatuseffect.h statuseffect.h weapon.h chainingspell.h
-	$(CXX) -c "savesystem.cpp" -o "savesystem.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
-
-battleManager.o: battleManager.cpp statuseffectspell.h spell.h armorbreakstatuseffect.h enemy.h scroll.h item.h battleManager.h inventory.h consumable.h lifestealspell.h character.h player.h tauntstatuseffect.h combatcharacter.h armor.h hpstatuseffect.h statuseffect.h weapon.h chainingspell.h
-	$(CXX) -c "battleManager.cpp" -o "battleManager.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
-
-location.o: location.cpp location.h
-	$(CXX) -c "location.cpp" -o "location.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
-
-tauntstatuseffect.o: tauntstatuseffect.cpp tauntstatuseffect.h statuseffect.h
-	$(CXX) -c "tauntstatuseffect.cpp" -o "tauntstatuseffect.o" $(CXXFLAGS) 
-
-weapon.o: weapon.cpp item.h weapon.h
-	$(CXX) -c "weapon.cpp" -o "weapon.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
-
-spell.o: spell.cpp spell.h
-	$(CXX) -c "spell.cpp" -o "spell.o" $(CXXFLAGS) 
-
-data_rustheap.o: data_rustheap.cpp statuseffectspell.h spell.h enemy.h scroll.h item.h map.h inventory.h location.h consumable.h lifestealspell.h character.h player.h combatcharacter.h armor.h hpstatuseffect.h statuseffect.h data_rustheap.h weapon.h treasurelocation.h combatlocation.h chainingspell.h
-	$(CXX) -c "data_rustheap.cpp" -o "data_rustheap.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
-
-lifestealspell.o: lifestealspell.cpp spell.h lifestealspell.h
-	$(CXX) -c "lifestealspell.cpp" -o "lifestealspell.o" $(CXXFLAGS) 
-
-consumable.o: consumable.cpp item.h consumable.h
-	$(CXX) -c "consumable.cpp" -o "consumable.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
-
-map.o: map.cpp spell.h enemy.h scroll.h item.h map.h inventory.h location.h consumable.h character.h player.h combatcharacter.h armor.h statuseffect.h weapon.h treasurelocation.h combatlocation.h chainingspell.h
-	$(CXX) -c "map.cpp" -o "map.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
-
-character.o: character.cpp character.h
-	$(CXX) -c "character.cpp" -o "character.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
-
-enemy.o: enemy.cpp spell.h enemy.h item.h character.h combatcharacter.h statuseffect.h chainingspell.h
-	$(CXX) -c "enemy.cpp" -o "enemy.o" $(CXXFLAGS) 
-
-item.o: item.cpp item.h
-	$(CXX) -c "item.cpp" -o "item.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
-
-armor.o: armor.cpp item.h armor.h
-	$(CXX) -c "armor.cpp" -o "armor.o" $(CXXFLAGS) 
-
-statuseffect.o: statuseffect.cpp statuseffect.h
-	$(CXX) -c "statuseffect.cpp" -o "statuseffect.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
-
-combatlocation.o: combatlocation.cpp spell.h enemy.h item.h location.h character.h combatcharacter.h statuseffect.h combatlocation.h chainingspell.h
-	$(CXX) -c "combatlocation.cpp" -o "combatlocation.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
-
-statuseffectspell.o: statuseffectspell.cpp statuseffectspell.h spell.h hpstatuseffect.h statuseffect.h
+statuseffectspell.o: statuseffectspell.cpp tauntstatuseffect.h enemy.h groupbattlemanager.h player.h map.h savesystem.h groupcombatlocation.h treasurelocation.h chainingspell.h armor.h scroll.h weapon.h consumable.h statuseffectspell.h spell.h inventory.h data_snailsville.h statuseffect.h armorbreakstatuseffect.h data_rustheap.h gadget.h combatlocation.h combatcharacter.h item.h battleManager.h multiplecombatlocation.h location.h hpstatuseffect.h attackgadget.h character.h lifestealspell.h
 	$(CXX) -c "statuseffectspell.cpp" -o "statuseffectspell.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
 
-hpstatuseffect.o: hpstatuseffect.cpp hpstatuseffect.h statuseffect.h
-	$(CXX) -c "hpstatuseffect.cpp" -o "hpstatuseffect.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+main.o: main.cpp tauntstatuseffect.h enemy.h groupbattlemanager.h player.h map.h savesystem.h groupcombatlocation.h treasurelocation.h chainingspell.h armor.h scroll.h weapon.h consumable.h statuseffectspell.h spell.h inventory.h data_snailsville.h statuseffect.h armorbreakstatuseffect.h data_rustheap.h gadget.h combatlocation.h combatcharacter.h item.h battleManager.h multiplecombatlocation.h location.h hpstatuseffect.h attackgadget.h character.h lifestealspell.h
+	$(CXX) -c "main.cpp" -o "main.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
 
-treasurelocation.o: treasurelocation.cpp item.h location.h treasurelocation.h
+armorbreakstatuseffect.o: armorbreakstatuseffect.cpp tauntstatuseffect.h enemy.h groupbattlemanager.h player.h map.h savesystem.h groupcombatlocation.h treasurelocation.h chainingspell.h armor.h scroll.h weapon.h consumable.h statuseffectspell.h spell.h inventory.h data_snailsville.h statuseffect.h armorbreakstatuseffect.h data_rustheap.h gadget.h combatlocation.h combatcharacter.h item.h battleManager.h multiplecombatlocation.h location.h hpstatuseffect.h attackgadget.h character.h lifestealspell.h
+	$(CXX) -c "armorbreakstatuseffect.cpp" -o "armorbreakstatuseffect.o" $(CXXFLAGS) 
+
+battleManager.o: battleManager.cpp tauntstatuseffect.h enemy.h groupbattlemanager.h player.h map.h savesystem.h groupcombatlocation.h treasurelocation.h chainingspell.h armor.h scroll.h weapon.h consumable.h statuseffectspell.h spell.h inventory.h data_snailsville.h statuseffect.h armorbreakstatuseffect.h data_rustheap.h gadget.h combatlocation.h combatcharacter.h item.h battleManager.h multiplecombatlocation.h location.h hpstatuseffect.h attackgadget.h character.h lifestealspell.h
+	$(CXX) -c "battleManager.cpp" -o "battleManager.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+
+statuseffect.o: statuseffect.cpp tauntstatuseffect.h enemy.h groupbattlemanager.h player.h map.h savesystem.h groupcombatlocation.h treasurelocation.h chainingspell.h armor.h scroll.h weapon.h consumable.h statuseffectspell.h spell.h inventory.h data_snailsville.h statuseffect.h armorbreakstatuseffect.h data_rustheap.h gadget.h combatlocation.h combatcharacter.h item.h battleManager.h multiplecombatlocation.h location.h hpstatuseffect.h attackgadget.h character.h lifestealspell.h
+	$(CXX) -c "statuseffect.cpp" -o "statuseffect.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+
+gadget.o: gadget.cpp tauntstatuseffect.h enemy.h groupbattlemanager.h player.h map.h savesystem.h groupcombatlocation.h treasurelocation.h chainingspell.h armor.h scroll.h weapon.h consumable.h statuseffectspell.h spell.h inventory.h data_snailsville.h statuseffect.h armorbreakstatuseffect.h data_rustheap.h gadget.h combatlocation.h combatcharacter.h item.h battleManager.h multiplecombatlocation.h location.h hpstatuseffect.h attackgadget.h character.h lifestealspell.h
+	$(CXX) -c "gadget.cpp" -o "gadget.o" $(CXXFLAGS) 
+
+consumable.o: consumable.cpp tauntstatuseffect.h enemy.h groupbattlemanager.h player.h map.h savesystem.h groupcombatlocation.h treasurelocation.h chainingspell.h armor.h scroll.h weapon.h consumable.h statuseffectspell.h spell.h inventory.h data_snailsville.h statuseffect.h armorbreakstatuseffect.h data_rustheap.h gadget.h combatlocation.h combatcharacter.h item.h battleManager.h multiplecombatlocation.h location.h hpstatuseffect.h attackgadget.h character.h lifestealspell.h
+	$(CXX) -c "consumable.cpp" -o "consumable.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+
+scroll.o: scroll.cpp tauntstatuseffect.h enemy.h groupbattlemanager.h player.h map.h savesystem.h groupcombatlocation.h treasurelocation.h chainingspell.h armor.h scroll.h weapon.h consumable.h statuseffectspell.h spell.h inventory.h data_snailsville.h statuseffect.h armorbreakstatuseffect.h data_rustheap.h gadget.h combatlocation.h combatcharacter.h item.h battleManager.h multiplecombatlocation.h location.h hpstatuseffect.h attackgadget.h character.h lifestealspell.h
+	$(CXX) -c "scroll.cpp" -o "scroll.o" $(CXXFLAGS) 
+
+combatcharacter.o: combatcharacter.cpp tauntstatuseffect.h enemy.h groupbattlemanager.h player.h map.h savesystem.h groupcombatlocation.h treasurelocation.h chainingspell.h armor.h scroll.h weapon.h consumable.h statuseffectspell.h spell.h inventory.h data_snailsville.h statuseffect.h armorbreakstatuseffect.h data_rustheap.h gadget.h combatlocation.h combatcharacter.h item.h battleManager.h multiplecombatlocation.h location.h hpstatuseffect.h attackgadget.h character.h lifestealspell.h
+	$(CXX) -c "combatcharacter.cpp" -o "combatcharacter.o" $(CXXFLAGS) 
+
+weapon.o: weapon.cpp tauntstatuseffect.h enemy.h groupbattlemanager.h player.h map.h savesystem.h groupcombatlocation.h treasurelocation.h chainingspell.h armor.h scroll.h weapon.h consumable.h statuseffectspell.h spell.h inventory.h data_snailsville.h statuseffect.h armorbreakstatuseffect.h data_rustheap.h gadget.h combatlocation.h combatcharacter.h item.h battleManager.h multiplecombatlocation.h location.h hpstatuseffect.h attackgadget.h character.h lifestealspell.h
+	$(CXX) -c "weapon.cpp" -o "weapon.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+
+treasurelocation.o: treasurelocation.cpp tauntstatuseffect.h enemy.h groupbattlemanager.h player.h map.h savesystem.h groupcombatlocation.h treasurelocation.h chainingspell.h armor.h scroll.h weapon.h consumable.h statuseffectspell.h spell.h inventory.h data_snailsville.h statuseffect.h armorbreakstatuseffect.h data_rustheap.h gadget.h combatlocation.h combatcharacter.h item.h battleManager.h multiplecombatlocation.h location.h hpstatuseffect.h attackgadget.h character.h lifestealspell.h
 	$(CXX) -c "treasurelocation.cpp" -o "treasurelocation.o" $(CXXFLAGS) 
 
-inventory.o: inventory.cpp spell.h scroll.h item.h inventory.h consumable.h armor.h weapon.h
-	$(CXX) -c "inventory.cpp" -o "inventory.o" $(CXXFLAGS) 
+chainingspell.o: chainingspell.cpp tauntstatuseffect.h enemy.h groupbattlemanager.h player.h map.h savesystem.h groupcombatlocation.h treasurelocation.h chainingspell.h armor.h scroll.h weapon.h consumable.h statuseffectspell.h spell.h inventory.h data_snailsville.h statuseffect.h armorbreakstatuseffect.h data_rustheap.h gadget.h combatlocation.h combatcharacter.h item.h battleManager.h multiplecombatlocation.h location.h hpstatuseffect.h attackgadget.h character.h lifestealspell.h
+	$(CXX) -c "chainingspell.cpp" -o "chainingspell.o" $(CXXFLAGS) 
+
+lifestealspell.o: lifestealspell.cpp tauntstatuseffect.h enemy.h groupbattlemanager.h player.h map.h savesystem.h groupcombatlocation.h treasurelocation.h chainingspell.h armor.h scroll.h weapon.h consumable.h statuseffectspell.h spell.h inventory.h data_snailsville.h statuseffect.h armorbreakstatuseffect.h data_rustheap.h gadget.h combatlocation.h combatcharacter.h item.h battleManager.h multiplecombatlocation.h location.h hpstatuseffect.h attackgadget.h character.h lifestealspell.h
+	$(CXX) -c "lifestealspell.cpp" -o "lifestealspell.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+
+groupbattlemanager.o: groupbattlemanager.cpp tauntstatuseffect.h enemy.h groupbattlemanager.h player.h map.h savesystem.h groupcombatlocation.h treasurelocation.h chainingspell.h armor.h scroll.h weapon.h consumable.h statuseffectspell.h spell.h inventory.h data_snailsville.h statuseffect.h armorbreakstatuseffect.h data_rustheap.h gadget.h combatlocation.h combatcharacter.h item.h battleManager.h multiplecombatlocation.h location.h hpstatuseffect.h attackgadget.h character.h lifestealspell.h
+	$(CXX) -c "groupbattlemanager.cpp" -o "groupbattlemanager.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+
+multiplecombatlocation.o: multiplecombatlocation.cpp tauntstatuseffect.h enemy.h groupbattlemanager.h player.h map.h savesystem.h groupcombatlocation.h treasurelocation.h chainingspell.h armor.h scroll.h weapon.h consumable.h statuseffectspell.h spell.h inventory.h data_snailsville.h statuseffect.h armorbreakstatuseffect.h data_rustheap.h gadget.h combatlocation.h combatcharacter.h item.h battleManager.h multiplecombatlocation.h location.h hpstatuseffect.h attackgadget.h character.h lifestealspell.h
+	$(CXX) -c "multiplecombatlocation.cpp" -o "multiplecombatlocation.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+
+hpstatuseffect.o: hpstatuseffect.cpp tauntstatuseffect.h enemy.h groupbattlemanager.h player.h map.h savesystem.h groupcombatlocation.h treasurelocation.h chainingspell.h armor.h scroll.h weapon.h consumable.h statuseffectspell.h spell.h inventory.h data_snailsville.h statuseffect.h armorbreakstatuseffect.h data_rustheap.h gadget.h combatlocation.h combatcharacter.h item.h battleManager.h multiplecombatlocation.h location.h hpstatuseffect.h attackgadget.h character.h lifestealspell.h
+	$(CXX) -c "hpstatuseffect.cpp" -o "hpstatuseffect.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+
+spell.o: spell.cpp tauntstatuseffect.h enemy.h groupbattlemanager.h player.h map.h savesystem.h groupcombatlocation.h treasurelocation.h chainingspell.h armor.h scroll.h weapon.h consumable.h statuseffectspell.h spell.h inventory.h data_snailsville.h statuseffect.h armorbreakstatuseffect.h data_rustheap.h gadget.h combatlocation.h combatcharacter.h item.h battleManager.h multiplecombatlocation.h location.h hpstatuseffect.h attackgadget.h character.h lifestealspell.h
+	$(CXX) -c "spell.cpp" -o "spell.o" $(CXXFLAGS) 
+
+savesystem.o: savesystem.cpp tauntstatuseffect.h enemy.h groupbattlemanager.h player.h map.h savesystem.h groupcombatlocation.h treasurelocation.h chainingspell.h armor.h scroll.h weapon.h consumable.h statuseffectspell.h spell.h inventory.h data_snailsville.h statuseffect.h armorbreakstatuseffect.h data_rustheap.h gadget.h combatlocation.h combatcharacter.h item.h battleManager.h multiplecombatlocation.h location.h hpstatuseffect.h attackgadget.h character.h lifestealspell.h
+	$(CXX) -c "savesystem.cpp" -o "savesystem.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+
+inventory.o: inventory.cpp tauntstatuseffect.h enemy.h groupbattlemanager.h player.h map.h savesystem.h groupcombatlocation.h treasurelocation.h chainingspell.h armor.h scroll.h weapon.h consumable.h statuseffectspell.h spell.h inventory.h data_snailsville.h statuseffect.h armorbreakstatuseffect.h data_rustheap.h gadget.h combatlocation.h combatcharacter.h item.h battleManager.h multiplecombatlocation.h location.h hpstatuseffect.h attackgadget.h character.h lifestealspell.h
+	$(CXX) -c "inventory.cpp" -o "inventory.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+
+location.o: location.cpp tauntstatuseffect.h enemy.h groupbattlemanager.h player.h map.h savesystem.h groupcombatlocation.h treasurelocation.h chainingspell.h armor.h scroll.h weapon.h consumable.h statuseffectspell.h spell.h inventory.h data_snailsville.h statuseffect.h armorbreakstatuseffect.h data_rustheap.h gadget.h combatlocation.h combatcharacter.h item.h battleManager.h multiplecombatlocation.h location.h hpstatuseffect.h attackgadget.h character.h lifestealspell.h
+	$(CXX) -c "location.cpp" -o "location.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+
+tauntstatuseffect.o: tauntstatuseffect.cpp tauntstatuseffect.h enemy.h groupbattlemanager.h player.h map.h savesystem.h groupcombatlocation.h treasurelocation.h chainingspell.h armor.h scroll.h weapon.h consumable.h statuseffectspell.h spell.h inventory.h data_snailsville.h statuseffect.h armorbreakstatuseffect.h data_rustheap.h gadget.h combatlocation.h combatcharacter.h item.h battleManager.h multiplecombatlocation.h location.h hpstatuseffect.h attackgadget.h character.h lifestealspell.h
+	$(CXX) -c "tauntstatuseffect.cpp" -o "tauntstatuseffect.o" $(CXXFLAGS) 
+
+enemy.o: enemy.cpp tauntstatuseffect.h enemy.h groupbattlemanager.h player.h map.h savesystem.h groupcombatlocation.h treasurelocation.h chainingspell.h armor.h scroll.h weapon.h consumable.h statuseffectspell.h spell.h inventory.h data_snailsville.h statuseffect.h armorbreakstatuseffect.h data_rustheap.h gadget.h combatlocation.h combatcharacter.h item.h battleManager.h multiplecombatlocation.h location.h hpstatuseffect.h attackgadget.h character.h lifestealspell.h
+	$(CXX) -c "enemy.cpp" -o "enemy.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+
+combatlocation.o: combatlocation.cpp tauntstatuseffect.h enemy.h groupbattlemanager.h player.h map.h savesystem.h groupcombatlocation.h treasurelocation.h chainingspell.h armor.h scroll.h weapon.h consumable.h statuseffectspell.h spell.h inventory.h data_snailsville.h statuseffect.h armorbreakstatuseffect.h data_rustheap.h gadget.h combatlocation.h combatcharacter.h item.h battleManager.h multiplecombatlocation.h location.h hpstatuseffect.h attackgadget.h character.h lifestealspell.h
+	$(CXX) -c "combatlocation.cpp" -o "combatlocation.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+
+attackgadget.o: attackgadget.cpp tauntstatuseffect.h enemy.h groupbattlemanager.h player.h map.h savesystem.h groupcombatlocation.h treasurelocation.h chainingspell.h armor.h scroll.h weapon.h consumable.h statuseffectspell.h spell.h inventory.h data_snailsville.h statuseffect.h armorbreakstatuseffect.h data_rustheap.h gadget.h combatlocation.h combatcharacter.h item.h battleManager.h multiplecombatlocation.h location.h hpstatuseffect.h attackgadget.h character.h lifestealspell.h
+	$(CXX) -c "attackgadget.cpp" -o "attackgadget.o" $(CXXFLAGS) 
+
+groupcombatlocation.o: groupcombatlocation.cpp tauntstatuseffect.h enemy.h groupbattlemanager.h player.h map.h savesystem.h groupcombatlocation.h treasurelocation.h chainingspell.h armor.h scroll.h weapon.h consumable.h statuseffectspell.h spell.h inventory.h data_snailsville.h statuseffect.h armorbreakstatuseffect.h data_rustheap.h gadget.h combatlocation.h combatcharacter.h item.h battleManager.h multiplecombatlocation.h location.h hpstatuseffect.h attackgadget.h character.h lifestealspell.h
+	$(CXX) -c "groupcombatlocation.cpp" -o "groupcombatlocation.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+
+data_rustheap.o: data_rustheap.cpp tauntstatuseffect.h enemy.h groupbattlemanager.h player.h map.h savesystem.h groupcombatlocation.h treasurelocation.h chainingspell.h armor.h scroll.h weapon.h consumable.h statuseffectspell.h spell.h inventory.h data_snailsville.h statuseffect.h armorbreakstatuseffect.h data_rustheap.h gadget.h combatlocation.h combatcharacter.h item.h battleManager.h multiplecombatlocation.h location.h hpstatuseffect.h attackgadget.h character.h lifestealspell.h
+	$(CXX) -c "data_rustheap.cpp" -o "data_rustheap.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+
+armor.o: armor.cpp tauntstatuseffect.h enemy.h groupbattlemanager.h player.h map.h savesystem.h groupcombatlocation.h treasurelocation.h chainingspell.h armor.h scroll.h weapon.h consumable.h statuseffectspell.h spell.h inventory.h data_snailsville.h statuseffect.h armorbreakstatuseffect.h data_rustheap.h gadget.h combatlocation.h combatcharacter.h item.h battleManager.h multiplecombatlocation.h location.h hpstatuseffect.h attackgadget.h character.h lifestealspell.h
+	$(CXX) -c "armor.cpp" -o "armor.o" $(CXXFLAGS) 
+
+map.o: map.cpp tauntstatuseffect.h enemy.h groupbattlemanager.h player.h map.h savesystem.h groupcombatlocation.h treasurelocation.h chainingspell.h armor.h scroll.h weapon.h consumable.h statuseffectspell.h spell.h inventory.h data_snailsville.h statuseffect.h armorbreakstatuseffect.h data_rustheap.h gadget.h combatlocation.h combatcharacter.h item.h battleManager.h multiplecombatlocation.h location.h hpstatuseffect.h attackgadget.h character.h lifestealspell.h
+	$(CXX) -c "map.cpp" -o "map.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+
+data_snailsville.o: data_snailsville.cpp tauntstatuseffect.h enemy.h groupbattlemanager.h player.h map.h savesystem.h groupcombatlocation.h treasurelocation.h chainingspell.h armor.h scroll.h weapon.h consumable.h statuseffectspell.h spell.h inventory.h data_snailsville.h statuseffect.h armorbreakstatuseffect.h data_rustheap.h gadget.h combatlocation.h combatcharacter.h item.h battleManager.h multiplecombatlocation.h location.h hpstatuseffect.h attackgadget.h character.h lifestealspell.h
+	$(CXX) -c "data_snailsville.cpp" -o "data_snailsville.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+
+character.o: character.cpp tauntstatuseffect.h enemy.h groupbattlemanager.h player.h map.h savesystem.h groupcombatlocation.h treasurelocation.h chainingspell.h armor.h scroll.h weapon.h consumable.h statuseffectspell.h spell.h inventory.h data_snailsville.h statuseffect.h armorbreakstatuseffect.h data_rustheap.h gadget.h combatlocation.h combatcharacter.h item.h battleManager.h multiplecombatlocation.h location.h hpstatuseffect.h attackgadget.h character.h lifestealspell.h
+	$(CXX) -c "character.cpp" -o "character.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+
+item.o: item.cpp tauntstatuseffect.h enemy.h groupbattlemanager.h player.h map.h savesystem.h groupcombatlocation.h treasurelocation.h chainingspell.h armor.h scroll.h weapon.h consumable.h statuseffectspell.h spell.h inventory.h data_snailsville.h statuseffect.h armorbreakstatuseffect.h data_rustheap.h gadget.h combatlocation.h combatcharacter.h item.h battleManager.h multiplecombatlocation.h location.h hpstatuseffect.h attackgadget.h character.h lifestealspell.h
+	$(CXX) -c "item.cpp" -o "item.o" $(CXXFLAGS)  -finput-charset=UTF-8 -fexec-charset=windows-1250
+
+player.o: player.cpp tauntstatuseffect.h enemy.h groupbattlemanager.h player.h map.h savesystem.h groupcombatlocation.h treasurelocation.h chainingspell.h armor.h scroll.h weapon.h consumable.h statuseffectspell.h spell.h inventory.h data_snailsville.h statuseffect.h armorbreakstatuseffect.h data_rustheap.h gadget.h combatlocation.h combatcharacter.h item.h battleManager.h multiplecombatlocation.h location.h hpstatuseffect.h attackgadget.h character.h lifestealspell.h
+	$(CXX) -c "player.cpp" -o "player.o" $(CXXFLAGS) 
 
 untitled_text_rpg_private.res: untitled_text_rpg_private.rc 
 	$(WINDRES) -i "untitled_text_rpg_private.rc" --input-format=rc -o "untitled_text_rpg_private.res" -O coff $(WINDRESFLAGS) 

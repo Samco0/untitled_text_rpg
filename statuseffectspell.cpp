@@ -29,18 +29,25 @@ StatusEffect* StatusEffectSpell::getStatusToGive(){return this->statusToGive;}
 void StatusEffectSpell::setChanceToRecieve(int chanceToRecieve){this->chanceToRecieve = chanceToRecieve;}
 void StatusEffectSpell::setStatusToGive(StatusEffect* statusToGive){this->statusToGive = statusToGive;}
 
-//output
-ostream& operator<<(ostream& output, StatusEffectSpell sas){
-	output << sas.getName();
+ostream& operator<<(ostream& output, StatusEffectSpell sas) {
+	output << sas.getName() << endl;
 	
-	if(sas.getRemainingCooldown() == 0) output << endl << " -> Status: Ready" << endl;
-	else if(sas.getRemainingCooldown() == 1) output << endl << " -> Status: 1 round until ready" << endl;
-	else output << endl << " -> Status: " << sas.getRemainingCooldown() << " rounds until ready" << endl;
+	if (sas.getRemainingCooldown() == 0)      output << " -> Status: Ready" << endl;
+	else if (sas.getRemainingCooldown() == 1) output << " -> Status: 1 round until ready" << endl;
+	else                                       output << " -> Status: " << sas.getRemainingCooldown() << " rounds until ready" << endl;
 	
-	output << " -> Type of spell: Status effect spell" << endl;
+	output << " -> Element: " << sas.getType() << endl;
 	output << " -> Damage: " << sas.getDmg() << endl;
-	output << " -> Status effect: " << sas.getStatusToGive()->getName() << endl;
 	
-	output << " -> Description: " << sas.getDescription() << endl << endl;
+	// správně přes pointer, ne dereference
+	StatusEffect* se = sas.getStatusToGive();
+	HpStatusEffect* hps = dynamic_cast<HpStatusEffect*>(se);
+	TauntStatusEffect* ts = dynamic_cast<TauntStatusEffect*>(se);
+	if (hps != nullptr) output << " -> Effect: " << *hps << endl;
+	else if (se != nullptr) output << " -> Effect: " << *se << endl;
+	else if (ts != nullptr) output << " -> Effect: " << *ts << endl;
+	
+	output << " -> Chance: " << sas.getChanceToRecieve() << "%" << endl;
+	output << " -> " << sas.getDescription() << endl << endl;
 	return output;
 }

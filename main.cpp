@@ -43,7 +43,7 @@ int main() {
 	Spell sp1("Trembling Blow", "A weak, unsteady punch that barely fazes the target.", 3, 1, "Physical");
 	Spell sp2("Cursed Kick", "A timid kick, shadowed by a faint curse, barely affects the enemy.", 2.5, 1, "Dark");
 	Spell* s1[4] = { &sp1, &sp2, nullptr, nullptr };
-	Weapon w1("Charred Wooden Tanto", "Sword", "A simple wooden tanto, slightly burnt and brittle, whispering faint dark secrets.", 1.5);
+	Weapon w1("Scorched Splinter", "Sword", "A short blade of charred wood, brittle and blackened. It should have been thrown away long ago.", 1.5);
 	
 	Player player("", 25, 1.5, 0, 4, 15, 1.5, &w1, s1);
 	
@@ -52,14 +52,15 @@ int main() {
 	// =============================================
 	while (true) {
 		system("cls");
-		cout << "===============================================" << endl;
+		cout << "\033[90m";
+		cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
 		cout << "            untitled text rpg                 " << endl;
-		cout << "===============================================" << endl;
+		cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
 		cout << "  1. Step into Shadows   (New Game)"           << endl;
 		cout << "  2. Recall Fallen       (Load Game)"          << endl;
 		cout << "  3. Burn Memories       (Delete Save)"        << endl;
 		cout << "  4. Fade Away           (Exit)"               << endl;
-		cout << "===============================================" << endl;
+		cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
 		cout << "Your choice: ";
 		
 		int choice; cin >> choice;

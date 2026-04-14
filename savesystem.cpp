@@ -163,6 +163,13 @@ static void saveInventory(ofstream& f, Player& player){
 			f << c->getName()        << "\n";
 			f << c->getDescription() << "\n";
 			f << c->getHpToRecover() << "\n";
+		} else if (AttackGadget* ag = dynamic_cast<AttackGadget*>(item)){
+			f << 5 << "\n";
+			f << ag->getName() << "\n";
+			f << ag->getDescription() << "\n";
+			f << ag->getDamage() << "\n";
+			f << ag->getChanceOfBackfire() << "\n";
+			f << ag->getType() << "\n";
 		}
 	}
 }
@@ -189,6 +196,11 @@ static void loadInventory(ifstream& f, Player& player){
 		} else if (type == 4){
 			float hp; f >> hp; f.ignore();
 			player.getInventory().addItem(new Consumable(name, desc, hp));
+		} else if (type == 5){
+			float dmg; f >> dmg; f.ignore();
+			int backfire; f >> backfire; f.ignore();
+			string agType; getline(f, agType);
+			player.getInventory().addItem(new AttackGadget(name, dmg, backfire, agType, desc));
 		}
 	}
 }

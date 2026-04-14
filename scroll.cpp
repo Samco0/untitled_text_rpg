@@ -25,7 +25,7 @@ void Scroll::setHeldSpell(Spell* heldSpell){this->heldSpell = heldSpell;}
 
 //output
 ostream& operator<<(ostream& output, Scroll s){
-	output << s.getName() << " | Contains " << s.getHeldSpell()->getName() << ", " << s.getDescription();
+	output << s.getName() << " | Contains " << s.getHeldSpell()->getName();
 	
 	return output;
 }

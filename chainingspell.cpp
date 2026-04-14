@@ -37,7 +37,8 @@ ostream& operator<<(ostream& output, ChainingSpell cs){
 	else if(cs.getRemainingCooldown() == 1) output << endl << " -> Status: 1 round until ready" << endl;
 	else output << endl << " -> Status: " << cs.getRemainingCooldown() << " rounds until ready" << endl;
 	
-	output << " -> Type of spell: Chaining attack spell" << endl;
+	output << " -> Type of spell: Chaining Attack Spell" << endl;
+	output << " -> Element: " << cs.getType() << endl;
 	output << " -> Damage per hit: " << cs.getDmg() << " damage" << endl;
 	output << " -> Minimal hits: " << cs.getMinHits() << " hits" << endl;
 	output << " -> Maximal hits: " << cs.getMaxHits() << " hits" << endl;

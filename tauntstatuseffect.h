@@ -11,6 +11,9 @@ public:
 	// Constructors
 	TauntStatusEffect();
 	TauntStatusEffect(string name, int maxDuration, int minDuration);
+	
+	//output
+	friend ostream& operator<<(ostream& output, TauntStatusEffect s);
 };
 
 #endif

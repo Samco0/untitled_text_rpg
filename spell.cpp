@@ -45,8 +45,9 @@ ostream& operator<<(ostream& output, Spell s){
 	else if(s.getRemainingCooldown() == 1) output << endl << " -> Status: 1 round until ready" << endl;
 	else output << endl << " -> Status: " << s.getRemainingCooldown() << " rounds until ready" << endl;
 	
-	cout << " -> Type of spell: Basic attack spell" << endl;
-	cout << " -> Damage: " << s.getDmg() << endl;
+	output << " -> Type of spell: Attack Spell" << endl;
+	output << " -> Element: " << s.getType() << endl;
+	output << " -> Damage: " << s.getDmg() << endl;
 	
 	output << " -> Description: " << s.getDescription() << endl << endl;
 	return output;
