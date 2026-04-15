@@ -12,6 +12,7 @@
 #include "savesystem.h"
 #include "data_snailsville.h"
 #include "data_rustheap.h"
+#include "data_thornveil.h"
 
 using namespace std;
 
@@ -210,12 +211,14 @@ int main() {
 	// =============================================
 	SnailsvilleData snailsvilleData = buildSnailsville();
 	RustheapData    rustheapData    = buildRustheap();
+	ThornveilData   thornveilData   = buildThornveil();
 	
 	// =============================================
 	//  MAP INITIALIZATION
 	// =============================================
 	Map snailsville("The Snailsville", &player);
 	Map rustheap("The Rustheap", &player);
+	Map thornveil("The Thornveil Sanctuary", &player);
 	
 	snailsville.generateMap(
 		snailsvilleData.easy,
@@ -230,6 +233,14 @@ int main() {
 		rustheapData.medium,
 		rustheapData.hard,
 		rustheapData.boss,
+		9, 7, 5
+		);
+	
+	thornveil.generateMap(
+		thornveilData.easy,
+		thornveilData.medium,
+		thornveilData.hard,
+		thornveilData.boss,
 		9, 7, 5
 		);
 	
