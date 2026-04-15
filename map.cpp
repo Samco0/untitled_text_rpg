@@ -1,5 +1,6 @@
 #include "map.h"
 #include "groupcombatlocation.h"
+#include "heallocation.h"
 #include "groupbattlemanager.h"
 #include <iostream>
 using namespace std;
@@ -86,9 +87,8 @@ ostream& operator<<(ostream& output, Map m) {
 					if (j == m.getPlayerPosition()) output << "|| ";
 					else output << "| ";
 					
-					if(dynamic_cast<GroupCombatLocation * >(loc) != nullptr) output << "G ";
-					else if(dynamic_cast<MultipleCombatLocation * >(loc) != nullptr) output << "M ";
-					else if(dynamic_cast<CombatLocation * >(loc) != nullptr) output << "C ";
+					if(dynamic_cast<GroupCombatLocation * >(loc) != nullptr || dynamic_cast<MultipleCombatLocation * >(loc) != nullptr || dynamic_cast<CombatLocation * >(loc) != nullptr) output << "C ";
+					else if(dynamic_cast<HealLocation *>(loc) != nullptr) output << "H ";
 					else if(dynamic_cast<TreasureLocation * >(loc) != nullptr) output << "T ";	
 					else output << "  ";
 					
@@ -126,6 +126,7 @@ void Map::movePlayer() {
 	MultipleCombatLocation* mcL = dynamic_cast<MultipleCombatLocation*>(locations[playerPosition]);
 	CombatLocation* cL = (gcL == nullptr && mcL == nullptr) ? dynamic_cast<CombatLocation*>(locations[playerPosition]) : nullptr;
 	TreasureLocation* tL = dynamic_cast<TreasureLocation*>(locations[playerPosition]);
+	HealLocation* hL = dynamic_cast<HealLocation*>(locations[playerPosition]);
 	BattleManager b(this->player, nullptr);
 	
 	checkPlayerFinished();
@@ -598,6 +599,35 @@ void Map::movePlayer() {
 			cout << "==========================================" << endl;
 			cout << " You turn away from " << tL->getTreasureName() << ", leaving it untouched." << endl;
 			cout << " Perhaps that was wise. Perhaps not." << endl;
+			cout << "==========================================" << endl;
+			system("pause");
+		}
+	}
+	else if(hL != nullptr){
+		system("cls");
+		cout << "==========================================" << endl;
+		cout << " You arrived at " << hL->getName() << ", your well deserved quiet place." << endl;
+		cout << " Before you stands " << hL->getHealName() << "." << endl;
+		cout << "------------------------------------------" << endl;
+		cout << " 1. Touch it" << endl;
+		cout << " 2. Leave it be" << endl;
+		cout << "------------------------------------------" << endl;
+		cout << " What do you wish to do? ";
+		int healChoice; cin >> healChoice;
+		
+		if(healChoice == 1){
+			this->player->setCurrentHp(this->player->getMaxHp());
+			
+			cout << "==========================================" << endl;
+			cout << " You lay your hand upon " << hL->getHealName() << "." << endl;
+			cout << " You wounds heal, you feel as if you were reborn, your vitality is at max again" << endl;
+			cout << "==========================================" << endl;
+			system("pause");
+		}
+		else{
+			cout << "==========================================" << endl;
+			cout << " You turn away from " << hL->getHealName() << ", leaving it untouched." << endl;
+			cout << " Your decision might have been wise, but I suppose it was not." << endl;
 			cout << "==========================================" << endl;
 			system("pause");
 		}

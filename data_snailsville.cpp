@@ -56,6 +56,10 @@ SnailsvilleData buildSnailsville() {
 		d.locations.push_back(std::make_unique<TreasureLocation>(name, chest));
 		return static_cast<TreasureLocation*>(d.locations.back().get());
 	};
+	auto healLoc = [&](const std::string& name, const std::string& healName) -> HealLocation* {
+		d.locations.push_back(std::make_unique<HealLocation>(name, healName));
+		return static_cast<HealLocation*>(d.locations.back().get());
+	};
 	
 	// =============================================
 	//  EASY ENEMIES
@@ -223,6 +227,30 @@ SnailsvilleData buildSnailsville() {
 		d.easy.push_back(loc);
 	}
 	
+	// Easy Heal 1 | Rusted Prayer Frame
+	{
+		auto loc = healLoc("Rusted Prayer Road", "Rusted Prayer Frame");
+		d.easy.push_back(loc);
+	}
+	
+	// Easy Heal 2 | Broken Shell Totem
+	{
+		auto loc = healLoc("Cracked Shell Path", "Broken Shell Totem");
+		d.easy.push_back(loc);
+	}
+	
+	// Easy Heal 3 | Mucus Stone Idol
+	{
+		auto loc = healLoc("Slimestone Crossing", "Mucus Stone Idol");
+		d.easy.push_back(loc);
+	}
+	
+	// Easy Heal 4 | Quiet Lantern Husk
+	{
+		auto loc = healLoc("Faded Light Trail", "Quiet Lantern Husk");
+		d.easy.push_back(loc);
+	}
+	
 	// =============================================
 	//  MEDIUM ENEMIES
 	// =============================================
@@ -370,6 +398,24 @@ SnailsvilleData buildSnailsville() {
 		d.medium.push_back(loc);
 	}
 	
+	// Medium Heal 1 | Iron Benediction Shrine
+	{
+		auto loc = healLoc("Iron Chapel Row", "Iron Benediction Shrine");
+		d.medium.push_back(loc);
+	}
+	
+	// Medium Heal 2 | Hollow Choir Monument
+	{
+		auto loc = healLoc("Echoing Stone Square", "Hollow Choir Monument");
+		d.medium.push_back(loc);
+	}
+	
+	// Medium Heal 3 | Veinlit Resting Idol
+	{
+		auto loc = healLoc("Veinlit Passage", "Veinlit Resting Idol");
+		d.medium.push_back(loc);
+	}
+	
 	// =============================================
 	//  HARD ENEMIES
 	// =============================================
@@ -510,6 +556,18 @@ SnailsvilleData buildSnailsville() {
 		if (shardsObsidian) loc->addReward(scroll("", shardsObsidian), 25, 1);
 		loc->setSoulStoneDropChance(22);
 		loc->setXpReward(55);
+		d.hard.push_back(loc);
+	}
+	
+	// Hard Heal 1 | Abyss Reliquary of Renewal
+	{
+		auto loc = healLoc("Abyssal Reliquary Hall", "Abyss Reliquary of Renewal");
+		d.hard.push_back(loc);
+	}
+	
+	// Hard Heal 2 | Crown of Silent Restoration
+	{
+		auto loc = healLoc("Crowned Silence Chamber", "Crown of Silent Restoration");
 		d.hard.push_back(loc);
 	}
 	

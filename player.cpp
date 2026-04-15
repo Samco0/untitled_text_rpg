@@ -63,12 +63,12 @@ void Player::setCurrentXp(float xpGained){
 	while (this->currentXp >= this->requireXp){
 		this->currentXp -= this->requireXp;
 		this->level++;
-		this->maxHp *= 1.20f;
+		this->maxHp *= 1.2f;
 		this->maxHp = std::round(this->maxHp * 10.0f) / 10.0f;
-		this->dmg *= 1.07f;
+		this->dmg *= 1.08f;
 		this->dmg = std::round(this->dmg * 10) / 10;
 		this->currentHp = this->maxHp;
-		this->requireXp *= 1.8f;
+		this->requireXp *= 2.05f;
 		cout << " -> Power surges through your veins." << endl;
 		cout << " -> " << this->getName() << " ascends to level " << this->level << "." << endl;
 		cout << " -> Vitality restored." << endl;

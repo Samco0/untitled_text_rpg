@@ -4,6 +4,7 @@
 #include "multiplecombatlocation.h"
 #include "groupcombatlocation.h"
 #include "treasurelocation.h"
+#include "heallocation.h"
 #include "player.h"
 #include "battlemanager.h"
 #include <vector>

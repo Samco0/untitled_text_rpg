@@ -71,6 +71,10 @@ RustheapData buildRustheap() {
 		d.locations.push_back(std::make_unique<GroupCombatLocation>(name, enemies));
 		return static_cast<GroupCombatLocation*>(d.locations.back().get());
 	};
+	auto healLoc = [&](const std::string& name, const std::string& healName) -> HealLocation* {
+		d.locations.push_back(std::make_unique<HealLocation>(name, healName));
+		return static_cast<HealLocation*>(d.locations.back().get());
+	};
 	
 	// =============================================
 	//  EASY ENEMIES
@@ -506,6 +510,36 @@ RustheapData buildRustheap() {
 		d.easy.push_back(loc);
 	}
 	
+	// Easy Heal 1 | The Bent Effigy
+	{
+		auto loc = healLoc("Rustheap Foothills, Shardfield Rise", "The Bent Effigy");
+		d.easy.push_back(loc);
+	}
+	
+	// Easy Heal 2 | Idol of Quiet Metal
+	{
+		auto loc = healLoc("Rustheap Foothills, Silent Scrap Clearing", "Idol of Quiet Metal");
+		d.easy.push_back(loc);
+	}
+	
+	// Easy Heal 3 | The Melted Saint
+	{
+		auto loc = healLoc("Rustheap Foothills, Ashen Drift Ledge", "The Melted Saint");
+		d.easy.push_back(loc);
+	}
+	
+	// Easy Heal 4 | The Watching Frame
+	{
+		auto loc = healLoc("Rustheap Foothills, Broken Sight Overlook", "The Watching Frame");
+		d.easy.push_back(loc);
+	}
+	
+	// Easy Heal 5 | The Coilbound Shrine
+	{
+		auto loc = healLoc("Rustheap Foothills, Twisted Coil Path", "The Coilbound Shrine");
+		d.easy.push_back(loc);
+	}
+	
 	// =============================================
 	//  MEDIUM ENEMIES
 	// =============================================
@@ -905,6 +939,30 @@ RustheapData buildRustheap() {
 		d.medium.push_back(loc);
 	}
 	
+	// Medium Heal 1 | The Bent Witness
+	{
+		auto loc = healLoc("Rustheap Lower Slopes, Rust-Eroded Stairline", "The Bent Witness");
+		d.medium.push_back(loc);
+	}
+	
+	// Medium Heal 2 | Idol of Dull Resonance
+	{
+		auto loc = healLoc("Rustheap Lower Slopes, Dead Alloy Passage", "Idol of Dull Resonance");
+		d.medium.push_back(loc);
+	}
+	
+	// Medium Heal 3 | The Soldered Martyr
+	{
+		auto loc = healLoc("Rustheap Lower Slopes, Scorched Transit Vein", "The Soldered Martyr");
+		d.medium.push_back(loc);
+	}
+	
+	// Medium Heal 4 | The Quiet Furnace Saint
+	{
+		auto loc = healLoc("Rustheap Lower Slopes, Ashen Maintenance Spine", "The Quiet Furnace Saint");
+		d.medium.push_back(loc);
+	}
+	
 	// =============================================
 	//  HARD ENEMIES
 	// =============================================
@@ -1270,6 +1328,24 @@ RustheapData buildRustheap() {
 		loc->addReward(consumable("Prime Raccoon Flesh", "A thick, well-fed cut of raccoon meat from the upper slopes. Whatever this one ate, it wasn't garbage.", 35), 55, 2);
 		loc->setSoulStoneDropChance(32);
 		loc->setXpReward(75);
+		d.hard.push_back(loc);
+	}
+	
+	// Hard Heal 1 | The Crowned Ruin
+	{
+		auto loc = healLoc("Rustheap Upper Slopes, Broken Apex Causeway", "The Crowned Ruin");
+		d.hard.push_back(loc);
+	}
+	
+	// Hard Heal 2 | Idol of Last Heat
+	{
+		auto loc = healLoc("Rustheap Upper Slopes, Emberwind Overpass", "Idol of Last Heat");
+		d.hard.push_back(loc);
+	}
+	
+	// Hard Heal 3 | The Silent Forged Saint
+	{
+		auto loc = healLoc("Rustheap Upper Slopes, Blacksteel Prayer Walk", "The Silent Forged Saint");
 		d.hard.push_back(loc);
 	}
 	

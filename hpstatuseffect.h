@@ -18,7 +18,7 @@ public:
 	
 	//output
 	friend ostream& operator<<(ostream& output, HpStatusEffect s);
-private:
+protected:
 	float hpAffection; // how it affects HP, can be + or -
 };
 

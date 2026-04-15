@@ -450,7 +450,6 @@ void BattleManager::checkDeaths() {
 }
 
 void BattleManager::checkStatusEffects() {
-	HpStatusEffect* hps;
 	
 	bool playerFirst = this->player->getSpeed() >= this->enemy->getSpeed();
 	
@@ -501,7 +500,8 @@ void BattleManager::checkStatusEffects() {
 				continue;
 			}
 			
-			hps = dynamic_cast<HpStatusEffect*>(se);
+			HpStatusEffect* hps = dynamic_cast<HpStatusEffect*>(se);
+			LifestealStatusEffect* lfs = dynamic_cast<LifestealStatusEffect*>(se);
 			if (hps == nullptr) continue;
 			
 			current->setCurrentHp(current->getCurrentHp() + hps->getHpAffection());
@@ -511,6 +511,8 @@ void BattleManager::checkStatusEffects() {
 			if (hps->getHpAffection() < 0.0) {
 				if (isPlayer)
 					cout << " -> Dark forces from " << hps->getName() << " bite you, dealing " << -hps->getHpAffection() << " damage." << endl;
+					if(lfs == nullptr){
+					}
 				else
 					cout << " -> " << enemy->getName() << " suffers from " << hps->getName() << ", losing " << -hps->getHpAffection() << " hp." << endl;
 			} else {

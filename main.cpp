@@ -230,7 +230,7 @@ int main() {
 		rustheapData.medium,
 		rustheapData.hard,
 		rustheapData.boss,
-		12, 10, 3
+		9, 7, 5
 		);
 	
 	vector<Map*> maps = { &snailsville, &rustheap };
