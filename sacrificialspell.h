@@ -1,0 +1,1 @@
+#ifndef SACRIFICIALSPELL_H\n#define SACRIFICIALSPELL_H\n\nclass Spell;  // Forward declaration\n\nclass SacrificialSpell : public Spell {\npublic:  \n    int sacrificialCost;\n    int sacrificialValue;\n\n    SacrificialSpell(int cost, int value) : sacrificialCost(cost), sacrificialValue(value) {}\n};\n\n#endif // SACRIFICIALSPELL_H
